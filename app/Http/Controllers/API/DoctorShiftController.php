@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 
 class DoctorShiftController extends Controller
 {
-    // لیست همه شیفت‌ها برای یک دکتر
+
     public function index($doctor_id)
     {
         $doctor = Doctor::find($doctor_id);
@@ -43,9 +43,6 @@ class DoctorShiftController extends Controller
             'shifts' => $data
         ], 200);
     }
-
-
-    // ثبت یک شیفت جدید
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -133,7 +130,6 @@ class DoctorShiftController extends Controller
             'shifts' => $data
         ], 200);
     }
-
     public function update(Request $request, $id)
     {
         $shift = Shift::find($id);
@@ -174,8 +170,6 @@ class DoctorShiftController extends Controller
             'shift' => $shift
         ], 200);
     }
-
-    // حذف شیفت
     public function destroy($id)
     {
         $shift = Shift::find($id);

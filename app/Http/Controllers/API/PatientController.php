@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Validator;
 
 class PatientController extends Controller
 {
-    // لیست همه بیماران
     public function index()
     {
         $patients = Patient::all();
@@ -17,8 +16,6 @@ class PatientController extends Controller
             'patients' => $patients
         ], 200);
     }
-
-    // ثبت بیمار جدید
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -44,8 +41,6 @@ class PatientController extends Controller
             'patient' => $patient
         ], 201);
     }
-
-    // نمایش یک بیمار
     public function show($id)
     {
         $patient = Patient::find($id);
@@ -60,8 +55,6 @@ class PatientController extends Controller
             'patient' => $patient
         ], 200);
     }
-
-    // بروزرسانی بیمار
     public function update(Request $request, $id)
     {
         $patient = Patient::find($id);
@@ -95,8 +88,6 @@ class PatientController extends Controller
             'patient' => $patient
         ], 200);
     }
-
-    // حذف بیمار
     public function destroy($id)
     {
         $patient = Patient::find($id);
