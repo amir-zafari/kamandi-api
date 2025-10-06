@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Shift extends Model
+{
+    protected $fillable = [
+        'doctor_id',
+        'day',
+        'start_time',
+        'end_time',
+        'duration'
+    ];
+
+    // ارتباط با دکتر
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
+}
