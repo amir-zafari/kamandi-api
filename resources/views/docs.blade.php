@@ -36,57 +36,110 @@
         <div>
             <h2 class="text-xl font-bold text-indigo-700 dark:text-indigo-400 mb-4">📑 دسته‌بندی API</h2>
             <nav class="space-y-2 text-gray-700 dark:text-gray-300">
-                <!-- Accordion -->
+
+                <!-- دسته کاربران -->
                 <div class="accordion">
                     <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
-                        🔐 احراز هویت
-                        <span class="transform transition-transform duration-300">▸</span>
+                        👤 کاربران
+                        <span class="transform transition-transform duration-300 rotate-90">▸</span>
                     </button>
-                    <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                        <li><a href="#login" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ورود</a></li>
-                        <li><a href="#register" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت‌نام</a></li>
-{{--                        <li><a href="#logout" class="block hover:text-indigo-500 dark:hover:text-indigo-300">خروج</a></li>--}}
+                    <ul class="ml-6 mt-2 space-y-2 text-sm">
+
+                        <!-- زیرگروه احراز هویت -->
+                        <li>
+                            <div class="accordion">
+                                <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
+                                    🔐 احراز هویت
+                                    <span class="transform transition-transform duration-300">▸</span>
+                                </button>
+                                <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
+                                    <li><a href="#login" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ورود</a></li>
+                                    <li><a href="#register" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت‌نام</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- زیرگروه دکترها -->
+                        <li>
+                            <div class="accordion">
+                                <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
+                                    👨‍⚕️ دکترها
+                                    <span class="transform transition-transform duration-300">▸</span>
+                                </button>
+                                <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
+                                    <li><a href="#doctors-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست دکترها</a></li>
+                                    <li><a href="#doctors-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت دکتر جدید</a></li>
+                                    <li><a href="#doctors-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش دکتر</a></li>
+                                    <li><a href="#doctors-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش دکتر</a></li>
+                                    <li><a href="#doctors-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف دکتر</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- زیرگروه شیفت‌ها -->
+                        <li>
+                            <div class="accordion">
+                                <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
+                                    🕒 شیفت‌ها
+                                    <span class="transform transition-transform duration-300">▸</span>
+                                </button>
+                                <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
+                                    <li><a href="#shifts-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست شیفت‌ها</a></li>
+                                    <li><a href="#shifts-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت شیفت</a></li>
+                                    <li><a href="#shifts-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش نوبت‌ها</a></li>
+                                    <li><a href="#shifts-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش شیفت</a></li>
+                                    <li><a href="#shifts-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف شیفت</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <div class="accordion">
+                            <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
+                                🤕 بیماران
+                                <span class="transform transition-transform duration-300">▸</span>
+                            </button>
+                            <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
+                                <li><a href="#patients-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست بیماران</a></li>
+                                <li><a href="#patients-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت بیمار</a></li>
+                                <li><a href="#patients-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش اطلاعات بیمار</a></li>
+                                <li><a href="#patients-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش بیمار</a></li>
+                                <li><a href="#patients-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف بیمار</a></li>
+                            </ul>
+                        </div>
+                        <!-- زیرگروه نوبت‌ها -->
+                        <li>
+                            <div class="accordion">
+                                <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
+                                    ⏰ نوبت‌ها
+                                    <span class="transform transition-transform duration-300">▸</span>
+                                </button>
+                                <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
+                                    <li><a href="#appointments-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست نوبت‌ها</a></li>
+                                    <li><a href="#appointments-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت نوبت</a></li>
+                                    <li><a href="#appointments-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش اطلاعات نوبت</a></li>
+                                    <li><a href="#appointments-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش نوبت</a></li>
+                                    <li><a href="#appointments-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف نوبت</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
                     </ul>
                 </div>
+
+                <!-- دسته بیماران -->
                 <div class="accordion">
                     <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
-                        👨‍⚕️ دکترها
+                        🤕 بیماران
                         <span class="transform transition-transform duration-300">▸</span>
                     </button>
                     <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                        <li><a href="#doctors-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست دکترها</a></li>
-                        <li><a href="#doctors-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت دکتر جدید</a></li>
-                        <li><a href="#doctors-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش دکتر</a></li>
-                        <li><a href="#doctors-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش دکتر</a></li>
-                        <li><a href="#doctors-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف دکتر</a></li>
-                    </ul>
-                </div>
-                <div class="accordion">
-                    <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
-                        🕒 شیفت‌ها
-                        <span class="transform transition-transform duration-300">▸</span>
-                    </button>
-                    <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                        <li><a href="#shifts-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست شیفت‌ها</a></li>
-                        <li><a href="#shifts-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت شیفت</a></li>
-                        <li><a href="#shifts-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش نوبت‌ها</a></li>
-                        <li><a href="#shifts-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش شیفت</a></li>
-                        <li><a href="#shifts-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف شیفت</a></li>
-                    </ul>
-                </div>
-                <div class="accordion">
-                    <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
-                        🤕 بیمار
-                        <span class="transform transition-transform duration-300">▸</span>
-                    </button>
-                    <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                        <li><a href="#patients-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست بیمارها</a></li>
+                        <li><a href="#patients-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست بیماران</a></li>
                         <li><a href="#patients-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت بیمار</a></li>
                         <li><a href="#patients-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش اطلاعات بیمار</a></li>
                         <li><a href="#patients-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش بیمار</a></li>
                         <li><a href="#patients-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف بیمار</a></li>
                     </ul>
                 </div>
+
             </nav>
         </div>
 
@@ -577,6 +630,159 @@
         >
 {}
         </x-api-card>
+    </section>
+    <section id="patients" class="space-y-6">
+        <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">⏰ نوبت ها</h2>
+        <x-api-card
+            id="appointments-index"
+            method="POST"
+            url="/api/appointments/index"
+            title="لیست نوبت‌ها"
+            desc="دریافت لیست کامل نوبت‌ها همراه با اطلاعات دکتر و بیمار"
+            :response='json_encode([
+        "status" => "success",
+        "appointments" => [
+            [
+                "id" => 1,
+                "doctor_id" => 3,
+                "patient_id" => 7,
+                "date" => "2025-10-06",
+                "start_time" => "10:00",
+                "end_time" => "10:30",
+                "attended" => false,
+                "doctor" => [
+                    "id" => 3,
+                    "user" => [
+                        "name" => "Dr. Ali Rezaei"
+                    ]
+                ],
+                "patient" => [
+                    "id" => 7,
+                    "first_name" => "Sara",
+                    "last_name" => "Moradi"
+                ]
+            ]
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+{}
+        </x-api-card>
+        <x-api-card
+            id="appointments-store"
+            method="POST"
+            url="/api/appointments/store"
+            title="ایجاد نوبت"
+            desc="ثبت نوبت جدید برای بیمار و پزشک در تاریخ مشخص"
+            :response='json_encode([
+        "status" => "success",
+        "message" => "Appointment booked successfully.",
+        "appointment" => [
+            "id" => 1,
+            "doctor_id" => 3,
+            "patient_id" => 7,
+            "date" => "2025-10-06",
+            "start_time" => "10:00",
+            "end_time" => "10:30",
+            "attended" => false
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "message" => "Doctor does not have a shift on this day.",
+        "errors" => [
+            "doctor_id" => ["Doctor not found"],
+            "patient_id" => ["Patient not found"],
+            "date" => ["Invalid date format (Y-m-d)"],
+            "start_time" => ["Invalid time format (HH:MM)"]
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+{
+    "doctor_id": 3,
+    "patient_id": 7,
+    "date": "2025-10-06",
+    "start_time": "10:00"
+}
+        </x-api-card>
+        <x-api-card
+            id="appointments-show"
+            method="POST"
+            url="/api/appointments/show/{id}"
+            title="نمایش نوبت"
+            desc="نمایش جزئیات یک نوبت خاص"
+            :response='json_encode([
+        "status" => "success",
+        "appointment" => [
+            "id" => 1,
+            "doctor_id" => 3,
+            "patient_id" => 7,
+            "date" => "2025-10-06",
+            "start_time" => "10:00",
+            "end_time" => "10:30",
+            "attended" => false,
+            "doctor" => [
+                "user" => ["name" => "Dr. Ali Rezaei"]
+            ],
+            "patient" => [
+                "first_name" => "Sara",
+                "last_name" => "Moradi"
+            ]
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "message" => "Appointment not found."
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+{}
+        </x-api-card>
+        <x-api-card
+            id="appointments-update"
+            method="POST"
+            url="/api/appointments/update/{id}"
+            title="ویرایش نوبت"
+            desc="تغییر وضعیت یا ساعت نوبت"
+            :response='json_encode([
+        "status" => "success",
+        "appointment" => [
+            "id" => 1,
+            "start_time" => "11:00",
+            "end_time" => "11:30",
+            "attended" => true
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "message" => "Appointment not found.",
+        "errors" => [
+            "end_time" => ["End time must be after start time."]
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+{
+    "start_time": "11:00",
+    "end_time": "11:30",
+    "attended": true
+}
+        </x-api-card>
+        <x-api-card
+            id="appointments-delete"
+            method="POST"
+            url="/api/appointments/delete/{id}"
+            title="حذف نوبت"
+            desc="حذف نوبت مشخص"
+            :response='json_encode([
+        "status" => "success",
+        "message" => "Appointment deleted successfully."
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "message" => "Appointment not found."
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+{}
+        </x-api-card>
+
     </section>
 </main>
 
