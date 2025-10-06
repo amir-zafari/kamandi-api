@@ -79,8 +79,6 @@ class DoctorShiftController extends Controller
             'shift' => $shift
         ], 201);
     }
-
-    // نمایش یک شیفت
     public function show(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -136,8 +134,6 @@ class DoctorShiftController extends Controller
         ], 200);
     }
 
-
-    // بروزرسانی شیفت
     public function update(Request $request, $id)
     {
         $shift = Shift::find($id);
