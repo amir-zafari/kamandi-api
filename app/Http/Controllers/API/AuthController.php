@@ -17,6 +17,9 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users,email',
             'password' => 'required|string|min:6|confirmed',
+            'national_id' => 'nullable|string|unique:users,national_id',
+            'phone' => ['required', 'regex:/^09[0-9]{9}$/', 'unique:users,phone',
+            ],
         ]);
 
         if ($validator->fails()) {
@@ -27,6 +30,8 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'phone' => $request->phone,
+            'national_id' => $request->national_id ?? null
         ]);
 
         $token = $user->createToken('auth_token')->plainTextToken;
