@@ -9,6 +9,12 @@
     <!-- فونت و استایل -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=inter:400,600,700" rel="stylesheet" />
+    <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            font-family: Vazir, sans-serif;
+        }
+    </style>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="antialiased bg-gray-50 text-gray-800">

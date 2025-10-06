@@ -2,24 +2,30 @@
 
 namespace App\View\Components;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class ApiCard extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $method;
+    public $url;
+    public $title;
+    public $desc;
+    public $response;
+    public $errors;
+    public $id;
+
+    public function __construct($method, $url, $title, $desc, $response = null, $errors = null, $id = null)
     {
-        //
+        $this->method = $method;
+        $this->url = $url;
+        $this->title = $title;
+        $this->desc = $desc;
+        $this->response = $response;
+        $this->errors = $errors;
+        $this->id = $id;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.api-card');
     }
