@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\DoctorShiftController;
+use App\Http\Controllers\API\PatientController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +26,12 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('show', [DoctorShiftController::class, 'show']);
         Route::post('update/{id}', [DoctorShiftController::class, 'update']);
         Route::post('delete/{id}', [DoctorShiftController::class, 'destroy']);
+    });
+    Route::prefix('patients')->group(function () {
+        Route::post('store', [PatientController::class, 'store']);
+        Route::post('index', [PatientController::class, 'index']);
+        Route::post('show/{id}', [PatientController::class, 'show']);
+        Route::post('update/{id}', [PatientController::class, 'update']);
+        Route::post('delete/{id}', [PatientController::class, 'destroy']);
     });
 });
