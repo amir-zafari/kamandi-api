@@ -37,7 +37,7 @@
             <h2 class="text-xl font-bold text-indigo-700 dark:text-indigo-400 mb-4">📑 دسته‌بندی API</h2>
             <nav class="space-y-2 text-gray-700 dark:text-gray-300">
 
-                <!-- دسته کاربران -->
+                <!-- 👤 دسته کاربران -->
                 <div class="accordion">
                     <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
                         👤 کاربران
@@ -45,7 +45,7 @@
                     </button>
                     <ul class="ml-6 mt-2 space-y-2 text-sm">
 
-                        <!-- زیرگروه احراز هویت -->
+                        <!-- 🔐 زیرگروه احراز هویت -->
                         <li>
                             <div class="accordion">
                                 <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
@@ -53,13 +53,13 @@
                                     <span class="transform transition-transform duration-300">▸</span>
                                 </button>
                                 <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                                    <li><a href="#login" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ورود</a></li>
-                                    <li><a href="#register" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت‌نام</a></li>
+                                    <li><a href="#login" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🔓 ورود</a></li>
+                                    <li><a href="#register" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🆕 ثبت‌نام</a></li>
                                 </ul>
                             </div>
                         </li>
 
-                        <!-- زیرگروه دکترها -->
+                        <!-- 👨‍⚕️ زیرگروه دکترها -->
                         <li>
                             <div class="accordion">
                                 <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
@@ -67,16 +67,16 @@
                                     <span class="transform transition-transform duration-300">▸</span>
                                 </button>
                                 <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                                    <li><a href="#doctors-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست دکترها</a></li>
-                                    <li><a href="#doctors-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت دکتر جدید</a></li>
-                                    <li><a href="#doctors-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش دکتر</a></li>
-                                    <li><a href="#doctors-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش دکتر</a></li>
-                                    <li><a href="#doctors-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف دکتر</a></li>
+                                    <li><a href="#doctors-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">📋 لیست دکترها</a></li>
+                                    <li><a href="#doctors-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">➕ ثبت دکتر جدید</a></li>
+                                    <li><a href="#doctors-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🔍 نمایش دکتر</a></li>
+                                    <li><a href="#doctors-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">✏️ ویرایش دکتر</a></li>
+                                    <li><a href="#doctors-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🗑 حذف دکتر</a></li>
                                 </ul>
                             </div>
                         </li>
 
-                        <!-- زیرگروه شیفت‌ها -->
+                        <!-- 🕒 زیرگروه شیفت‌ها -->
                         <li>
                             <div class="accordion">
                                 <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
@@ -84,28 +84,33 @@
                                     <span class="transform transition-transform duration-300">▸</span>
                                 </button>
                                 <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                                    <li><a href="#shifts-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست شیفت‌ها</a></li>
-                                    <li><a href="#shifts-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت شیفت</a></li>
-                                    <li><a href="#shifts-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش نوبت‌ها</a></li>
-                                    <li><a href="#shifts-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش شیفت</a></li>
-                                    <li><a href="#shifts-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف شیفت</a></li>
+                                    <li><a href="#shifts-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">📋 لیست شیفت‌ها</a></li>
+                                    <li><a href="#shifts-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">➕ ثبت شیفت</a></li>
+                                    <li><a href="#shifts-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🔍 نمایش نوبت‌ها</a></li>
+                                    <li><a href="#shifts-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">✏️ ویرایش شیفت</a></li>
+                                    <li><a href="#shifts-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🗑 حذف شیفت</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <div class="accordion">
-                            <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
-                                🤕 بیماران
-                                <span class="transform transition-transform duration-300">▸</span>
-                            </button>
-                            <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                                <li><a href="#patients-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست بیماران</a></li>
-                                <li><a href="#patients-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت بیمار</a></li>
-                                <li><a href="#patients-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش اطلاعات بیمار</a></li>
-                                <li><a href="#patients-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش بیمار</a></li>
-                                <li><a href="#patients-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف بیمار</a></li>
-                            </ul>
-                        </div>
-                        <!-- زیرگروه نوبت‌ها -->
+
+                        <!-- 🤕 زیرگروه بیماران -->
+                        <li>
+                            <div class="accordion">
+                                <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
+                                    🤕 بیماران
+                                    <span class="transform transition-transform duration-300">▸</span>
+                                </button>
+                                <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
+                                    <li><a href="#patients-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">📋 لیست بیماران</a></li>
+                                    <li><a href="#patients-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">➕ ثبت بیمار</a></li>
+                                    <li><a href="#patients-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🔍 نمایش اطلاعات بیمار</a></li>
+                                    <li><a href="#patients-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">✏️ ویرایش بیمار</a></li>
+                                    <li><a href="#patients-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🗑 حذف بیمار</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- ⏰ زیرگروه نوبت‌ها -->
                         <li>
                             <div class="accordion">
                                 <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
@@ -113,22 +118,36 @@
                                     <span class="transform transition-transform duration-300">▸</span>
                                 </button>
                                 <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                                    <li><a href="#appointments-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست نوبت‌ها</a></li>
-                                    <li><a href="#appointments-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت نوبت</a></li>
-                                    <li><a href="#appointments-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش اطلاعات نوبت</a></li>
-                                    <li><a href="#appointments-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش نوبت</a></li>
-                                    <li><a href="#appointments-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف نوبت</a></li>
+                                    <li><a href="#appointments-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">📋 لیست نوبت‌ها</a></li>
+                                    <li><a href="#appointments-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">➕ ثبت نوبت</a></li>
+                                    <li><a href="#appointments-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🔍 نمایش اطلاعات نوبت</a></li>
+                                    <li><a href="#appointments-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">✏️ ویرایش نوبت</a></li>
+                                    <li><a href="#appointments-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🗑 حذف نوبت</a></li>
                                 </ul>
                             </div>
                         </li>
-
+                        <li>
+                            <div class="accordion">
+                                <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
+                                    📑 پرونده
+                                    <span class="transform transition-transform duration-300">▸</span>
+                                </button>
+                                <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
+                                    <li><a href="#appointments-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">📋 لیست نوبت‌ها</a></li>
+                                    <li><a href="#appointments-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">➕ ثبت نوبت</a></li>
+                                    <li><a href="#appointments-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🔍 نمایش اطلاعات نوبت</a></li>
+                                    <li><a href="#appointments-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">✏️ ویرایش نوبت</a></li>
+                                    <li><a href="#appointments-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🗑 حذف نوبت</a></li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
 
-                <!-- دسته بیماران -->
+                <!-- 🩺 دسته بیماران با امنیت -->
                 <div class="accordion">
-                    <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
-                        🤕 بیماران
+                    <button class="w-full flex justify-between font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
+                        🩺 بیماران
                         <span class="transform transition-transform duration-300">▸</span>
                     </button>
                     <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
@@ -139,19 +158,19 @@
                                     <span class="transform transition-transform duration-300">▸</span>
                                 </button>
                                 <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                                    <li><a href="#captcha-generate" class="block hover:text-indigo-500 dark:hover:text-indigo-300">تولید کپچا</a></li>
-                                    <li><a href="#token-request" class="block hover:text-indigo-500 dark:hover:text-indigo-300">دریافت توکن</a></li>
+                                    <li><a href="#captcha-generate" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🧩 تولید کپچا</a></li>
+                                    <li><a href="#token-request" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🔑 دریافت توکن</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="#patient->patient-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🩺 ثبت بیمار جدید</a></li>
+                        <li><a href="#patient->patient-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🩹 ثبت بیمار جدید</a></li>
                         <li><a href="#patient->appointment-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">📅 رزرو نوبت پزشک</a></li>
                         <li><a href="#patient->doctor-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🧑‍⚕️ لیست پزشکان</a></li>
-                        <li><a href="#patients-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف بیمار</a></li>
                     </ul>
                 </div>
 
             </nav>
+
         </div>
 
         <!-- دکمه تغییر حالت -->
@@ -218,8 +237,8 @@
         <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">👨‍⚕️ دکترها</h2>
         <x-api-card
             id="doctors-index"
-            method="POST"
-            url="/api/doctors/index"
+            method="GET"
+            url="/api/doctors/"
             title="لیست دکترها"
             desc="دریافت لیست همه دکترها همراه با نام و تخصص"
             :response='json_encode([
@@ -239,7 +258,7 @@
         <x-api-card
             id="doctors-store"
             method="POST"
-            url="/api/doctors/store"
+            url="/api/doctors/"
             title="ایجاد دکتر"
             desc="ثبت یک دکتر جدید و اختصاص دادن اطلاعات کاربری"
             :response='json_encode([
@@ -264,8 +283,8 @@
         </x-api-card>
         <x-api-card
             id="doctors-show"
-            method="POST"
-            url="/api/doctors/show/{id}"
+            method="GET"
+            url="/api/doctors/{id}"
             title="نمایش دکتر"
             desc="نمایش اطلاعات یک دکتر مشخص همراه با اطلاعات کاربری"
             :response='json_encode([
@@ -295,8 +314,8 @@
         </x-api-card>
         <x-api-card
             id="doctors-update"
-            method="POST"
-            url="/api/doctors/update/{id}"
+            method="PUT"
+            url="/api/doctors/{id}"
             title="ویرایش دکتر"
             desc="ویرایش اطلاعات دکتر و اطلاعات کاربری مرتبط"
             :response='json_encode([
@@ -330,8 +349,8 @@
         </x-api-card>
         <x-api-card
             id="doctors-delete"
-            method="POST"
-            url="/api/doctors/delete/{id}"
+            method="DELETE"
+            url="/api/doctors/{id}"
             title="حذف دکتر"
             desc="حذف دکتر مشخص و تغییر رول کاربری مرتبط"
             :response='json_encode([
@@ -345,12 +364,13 @@
 {}
         </x-api-card>
     </section>
+    <!-- شیفت ها -->
     <section id="shifts" class="space-y-6">
         <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">🕒 شیفت‌ها</h2>
         <x-api-card
             id="shifts-index"
-            method="POST"
-            url="/api/shifts/index/{doctor_id}"
+            method="GET"
+            url="/api/shifts/{doctor_id}"
             title="لیست شیفت‌ها"
             desc="دریافت همه شیفت‌های یک دکتر مشخص به همراه تعداد اسلات‌ها"
             :response='json_encode([
@@ -376,7 +396,7 @@
         <x-api-card
             id="shifts-store"
             method="POST"
-            url="/api/shifts/store"
+            url="/api/shifts/"
             title="ایجاد شیفت"
             desc="ثبت یک شیفت جدید برای دکتر مشخص"
             :response='json_encode([
@@ -411,8 +431,8 @@
         </x-api-card>
         <x-api-card
             id="shifts-show"
-            method="POST"
-            url="/api/shifts/show"
+            method="GET"
+            url="/api/shifts/{doctor_id}/{day}"
             title="نمایش شیفت روز مشخص"
             desc="دریافت همه شیفت‌های یک دکتر در یک روز مشخص به همراه اسلات‌ها"
             :response='json_encode([
@@ -443,8 +463,8 @@
         </x-api-card>
         <x-api-card
             id="shifts-update"
-            method="POST"
-            url="/api/shifts/update/{id}"
+            method="PUT"
+            url="/api/shifts/{id}"
             title="ویرایش شیفت"
             desc="ویرایش اطلاعات شیفت مشخص"
             :response='json_encode([
@@ -478,8 +498,8 @@
         </x-api-card>
         <x-api-card
             id="shifts-delete"
-            method="POST"
-            url="/api/shifts/delete/{id}"
+            method="DELETE"
+            url="/api/shifts/{id}"
             title="حذف شیفت"
             desc="حذف یک شیفت مشخص"
             :response='json_encode([
@@ -494,12 +514,13 @@
 {}
         </x-api-card>
     </section>
+    <!-- بیمار ها -->
     <section id="patients" class="space-y-6">
         <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">🤕 بیمار</h2>
         <x-api-card
             id="patients-index"
-            method="POST"
-            url="/api/patients/index"
+            method="GET"
+            url="/api/patients/"
             title="لیست بیماران"
             desc="دریافت لیست همه بیماران"
             :response='json_encode([
@@ -523,7 +544,7 @@
         <x-api-card
             id="patients-store"
             method="POST"
-            url="/api/patients/store"
+            url="/api/patients/"
             title="ایجاد بیمار"
             desc="ثبت یک بیمار جدید"
             :response='json_encode([
@@ -561,8 +582,8 @@
         </x-api-card>
         <x-api-card
             id="patients-show"
-            method="POST"
-            url="/api/patients/show/{id}"
+            method="GET"
+            url="/api/patients/{id}"
             title="نمایش بیمار"
             desc="نمایش اطلاعات یک بیمار مشخص"
             :response='json_encode([
@@ -586,8 +607,8 @@
         </x-api-card>
         <x-api-card
             id="patients-update"
-            method="POST"
-            url="/api/patients/update/{id}"
+            method="PUT"
+            url="/api/patients/{id}"
             title="ویرایش بیمار"
             desc="ویرایش اطلاعات بیمار مشخص"
             :response='json_encode([
@@ -626,8 +647,8 @@
         </x-api-card>
         <x-api-card
             id="patients-delete"
-            method="POST"
-            url="/api/patients/delete/{id}"
+            method="DELETE"
+            url="/api/patients/{id}"
             title="حذف بیمار"
             desc="حذف بیمار مشخص"
             :response='json_encode([
@@ -642,12 +663,13 @@
 {}
         </x-api-card>
     </section>
+    <!-- نوبت ها -->
     <section id="patients" class="space-y-6">
         <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">⏰ نوبت ها</h2>
         <x-api-card
             id="appointments-index"
-            method="POST"
-            url="/api/appointments/index"
+            method="GET"
+            url="/api/appointments/"
             title="لیست نوبت‌ها"
             desc="دریافت لیست کامل نوبت‌ها همراه با اطلاعات دکتر و بیمار"
             :response='json_encode([
@@ -681,7 +703,7 @@
         <x-api-card
             id="appointments-store"
             method="POST"
-            url="/api/appointments/store"
+            url="/api/appointments/"
             title="ایجاد نوبت"
             desc="ثبت نوبت جدید برای بیمار و پزشک در تاریخ مشخص"
             :response='json_encode([
@@ -717,8 +739,8 @@
         </x-api-card>
         <x-api-card
             id="appointments-show"
-            method="POST"
-            url="/api/appointments/show/{id}"
+            method="GET"
+            url="/api/appointments/{id}"
             title="نمایش نوبت"
             desc="نمایش جزئیات یک نوبت خاص"
             :response='json_encode([
@@ -749,8 +771,8 @@
         </x-api-card>
         <x-api-card
             id="appointments-update"
-            method="POST"
-            url="/api/appointments/update/{id}"
+            method="PUT"
+            url="/api/appointments/{id}"
             title="ویرایش نوبت"
             desc="تغییر وضعیت یا ساعت نوبت"
             :response='json_encode([
@@ -778,8 +800,8 @@
         </x-api-card>
         <x-api-card
             id="appointments-delete"
-            method="POST"
-            url="/api/appointments/delete/{id}"
+            method="DELETE"
+            url="/api/appointments/{id}"
             title="حذف نوبت"
             desc="حذف نوبت مشخص"
             :response='json_encode([
@@ -841,7 +863,7 @@
         <x-api-card
             id="patient->patient-store"
             method="POST"
-            url="/api/patient/patients/store"
+            url="/api/patient/patients/"
             title="ثبت بیمار جدید"
             desc="افزودن بیمار جدید به سامانه (با استفاده از Submit Token)"
             :response='json_encode([
@@ -882,7 +904,7 @@
         <x-api-card
             id="patient->appointment-store"
             method="POST"
-            url="/api/patient/appointments/store"
+            url="/api/patient/appointments/"
             title="رزرو نوبت پزشک"
             desc="ثبت نوبت برای بیمار در شیفت پزشک (با بررسی تداخل‌ها و شیفت‌ها) + (با استفاده از Submit Token)"
             :response='json_encode([
@@ -918,8 +940,8 @@
         <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">🧑‍⚕️ لیست پزشکان</h2>
         <x-api-card
             id="patient->doctor-index"
-            method="POST"
-            url="/api/patient/doctors/index"
+            method="GET"
+            url="/api/patient/doctors/"
             title="لیست پزشکان"
             desc="دریافت لیست تمامی پزشکان به همراه نام و تخصص آن‌ها (با استفاده از Submit Token)"
             :response='json_encode([

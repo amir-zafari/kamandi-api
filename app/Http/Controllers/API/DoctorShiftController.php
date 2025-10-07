@@ -76,23 +76,24 @@ class DoctorShiftController extends Controller
             'shift' => $shift
         ], 201);
     }
-    public function show(Request $request)
+    public function show($doctor_id, $day)
     {
-        $validator = Validator::make($request->all(), [
-            'doctor_id' => 'required|exists:doctors,id',
-            'day' => 'required|integer|min:0|max:6',
-        ]);
-
-        if ($validator->fails()) {
+        // اعتبارسنجی ساده
+        if (!is_numeric($doctor_id) || !Doctor::find($doctor_id)) {
             return response()->json([
                 'status' => 'error',
-                'errors' => $validator->errors()
+                'message' => 'Invalid doctor ID.'
             ], 422);
         }
 
-        $doctor_id = $request->doctor_id;
-        $day = $request->day;
+        if (!is_numeric($day) || $day < 0 || $day > 6) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Invalid day value. Must be between 0 and 6.'
+            ], 422);
+        }
 
+        // جستجوی شیفت‌ها
         $shifts = Shift::where('doctor_id', $doctor_id)
             ->where('day', $day)
             ->get();
@@ -130,6 +131,7 @@ class DoctorShiftController extends Controller
             'shifts' => $data
         ], 200);
     }
+
     public function update(Request $request, $id)
     {
         $shift = Shift::find($id);

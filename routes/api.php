@@ -5,55 +5,84 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CaptchaController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\DoctorShiftController;
+use App\Http\Controllers\API\LabTestController;
+use App\Http\Controllers\API\MedicalRecordController;
 use App\Http\Controllers\API\PatientController;
+use App\Http\Controllers\API\PrescriptionController;
 use App\Http\Controllers\API\TokenController;
+use App\Http\Controllers\API\VisitController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('doctors')->group(function () {
-        Route::post('store', [DoctorController::class, 'store']);
-        Route::post('index', [DoctorController::class, 'index']);
-        Route::post('show/{id}', [DoctorController::class, 'show']);
-        Route::post('update/{id}', [DoctorController::class, 'update']);
-        Route::post('delete/{id}', [DoctorController::class, 'destroy']);
+        Route::get('/', [DoctorController::class, 'index']);          // لیست همه پزشکان
+        Route::post('/', [DoctorController::class, 'store']);         // ایجاد پزشک جدید
+        Route::get('/{id}', [DoctorController::class, 'show']);       // نمایش جزئیات پزشک
+        Route::put('/{id}', [DoctorController::class, 'update']);     // ویرایش پزشک
+        Route::delete('/{id}', [DoctorController::class, 'destroy']); // حذف پزشک
     });
     Route::prefix('shifts')->group(function () {
-        Route::post('store', [DoctorShiftController::class, 'store']);
-        Route::post('index/{doctor_id}', [DoctorShiftController::class, 'index']);
-        Route::post('show', [DoctorShiftController::class, 'show']);
-        Route::post('update/{id}', [DoctorShiftController::class, 'update']);
-        Route::post('delete/{id}', [DoctorShiftController::class, 'destroy']);
+        Route::get('/{doctor_id}', [DoctorShiftController::class, 'index']); // لیست شیفت‌های یک پزشک
+        Route::post('/', [DoctorShiftController::class, 'store']);                  // ایجاد شیفت جدید
+        Route::get('/{id}/{day}', [DoctorShiftController::class, 'show']);                // نمایش جزئیات شیفت
+        Route::put('/{id}', [DoctorShiftController::class, 'update']);              // ویرایش شیفت
+        Route::delete('/{id}', [DoctorShiftController::class, 'destroy']);          // حذف شیفت
     });
     Route::prefix('patients')->group(function () {
-        Route::post('store', [PatientController::class, 'store']);
-        Route::post('index', [PatientController::class, 'index']);
-        Route::post('show/{id}', [PatientController::class, 'show']);
-        Route::post('update/{id}', [PatientController::class, 'update']);
-        Route::post('delete/{id}', [PatientController::class, 'destroy']);
+        Route::get('/', [PatientController::class, 'index']);          // لیست بیماران
+        Route::post('/', [PatientController::class, 'store']);         // ایجاد بیمار جدید
+        Route::get('/{id}', [PatientController::class, 'show']);       // نمایش جزئیات بیمار
+        Route::put('/{id}', [PatientController::class, 'update']);     // ویرایش بیمار
+        Route::delete('/{id}', [PatientController::class, 'destroy']); // حذف بیمار
     });
     Route::prefix('appointments')->group(function () {
-        Route::post('index', [AppointmentController::class, 'index']);
-        Route::post('store', [AppointmentController::class, 'store']);
-        Route::post('show/{id}', [AppointmentController::class, 'show']);
-        Route::post('update/{id}', [AppointmentController::class, 'update']);
-        Route::post('delete/{id}', [AppointmentController::class, 'destroy']);
+        Route::get('/', [AppointmentController::class, 'index']);         // لیست نوبت‌ها
+        Route::post('/', [AppointmentController::class, 'store']);        // ثبت نوبت جدید
+        Route::get('/{id}', [AppointmentController::class, 'show']);      // نمایش جزئیات نوبت
+        Route::put('/{id}', [AppointmentController::class, 'update']);    // ویرایش نوبت
+        Route::delete('/{id}', [AppointmentController::class, 'destroy']); // حذف نوبت
     });
+    Route::prefix('medical-records')->group(function () {
+        Route::post('/', [MedicalRecordController::class, 'store']);
+        Route::get('/', [MedicalRecordController::class, 'index']);
+        Route::get('/{id}', [MedicalRecordController::class, 'show']);
+        Route::put('/{id}', [MedicalRecordController::class, 'update']);
+        Route::delete('/{id}', [MedicalRecordController::class, 'destroy']);
+    });
+    Route::prefix('visits')->group(function () {
+        Route::post('/', [VisitController::class, 'store']);
+        Route::get('/{record_id?}', [VisitController::class, 'index']);
+        Route::get('/{id}', [VisitController::class, 'show']);
+        Route::put('/{id}', [VisitController::class, 'update']);
+        Route::delete('/{id}', [VisitController::class, 'destroy']);
+    });
+    Route::prefix('prescriptions')->group(function () {
+        Route::post('/', [PrescriptionController::class, 'store']);
+        Route::get('/{record_id?}', [PrescriptionController::class, 'index']);
+        Route::get('/{id}', [PrescriptionController::class, 'show']);
+        Route::put('/{id}', [PrescriptionController::class, 'update']);
+        Route::delete('/{id}', [PrescriptionController::class, 'destroy']);
+    });
+    Route::prefix('lab-tests')->group(function () {
+        Route::post('/', [LabTestController::class, 'store']);
+        Route::get('/{record_id?}', [LabTestController::class, 'index']);
+        Route::get('/{id}', [LabTestController::class, 'show']);
+        Route::put('/{id}', [LabTestController::class, 'update']);
+        Route::delete('/{id}', [LabTestController::class, 'destroy']);
+    });
+
+
 });
-
-
 
 Route::get('/captcha/generate', [CaptchaController::class, 'generate']);
 Route::post('/token/request', [TokenController::class, 'create']);
 
-Route::middleware('check.submit.token')->group(function () {
-    Route::prefix('patient')->group(function () {
-        Route::post('/patients/store', [PatientController::class, 'store']);
-        Route::post('/appointments/store', [AppointmentController::class, 'store']);
-        Route::post('/doctors/index', [DoctorController::class, 'index']);
-    });
+Route::middleware('check.submit.token')->prefix('patient')->group(function () {
+    Route::post('/patients', [PatientController::class, 'store']);
+    Route::post('/appointments', [AppointmentController::class, 'store']);
+    Route::get('/doctors', [DoctorController::class, 'index']);
 });
