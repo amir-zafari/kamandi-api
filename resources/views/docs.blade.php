@@ -132,10 +132,21 @@
                         <span class="transform transition-transform duration-300">▸</span>
                     </button>
                     <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                        <li><a href="#patients-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">لیست بیماران</a></li>
-                        <li><a href="#patients-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ثبت بیمار</a></li>
-                        <li><a href="#patients-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">نمایش اطلاعات بیمار</a></li>
-                        <li><a href="#patients-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">ویرایش بیمار</a></li>
+                        <li>
+                            <div class="accordion">
+                                <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
+                                    🛡 امنیت فرم‌ها
+                                    <span class="transform transition-transform duration-300">▸</span>
+                                </button>
+                                <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
+                                    <li><a href="#captcha-generate" class="block hover:text-indigo-500 dark:hover:text-indigo-300">تولید کپچا</a></li>
+                                    <li><a href="#token-request" class="block hover:text-indigo-500 dark:hover:text-indigo-300">دریافت توکن</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#patient->patient-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🩺 ثبت بیمار جدید</a></li>
+                        <li><a href="#patient->appointment-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">📅 رزرو نوبت پزشک</a></li>
+                        <li><a href="#patient->doctor-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🧑‍⚕️ لیست پزشکان</a></li>
                         <li><a href="#patients-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">حذف بیمار</a></li>
                     </ul>
                 </div>
@@ -782,6 +793,154 @@
         >
 {}
         </x-api-card>
+
+    </section>
+
+
+
+    <!-- بیماران -->
+    <section id="patients" class="space-y-6">
+        <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">🛡 امنیت فرم‌ها</h2>
+        <x-api-card
+            id="captcha-generate"
+            method="GET"
+            url="/api/captcha/generate"
+            title="تولید کپچا تصویری"
+            desc="کپچا جدید برای کاربر تولید می‌کند"
+            :response='json_encode([
+        "status" => "success",
+        "captcha_id" => "uuid",
+        "image" => "data:image/png;base64,...",
+        "expires_in" => 120
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        />
+        <x-api-card
+            id="token-request"
+            method="POST"
+            url="/api/token/request"
+            title="درخواست توکن ارسال"
+            desc="با ارسال کپچا صحیح، توکن موقت ارسال داده را دریافت می‌کند"
+            :response='json_encode([
+        "status" => "success",
+        "token" => "abcdefghijklmno123456",
+        "expires_in" => 300
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "message" => "Invalid captcha"
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+{
+    "captcha_id": "uuid",
+    "captcha_answer": "ABC12"
+}
+        </x-api-card>
+    </section>
+    <section id="patients" class="space-y-6">
+        <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">🩺 ثبت بیمار جدید</h2>
+        <x-api-card
+            id="patient->patient-store"
+            method="POST"
+            url="/api/patient/patients/store"
+            title="ثبت بیمار جدید"
+            desc="افزودن بیمار جدید به سامانه (با استفاده از Submit Token)"
+            :response='json_encode([
+        "status" => "success",
+        "patient" => [
+            "id" => 12,
+            "first_name" => "علی",
+            "last_name" => "رضایی",
+            "national_id" => "1234567890",
+            "phone" => "09151234567",
+            "birth_date" => "1992-05-10",
+            "gender" => "male",
+            "created_at" => "2025-10-06T12:34:56.000000Z",
+            "updated_at" => "2025-10-06T12:34:56.000000Z"
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "errors" => [
+            "phone" => ["شماره تلفن قبلاً ثبت شده است."],
+            "national_id" => ["کد ملی تکراری است."]
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+{
+    "first_name": "علی",
+    "last_name": "رضایی",
+    "national_id": "1234567890",
+    "phone": "09151234567",
+    "birth_date": "1992-05-10",
+    "gender": "male"
+}
+        </x-api-card>
+
+    </section>
+    <section id="patients" class="space-y-6">
+        <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">📅 رزرو نوبت پزشک</h2>
+        <x-api-card
+            id="patient->appointment-store"
+            method="POST"
+            url="/api/patient/appointments/store"
+            title="رزرو نوبت پزشک"
+            desc="ثبت نوبت برای بیمار در شیفت پزشک (با بررسی تداخل‌ها و شیفت‌ها) + (با استفاده از Submit Token)"
+            :response='json_encode([
+        "status" => "success",
+        "message" => "Appointment booked successfully.",
+        "appointment" => [
+            "id" => 45,
+            "doctor_id" => 3,
+            "patient_id" => 12,
+            "date" => "2025-10-10",
+            "start_time" => "10:00",
+            "end_time" => "10:30",
+            "attended" => false,
+            "created_at" => "2025-10-06T12:34:56.000000Z",
+            "updated_at" => "2025-10-06T12:34:56.000000Z"
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "message" => "Doctor already has an appointment at this time."
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+{
+    "doctor_id": 3,
+    "patient_id": 12,
+    "date": "2025-10-10",
+    "start_time": "10:00"
+}
+        </x-api-card>
+
+    </section>
+    <section id="patients" class="space-y-6">
+        <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">🧑‍⚕️ لیست پزشکان</h2>
+        <x-api-card
+            id="patient->doctor-index"
+            method="POST"
+            url="/api/patient/doctors/index"
+            title="لیست پزشکان"
+            desc="دریافت لیست تمامی پزشکان به همراه نام و تخصص آن‌ها (با استفاده از Submit Token)"
+            :response='json_encode([
+        "status" => "success",
+        "doctors" => [
+            [
+                "id" => 1,
+                "name" => "دکتر محمد کریمی",
+                "specialty" => "قلب و عروق"
+            ],
+            [
+                "id" => 2,
+                "name" => "دکتر نرگس قاسمی",
+                "specialty" => "پوست و مو"
+            ]
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+{}
+        </x-api-card>
+
 
     </section>
 </main>

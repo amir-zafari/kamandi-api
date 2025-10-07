@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\API\AppointmentController;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\CaptchaController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\DoctorShiftController;
 use App\Http\Controllers\API\PatientController;
+use App\Http\Controllers\API\TokenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -40,5 +42,18 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('show/{id}', [AppointmentController::class, 'show']);
         Route::post('update/{id}', [AppointmentController::class, 'update']);
         Route::post('delete/{id}', [AppointmentController::class, 'destroy']);
+    });
+});
+
+
+
+Route::get('/captcha/generate', [CaptchaController::class, 'generate']);
+Route::post('/token/request', [TokenController::class, 'create']);
+
+Route::middleware('check.submit.token')->group(function () {
+    Route::prefix('patient')->group(function () {
+        Route::post('/patients/store', [PatientController::class, 'store']);
+        Route::post('/appointments/store', [AppointmentController::class, 'store']);
+        Route::post('/doctors/index', [DoctorController::class, 'index']);
     });
 });

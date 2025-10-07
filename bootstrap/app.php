@@ -12,6 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->alias([
+            'check.submit.token' => \App\Http\Middleware\CheckSubmitToken::class,
+        ]);
         // برای API نیازی به redirect نیست
         // $middleware->redirectGuestsTo('/login'); // حذف شد
     })
