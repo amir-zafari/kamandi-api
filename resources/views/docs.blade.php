@@ -55,6 +55,8 @@
                                 <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
                                     <li><a href="#login" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🔓 ورود</a></li>
                                     <li><a href="#register" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🆕 ثبت‌نام</a></li>
+                                    <li><a href="#auth-send-code" class="block hover:text-indigo-500 dark:hover:text-indigo-300">📱 ارسال کد تأیید</a></li>
+                                    <li><a href="#auth-verify-code" class="block hover:text-indigo-500 dark:hover:text-indigo-300">✅ تأیید کد</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -230,6 +232,45 @@
     "phone": "09123456789",
     "national_id": "0012345678"
 }
+        </x-api-card>
+        <x-api-card
+            id="auth-send-code"
+            method="POST"
+            url="/api/send-code"
+            title="ارسال کد تأیید"
+            desc="ارسال کد ورود ۶ رقمی به شماره موبایل کاربر. در صورت وجود کاربر، اطلاعاتش به‌روزرسانی می‌شود، در غیر این صورت ثبت‌نام اولیه انجام می‌گردد."
+            :request='json_encode([
+        "phone" => "09123456789"
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :response='json_encode([
+        "message" => "کد تأیید ارسال شد",
+        "code_for_test" => 123456
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+            {}
+        </x-api-card>
+        <x-api-card
+            id="auth-verify-code"
+            method="POST"
+            url="/api/verify-code"
+            title="تأیید کد و دریافت توکن"
+            desc="کد ارسال‌شده به شماره موبایل را بررسی کرده و در صورت معتبر بودن، توکن ورود (Bearer Token) صادر می‌کند."
+            :request='json_encode([
+        "phone" => "09123456789",
+        "code" => "123456"
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :response='json_encode([
+        "access_token" => "1|ABCD1234xyz...",
+        "token_type" => "Bearer",
+        "user" => [
+            "id" => 1,
+            "name" => null,
+            "email" => null,
+            "phone" => "09123456789"
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+            {}
         </x-api-card>
     </section>
     <!-- دکترها -->
@@ -857,6 +898,8 @@
     "captcha_answer": "ABC12"
 }
         </x-api-card>
+
+
     </section>
     <section id="patients" class="space-y-6">
         <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">🩺 ثبت بیمار جدید</h2>

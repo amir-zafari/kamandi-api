@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
@@ -45,16 +46,105 @@ class AuthController extends Controller
     // ورود کاربر
     public function login(Request $request)
     {
-        if (!auth()->attempt($request->only('email', 'password'))) {
-            return response()->json(['message' => 'Invalid login details'], 401);
+        $request->validate([
+            'identifier' => 'required|string', // ایمیل یا شماره موبایل
+            'password' => 'required|string',
+        ]);
+
+        $identifier = $request->identifier;
+
+        if (filter_var($identifier, FILTER_VALIDATE_EMAIL)) {
+            $field = 'email';
+        } elseif (preg_match('/^09[0-9]{9}$/', $identifier)) {
+            $field = 'phone';
+        } else {
+            return response()->json(['message' => 'Invalid identifier format'], 422);
         }
 
-        $user = User::where('email', $request->email)->firstOrFail();
+        $user = User::where($field, $identifier)->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response()->json(['message' => 'Invalid login credentials'], 401);
+        }
+
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
             'access_token' => $token,
             'token_type' => 'Bearer',
+            'user' => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'phone' => $user->phone,
+            ],
+        ]);
+    }
+
+    public function sendCode(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'phone' => ['required', 'regex:/^09[0-9]{9}$/'],
+        ]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+        $code = rand(100000, 999999);
+        $expiresAt = Carbon::now()->addMinutes(5);
+        $user = User::firstOrCreate(
+            ['phone' => $request->phone],
+            [
+                'name' => null,
+                'email' => null,
+                'password' => Hash::make(uniqid()), // رمز تصادفی برای سازگاری با سیستم
+            ]
+        );
+        $user->update([
+            'code' => $code,
+            'code_expires_at' => $expiresAt,
+        ]);
+        return response()->json([
+            'message' => 'کد تأیید ارسال شد',
+            'code_for_test' => $code, // برای تست فقط
+        ]);
+    }
+    public function verifyCode(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'phone' => ['required', 'regex:/^09[0-9]{9}$/'],
+            'code' => 'required|digits:6',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        $user = User::where('phone', $request->phone)->first();
+
+        if (!$user || $user->code != $request->code) {
+            return response()->json(['message' => 'Invalid verification code'], 400);
+        }
+
+        if (Carbon::now()->greaterThan($user->code_expires_at)) {
+            return response()->json(['message' => 'Verification code has expired'], 400);
+        }
+
+        $user->update([
+            'code' => null,
+            'code_expires_at' => null,
+        ]);
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'user' => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'phone' => $user->phone,
+            ],
         ]);
     }
 }

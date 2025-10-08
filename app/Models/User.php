@@ -19,7 +19,9 @@ class User extends Authenticatable
         'password',
         'phone',
         'roll',
-        'national_id'
+        'national_id',
+        'code',
+        'code_expires_at'
     ];
 
     protected $hidden = [
