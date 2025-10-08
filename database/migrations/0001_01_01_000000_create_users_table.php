@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('email')->unique()->nullable();
-            $table->string('phone')->unique()->nullable();
+            $table->string('phone')->unique();
             $table->integer('roll')->default(0);
             $table->integer('superadmin')->default(0);
             $table->string('national_id')->nullable();
