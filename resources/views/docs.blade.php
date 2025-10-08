@@ -60,7 +60,22 @@
                                 </ul>
                             </div>
                         </li>
-
+                        <!-- 👥 زیرگروه کاربران -->
+                        <li>
+                            <div class="accordion">
+                                <button class="w-full flex justify-between items-center font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition p-2" onclick="toggleAccordion(this)">
+                                    👥 کاربران
+                                    <span class="transform transition-transform duration-300">▸</span>
+                                </button>
+                                <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
+                                    <li><a href="#users-index" class="block hover:text-indigo-500 dark:hover:text-indigo-300">📋 لیست کاربرها</a></li>
+                                    <li><a href="#users-store" class="block hover:text-indigo-500 dark:hover:text-indigo-300">➕ ثبت کاربر جدید</a></li>
+                                    <li><a href="#users-show" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🔍 نمایش کاربر</a></li>
+                                    <li><a href="#users-update" class="block hover:text-indigo-500 dark:hover:text-indigo-300">✏️ ویرایش کاربر</a></li>
+                                    <li><a href="#users-delete" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🗑 حذف کاربر</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <!-- 👨‍⚕️ زیرگروه دکترها -->
                         <li>
                             <div class="accordion">
@@ -272,6 +287,162 @@
         >
             {}
         </x-api-card>
+    </section>
+    <!-- کاربران  -->
+    <section id="doctors" class="space-y-6">
+        <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">👥 کاربران</h2>
+        <x-api-card
+            id="user-index"
+            method="GET"
+            url="/api/users"
+            title="دریافت لیست کاربران"
+            desc="تمام کاربران ثبت‌شده در سیستم را برمی‌گرداند"
+            :response='json_encode([
+        "status" => "success",
+        "users" => [
+            [
+                "id" => 1,
+                "name" => "Ali",
+                "email" => "ali@example.com",
+                "phone" => "09123456789",
+                "roll" => 0,
+                "superadmin" => false,
+                "national_id" => "1234567890",
+                "created_at" => "2025-10-08 14:21:37"
+            ],
+            [
+                "id" => 2,
+                "name" => "Sara",
+                "email" => "sara@example.com",
+                "phone" => "09121234567",
+                "roll" => 1,
+                "superadmin" => false,
+                "national_id" => "9876543210",
+                "created_at" => "2025-10-07 10:11:25"
+            ]
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "message" => "خطا در دریافت لیست کاربران"
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+        </x-api-card>
+        <x-api-card
+            id="user-store"
+            method="POST"
+            url="/api/users"
+            title="ایجاد کاربر جدید"
+            desc="کاربر جدید را در سیستم ثبت می‌کند"
+            :response='json_encode([
+        "status" => "success",
+        "user" => [
+            "id" => 12,
+            "name" => "Ali Reza",
+            "email" => "ali@example.com",
+            "phone" => "09123456789",
+            "roll" => 0,
+            "superadmin" => 0,
+            "national_id" => "1234567890",
+            "created_at" => "2025-10-08 14:21:37"
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "errors" => [
+            "phone" => ["شماره تلفن قبلاً ثبت شده است."],
+            "email" => ["ایمیل معتبر نیست."]
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+{
+    "name": "Ali Rez",
+    "email": "ali@example.com",
+    "phone": "09123456789",
+    "password": "123456",
+    "roll": 0,
+    "superadmin": false,
+    "national_id": "1234567890"a
+}
+        </x-api-card>
+        <x-api-card
+            id="user-show"
+            method="GET"
+            url="/api/users/1"
+            title="نمایش کاربر خاص"
+            desc="اطلاعات یک کاربر خاص را بر اساس شناسه (ID) نمایش می‌دهد"
+            :response='json_encode([
+        "status" => "success",
+        "user" => [
+            "id" => 1,
+            "name" => "Ali",
+            "email" => "ali@example.com",
+            "phone" => "09123456789",
+            "roll" => 0,
+            "superadmin" => false,
+            "national_id" => "1234567890",
+            "created_at" => "2025-10-08 14:21:37"
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "message" => "User not found."
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+        </x-api-card>
+        <x-api-card
+            id="user-update"
+            method="PUT"
+            url="/api/users/1"
+            title="بروزرسانی کاربر"
+            desc="اطلاعات کاربر مشخص‌شده را ویرایش می‌کند"
+            :response='json_encode([
+        "status" => "success",
+        "user" => [
+            "id" => 1,
+            "name" => "Ali Reza",
+            "email" => "alireza@example.com",
+            "phone" => "09120001111",
+            "roll" => 1,
+            "superadmin" => false,
+            "national_id" => "9876543210",
+            "created_at" => "2025-10-08 14:21:37"
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "errors" => [
+            "email" => ["ایمیل وارد شده تکراری است."],
+            "phone" => ["شماره تلفن معتبر نیست."]
+        ]
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+{
+    "name": "Ali Reza",
+    "email": "alireza@example.com",
+    "phone": "09120001111",
+    "roll": 1,
+    "superadmin": false,
+    "national_id": "9876543210"
+}
+        </x-api-card>
+        <x-api-card
+            id="user-destroy"
+            method="DELETE"
+            url="/api/users/1"
+            title="حذف کاربر"
+            desc="کاربر مشخص‌شده را از سیستم حذف می‌کند"
+            :response='json_encode([
+        "status" => "success",
+        "message" => "User deleted successfully."
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            :errors='json_encode([
+        "status" => "error",
+        "message" => "User not found."
+    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+        >
+        </x-api-card>
+
     </section>
     <!-- دکترها -->
     <section id="doctors" class="space-y-6">
