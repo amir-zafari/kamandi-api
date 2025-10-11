@@ -55,7 +55,9 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::prefix('appointments')->group(function () {
             Route::get('/', [AppointmentController::class, 'index']);         // لیست نوبت‌ها
             Route::post('/', [AppointmentController::class, 'store']);        // ثبت نوبت جدید
-            Route::get('/{id}', [AppointmentController::class, 'show']);      // نمایش جزئیات نوبت
+            Route::get('/day', [AppointmentController::class, 'show_day']);
+            Route::get('/{id}', [AppointmentController::class, 'show']);
+
             Route::put('/{id}', [AppointmentController::class, 'update']);    // ویرایش نوبت
             Route::delete('/{id}', [AppointmentController::class, 'destroy']); // حذف نوبت
         });

@@ -139,8 +139,41 @@ class AppointmentController extends Controller
             'appointment' => $appointment
         ], 200);
     }
+    public function show_day(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'doctor_id' => 'required|exists:doctors,id',
+            'date' => 'required|date_format:Y-m-d',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 422);
+        }
 
-    // ✏️ ویرایش نوبت (مثلاً تغییر ساعت یا وضعیت حضور)
+        $appointments = Appointment::with(['doctor.user', 'patient'])
+            ->where('doctor_id', $request->doctor_id)
+            ->where('date', $request->date)
+            ->orderBy('start_time')
+            ->get();
+
+        if ($appointments->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'No appointments found for this doctor on this date.'
+            ], 404);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'doctor_id' => $request->doctor_id,
+            'date' => $request->date,
+            'appointments' => $appointments
+        ], 200);
+    }
+
+
     public function update(Request $request, $id)
     {
         $appointment = Appointment::find($id);

@@ -24,11 +24,6 @@ class PatientController extends Controller
             'status' => 'success',
             'patients' => $patients
         ], 200);
-        $patients = Patient::all();
-        return response()->json([
-            'status' => 'success',
-            'patients' => $patients
-        ], 200);
     }
     public function store(Request $request)
     {
