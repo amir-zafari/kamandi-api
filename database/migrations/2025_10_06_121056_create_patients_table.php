@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('national_id')->unique(); // کد ملی
             $table->string('phone')->unique();
             $table->date('birth_date'); // تاریخ تولد
             $table->enum('gender', ['male', 'female']); // جنسیت
+            $table->integer('for_type');
             $table->timestamps();
         });
     }

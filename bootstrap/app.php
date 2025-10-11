@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'check.submit.token' => \App\Http\Middleware\CheckSubmitToken::class,
+            'check.role' => \App\Http\Middleware\CheckUserRole::class,
         ]);
         // برای API نیازی به redirect نیست
         // $middleware->redirectGuestsTo('/login'); // حذف شد
