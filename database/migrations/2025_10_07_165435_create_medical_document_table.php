@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lab_tests', function (Blueprint $table) {
+        Schema::create('medical_documents', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('medical_record_id')->constrained('medical_records')->onDelete('cascade');
-            $table->foreignId('visit_id')->nullable()->constrained('visits')->onDelete('set null');
-            $table->string('test_name')->comment('نوع آزمایش');
-            $table->text('result')->nullable()->comment('نتیجه آزمایش');
+            $table->foreignId('doctor_id')->constrained('doctors')->onDelete('cascade');
+            $table->foreignId('patient_id')->constrained('patients')->onDelete('cascade');
+            $table->date('document_date')->comment('تاریخ ازمایش');
+            $table->string('document_type')->comment('نوع آزمایش');
             $table->string('file_path')->nullable()->comment('مسیر فایل');
-            $table->enum('status', ['pending','completed'])->default('pending');
+            $table->text('notes')->nullable()->comment('یادداشت آزمایش');
             $table->timestamps();
         });
     }

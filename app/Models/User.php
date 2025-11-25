@@ -14,35 +14,30 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
-        'password',
         'phone',
-        'roll',
         'national_id',
+        'gender',
+        'roll',
         'code',
         'code_expires_at'
     ];
 
     protected $hidden = [
-        'password',
-        'remember_token',
+//        'code',
+        'code_expires_at'
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
+
     public function doctor()
     {
         return $this->hasOne(Doctor::class);
     }
-    public function patient()
+    public function patients()
     {
-        return $this->hasOne(Patient::class);
+        return $this->belongsToMany(Patient::class, 'patient_user');
     }
 
 }

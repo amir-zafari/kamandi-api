@@ -10,22 +10,21 @@ class Visit extends Model
     use HasFactory;
 
     protected $fillable = [
-        'medical_record_id',
-        'appointment_id',
         'visit_date',
-        'notes',
-        'diagnosis',
         'follow_up_date',
+        'visit_reason',
+        'symptoms',
+        'diagnosis',
+        'handwritten_notes',
+        'notes',
     ];
-
-    public function record()
+    public function doctor()
     {
-        return $this->belongsTo(MedicalRecord::class, 'medical_record_id');
+        return $this->belongsTo(Doctor::class);
     }
-
-    public function appointment()
+    public function patient()
     {
-        return $this->belongsTo(\App\Models\Appointment::class);
+        return $this->belongsTo(Patient::class);
     }
 
     public function prescriptions()
@@ -33,8 +32,4 @@ class Visit extends Model
         return $this->hasMany(Prescription::class);
     }
 
-    public function labTests()
-    {
-        return $this->hasMany(LabTest::class);
-    }
 }

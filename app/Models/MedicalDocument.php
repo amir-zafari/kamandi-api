@@ -5,39 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MedicalRecord extends Model
+class MedicalDocument extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'doctor_id',
         'patient_id',
-        'record_number',
-        'summary',
+        'document_date',
+        'document_type',
+        'file_path',
+        'notes',
     ];
 
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);
     }
-
     public function patient()
     {
         return $this->belongsTo(Patient::class);
-    }
-
-    public function visits()
-    {
-        return $this->hasMany(Visit::class);
-    }
-
-    public function prescriptions()
-    {
-        return $this->hasMany(Prescription::class);
-    }
-
-    public function labTests()
-    {
-        return $this->hasMany(LabTest::class);
     }
 }

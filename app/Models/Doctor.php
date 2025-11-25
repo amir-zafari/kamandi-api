@@ -19,4 +19,20 @@ class Doctor extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function shifts()
+    {
+        return $this->hasMany(Shift::class);
+    }
+    public function medicaldocuments()
+    {
+        return $this->hasMany(MedicalDocument::class);
+    }
+    public function visits()
+    {
+        return $this->hasMany(Visit::class);
+    }
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }

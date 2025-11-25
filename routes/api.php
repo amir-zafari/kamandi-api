@@ -5,7 +5,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CaptchaController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\DoctorShiftController;
-use App\Http\Controllers\API\LabTestController;
+use App\Http\Controllers\API\MedicalDocumentController;
 use App\Http\Controllers\API\MedicalRecordController;
 use App\Http\Controllers\API\PatientController;
 use App\Http\Controllers\API\PrescriptionController;
@@ -15,21 +15,65 @@ use App\Http\Controllers\API\VisitController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
+//Route::post('/register', [AuthController::class, 'register']);
+//Route::post('/login', [AuthController::class, 'login']);
 
-Route::post('/send-code', [AuthController::class, 'sendCode']);
-Route::post('/verify-code', [AuthController::class, 'verifyCode']);
+
+Route::middleware(['check.submit.token'])->group(function () {
+    Route::post('/send-code', [AuthController::class, 'sendCode']);
+    Route::post('/verify-code', [AuthController::class, 'verifyCode']);
+});
 
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::middleware(['check.role:0'])->group(function () {
+    Route::middleware(['check.roll:patient,superadmin'])->group(function () {
+        Route::prefix('patient')->group(function () {
+
+            // profile
+            Route::get('/profile', [UserController::class, 'profile']); //برای ساید بار که اطلاعات کاربر لاگین کرده نمایش بده
+
+            // patients CRUD
+            Route::prefix('patients')->group(function () {
+                Route::get('/', [PatientController::class, 'listmypatient']);    // برای بادی صففحه اصلی که بیمار های که اضافه کرده رو ببینه
+                Route::post('/', [PatientController::class, 'store']);           //اضافه کردن بیمار اگه میخواست پرونده خودشو کامل کنه یا برای خودش نوبت بگیره باید for 1 باشه
+                Route::get('/{id}', [PatientController::class, 'show']);         // دیدن اطلاعات بیمار
+                Route::put('/{id}', [PatientController::class, 'update']);       // اپدیت کردن اطلاعات بیمار
+                Route::delete('/{id}', [PatientController::class, 'destroy']);   //پاک کردن بیمار
+            });
+            // doctors
+            Route::prefix('doctors')->group(function () {
+                Route::get('/', [DoctorController::class, 'index']);
+                Route::get('/{id}', [DoctorController::class, 'show']);
+            });
+            // shifts
+            Route::prefix('shifts')->group(function () {
+                Route::get('/{doctor_id}', [DoctorShiftController::class, 'index']); // لیست شیفت‌های یک پزشک
+                Route::get('/{id}/{day}', [DoctorShiftController::class, 'show']);                // نمایش جزئیات شیفت
+            });
+            // appointments
+            Route::prefix('appointments')->group(function () {
+                Route::post('/', [AppointmentController::class, 'store']);// گرفتن نوبت
+                Route::get('/{doctor_id}/{date}', [AppointmentController::class, 'show_day']); // دیدن صف نوبت ها
+                Route::get('/{patient_id}', [AppointmentController::class, 'show_patient_appointments']); //دیدن نوبت های گذشته
+                Route::put('/{id}', [AppointmentController::class, 'update']); // ادیت نوبت
+                Route::delete('/{id}', [AppointmentController::class, 'destroy']); // حذذف نوبت
+            });
+            // documents upload
+            Route::prefix('medicaldocument')->group(function () {
+                Route::post('/', [MedicalDocumentController::class, 'store']);
+                Route::get('/{doctor_id}/{patient_id}', [MedicalDocumentController::class, 'show']);
+                Route::put('/{id}', [MedicalDocumentController::class, 'update']);
+                Route::delete('/{id}', [MedicalDocumentController::class, 'destroy']);
+            });
+        });
+    });
+    Route::middleware(['check.roll:doctor,superadmin'])->group(function () {
         Route::prefix('users')->group(function () {
-            Route::post('/', [UserController::class, 'store']);
-            Route::get('/', [UserController::class, 'index']);
-            Route::get('/{id}', [UserController::class, 'show']);
-            Route::put('/{id}', [UserController::class, 'update']);
-            Route::delete('/{id}', [UserController::class, 'destroy']);
+            Route::get('/', [UserController::class, 'index']);          // گرفتن همه یوزر ها
+            Route::post('/', [UserController::class, 'store']); // ایجاد یوزر
+            Route::get('/{id}', [UserController::class, 'show']); // نمایش جزئیات یوزر
+            Route::put('/{id}', [UserController::class, 'update']); //ویرایش یوزر
+            Route::delete('/{id}', [UserController::class, 'destroy']); //حذف یوزر
         });
         Route::prefix('doctors')->group(function () {
             Route::get('/', [DoctorController::class, 'index']);          // لیست همه پزشکان
@@ -39,34 +83,29 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::delete('/{id}', [DoctorController::class, 'destroy']); // حذف پزشک
         });
         Route::prefix('shifts')->group(function () {
-            Route::get('/{doctor_id}', [DoctorShiftController::class, 'index']); // لیست شیفت‌های یک پزشک
-            Route::post('/', [DoctorShiftController::class, 'store']);                  // ایجاد شیفت جدید
-            Route::get('/{id}/{day}', [DoctorShiftController::class, 'show']);                // نمایش جزئیات شیفت
-            Route::put('/{id}', [DoctorShiftController::class, 'update']);              // ویرایش شیفت
-            Route::delete('/{id}', [DoctorShiftController::class, 'destroy']);          // حذف شیفت
+            Route::get('/{doctor_id}', [DoctorShiftController::class, 'index']);    // لیست شیفت‌های یک پزشک
+            Route::post('/', [DoctorShiftController::class, 'store']);              // ایجاد شیفت جدید
+            Route::get('/{id}/{day}', [DoctorShiftController::class, 'show']);      // نمایش جزئیات شیفت
+            Route::put('/{id}', [DoctorShiftController::class, 'update']);          // ویرایش شیفت
+            Route::delete('/{id}', [DoctorShiftController::class, 'destroy']);       // حذف شیفت
         });
         Route::prefix('patients')->group(function () {
+            Route::get('/search', [PatientController::class, 'search']);
             Route::get('/', [PatientController::class, 'index']);          // لیست بیماران
             Route::post('/', [PatientController::class, 'store']);         // ایجاد بیمار جدید
             Route::get('/{id}', [PatientController::class, 'show']);       // نمایش جزئیات بیمار
             Route::put('/{id}', [PatientController::class, 'update']);     // ویرایش بیمار
             Route::delete('/{id}', [PatientController::class, 'destroy']); // حذف بیمار
+
+
         });
         Route::prefix('appointments')->group(function () {
-            Route::get('/', [AppointmentController::class, 'index']);         // لیست نوبت‌ها
-            Route::post('/', [AppointmentController::class, 'store']);        // ثبت نوبت جدید
-            Route::get('/day', [AppointmentController::class, 'show_day']);
-            Route::get('/{id}', [AppointmentController::class, 'show']);
-
+            Route::get('/', [AppointmentController::class, 'index']);               // لیست نوبت‌ها
+            Route::post('/', [AppointmentController::class, 'store']);              // ثبت نوبت جدید
+            Route::get('/{doctor_id}/{date}', [AppointmentController::class, 'show_day']);  //نمایش نوبت های یک پزشک در یک روز
+            Route::get('/{id}', [AppointmentController::class, 'show']); //نمایش جزعیات یک نوبت
             Route::put('/{id}', [AppointmentController::class, 'update']);    // ویرایش نوبت
-            Route::delete('/{id}', [AppointmentController::class, 'destroy']); // حذف نوبت
-        });
-        Route::prefix('medical-records')->group(function () {
-            Route::post('/', [MedicalRecordController::class, 'store']);
-            Route::get('/', [MedicalRecordController::class, 'index']);
-            Route::get('/{id}', [MedicalRecordController::class, 'show']);
-            Route::put('/{id}', [MedicalRecordController::class, 'update']);
-            Route::delete('/{id}', [MedicalRecordController::class, 'destroy']);
+            Route::delete('/{id}', [AppointmentController::class, 'destroy']);      // حذف نوبت
         });
         Route::prefix('visits')->group(function () {
             Route::post('/', [VisitController::class, 'store']);
@@ -82,35 +121,14 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::put('/{id}', [PrescriptionController::class, 'update']);
             Route::delete('/{id}', [PrescriptionController::class, 'destroy']);
         });
-        Route::prefix('lab-tests')->group(function () {
-            Route::post('/', [LabTestController::class, 'store']);
-            Route::get('/{record_id?}', [LabTestController::class, 'index']);
-            Route::get('/{id}', [LabTestController::class, 'show']);
-            Route::put('/{id}', [LabTestController::class, 'update']);
-            Route::delete('/{id}', [LabTestController::class, 'destroy']);
+        Route::prefix('medicaldocument')->group(function () {
+            Route::post('/', [MedicalDocumentController::class, 'store']);
+            Route::get('/{id}', [MedicalDocumentController::class, 'show']);
+            Route::put('/{id}', [MedicalDocumentController::class, 'update']);
+            Route::delete('/{id}', [MedicalDocumentController::class, 'destroy']);
         });
     });
-    Route::middleware(['check.role:0'])->group(function () {
-        Route::prefix('patient')->group(function () {
-            Route::prefix('user')->group(function () {
-                Route::put('/', [UserController::class, 'patient_update']);
-                Route::get('/', [UserController::class, 'patient_show']);
-                Route::post('/', [PatientController::class, 'store']);
-                Route::get('/patient', [PatientController::class, 'patient_index']);
-            });
-            Route::prefix('doctors')->group(function () {
-                Route::get('/', [DoctorController::class, 'index']);
-                Route::get('/{id}', [DoctorController::class, 'show']);
-            });
-            Route::prefix('shifts')->group(function () {
-                Route::get('/{doctor_id}', [DoctorShiftController::class, 'index']); // لیست شیفت‌های یک پزشک
-                Route::get('/{id}/{day}', [DoctorShiftController::class, 'show']);                // نمایش جزئیات شیفت
-            });
-            Route::prefix('appointments')->group(function () {
-                Route::post('/', [AppointmentController::class, 'store']);        // ثبت نوبت جدید
-            });
-        });
-    });
+
 });
 
 Route::get('/captcha/generate', [CaptchaController::class, 'generate']);

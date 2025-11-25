@@ -16,8 +16,10 @@ class DoctorController extends Controller
 
         $data = $doctors->map(function ($doctor) {
             return [
-                'id' => $doctor->user->id,
-                'name' => $doctor->user->name,
+                'id' => $doctor->id,
+                'user_id' => $doctor->user->id,
+                'first_name' => $doctor->user->first_name,
+                'last_name' => $doctor->user->last_name,
                 'specialty' => $doctor->specialty,
             ];
         });
@@ -29,19 +31,6 @@ class DoctorController extends Controller
 
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'user_id' => 'required|exists:users,id',
-            'specialty' => 'nullable|string|max:255',
-            'code_nzam' => 'required|string|unique:doctors,code_nzam',
-            'work_experience' => 'nullable|string|max:255',
-            'national_id' => 'required|string|unique:users,national_id',
-        ]);
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => 'error',
-                'errors' => $validator->errors()
-            ], 422);
-        }
         $user = User::find($request->user_id);
         if (!$user) {
             return response()->json([
@@ -49,19 +38,52 @@ class DoctorController extends Controller
                 'message' => 'User not found.'
             ], 404);
         }
-        $user->national_id = $request->national_id;
-        $user->roll = 1;
-        $user->save();
-        Doctor::create([
-            'user_id' => $user->id,
-            'specialty' => $request->specialty,
-            'code_nzam' => $request->code_nzam,
-            'work_experience' => $request->work_experience,
+
+        // ابتدا دکتر را پیدا می‌کنیم
+        $doctor = Doctor::where('user_id', $request->user_id)->first();
+
+        $doctorId = $doctor ? $doctor->id : null;
+
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'specialty' => 'nullable|string|max:255',
+            'code_nzam' => 'required|string|unique:doctors,code_nzam,' . $doctorId,
+            'work_experience' => 'nullable|string|max:255',
         ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        // تغییر رول
+        $user->roll = "doctor";
+        $user->save();
+
+        if ($doctor) {
+            // update
+            $doctor->update([
+                'specialty' => $request->specialty,
+                'code_nzam' => $request->code_nzam,
+                'work_experience' => $request->work_experience,
+            ]);
+        } else {
+            // create
+            Doctor::create([
+                'user_id' => $user->id,
+                'specialty' => $request->specialty,
+                'code_nzam' => $request->code_nzam,
+                'work_experience' => $request->work_experience,
+            ]);
+        }
+
         return response()->json([
-            'status' => 'success',
+            'status' => 'success'
         ], 201);
     }
+
     public function show($id)
     {
         // دکتر با اطلاعات کاربر مرتبط را پیدا کن
@@ -78,8 +100,8 @@ class DoctorController extends Controller
         $data = [
             'user' => [
                 'id' => $doctor->user->id,
-                'name' => $doctor->user->name,
-                'email' => $doctor->user->email,
+                'first_name' => $doctor->user->first_name,
+                'last_name' => $doctor->user->last_name,
                 'phone' => $doctor->user->phone,
                 'national_id' => $doctor->user->national_id,
             ],
@@ -164,6 +186,4 @@ class DoctorController extends Controller
             'status' => 'success',
         ], 200);
     }
-
-
 }

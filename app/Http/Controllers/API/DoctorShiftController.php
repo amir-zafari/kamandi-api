@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Shift;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class DoctorShiftController extends Controller
@@ -76,9 +78,8 @@ class DoctorShiftController extends Controller
             'shift' => $shift
         ], 201);
     }
-    public function show($doctor_id, $day)
+    public function show($doctor_id, $date)
     {
-        // اعتبارسنجی ساده
         if (!is_numeric($doctor_id) || !Doctor::find($doctor_id)) {
             return response()->json([
                 'status' => 'error',
@@ -86,14 +87,16 @@ class DoctorShiftController extends Controller
             ], 422);
         }
 
-        if (!is_numeric($day) || $day < 0 || $day > 6) {
+        if (!strtotime($date)) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Invalid day value. Must be between 0 and 6.'
+                'message' => 'Invalid date format.'
             ], 422);
         }
 
-        // جستجوی شیفت‌ها
+        // محاسبه روز هفته مطابق سیستمی که خودت ساختی
+        $day = (date('w', strtotime($date)) == 6) ? 0 : date('w', strtotime($date)) + 1;
+
         $shifts = Shift::where('doctor_id', $doctor_id)
             ->where('day', $day)
             ->get();
@@ -101,28 +104,40 @@ class DoctorShiftController extends Controller
         if ($shifts->isEmpty()) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'No shifts found for this doctor on the specified day.'
+                'message' => 'No shifts found for this doctor on this date.'
             ], 404);
         }
+
+        // نوبت‌های رزرو شده در همین تاریخ
+        $reserved = Appointment::where('doctor_id', $doctor_id)
+            ->where('date', $date)
+            ->pluck('start_time')
+            ->map(function ($time) {
+                return date('H:i', strtotime($time)); // تبدیل به فرمت اسلات‌ها
+            })
+            ->toArray();
 
         $data = [];
 
         foreach ($shifts as $shift) {
             $start = strtotime($shift->start_time);
             $end = strtotime($shift->end_time);
-            $duration_seconds = $shift->duration * 60;
-            $slots = [];
+            $duration = $shift->duration * 60;
 
-            for ($time = $start; $time + $duration_seconds <= $end; $time += $duration_seconds) {
+            $slots = [];
+            for ($time = $start; $time + $duration <= $end; $time += $duration) {
                 $slots[] = date('H:i', $time);
             }
+
+            // حذف اسلات‌های رزرو شده
+            $slots = array_values(array_diff($slots, $reserved));
 
             $data[] = [
                 'shift_id' => $shift->id,
                 'start_time' => $shift->start_time,
                 'end_time' => $shift->end_time,
                 'duration' => $shift->duration,
-                'slots' => $slots,
+                'slots' => $slots
             ];
         }
 
@@ -131,6 +146,8 @@ class DoctorShiftController extends Controller
             'shifts' => $data
         ], 200);
     }
+
+
 
     public function update(Request $request, $id)
     {

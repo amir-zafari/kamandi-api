@@ -11,75 +11,75 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    // ثبت‌نام کاربر
-    public function register(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed',
-            'national_id' => 'nullable|string|unique:users,national_id',
-            'phone' => ['required', 'regex:/^09[0-9]{9}$/', 'unique:users,phone',
-            ],
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 422);
-        }
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'phone' => $request->phone,
-            'national_id' => $request->national_id ?? null
-        ]);
-
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'Bearer',
-        ], 201);
-    }
-
-    // ورود کاربر
-    public function login(Request $request)
-    {
-        $request->validate([
-            'identifier' => 'required|string', // ایمیل یا شماره موبایل
-            'password' => 'required|string',
-        ]);
-
-        $identifier = $request->identifier;
-
-        if (filter_var($identifier, FILTER_VALIDATE_EMAIL)) {
-            $field = 'email';
-        } elseif (preg_match('/^09[0-9]{9}$/', $identifier)) {
-            $field = 'phone';
-        } else {
-            return response()->json(['message' => 'Invalid identifier format'], 422);
-        }
-
-        $user = User::where($field, $identifier)->first();
-
-        if (!$user || !Hash::check($request->password, $user->password)) {
-            return response()->json(['message' => 'Invalid login credentials'], 401);
-        }
-
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        return response()->json([
-            'access_token' => $token,
-            'token_type' => 'Bearer',
-            'user' => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'phone' => $user->phone,
-            ],
-        ]);
-    }
+//    // ثبت‌نام کاربر
+//    public function register(Request $request)
+//    {
+//        $validator = Validator::make($request->all(), [
+//            'name' => 'required|string|max:255',
+//            'email' => 'required|string|email|unique:users,email',
+//            'password' => 'required|string|min:6|confirmed',
+//            'national_id' => 'nullable|string|unique:users,national_id',
+//            'phone' => ['required', 'regex:/^09[0-9]{9}$/', 'unique:users,phone',
+//            ],
+//        ]);
+//
+//        if ($validator->fails()) {
+//            return response()->json($validator->errors(), 422);
+//        }
+//
+//        $user = User::create([
+//            'name' => $request->name,
+//            'email' => $request->email,
+//            'password' => Hash::make($request->password),
+//            'phone' => $request->phone,
+//            'national_id' => $request->national_id ?? null
+//        ]);
+//
+//        $token = $user->createToken('auth_token')->plainTextToken;
+//
+//        return response()->json([
+//            'access_token' => $token,
+//            'token_type' => 'Bearer',
+//        ], 201);
+//    }
+//
+//    // ورود کاربر
+//    public function login(Request $request)
+//    {
+//        $request->validate([
+//            'identifier' => 'required|string', // ایمیل یا شماره موبایل
+//            'password' => 'required|string',
+//        ]);
+//
+//        $identifier = $request->identifier;
+//
+//        if (filter_var($identifier, FILTER_VALIDATE_EMAIL)) {
+//            $field = 'email';
+//        } elseif (preg_match('/^09[0-9]{9}$/', $identifier)) {
+//            $field = 'phone';
+//        } else {
+//            return response()->json(['message' => 'Invalid identifier format'], 422);
+//        }
+//
+//        $user = User::where($field, $identifier)->first();
+//
+//        if (!$user || !Hash::check($request->password, $user->password)) {
+//            return response()->json(['message' => 'Invalid login credentials'], 401);
+//        }
+//
+//        $token = $user->createToken('auth_token')->plainTextToken;
+//
+//        return response()->json([
+//            'access_token' => $token,
+//            'token_type' => 'Bearer',
+//            'user' => [
+//                'id' => $user->id,
+//                'name' => $user->name,
+//                'email' => $user->email,
+//                'phone' => $user->phone,
+//            ],
+//        ]);
+//    }
 
     public function sendCode(Request $request)
     {
@@ -94,9 +94,8 @@ class AuthController extends Controller
         $user = User::firstOrCreate(
             ['phone' => $request->phone],
             [
-                'name' => null,
-                'email' => null,
-                'password' => Hash::make(uniqid()), // رمز تصادفی برای سازگاری با سیستم
+                'first_name' => "کاربر",
+                'last_name' => '',
             ]
         );
         $user->update([
@@ -141,9 +140,9 @@ class AuthController extends Controller
             'token_type' => 'Bearer',
             'user' => [
                 'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'phone' => $user->phone,
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
+                'roll' => $user->roll,
             ],
         ]);
     }

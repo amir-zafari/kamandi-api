@@ -16,14 +16,10 @@ class Appointment extends Model
         'start_time',
         'attended',
     ];
-
-    // ارتباط با دکتر
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);
     }
-
-    // ارتباط با بیمار
     public function patient()
     {
         return $this->belongsTo(Patient::class);

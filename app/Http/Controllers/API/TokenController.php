@@ -46,7 +46,7 @@ class TokenController extends Controller
         Cache::put($tokenKey, json_encode([
             'ip' => $request->ip(),
             'created_at' => now()->toDateTimeString(),
-        ]), now()->addMinutes(5)); // TTL 5 دقیقه
+        ]), 300);
 
         return response()->json([
             'status' => 'success',

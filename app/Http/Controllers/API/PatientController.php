@@ -28,67 +28,79 @@ class PatientController extends Controller
     public function store(Request $request)
     {
         $user = $request->user();
-
         if (!$user) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Unauthenticated.'
             ], 401);
         }
-
-        // 🧩 اعتبارسنجی پایه
         $validator = Validator::make($request->all(), [
-            'for_type'   => 'required|in:1,2',
-            'first_name' => 'required|string|max:255',
-            'last_name'  => 'required|string|max:255',
-            'national_id'=> 'required|string',
-            'birth_date' => 'required|date',
-            'gender'     => 'required|in:male,female',
+            'for'               => 'required|in:1,2',
+            'first_name'        => 'required|string|max:255',
+            'last_name'         => 'required|string|max:255',
+            'national_id'       => 'required|string',
+            'birth_date'        => 'required|date',
+            'gender'            => 'required|in:male,female',
+            'blood_type'        => 'nullable|string|max:3',
+            'allergies'         => 'nullable|string|max:500',
+            'chronic_diseases'  => 'nullable|string|max:500',
+            'emergency_contact' => 'nullable|string|max:500',
+            'address'           => 'nullable|string|max:500',
         ]);
-
-        // اگر for_type = 2، phone الزامی است
-        $validator->sometimes('phone', 'required|string', function ($input) {
-            return $input->for_type == 2;
-        });
-
         if ($validator->fails()) {
             return response()->json([
                 'status' => 'error',
                 'errors' => $validator->errors()
             ], 422);
         }
-        $phone = $request->for_type == 1 ? $user->phone : $request->phone;
         $patient = Patient::where('national_id', $request->national_id)->first();
         if ($patient) {
             $patient->update([
-                'for_type'   => $request->for_type,
-                'first_name' => $request->first_name,
-                'last_name'  => $request->last_name,
-                'phone'      => $phone,
-                'birth_date' => $request->birth_date,
-                'gender'     => $request->gender,
+                'first_name'        => $request->first_name,
+                'last_name'         => $request->last_name,
+                'gender'            => $request->gender,
+                'birth_date'        => $request->birth_date,
+                'blood_type'        => $request->blood_type,
+                'allergies'         => $request->allergies,
+                'chronic_diseases'  => $request->chronic_diseases,
+                'emergency_contact' => $request->emergency_contact,
+                'address'           => $request->address,
             ]);
             $action = 'updated';
         } else {
-            // ➕ اگر وجود ندارد → بساز
             $patient = Patient::create([
-                'user_id'    => $user->id,
-                'for_type'   => $request->for_type,
-                'first_name' => $request->first_name,
-                'last_name'  => $request->last_name,
-                'national_id'=> $request->national_id,
-                'phone'      => $phone,
-                'birth_date' => $request->birth_date,
-                'gender'     => $request->gender,
+                'first_name'        => $request->first_name,
+                'last_name'         => $request->last_name,
+                'national_id'       => $request->national_id,
+                'gender'            => $request->gender,
+                'birth_date'        => $request->birth_date,
+                'blood_type'        => $request->blood_type,
+                'allergies'         => $request->allergies,
+                'chronic_diseases'  => $request->chronic_diseases,
+                'emergency_contact' => $request->emergency_contact,
+                'address'           => $request->address,
             ]);
             $action = 'created';
         }
-
-        // 👤 اگر for_type = 1 → اطلاعات کاربر هم بروزرسانی شود
-        if ($request->for_type == 1) {
+        if ($request->for == 1) {
             $user->update([
-                'name'        => $request->first_name . ' ' . $request->last_name,
-                'national_id' => $request->national_id,
+                'first_name'        => $request->first_name,
+                'last_name'         => $request->last_name,
+                'national_id'       => $request->national_id,
+                'gender'            => $request->gender,
+            ]);
+        }
+
+        $alreadyExists = \DB::table('patient_user')
+            ->where('user_id', $user->id)
+            ->where('patient_id', $patient->id)
+            ->exists();
+
+        if (!$alreadyExists) {
+            \DB::table('patient_user')->insert([
+                'user_id'    => $user->id,
+                'patient_id' => $patient->id,
+                'created_at' => now(),
             ]);
         }
 
@@ -100,22 +112,48 @@ class PatientController extends Controller
     }
 
 
-    public function show($id)
+    public function show(Request $request, $id)
     {
+        $user = $request->user();
+        if (!$user) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unauthenticated.'
+            ], 401);
+        }
         $patient = Patient::find($id);
         if (!$patient) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Patient not found'
             ], 404);
+        }
+        $hasAccess = \DB::table('patient_user')
+            ->where('user_id', $user->id)
+            ->where('patient_id', $patient->id)
+            ->exists();
+
+        if (!$hasAccess) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Access denied'
+            ], 403);
         }
         return response()->json([
             'status' => 'success',
             'patient' => $patient
         ], 200);
     }
+
     public function update(Request $request, $id)
     {
+        $user = $request->user();
+        if (!$user) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unauthenticated.'
+            ], 401);
+        }
         $patient = Patient::find($id);
         if (!$patient) {
             return response()->json([
@@ -123,14 +161,29 @@ class PatientController extends Controller
                 'message' => 'Patient not found'
             ], 404);
         }
+        $hasAccess = \DB::table('patient_user')
+            ->where('user_id', $user->id)
+            ->where('patient_id', $patient->id)
+            ->exists();
 
+        if (!$hasAccess) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Access denied'
+            ], 403);
+        }
         $validator = Validator::make($request->all(), [
-            'first_name' => 'sometimes|string|max:255',
-            'last_name' => 'sometimes|string|max:255',
-            'national_id' => 'sometimes|string|unique:patients,national_id,' . $patient->id,
-            'phone' => 'sometimes|string|unique:patients,phone,' . $patient->id,
-            'birth_date' => 'sometimes|date',
-            'gender' => 'sometimes|in:male,female',
+            'first_name'        => 'sometimes|string|max:255',
+            'last_name'         => 'sometimes|string|max:255',
+            'national_id'       => 'sometimes|string|unique:patients,national_id,' . $patient->id,
+            'birth_date'        => 'sometimes|date',
+            'gender'            => 'sometimes|in:male,female',
+
+            'blood_type'        => 'sometimes|nullable|string|max:3',
+            'allergies'         => 'sometimes|nullable|string|max:500',
+            'chronic_diseases'  => 'sometimes|nullable|string|max:500',
+            'emergency_contact' => 'sometimes|nullable|string|max:500',
+            'address'           => 'sometimes|nullable|string|max:500',
         ]);
 
         if ($validator->fails()) {
@@ -139,16 +192,22 @@ class PatientController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
-
-        $patient->update($request->all());
-
+        $allowed = [
+            'first_name', 'last_name', 'national_id', 'birth_date', 'gender',
+            'blood_type', 'allergies', 'chronic_diseases',
+            'emergency_contact', 'address'
+        ];
+        $data = $request->only($allowed);
+        $patient->update($data);
         return response()->json([
             'status' => 'success',
             'patient' => $patient
         ], 200);
     }
+
     public function destroy($id)
     {
+        $user = auth()->user();
         $patient = Patient::find($id);
         if (!$patient) {
             return response()->json([
@@ -156,12 +215,97 @@ class PatientController extends Controller
                 'message' => 'Patient not found'
             ], 404);
         }
+        $isOwner = $patient->users()
+            ->where('users.id', $user->id)
+            ->exists();
+        if (!$isOwner) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'You do not have permission to delete this patient'
+            ], 403);
+        }
 
         $patient->delete();
-
         return response()->json([
             'status' => 'success',
             'message' => 'Patient deleted successfully'
         ], 200);
     }
+    public function listmypatient(Request $request)
+    {
+        $user = $request->user();
+
+        if (!$user) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'User not found or invalid token.'
+            ], 401);
+        }
+
+        $patients = $user->patients;
+
+        return response()->json([
+            'status' => 'success',
+            'patients' => $patients->map(function ($p) {
+                return [
+                    'id' => $p->id,
+                    'first_name' => $p->first_name,
+                    'last_name' => $p->last_name,
+                    'national_id' => $p->national_id,
+                    'phone' => $p->phone,
+                    'birth_date' => $p->birth_date,
+                    'gender' => $p->gender,
+                    'created_at' => $p->created_at->toDateTimeString(),
+                ];
+            })
+        ], 200);
+    }
+    public function search(Request $request)
+    {
+        $user = $request->user();
+
+        if (!$user) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unauthenticated.'
+            ], 401);
+        }
+
+        $search = $request->input('q');
+
+        if (!$search) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Search query (q) is required.'
+            ], 422);
+        }
+
+        // تعیین سطح دسترسی بر اساس نقش کاربر
+        $query = Patient::query();
+
+        if ($user->role === 'patient') {
+            // فقط بیمارانی که به کاربر patient وصل هستند
+            $patientIds = \DB::table('patient_user')
+                ->where('user_id', $user->id)
+                ->pluck('patient_id');
+
+            $query->whereIn('id', $patientIds);
+        }
+        // doctor, nurse, admin → بدون محدودیت نیازی نیست هیچ شرطی بگذاریم
+
+        // فیلتر سرچ
+        $query->where(function ($q) use ($search) {
+            $q->where('first_name', 'like', "%$search%")
+                ->orWhere('last_name', 'like', "%$search%")
+                ->orWhere('national_id', 'like', "%$search%");
+        });
+
+        $patients = $query->get();
+
+        return response()->json([
+            'status' => 'success',
+            'patients' => $patients
+        ], 200);
+    }
+
 }

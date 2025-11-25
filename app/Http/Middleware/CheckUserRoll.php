@@ -5,12 +5,12 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class CheckUserRole
+class CheckUserRoll
 {
     /**
      * Handle an incoming request.
      */
-    public function handle(Request $request, Closure $next, ...$roles)
+    public function handle(Request $request, Closure $next, ...$rolls)
     {
         $user = $request->user();
 
@@ -18,7 +18,7 @@ class CheckUserRole
             return response()->json(['message' => 'Unauthenticated.'], 401);
         }
 
-        if (!in_array($user->roll, $roles)) {
+        if (!in_array($user->roll, $rolls)) {
             return response()->json(['message' => 'Forbidden.'], 403);
         }
 

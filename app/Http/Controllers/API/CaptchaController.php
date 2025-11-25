@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Cache;
 
 class CaptchaController extends Controller
 {
-    /**
-     * تولید کپچای تصویری و ذخیره جواب در cache
-     */
     public function generate(Request $request)
     {
         // متن کپچا (5 کاراکتر تصادفی)

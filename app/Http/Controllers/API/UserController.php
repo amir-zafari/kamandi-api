@@ -12,30 +12,24 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::orderBy('id', 'desc')->get();
+        $users = User::orderBy('id', 'desc')->get(['id', 'first_name', 'last_name', 'email', 'phone','roll']);
 
         return response()->json([
             'status' => 'success',
-            'users' => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'phone' => $user->phone,
-                'roll' => $user->roll,
-                'superadmin' => $user->superadmin,
-                'national_id' => $user->national_id,
-                'created_at' => $user->created_at->toDateTimeString(),
-            ]
+            'users' => $users
         ], 200);
     }
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'name'        => 'required|string|max:255',
+            'first_name'  => 'required|string|max:255',
+            'last_name'   => 'required|string|max:255',
+            'gender'      => 'required|in:male,female',
             'email'       => 'nullable|email|unique:users,email',
             'phone'       => 'required|string|unique:users,phone',
-            'password'    => 'nullable|string|min:6',
-            'national_id' => 'nullable|string|unique:users,national_id',
+            'roll'        => 'required|in:patient,nurse,doctor,superadmin',
+            'national_id' => 'required|string|unique:users,national_id',
         ]);
 
         if ($validator->fails()) {
@@ -46,22 +40,27 @@ class UserController extends Controller
         }
 
         $user = User::create([
-            'name'        => $request->name,
+            'first_name'  => $request->first_name,
+            'last_name'   => $request->last_name,
+            'gender'       => $request->gender,
             'email'       => $request->email,
             'phone'       => $request->phone,
             'national_id' => $request->national_id,
-            'password'    => $request->password ? Hash::make($request->password) : null,
+            'roll'        => $request->roll,
         ]);
 
         return response()->json([
             'status' => 'success',
             'user'   => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'phone' => $user->phone,
-                'national_id' => $user->national_id,
-                'created_at' => $user->created_at->toDateTimeString(),
+                'id'            => $user->id,
+                'first_name'    => $user->first_name,
+                'last_name'     => $user->last_name,
+                'gender'        => $user->gender,
+                'email'         => $user->email,
+                'phone'         => $user->phone,
+                'national_id'   => $user->national_id,
+                'roll'          => $user->roll,
+                'created_at'    => $user->created_at->toDateTimeString(),
             ]
         ], 201);
     }
@@ -80,70 +79,17 @@ class UserController extends Controller
             'status' => 'success',
             'user' => [
                 'id' => $user->id,
-                'name' => $user->name,
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
                 'email' => $user->email,
                 'phone' => $user->phone,
                 'national_id' => $user->national_id,
+                'gender'       => $user->gender,
+                'roll' => $user->roll,
                 'created_at' => $user->created_at->toDateTimeString(),
             ]
         ], 200);
     }
-    public function patient_show(Request $request)
-    {
-        // 🔹 کاربر از توکن
-        $user = $request->user();
-
-        if (!$user) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'User not found or invalid token.'
-            ], 401);
-        }
-
-        // 🔹 گرفتن مدل patient مربوط به کاربر
-        $patient = $user->patient;
-
-        // اگر هنوز patient نداشت
-        if (!$patient) {
-            return response()->json([
-                'status' => 'success',
-                'user' => [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'phone' => $user->phone,
-                    'national_id' => $user->national_id,
-                    'created_at' => $user->created_at->toDateTimeString(),
-                    'patient' => null
-                ]
-            ], 200);
-        }
-
-        // 🔹 اگر patient وجود داشت، فیلدهایش را در خروجی بریز
-        return response()->json([
-            'status' => 'success',
-            'user' => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'phone' => $user->phone,
-                'national_id' => $user->national_id,
-                'created_at' => $user->created_at->toDateTimeString(),
-                'patient' => [
-                    'id' => $patient->id,
-                    'for_type' => $patient->for_type,
-                    'first_name' => $patient->first_name,
-                    'last_name' => $patient->last_name,
-                    'national_id' => $patient->national_id,
-                    'phone' => $patient->phone,
-                    'birth_date' => $patient->birth_date,
-                    'gender' => $patient->gender,
-                    'created_at' => $patient->created_at->toDateTimeString(),
-                ],
-            ]
-        ], 200);
-    }
-
     public function update(Request $request, $id)
     {
         $user = User::find($id);
@@ -156,12 +102,15 @@ class UserController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'name'        => 'nullable|string|max:255',
+            'first_name'  => 'nullable|string|max:255',
+            'last_name'   => 'nullable|string|max:255',
+            'gender'      => 'nullable|in:male,female',
             'email'       => 'nullable|email|unique:users,email,' . $id,
             'phone'       => 'nullable|string|unique:users,phone,' . $id,
-            'password'    => 'nullable|string|min:6',
+            'roll'        => 'nullable|in:patient,nurse,doctor,superadmin',
             'national_id' => 'nullable|string|unique:users,national_id,' . $id,
         ]);
+
 
         if ($validator->fails()) {
             return response()->json([
@@ -171,63 +120,27 @@ class UserController extends Controller
         }
 
         $user->update([
-            'name'        => $request->name ?? $user->name,
+            'first_name'  => $request->first_name ?? $user->first_name,
+            'last_name'   => $request->last_name ?? $user->last_name,
+            'gender'       => $request->gender ?? $user->gender,
             'email'       => $request->email ?? $user->email,
             'phone'       => $request->phone ?? $user->phone,
             'national_id' => $request->national_id ?? $user->national_id,
-            'password'    => $request->password ? Hash::make($request->password) : $user->password,
+            'roll'        => $request->roll ?? $user->roll,
         ]);
 
         return response()->json([
             'status' => 'success',
             'user' => [
                 'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'phone' => $user->phone,
+                'first_name'  => $user->first_name,
+                'last_name'   => $user->last_name,
+                'gender'      => $user->gender,
+                'email'       => $user->email,
+                'phone'       => $user->phone,
                 'national_id' => $user->national_id,
+                'roll'        => $user->roll,
                 'created_at' => $user->created_at->toDateTimeString(),
-            ]
-        ], 200);
-    }
-    public function patient_update(Request $request)
-    {
-        $user = $request->user();
-
-        if (!$user) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'User not found.'
-            ], 404);
-        }
-
-        $validator = Validator::make($request->all(), [
-            'name'        => 'nullable|string|max:255',
-            'email'       => 'nullable|email|unique:users,email,' . $user->id,
-            'password'    => 'nullable|string|min:6',
-            'national_id' => 'nullable|string|unique:users,national_id,' . $user->id,
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'status' => 'error',
-                'errors' => $validator->errors(),
-            ], 422);
-        }
-
-        $user->update([
-            'name'        => $request->name ?? $user->name,
-            'email'       => $request->email ?? $user->email,
-            'national_id' => $request->national_id ?? $user->national_id,
-            'password'    => $request->password ? Hash::make($request->password) : $user->password,
-        ]);
-
-        return response()->json([
-            'status' => 'success',
-            'user' => [
-                'name' => $user->name,
-                'email' => $user->email,
-                'national_id' => $user->national_id,
             ]
         ], 200);
     }
@@ -249,4 +162,29 @@ class UserController extends Controller
             'message' => 'User deleted successfully.'
         ], 200);
     }
+
+//---------------------------------------
+    public function profile(Request $request)
+    {
+        $user = $request->user();
+        if (!$user) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'User not found or invalid token.'
+            ], 401);
+        }
+        return response()->json([
+            'status' => 'success',
+            'user' => [
+                'id' => $user->id,
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
+                'email' => $user->email,
+                'phone' => $user->phone,
+                'national_id' => $user->national_id,
+                'created_at' => $user->created_at->toDateTimeString(),
+            ]
+        ], 200);
+    }
+
 }

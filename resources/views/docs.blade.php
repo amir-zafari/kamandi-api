@@ -53,8 +53,6 @@
                                     <span class="transform transition-transform duration-300">▸</span>
                                 </button>
                                 <ul class="ml-6 mt-2 space-y-2 text-sm hidden">
-                                    <li><a href="#login" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🔓 ورود</a></li>
-                                    <li><a href="#register" class="block hover:text-indigo-500 dark:hover:text-indigo-300">🆕 ثبت‌نام</a></li>
                                     <li><a href="#auth-send-code" class="block hover:text-indigo-500 dark:hover:text-indigo-300">📱 ارسال کد تأیید</a></li>
                                     <li><a href="#auth-verify-code" class="block hover:text-indigo-500 dark:hover:text-indigo-300">✅ تأیید کد</a></li>
                                 </ul>
@@ -203,52 +201,6 @@
     <section id="doctors" class="space-y-6">
         <h2 class="text-2xl font-semibold text-indigo-600 dark:text-indigo-300">🔐 احراز هویت</h2>
         <x-api-card
-            id="login"
-            method="POST"
-            url="/api/login"
-            title="ورود کاربر"
-            desc="ورود کاربر و دریافت توکن احراز هویت"
-            :response='json_encode([
-            "access_token" => "abcdef123456",
-            "token_type" => "Bearer"
-        ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
-            :errors='json_encode([
-            "message" => "اطلاعات ورود نامعتبر است"
-        ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
-        >
-{
-    "email": "ali@example.com",
-    "password": "12345678"
-}
-        </x-api-card>
-        <x-api-card
-            id="register"
-            method="POST"
-            url="/api/register"
-            title="ثبت‌نام کاربر"
-            desc="ایجاد کاربر جدید و دریافت توکن احراز هویت"
-            :response='json_encode([
-            "access_token" => "abcdef123456",
-            "token_type" => "Bearer"
-        ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
-            :errors='json_encode([
-            "name" => ["فیلد نام الزامی است"],
-            "email" => ["ایمیل معتبر نیست یا تکراری است"],
-            "password" => ["رمز عبور معتبر نیست یا مطابقت ندارد"],
-            "phone" => ["شماره موبایل معتبر نیست یا تکراری است"],
-            "national_id" => ["کد ملی تکراری است"]
-        ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
-        >
-{
-    "name": "Ali",
-    "email": "ali@example.com",
-    "password": "12345678",
-    "password_confirmation": "12345678",
-    "phone": "09123456789",
-    "national_id": "0012345678"
-}
-        </x-api-card>
-        <x-api-card
             id="auth-send-code"
             method="POST"
             url="/api/send-code"
@@ -297,31 +249,27 @@
             url="/api/users"
             title="دریافت لیست کاربران"
             desc="تمام کاربران ثبت‌شده در سیستم را برمی‌گرداند"
-            :response='json_encode([
-        "status" => "success",
-        "users" => [
-            [
-                "id" => 1,
-                "name" => "Ali",
-                "email" => "ali@example.com",
-                "phone" => "09123456789",
-                "roll" => 0,
-                "superadmin" => false,
-                "national_id" => "1234567890",
-                "created_at" => "2025-10-08 14:21:37"
-            ],
-            [
-                "id" => 2,
-                "name" => "Sara",
-                "email" => "sara@example.com",
-                "phone" => "09121234567",
-                "roll" => 1,
-                "superadmin" => false,
-                "national_id" => "9876543210",
-                "created_at" => "2025-10-07 10:11:25"
-            ]
-        ]
-    ], JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE)'
+            response='{
+    "status": "success",
+    "users": [
+        {
+            "id": 2,
+            "first_name": "ali",
+            "last_name": "hasani",
+            "email": null,
+            "phone": "09156585855",
+            "roll": "patient"
+        },
+        {
+            "id": 1,
+            "first_name": "ali",
+            "last_name": "hasani",
+            "email": null,
+            "phone": "09158985088",
+            "roll": "superadmin"
+        }
+    ]
+}'
             :errors='json_encode([
         "status" => "error",
         "message" => "خطا در دریافت لیست کاربران"

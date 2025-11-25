@@ -10,7 +10,6 @@ class Prescription extends Model
     use HasFactory;
 
     protected $fillable = [
-        'medical_record_id',
         'visit_id',
         'medication_name',
         'dosage',
@@ -23,8 +22,4 @@ class Prescription extends Model
         return $this->belongsTo(Visit::class);
     }
 
-    public function record()
-    {
-        return $this->belongsTo(MedicalRecord::class, 'medical_record_id');
-    }
 }

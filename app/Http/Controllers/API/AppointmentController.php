@@ -139,22 +139,46 @@ class AppointmentController extends Controller
             'appointment' => $appointment
         ], 200);
     }
-    public function show_day(Request $request)
+    public function show_patient_appointments($patient_id)
     {
-        $validator = Validator::make($request->all(), [
-            'doctor_id' => 'required|exists:doctors,id',
-            'date' => 'required|date_format:Y-m-d',
-        ]);
-        if ($validator->fails()) {
+        $appointments = Appointment::with(['doctor.user', 'patient'])
+            ->where('patient_id', $patient_id)
+            ->orderBy('date', 'desc') // اختیاری: مرتب‌سازی از جدید به قدیم
+            ->get();
+
+        if ($appointments->isEmpty()) {
             return response()->json([
                 'status' => 'error',
-                'errors' => $validator->errors()
+                'message' => 'No appointments found for this patient.'
+            ], 404);
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'appointments' => $appointments
+        ], 200);
+    }
+
+    public function show_day($doctor_id, $date)
+    {
+        // ولیدیشن دستی
+        if (!is_numeric($doctor_id) || !Doctor::find($doctor_id)) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Invalid doctor ID.'
+            ], 422);
+        }
+
+        if (!strtotime($date)) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Invalid date format. Use Y-m-d.'
             ], 422);
         }
 
         $appointments = Appointment::with(['doctor.user', 'patient'])
-            ->where('doctor_id', $request->doctor_id)
-            ->where('date', $request->date)
+            ->where('doctor_id', $doctor_id)
+            ->where('date', $date)
             ->orderBy('start_time')
             ->get();
 
@@ -166,13 +190,12 @@ class AppointmentController extends Controller
         }
 
         return response()->json([
-            'status' => 'success',
-            'doctor_id' => $request->doctor_id,
-            'date' => $request->date,
+            'status'       => 'success',
+            'doctor_id'    => $doctor_id,
+            'date'         => $date,
             'appointments' => $appointments
         ], 200);
     }
-
 
     public function update(Request $request, $id)
     {
@@ -206,7 +229,6 @@ class AppointmentController extends Controller
         ], 200);
     }
 
-    // 🗑 حذف نوبت
     public function destroy($id)
     {
         $appointment = Appointment::find($id);

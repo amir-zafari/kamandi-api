@@ -18,6 +18,12 @@ return new class extends Migration
             $table->date('date')->comment('تاریخ نوبت');
             $table->time('start_time')->comment('ساعت شروع نوبت');
             $table->boolean('attended')->default(false)->comment('آیا بیمار حضور پیدا کرده یا نه');
+
+            $table->unsignedTinyInteger('payment_method')->default(1)->comment('روش پرداخت');
+            $table->string('transaction_id')->nullable()->comment('شناسه تراکنش');
+            $table->longText('payment_info')->nullable()->comment('اطلاعات پرداخت');
+            $table->string('customer_ip', 15)->nullable()->comment('IP مشتری');
+            $table->string('customer_user_agent', 1000)->nullable()->comment('مشخصات دستگاه مشتری');
             $table->timestamps();
         });
 
