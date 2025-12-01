@@ -2,20 +2,39 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Appointment;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class PatientController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $patients = Patient::all();
+        $user = $request->user();
+
+        // بیماران مربوط به کاربر + نوبت‌هایی با وضعیت‌های خاص
+        $patients = $user->patient()
+            ->with('specialAppointment')
+            ->get()
+            ->map(function ($patient) {
+                return [
+                    'id' => $patient->id,
+                    'first_name' => $patient->first_name,
+                    'last_name' => $patient->last_name,
+                    'national_id' => $patient->national_id,
+
+                    'appointment_date' => $patient->specialAppointment->date ?? null,
+                    'appointment_status' => $patient->specialAppointment->status ?? null,
+                ];
+            });
+
         return response()->json([
             'status' => 'success',
             'patients' => $patients
         ], 200);
     }
+
     public function patient_index(Request $request)
     {
         $user = $request->user();

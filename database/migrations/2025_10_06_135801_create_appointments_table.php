@@ -18,7 +18,11 @@ return new class extends Migration
             $table->date('date')->comment('تاریخ نوبت');
             $table->time('start_time')->comment('ساعت شروع نوبت');
             $table->boolean('attended')->default(false)->comment('آیا بیمار حضور پیدا کرده یا نه');
+            $table->enum('appointment_type', ['online', 'phone', 'in_person', 'referral'])->default('online')->comment('نوع نوبت: اینترنتی، تلفنی، حضوری، معرفی');
+            $table->enum('service_type', ['doctor', 'injection'])->default('doctor')->comment('نوع خدمت: دکتر یا تزریقات');
+            $table->enum('status',['waiting','canceled','visited','no_show'])->default('no_show')->comment('وضعیت نوبت');
 
+            $table->enum('payment_status',['paid','pending','unpaid'])->default('unpaid')->comment('وضعیت پرداخت');
             $table->unsignedTinyInteger('payment_method')->default(1)->comment('روش پرداخت');
             $table->string('transaction_id')->nullable()->comment('شناسه تراکنش');
             $table->longText('payment_info')->nullable()->comment('اطلاعات پرداخت');
@@ -26,7 +30,6 @@ return new class extends Migration
             $table->string('customer_user_agent', 1000)->nullable()->comment('مشخصات دستگاه مشتری');
             $table->timestamps();
         });
-
     }
 
     /**

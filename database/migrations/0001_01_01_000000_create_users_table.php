@@ -17,10 +17,11 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique()->nullable();
-            $table->string('phone')->unique();
+            $table->string('mobile')->unique();
             $table->string('national_id')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->enum('roll', ['patient', 'nurse','doctor','superadmin'])->default('patient');
+            $table->string('password')->nullable();
             $table->string('code')->nullable();
             $table->timestamp('code_expires_at')->nullable();
 

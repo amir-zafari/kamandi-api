@@ -13,20 +13,25 @@ class AppointmentController extends Controller
 {
     public function index()
     {
-        $appointments = Appointment::with(['doctor.user', 'patient'])->orderBy('date')->get();
+        $appointments = Appointment::with(['doctor.user', 'patient'])
+            ->orderBy('date')
+            ->get();
 
         return response()->json([
             'status' => 'success',
             'appointments' => $appointments
         ], 200);
     }
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'doctor_id' => 'required|exists:doctors,id',
             'patient_id' => 'required|exists:patients,id',
             'date' => 'required|date_format:Y-m-d',
-            'start_time' => ['required', 'regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/'], // HH:MM
+            'start_time' => ['required', 'regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/'],
+            'appointment_type' => 'sometimes|in:online,phone,in_person,referral',
+            'service_type' => 'sometimes|in:doctor,injection',
         ]);
 
         if ($validator->fails()) {
@@ -42,8 +47,7 @@ class AppointmentController extends Controller
         $start_time = $request->start_time;
 
         // 🗓 گرفتن شماره روز هفته (0 تا 6)
-        $dayIndex = ($day = date('w', strtotime($date))) == 6 ? 0 : $day + 1;
-
+        $dayIndex = (date('w', strtotime($date)) == 6) ? 0 : date('w', strtotime($date)) + 1;
 
         // 🔍 بررسی اینکه دکتر در آن روز شیفت دارد یا نه
         $shift = \App\Models\Shift::where('doctor_id', $doctor_id)
@@ -65,12 +69,12 @@ class AppointmentController extends Controller
             ], 400);
         }
 
-        // ⏳ بررسی اینکه ساعت دقیق نوبت داخل یکی از اسلات‌های شیفت هست
+        // ⏳ بررسی اسلات‌های موجود
         $start = strtotime($shift->start_time);
         $end = strtotime($shift->end_time);
         $duration = $shift->duration * 60;
-
         $validSlots = [];
+
         for ($time = $start; $time + $duration <= $end; $time += $duration) {
             $validSlots[] = date('H:i', $time);
         }
@@ -82,39 +86,31 @@ class AppointmentController extends Controller
             ], 400);
         }
 
-        // 👤 بررسی اینکه بیمار در این روز نوبت دیگری ندارد
-        $hasPatientConflict = \App\Models\Appointment::where('patient_id', $patient_id)
-            ->where('date', $date)
-            ->exists();
-
-        if ($hasPatientConflict) {
+        // 👤 بررسی تداخل بیمار
+        if (Appointment::where('patient_id', $patient_id)->where('date', $date)->exists()) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Patient already has an appointment on this date.'
             ], 409);
         }
 
-        // 🩺 بررسی اینکه دکتر در این ساعت نوبت دیگری ندارد
-        $hasDoctorConflict = \App\Models\Appointment::where('doctor_id', $doctor_id)
-            ->where('date', $date)
-            ->where('start_time', $start_time)
-            ->exists();
-
-        if ($hasDoctorConflict) {
+        // 🩺 بررسی تداخل دکتر
+        if (Appointment::where('doctor_id', $doctor_id)->where('date', $date)->where('start_time', $start_time)->exists()) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Doctor already has an appointment at this time.'
             ], 409);
         }
 
-        // ✅ در صورت بدون تداخل، نوبت ذخیره می‌شود
-        $appointment = \App\Models\Appointment::create([
+        // ✅ ذخیره نوبت
+        $appointment = Appointment::create([
             'doctor_id' => $doctor_id,
             'patient_id' => $patient_id,
             'date' => $date,
             'start_time' => $start_time,
-            'end_time' => date('H:i', strtotime($start_time) + $duration), // محاسبه خودکار پایان
             'attended' => false,
+            'appointment_type' => $request->appointment_type ?? 'online',
+            'service_type' => $request->service_type ?? 'doctor',
         ]);
 
         return response()->json([
@@ -123,6 +119,7 @@ class AppointmentController extends Controller
             'appointment' => $appointment
         ], 201);
     }
+
     public function show($id)
     {
         $appointment = Appointment::with(['doctor.user', 'patient'])->find($id);
@@ -139,11 +136,12 @@ class AppointmentController extends Controller
             'appointment' => $appointment
         ], 200);
     }
+
     public function show_patient_appointments($patient_id)
     {
         $appointments = Appointment::with(['doctor.user', 'patient'])
             ->where('patient_id', $patient_id)
-            ->orderBy('date', 'desc') // اختیاری: مرتب‌سازی از جدید به قدیم
+            ->orderBy('date', 'desc')
             ->get();
 
         if ($appointments->isEmpty()) {
@@ -161,7 +159,6 @@ class AppointmentController extends Controller
 
     public function show_day($doctor_id, $date)
     {
-        // ولیدیشن دستی
         if (!is_numeric($doctor_id) || !Doctor::find($doctor_id)) {
             return response()->json([
                 'status' => 'error',
@@ -190,9 +187,9 @@ class AppointmentController extends Controller
         }
 
         return response()->json([
-            'status'       => 'success',
-            'doctor_id'    => $doctor_id,
-            'date'         => $date,
+            'status' => 'success',
+            'doctor_id' => $doctor_id,
+            'date' => $date,
             'appointments' => $appointments
         ], 200);
     }
@@ -209,9 +206,10 @@ class AppointmentController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'start_time' => 'sometimes',
-            'end_time' => 'sometimes|after:start_time',
+            'start_time' => 'sometimes|regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/',
             'attended' => 'sometimes|boolean',
+            'appointment_type' => 'sometimes|in:online,phone,in_person,referral',
+            'service_type' => 'sometimes|in:doctor,injection',
         ]);
 
         if ($validator->fails()) {
@@ -225,6 +223,34 @@ class AppointmentController extends Controller
 
         return response()->json([
             'status' => 'success',
+            'appointment' => $appointment
+        ], 200);
+    }
+    public function toggleAttended($id)
+    {
+        $appointment = Appointment::find($id);
+
+        if (!$appointment) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Appointment not found.'
+            ], 404);
+        }
+
+        if ($appointment->attended == 1) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Attended is already set to 1.',
+                'appointment' => $appointment
+            ], 200);
+        }
+
+        $appointment->attended = 1;
+        $appointment->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Attended updated to 1.',
             'appointment' => $appointment
         ], 200);
     }

@@ -17,16 +17,18 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'email',
-        'phone',
+        'mobile',
         'national_id',
         'gender',
         'roll',
+        'password',
         'code',
         'code_expires_at'
     ];
 
     protected $hidden = [
 //        'code',
+        'password',
         'code_expires_at'
     ];
 
@@ -35,7 +37,7 @@ class User extends Authenticatable
     {
         return $this->hasOne(Doctor::class);
     }
-    public function patients()
+    public function patient()
     {
         return $this->belongsToMany(Patient::class, 'patient_user');
     }

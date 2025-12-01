@@ -29,7 +29,7 @@ class Patient extends Model
 
     public function medicaldocuments()
     {
-        return $this->hasMany(MedicalDocument::class);
+        return $this->hasMany(CaseMedical::class);
     }
     public function visits()
     {
@@ -38,5 +38,10 @@ class Patient extends Model
     public function appointments()
     {
         return $this->hasMany(Appointment::class);
+    }
+    public function specialAppointment()
+    {
+        return $this->hasOne(Appointment::class)
+            ->whereIn('status', ['no_show', 'waiting']);
     }
 }

@@ -15,7 +15,17 @@ class Appointment extends Model
         'date',
         'start_time',
         'attended',
+        'appointment_type',
+        'service_type',
+        'status',
+        'payment_status',
+        'payment_method',
+        'transaction_id',
+        'payment_info',
+        'customer_ip',
+        'customer_user_agent',
     ];
+
     public function doctor()
     {
         return $this->belongsTo(Doctor::class);

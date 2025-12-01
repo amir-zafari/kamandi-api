@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::orderBy('id', 'desc')->get(['id', 'first_name', 'last_name', 'email', 'phone','roll']);
+        $users = User::orderBy('id', 'desc')->get(['id', 'first_name', 'last_name', 'email', 'mobile','roll']);
 
         return response()->json([
             'status' => 'success',
@@ -27,7 +27,8 @@ class UserController extends Controller
             'last_name'   => 'required|string|max:255',
             'gender'      => 'required|in:male,female',
             'email'       => 'nullable|email|unique:users,email',
-            'phone'       => 'required|string|unique:users,phone',
+            'password'    => 'nullable|string|min:6',
+            'mobile'       => 'required|string|unique:users,mobile',
             'roll'        => 'required|in:patient,nurse,doctor,superadmin',
             'national_id' => 'required|string|unique:users,national_id',
         ]);
@@ -42,11 +43,12 @@ class UserController extends Controller
         $user = User::create([
             'first_name'  => $request->first_name,
             'last_name'   => $request->last_name,
-            'gender'       => $request->gender,
+            'gender'      => $request->gender,
             'email'       => $request->email,
-            'phone'       => $request->phone,
+            'mobile'       => $request->mobile,
             'national_id' => $request->national_id,
             'roll'        => $request->roll,
+            'password'    => bcrypt($request->password), // افزودن پسورد هش‌شده
         ]);
 
         return response()->json([
@@ -57,13 +59,14 @@ class UserController extends Controller
                 'last_name'     => $user->last_name,
                 'gender'        => $user->gender,
                 'email'         => $user->email,
-                'phone'         => $user->phone,
+                'mobile'         => $user->mobile,
                 'national_id'   => $user->national_id,
                 'roll'          => $user->roll,
                 'created_at'    => $user->created_at->toDateTimeString(),
             ]
         ], 201);
     }
+
     public function show($id)
     {
         $user = User::find($id);
@@ -82,7 +85,7 @@ class UserController extends Controller
                 'first_name' => $user->first_name,
                 'last_name' => $user->last_name,
                 'email' => $user->email,
-                'phone' => $user->phone,
+                'mobile' => $user->mobile,
                 'national_id' => $user->national_id,
                 'gender'       => $user->gender,
                 'roll' => $user->roll,
@@ -106,11 +109,11 @@ class UserController extends Controller
             'last_name'   => 'nullable|string|max:255',
             'gender'      => 'nullable|in:male,female',
             'email'       => 'nullable|email|unique:users,email,' . $id,
-            'phone'       => 'nullable|string|unique:users,phone,' . $id,
+            'mobile'       => 'nullable|string|unique:users,mobile,' . $id,
             'roll'        => 'nullable|in:patient,nurse,doctor,superadmin',
             'national_id' => 'nullable|string|unique:users,national_id,' . $id,
+            'password'    => 'nullable|string|min:6',
         ]);
-
 
         if ($validator->fails()) {
             return response()->json([
@@ -119,31 +122,39 @@ class UserController extends Controller
             ], 422);
         }
 
-        $user->update([
+        $data = [
             'first_name'  => $request->first_name ?? $user->first_name,
             'last_name'   => $request->last_name ?? $user->last_name,
-            'gender'       => $request->gender ?? $user->gender,
+            'gender'      => $request->gender ?? $user->gender,
             'email'       => $request->email ?? $user->email,
-            'phone'       => $request->phone ?? $user->phone,
+            'mobile'       => $request->mobile ?? $user->mobile,
             'national_id' => $request->national_id ?? $user->national_id,
             'roll'        => $request->roll ?? $user->roll,
-        ]);
+        ];
+
+        // اگر پسورد ارسال شد آن را هش کن
+        if ($request->filled('password')) {
+            $data['password'] = bcrypt($request->password);
+        }
+
+        $user->update($data);
 
         return response()->json([
             'status' => 'success',
             'user' => [
-                'id' => $user->id,
+                'id'          => $user->id,
                 'first_name'  => $user->first_name,
                 'last_name'   => $user->last_name,
                 'gender'      => $user->gender,
                 'email'       => $user->email,
-                'phone'       => $user->phone,
+                'mobile'       => $user->mobile,
                 'national_id' => $user->national_id,
                 'roll'        => $user->roll,
-                'created_at' => $user->created_at->toDateTimeString(),
+                'created_at'  => $user->created_at->toDateTimeString(),
             ]
         ], 200);
     }
+
     public function destroy($id)
     {
         $user = User::find($id);
@@ -180,11 +191,10 @@ class UserController extends Controller
                 'first_name' => $user->first_name,
                 'last_name' => $user->last_name,
                 'email' => $user->email,
-                'phone' => $user->phone,
+                'mobile' => $user->mobile,
                 'national_id' => $user->national_id,
                 'created_at' => $user->created_at->toDateTimeString(),
             ]
         ], 200);
     }
-
 }

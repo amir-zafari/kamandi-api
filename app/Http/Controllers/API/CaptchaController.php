@@ -15,16 +15,13 @@ class CaptchaController extends Controller
         $text = strtoupper(substr(str_shuffle('ABCDEFGHJKLMNPQRSTUVWXYZ23456789'), 0, 5));
         $captchaId = (string) Str::uuid();
 
-        // تصویر 200x70
-        $width = 200;
-        $height = 70;
+        // تصویر 150x60
+        $width = 150;
+        $height = 60;
         $img = imagecreatetruecolor($width, $height);
 
-        // رنگ‌ها
+        // رنگ پس‌زمینه
         $bgColor = imagecolorallocate($img, 240, 240, 240);
-        $textColor = imagecolorallocate($img, 30, 30, 30);
-
-        // پس‌زمینه
         imagefilledrectangle($img, 0, 0, $width, $height, $bgColor);
 
         // نویز: خطوط
@@ -40,21 +37,48 @@ class CaptchaController extends Controller
         }
 
         // نوشتن متن روی تصویر
-        $fontPath = base_path('resources/fonts/Roboto-Bold.ttf'); // اگر فونت داری
-        $fontSize = 28;
+        $fontPath = base_path('resources/fonts/Roboto-Bold.ttf');
+        $fontSize = 22;
 
         if (file_exists($fontPath)) {
-            // چرخش هر کاراکتر به صورت تصادفی
-            $x = 20;
-            $y = 50;
+
+            $x = 15;
+            $y = 45;
+
             for ($i = 0; $i < strlen($text); $i++) {
+
+                // رنگ تصادفی برای هر حرف
+                $charColor = imagecolorallocate(
+                    $img,
+                    rand(0, 150),
+                    rand(0, 150),
+                    rand(0, 150)
+                );
+
                 $angle = rand(-20, 20);
-                imagettftext($img, $fontSize, $angle, $x, $y, $textColor, $fontPath, $text[$i]);
-                $x += 30; // فاصله بین حروف
+
+                imagettftext(
+                    $img,
+                    $fontSize,
+                    $angle,
+                    $x,
+                    $y,
+                    $charColor,
+                    $fontPath,
+                    $text[$i]
+                );
+
+                $x += 28; // فاصله بین حروف
             }
+
         } else {
-            // fallback ساده
-            imagestring($img, 5, 50, 20, $text, $textColor);
+            // اگر فونت نبود (Fallback)
+            $x = 20;
+            for ($i = 0; $i < strlen($text); $i++) {
+                $charColor = imagecolorallocate($img, rand(0,150), rand(0,150), rand(0,150));
+                imagestring($img, 5, $x, 20, $text[$i], $charColor);
+                $x += 20;
+            }
         }
 
         // خروجی base64
@@ -65,7 +89,7 @@ class CaptchaController extends Controller
 
         $base64 = 'data:image/png;base64,' . base64_encode($imageData);
 
-        // ذخیره جواب در Redis یا Cache
+        // ذخیره کپچا
         Cache::put("captcha:$captchaId", $text, now()->addMinutes(2));
 
         return response()->json([

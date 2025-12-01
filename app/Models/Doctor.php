@@ -25,7 +25,7 @@ class Doctor extends Model
     }
     public function medicaldocuments()
     {
-        return $this->hasMany(MedicalDocument::class);
+        return $this->hasMany(CaseMedical::class);
     }
     public function visits()
     {

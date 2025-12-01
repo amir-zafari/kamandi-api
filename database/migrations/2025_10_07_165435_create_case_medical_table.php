@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('medical_documents', function (Blueprint $table) {
+        Schema::create('case_medicals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('doctor_id')->constrained('doctors')->onDelete('cascade');
             $table->foreignId('patient_id')->constrained('patients')->onDelete('cascade');
-            $table->date('document_date')->comment('تاریخ ازمایش');
-            $table->string('document_type')->comment('نوع آزمایش');
+            $table->string('title')->comment("عنوان ریز پرونده");
+            $table->date('case_date')->comment('تاریخ ریز پرونده');
+            $table->string('case_type')->comment('نوع ریز پرونده');
             $table->string('file_path')->nullable()->comment('مسیر فایل');
-            $table->text('notes')->nullable()->comment('یادداشت آزمایش');
+            $table->text('notes')->nullable()->comment('یادداشت زیر پرونده');
+            $table->boolean('pin')->default(false)->comment('پین');
             $table->timestamps();
         });
     }

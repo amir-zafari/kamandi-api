@@ -5,86 +5,77 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-//    // ثبت‌نام کاربر
-//    public function register(Request $request)
-//    {
-//        $validator = Validator::make($request->all(), [
-//            'name' => 'required|string|max:255',
-//            'email' => 'required|string|email|unique:users,email',
-//            'password' => 'required|string|min:6|confirmed',
-//            'national_id' => 'nullable|string|unique:users,national_id',
-//            'phone' => ['required', 'regex:/^09[0-9]{9}$/', 'unique:users,phone',
-//            ],
-//        ]);
-//
-//        if ($validator->fails()) {
-//            return response()->json($validator->errors(), 422);
-//        }
-//
-//        $user = User::create([
-//            'name' => $request->name,
-//            'email' => $request->email,
-//            'password' => Hash::make($request->password),
-//            'phone' => $request->phone,
-//            'national_id' => $request->national_id ?? null
-//        ]);
-//
-//        $token = $user->createToken('auth_token')->plainTextToken;
-//
-//        return response()->json([
-//            'access_token' => $token,
-//            'token_type' => 'Bearer',
-//        ], 201);
-//    }
-//
-//    // ورود کاربر
-//    public function login(Request $request)
-//    {
-//        $request->validate([
-//            'identifier' => 'required|string', // ایمیل یا شماره موبایل
-//            'password' => 'required|string',
-//        ]);
-//
-//        $identifier = $request->identifier;
-//
-//        if (filter_var($identifier, FILTER_VALIDATE_EMAIL)) {
-//            $field = 'email';
-//        } elseif (preg_match('/^09[0-9]{9}$/', $identifier)) {
-//            $field = 'phone';
-//        } else {
-//            return response()->json(['message' => 'Invalid identifier format'], 422);
-//        }
-//
-//        $user = User::where($field, $identifier)->first();
-//
-//        if (!$user || !Hash::check($request->password, $user->password)) {
-//            return response()->json(['message' => 'Invalid login credentials'], 401);
-//        }
-//
-//        $token = $user->createToken('auth_token')->plainTextToken;
-//
-//        return response()->json([
-//            'access_token' => $token,
-//            'token_type' => 'Bearer',
-//            'user' => [
-//                'id' => $user->id,
-//                'name' => $user->name,
-//                'email' => $user->email,
-//                'phone' => $user->phone,
-//            ],
-//        ]);
-//    }
+    // ورود کاربر
+    public function login(Request $request)
+    {
+        $request->validate([
+            'mobile' => 'required|string', // ایمیل یا شماره موبایل
+            'password' => 'required|string',
+            'captcha_id' => 'required|string',
+            'answer' => 'required|string',
+        ]);
 
-    public function sendCode(Request $request)
+        $key = "captcha:" . $request->captcha_id;
+        $storedCaptcha = Cache::get($key);
+
+        if (!$storedCaptcha) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Captcha expired'
+            ], 400);
+        }
+        if (strtoupper($request->answer) !== strtoupper($storedCaptcha)) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Invalid captcha'
+            ], 400);
+        }
+
+        // حذف کپچا پس از تأیید
+        Cache::forget($key);
+
+        $identifier = $request->mobile;
+
+        if (filter_var($identifier, FILTER_VALIDATE_EMAIL)) {
+            $field = 'email';
+        } elseif (preg_match('/^09[0-9]{9}$/', $identifier)) {
+            $field = 'mobile';
+        } else {
+            return response()->json(['message' => 'Invalid identifier format'], 422);
+        }
+
+        $user = User::where($field, $identifier)->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response()->json(['message' => 'Invalid login credentials'], 401);
+        }
+
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'user' => [
+                'id' => $user->id,
+                'first_name' => $user->first_name,
+                'last_name' => $user->last_name,
+                'roll' => $user->roll,
+                'mobile' => $user->mobile,
+            ],
+        ]);
+    }
+
+    public function sendOTP(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'phone' => ['required', 'regex:/^09[0-9]{9}$/'],
+            'mobile' => ['required', 'regex:/^09[0-9]{9}$/'],
         ]);
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
@@ -92,7 +83,7 @@ class AuthController extends Controller
         $code = rand(100000, 999999);
         $expiresAt = Carbon::now()->addMinutes(5);
         $user = User::firstOrCreate(
-            ['phone' => $request->phone],
+            ['mobile' => $request->mobile],
             [
                 'first_name' => "کاربر",
                 'last_name' => '',
@@ -104,23 +95,23 @@ class AuthController extends Controller
         ]);
         return response()->json([
             'message' => 'کد تأیید ارسال شد',
-            'code_for_test' => $code, // برای تست فقط
+            'otp' => $code,
         ]);
     }
-    public function verifyCode(Request $request)
+    public function verifyOTP(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'phone' => ['required', 'regex:/^09[0-9]{9}$/'],
-            'code' => 'required|digits:6',
+            'mobile' => ['required', 'regex:/^09[0-9]{9}$/'],
+            'otp' => 'required|digits:6',
         ]);
 
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
 
-        $user = User::where('phone', $request->phone)->first();
+        $user = User::where('mobile', $request->mobile)->first();
 
-        if (!$user || $user->code != $request->code) {
+        if (!$user || $user->otp != $request->code) {
             return response()->json(['message' => 'Invalid verification code'], 400);
         }
 
@@ -146,4 +137,23 @@ class AuthController extends Controller
             ],
         ]);
     }
+    public function logout(Request $request)
+    {
+        // حذف توکن فعلی
+        $request->user()->currentAccessToken()->delete();
+
+        return response()->json([
+            'message' => 'Logged out successfully.'
+        ], 200);
+    }
+
+    public function logoutAll(Request $request)
+    {
+        $request->user()->tokens()->delete();
+
+        return response()->json([
+            'message' => 'Logged out from all devices.'
+        ], 200);
+    }
+
 }
