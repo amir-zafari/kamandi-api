@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Cache;
 
 class CaptchaController extends Controller
 {
+    /**
+     * Captcha generate
+     * @unauthenticated
+     * @group Authentication
+     */
     public function generate(Request $request)
     {
         // متن کپچا (5 کاراکتر تصادفی)

@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Validator;
 
 class PatientController extends Controller
 {
+    /**
+     * List all patients with special appointments
+     * @authenticated
+     * @group Patients
+     */
     public function index(Request $request)
     {
         $user = $request->user();
@@ -34,7 +39,11 @@ class PatientController extends Controller
             'patients' => $patients
         ], 200);
     }
-
+    /**
+     * List all patients related to the user
+     * @authenticated
+     * @group Patients
+     */
     public function patient_index(Request $request)
     {
         $user = $request->user();
@@ -44,6 +53,12 @@ class PatientController extends Controller
             'patients' => $patients
         ], 200);
     }
+
+    /**
+     * Create or update a patient
+     * @authenticated
+     * @group Patients
+     */
     public function store(Request $request)
     {
         $user = $request->user();
@@ -130,7 +145,11 @@ class PatientController extends Controller
         ], $action === 'created' ? 201 : 200);
     }
 
-
+    /**
+     * Show patient details
+     * @authenticated
+     * @group Patients
+     */
     public function show(Request $request, $id)
     {
         $user = $request->user();
@@ -163,7 +182,11 @@ class PatientController extends Controller
             'patient' => $patient
         ], 200);
     }
-
+    /**
+     * Update patient information
+     * @authenticated
+     * @group Patients
+     */
     public function update(Request $request, $id)
     {
         $user = $request->user();
@@ -223,7 +246,11 @@ class PatientController extends Controller
             'patient' => $patient
         ], 200);
     }
-
+    /**
+     * Delete a patient
+     * @authenticated
+     * @group Patients
+     */
     public function destroy($id)
     {
         $user = auth()->user();
@@ -250,6 +277,11 @@ class PatientController extends Controller
             'message' => 'Patient deleted successfully'
         ], 200);
     }
+    /**
+     * List the logged-in user's patients
+     * @authenticated
+     * @group Patients
+     */
     public function listmypatient(Request $request)
     {
         $user = $request->user();
@@ -279,6 +311,11 @@ class PatientController extends Controller
             })
         ], 200);
     }
+    /**
+     * Search patients
+     * @authenticated
+     * @group Patients
+     */
     public function search(Request $request)
     {
         $user = $request->user();

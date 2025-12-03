@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Validator;
 
 class DoctorShiftController extends Controller
 {
-
+    /**
+     * List all shifts for a doctor
+     * @authenticated
+     * @group Doctor Shifts
+     */
     public function index($doctor_id)
     {
         $doctor = Doctor::find($doctor_id);
@@ -45,6 +49,11 @@ class DoctorShiftController extends Controller
             'shifts' => $data
         ], 200);
     }
+    /**
+     * Create a new shift for a doctor
+     * @authenticated
+     * @group Doctor Shifts
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -78,6 +87,11 @@ class DoctorShiftController extends Controller
             'shift' => $shift
         ], 201);
     }
+    /**
+     * Show available slots for a doctor on a specific date
+     * @authenticated
+     * @group Doctor Shifts
+     */
     public function show($doctor_id, $date)
     {
         if (!is_numeric($doctor_id) || !Doctor::find($doctor_id)) {
@@ -146,9 +160,11 @@ class DoctorShiftController extends Controller
             'shifts' => $data
         ], 200);
     }
-
-
-
+    /**
+     * Update a doctor's shift
+     * @authenticated
+     * @group Doctor Shifts
+     */
     public function update(Request $request, $id)
     {
         $shift = Shift::find($id);
@@ -189,6 +205,11 @@ class DoctorShiftController extends Controller
             'shift' => $shift
         ], 200);
     }
+    /**
+     * Delete a doctor's shift
+     * @authenticated
+     * @group Doctor Shifts
+     */
     public function destroy($id)
     {
         $shift = Shift::find($id);

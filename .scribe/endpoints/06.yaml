@@ -1,0 +1,1180 @@
+name: Appointments
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/appointments
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all appointments'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/appointments
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new appointment'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      doctor_id:
+        custom: []
+        name: doctor_id
+        description: 'The <code>id</code> of an existing record in the doctors table.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      patient_id:
+        custom: []
+        name: patient_id
+        description: 'The <code>id</code> of an existing record in the patients table.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: true
+        example: '2025-12-03'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      start_time:
+        custom: []
+        name: start_time
+        description: 'Must match the regex /^(?:[01]\d.'
+        required: true
+        example: '(:05'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      appointment_type:
+        custom: []
+        name: appointment_type
+        description: ''
+        required: false
+        example: in_person
+        type: string
+        enumValues:
+          - online
+          - phone
+          - in_person
+          - referral
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      service_type:
+        custom: []
+        name: service_type
+        description: ''
+        required: false
+        example: doctor
+        type: string
+        enumValues:
+          - doctor
+          - injection
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: false
+        example: visited
+        type: string
+        enumValues:
+          - waiting
+          - canceled
+          - visited
+          - no_show
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      payment_status:
+        custom: []
+        name: payment_status
+        description: ''
+        required: false
+        example: pending
+        type: string
+        enumValues:
+          - paid
+          - pending
+          - unpaid
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      payment_method:
+        custom: []
+        name: payment_method
+        description: 'Must be at least 1.'
+        required: false
+        example: 56
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      transaction_id:
+        custom: []
+        name: transaction_id
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      payment_info:
+        custom: []
+        name: payment_info
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      customer_ip:
+        custom: []
+        name: customer_ip
+        description: 'Must be a valid IP address.'
+        required: false
+        example: 64.52.10.134
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      customer_user_agent:
+        custom: []
+        name: customer_user_agent
+        description: 'Must not be greater than 1000 characters.'
+        required: false
+        example: qeopfuudtdsufvyvddqam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      doctor_id: consequatur
+      patient_id: consequatur
+      date: '2025-12-03'
+      start_time: '(:05'
+      appointment_type: in_person
+      service_type: doctor
+      status: visited
+      payment_status: pending
+      payment_method: 56
+      transaction_id: consequatur
+      payment_info: consequatur
+      customer_ip: 64.52.10.134
+      customer_user_agent: qeopfuudtdsufvyvddqam
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/appointments/{doctor_id}/{date}'
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all appointments for a doctor on a specific date'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      doctor_id:
+        custom: []
+        name: doctor_id
+        description: 'The ID of the doctor.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      doctor_id: consequatur
+      date: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/appointments/{id}'
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show a specific appointment'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the appointment.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/appointments/{id}'
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update an appointment'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the appointment.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      start_time:
+        custom: []
+        name: start_time
+        description: 'Must match the regex /^(?:[01]\d.'
+        required: false
+        example: '(:05'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      attended:
+        custom: []
+        name: attended
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      appointment_type:
+        custom: []
+        name: appointment_type
+        description: ''
+        required: false
+        example: online
+        type: string
+        enumValues:
+          - online
+          - phone
+          - in_person
+          - referral
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      service_type:
+        custom: []
+        name: service_type
+        description: ''
+        required: false
+        example: doctor
+        type: string
+        enumValues:
+          - doctor
+          - injection
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: false
+        example: waiting
+        type: string
+        enumValues:
+          - waiting
+          - canceled
+          - visited
+          - no_show
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      payment_status:
+        custom: []
+        name: payment_status
+        description: ''
+        required: false
+        example: paid
+        type: string
+        enumValues:
+          - paid
+          - pending
+          - unpaid
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      payment_method:
+        custom: []
+        name: payment_method
+        description: 'Must be at least 1.'
+        required: false
+        example: 56
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      transaction_id:
+        custom: []
+        name: transaction_id
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      payment_info:
+        custom: []
+        name: payment_info
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      start_time: '(:05'
+      attended: true
+      appointment_type: online
+      service_type: doctor
+      status: waiting
+      payment_status: paid
+      payment_method: 56
+      transaction_id: consequatur
+      payment_info: consequatur
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PATCH
+    uri: 'api/appointments/attended/{id}'
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Mark an appointment as attended'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the attended.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/appointments/{id}'
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete an appointment'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the appointment.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/patient/appointments
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new appointment'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      doctor_id:
+        custom: []
+        name: doctor_id
+        description: 'The <code>id</code> of an existing record in the doctors table.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      patient_id:
+        custom: []
+        name: patient_id
+        description: 'The <code>id</code> of an existing record in the patients table.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: true
+        example: '2025-12-03'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      start_time:
+        custom: []
+        name: start_time
+        description: 'Must match the regex /^(?:[01]\d.'
+        required: true
+        example: '(:05'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      appointment_type:
+        custom: []
+        name: appointment_type
+        description: ''
+        required: false
+        example: phone
+        type: string
+        enumValues:
+          - online
+          - phone
+          - in_person
+          - referral
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      service_type:
+        custom: []
+        name: service_type
+        description: ''
+        required: false
+        example: doctor
+        type: string
+        enumValues:
+          - doctor
+          - injection
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: false
+        example: canceled
+        type: string
+        enumValues:
+          - waiting
+          - canceled
+          - visited
+          - no_show
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      payment_status:
+        custom: []
+        name: payment_status
+        description: ''
+        required: false
+        example: paid
+        type: string
+        enumValues:
+          - paid
+          - pending
+          - unpaid
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      payment_method:
+        custom: []
+        name: payment_method
+        description: 'Must be at least 1.'
+        required: false
+        example: 56
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      transaction_id:
+        custom: []
+        name: transaction_id
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      payment_info:
+        custom: []
+        name: payment_info
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      customer_ip:
+        custom: []
+        name: customer_ip
+        description: 'Must be a valid IP address.'
+        required: false
+        example: 64.52.10.134
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      customer_user_agent:
+        custom: []
+        name: customer_user_agent
+        description: 'Must not be greater than 1000 characters.'
+        required: false
+        example: qeopfuudtdsufvyvddqam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      doctor_id: consequatur
+      patient_id: consequatur
+      date: '2025-12-03'
+      start_time: '(:05'
+      appointment_type: phone
+      service_type: doctor
+      status: canceled
+      payment_status: paid
+      payment_method: 56
+      transaction_id: consequatur
+      payment_info: consequatur
+      customer_ip: 64.52.10.134
+      customer_user_agent: qeopfuudtdsufvyvddqam
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/patient/appointments/{doctor_id}/{date}'
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all appointments for a doctor on a specific date'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      doctor_id:
+        custom: []
+        name: doctor_id
+        description: 'The ID of the doctor.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      doctor_id: consequatur
+      date: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/patient/appointments/{patient_id}'
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all appointments for a specific patient'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      patient_id:
+        custom: []
+        name: patient_id
+        description: 'The ID of the patient.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      patient_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/patient/appointments/{id}'
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update an appointment'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the appointment.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      start_time:
+        custom: []
+        name: start_time
+        description: 'Must match the regex /^(?:[01]\d.'
+        required: false
+        example: '(:05'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      attended:
+        custom: []
+        name: attended
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      appointment_type:
+        custom: []
+        name: appointment_type
+        description: ''
+        required: false
+        example: referral
+        type: string
+        enumValues:
+          - online
+          - phone
+          - in_person
+          - referral
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      service_type:
+        custom: []
+        name: service_type
+        description: ''
+        required: false
+        example: doctor
+        type: string
+        enumValues:
+          - doctor
+          - injection
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      status:
+        custom: []
+        name: status
+        description: ''
+        required: false
+        example: visited
+        type: string
+        enumValues:
+          - waiting
+          - canceled
+          - visited
+          - no_show
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      payment_status:
+        custom: []
+        name: payment_status
+        description: ''
+        required: false
+        example: pending
+        type: string
+        enumValues:
+          - paid
+          - pending
+          - unpaid
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      payment_method:
+        custom: []
+        name: payment_method
+        description: 'Must be at least 1.'
+        required: false
+        example: 56
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      transaction_id:
+        custom: []
+        name: transaction_id
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      payment_info:
+        custom: []
+        name: payment_info
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      start_time: '(:05'
+      attended: false
+      appointment_type: referral
+      service_type: doctor
+      status: visited
+      payment_status: pending
+      payment_method: 56
+      transaction_id: consequatur
+      payment_info: consequatur
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/patient/appointments/{id}'
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete an appointment'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the appointment.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null

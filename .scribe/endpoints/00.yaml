@@ -1,0 +1,220 @@
+name: Authentication
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/auth/captcha/generate
+    metadata:
+      custom: []
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Captcha generate'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"status":"success","captcha_id":"30b3cf4a-4c6a-445a-a8eb-eeda06526794","image":"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAA8CAIAAAAL5NQ9AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAT5ElEQVR4nO1ceUAT19Y\/AcISyMIihB0SBURFFDe0PqRVnxbXutVWXNpqXZ611g0VXEAE1LbPpYr1c19rwbohWBe0KqiIVVBA1rCHnQABwvr9MXFmMhmSSUjA977v99e5d85dkl\/Oueeeeye02tpaUAsJpw+PXrSSovJvzyXzRhioNxApMl41uHmaaLBDTeHuT23jf9BTqtZ4tp7hzyRURm+8MWvPVHnls5LH\/gYfddUVDU9hVX6DuaMJAKQFdbqH0EgbbP11V+iyQEROOH0YAKgTqVWEpZ\/Y3P+r3p5FL4BWW1srugFsEu6p4oMiUhu4uvXcjNAFaPFRZOrY5YPU7i144+VvzeFoFWzbM1cTs5O1wu5AJb\/ak\/j52JO1S8doo+fk5yleIzyUqv0qeS0MeocWNcUcCuUUtqbcpnv8k0pfCswx8NyxXQuWqjE\/BagtyeLY9NNsnxpE8MbLqKyYtsSTV7yXfKb2QOpb4b7Nt9aHfSpfr4DI6B+TZq0bjshb8x+EOo6jPlxczblJpguU6\/U4nkJ2Z7S+9ywHUIU2DUJjjpSAHl4gYxPPTvb2x9fsepoYOMpb2+PiOQM52k6dyVu80Fm9ntdnRe7rt5yKpnIKs8639PtSX7159MACmSLc6MHdo9UhAODHlAPrPL5DZHlT21mUut1O\/QCnm1BCoWDLeqfd+2SqWl6D\/mDqA2jQHIP\/TNs20b37\/agztNY8ZFrUWwBwnz0Ardl88VHY\/LEKmsSmdU52x7Z82nKkBHyYG4+D+ZtWO0Ygck64iB\/Axj8N3nh5AL3+bSsTtLCwIcyBLHnqoYcoRPDBbjxQaMraroRFfraZuJIJanY33puOyN1nDoXWKcyvSnA0H40W5c2xOfAnw10\/yDeMa0+cpNvL8YimoEGbk4cGKIzLhUk81Zr0rl\/tmdAfpQ0oMLeteHOwbZiqQ+x\/Xb5msKVmrPB64vVp3tNUbdWTRPbYjk2rBkeKHl0LCUh8cNN73BTqC+T2qzd2zlAhmdsDtMWsj\/fb5wvUmHu4Xeyz01i9gTqflNLGWJM+Up\/CTT+JIn5gK9ejAHlzfBl4euiuRQS1kNC4oK2TFPTTMwsbHj1vc\/LoTSskQD2\/2is5rQ+BORQfEIUIqPjVHqatI\/esDs8feom5l38cGTpzBQA8+\/XCyGVfyCsoofDn5Ji1Xn7aml0XIDXHXrE2BB+UzclDNSuMz33ly\/NUqnb8ftzXHytatKgg4fThu28t0KJGaDv7Z4b\/RDcqmiptCXoXRAqLXmTaDXPR7Bg\/16StNaWU25SPR6jHq\/sPxq1ZrfLv5pdN51dFfIkWP3CDI0Xvr4VKPSTBr9ZEpZvO7t\/9cTdlvItwc0Xk\/0TmUMhQmBByd3TQeLQYv+OG7w6ZfVh2luB27F\/JSan5gqL29g5rmz4DfRjfL9lhbMJQaVQ1FjbSBTJS8nh511e7EEScuLbpq+mkjxQzt7P47nbb8fL1SnEn5skEPw1c9Qg+Fbxt8TalalStsLa2bl\/4rw\/uJ8o\/srXjHjoa0qePmZIJ4WirCx+\/T0eJPilIiYzLPDvJxZ9Un5S\/rpg7u+2+f\/DHXQ2952TyxiVeasxZ26BEYU21aPk3W4qLhF0pDBk64GBkMOkjlDmK1tZQXWnIZOnRFR0yU1kgI05cA4BV00elPfyDw3XkWDsKn4r16Az4kLzlz7tq1gaaKlVrzJMwnLu8haucwiPC+OywJ88S\/0aKHFPW9JkTjY2NYmMe5OUWomoHjuwc6jWQ2swV4e+Y6Jt7ghw8h\/OHj+ENG23jRt6n4jwAanyCvx\/diwxE641YZmyug6EJ29SWZ2bLNzGzsnDsVux24k66kyXzHwNt9HR11OshrvXAJPp3aPFS7OWC0gInWydnWyeePc+crdxXKacw9XXGiqVbEZnf1\/HI\/4QyGEYA0Nws+cp\/Q0F+MfJo1pzJazd8o+oHeHL0TFtOnc+ef6E1lQW5B+ZiK9DW+6kGjC7ziqREIvwh3rI473ZB9jUFE9DVN+BwHTjWThyuI4frwOY6sq3sdHSVXMdODdg7KHwDAEwIvJ5ZXMs21vcb5rhm+mCuqWoxgTx2H4sory5Hi0xjprOtE8\/OmW\/Pt+fakTZRfnX8QfxTVP5iwXSEPwAwNDTwXzwzdOchpJj\/nkuKqIuvZ\/kyh\/ez0\/9WZvmxcOAZmjCbG+qRYmV+jm3\/Lu9qIuShfhWhbSqrb1rUW6m3fJBZ3+gsKivsaG8j7aG9RVJVkFVVkIXWfOS\/0fUjJdkMhD8AKKpsAACRuOXCw6zF492oU5h3+q3zIqI\/Fzc14vkDgHpxfUpmakpmKgCwTFhjPEf7jvDRl11llFNYIMC46WNljn\/k6sanOGM8WsKv6gfMYPkyAUD\/Y5Lwwaa\/R27SE0SuEJBQKCorvbo7wH7gEP7wMXYDh3CMfeRvoCBwHzfTfdzMzo6O+iqhSJhfKyx4c\/tOY30WdA2OtQPFDyIStzRKsF+GoyWLoJArFPG45CcB8vwBQF5xnoLh6hrqYh\/HPU99vnT211wLLlqv3IN3dHaicpmwAv+ouVmCyja2Vor7qSvdiAj6ATMUa9oPHILKFXnEr7tVIrmwcVnOs0cPjh84vnxeqK9HKzP7Rl22++wBCacPI66VAJqODquPjf0gb5e2qTYDsONpa9ehY75cN+CTOXYDRpiYS78UjrWT4umhKKluQGWuKcNQXxf\/NPZFvu\/ma97rosMuJxdWNADA9sMBijvMLcIotDSzXDb76wnen\/DteXQ9OlpfJao+eOFwtagGrSG3wsJfntmvGgkAJxO2WVvb0mi0QR6uPr6jRoz0TLkZ4TFlE6KW9hb7fj2HKMm\/sKypXhW07Y9d6KsQ5BCenlmxovQdlv3qtOHHFnUEfD0TcH4Vuoh0DCYzRGEFaNHa1dPtH9hJdZukua6i2IBBfOGIFEEXInzcsaSzk5VMq\/qmlu3nnwNASbU4MvatiRF99VSPnSvDFfcpKBagMt+e5853d+e7A0B7R3tq5puoO1caGhsAQNwk\/v3P6G\/nSCMPvfCDd+T7Clg9ARGWjA4udhAu+WauuYU09jV\/zx8APP4rSdqLnp73GM3smRpCA+1WfI8WK\/KyEQFxlelJV\/LTHqBP2S7u3x2LohvIBNyEBZKAWmE+KnO4jvhHegaGZnZUl4aQLzaduZeBFnlWMl40IurvstomtGjFIa6Rbe0dhCC2vaO9oBSL8Hl22B1iXR1dT7fBJgyTQxelPiY9N71KVI3Eq3ooW3iQ8krAolmDk5NSEdnHdySTqeZ59G+\/RM5bhV32Mtm6CwBYlty6ciEAVBflp\/72KmfqxRmzI7ISH6b8eArVpHEsVxw8R+APxehFK+XNsVFU1drciBZRn7n\/9K01i0heLlCMwkrMkTrhKHyZXXEu\/h1e09pMhsImSdvHW645WJpMG+nsN8yRY2IAAAUlBW24mItnT7yP1NeBb842qxJVI8WcghzzQWbQlSNFeH0qLBnFtenqAyxYuKPz\/TLZrGup2JoVAM8fCjaHj1DY2dlhNdx4ECOisiD396Dv0BFpDNbaU9EMNke+bdG+s3br\/YHMr9aWCjA9Go1laQsAd4IerwlRmT8AKK3Bfg1OllJH2tbeselUIi5+AACwZBvhi0duvSmpFpdUi59mlG0\/9\/zPXVN5XHYezosyjZmkO0ITYyZKIeJUQXFEqoC\/OlF9aZ70hzZk6ICIYPIXVpRa89pZ6QY22MYWTX31nzi2MPN9UJqXxbLknl+3FN1pGJowvzpykcO1Je0T4Q8F3q\/WCrGFkGVho6tHB4AJIdIsa\/2JV8yvlB+loSjCWaEzV2qFx26nZRYTt9pcU8xFlVaLI2PfoMVpI52QqBVPobOtE+mI1e\/5AwADfan7Ub6pIEXU5ViJpAWR5\/sTk5A\/p2St9egHclYo\/HUbdxkhDzcBfzJ3vbQEEdrLWtHK6EuxTjcuVxVKozVdPfr8iKPcfqodViBEinAUsrnEzQPCX5IoaTh7OJU+S6rEiECjgUMfJgAUVjT8+9prgpoBXYdtjO3kQi8nS1o7EJnFoAd+PgyR8RTiF0IUWQXZ9eJ6tIjuK9ShUCJpuRIVi8j2Dtajx3hl\/nTC5QfsJWmEP3ng+UOYi7WvXDfbB610B+luqaX5o9B7PyFuk5Z5L1vS\/F6FpjtqyW8J9ZBwBwAYxZJGW+mPkYrTrikRoDLHxolUhyJ\/be0d5SJpwGJtaozsKLacTmxuaQcAGg08eRZ\/51SCbCzzIqv8xjNsDhs+G2LGNASAippK1DECwDtBlqGBIc\/O2dLMEqmprau9HBeFKpgwTJztpPNXQmF409kAI+IhQMz1e7U1dYg8Z54fAKD8VVXWnN63q55uvz3k+wBhTDiXmOYgnBJ0tRHRNzSy5LuWZWcAQCvGH3z6w7ZRc7GbbSk3YzymSJmjEoKZ5WSiezdCOKoqiqvE6IKH7CiuJub+9bYUqflynEuTpE2ewp0XklB5oKPZAl\/pgWVuUS6+8\/Tc9PTcdABgGBrZWdkBQF6xoLUN80ytJjQdmjSgVUKhPH8dHR2XLtxAZIax0SS\/cQBQXlb5MP5Z\/L2E1JR3nZ2dAIL5C6aHu2L8kZ7v7N4p3LIdyzIQYOc+GKEQxdiFy\/H8AYDHFGwIpVbY2tx4Zs0utHj9kbAtmZx1KgYtlI1lROKW4IsvkKIVx2jLXK\/lhx6gRUSIepKTIqhCW4UuHKWjI31BKa9IQDpKY3NTZj4xucG35638HIsBVXakD+OflhSXIfLwER5Xo2\/H30tMT8smqD24n+ji6owyd0s\/d\/004i1eBfwBAFs2mPL89LMJKzcGhDwKDxoLADHNrX6G9C6akgMfywDA6tWzu9rFUzHovkOxoN\/JirX7cnJVvdRb7Fo4ytiQXi6SFrlmxgDQJGnbE\/USbfKFTz9PHnYzCJ+XcbRxpNFoRcKiNrK8rpf7kHmT5urqYJkgRRTW7n\/MWUM8Ez976g9Ufhj\/7GH8M4ICm80c5OjCbTHFcs24RY46Ht66hco2boOmbwkHAIQ\/AED4exX9znOWK8UO8TsKI5aZgiyMvBX+knxllZfM6\/Czt1xB5ZgHGa\/LpaENj2P48nHGy8cZ+UIRUsPlGAHAoZup6Gbf1MQgYA6WCSFktyeNmdif59bW3lZYWphfWiCsLBM3ifXpdEszq8Gug0Q3olVIc8vzl5yUmvkul1TZzJzj4eAyxMXd1cFp4BxKr7yKN1Qb7yU\/Dws\/Fq1Tkd\/+vjhwvJ+uHslUqfMHslYoH44iKDzVZL\/YSL6ewB8A8PtZJ5VKXVyWSJorZjHov++casEy6ujojPzmLFL59FlO3puCS2lYetnT3PDIiYeIHLB6Aj67TQOao40jAOjp6jnbOTvLhabcJasQITnsiNfmFaCqIxWLGwk1HCZrqIu7l+uAfnaOqp6Gk\/KHnLbPG2p78jgWxfBHKLkgowBBlTtDLLYDgKjr1BoKUv5IUVKFBZDoecWWuV4WLCMAqG5oRoOdZZ+PPHMvo\/190atvn1NbJ6Ntww\/eqW\/JRIu6NONL1WfKo2VSM6RrM8IfqErhSO8hRkaGTU3NFmxTL9cBQ13c\/b6j9H8mFIGett+NxN4OZ7BNrV3Ufz8b4Q9krZBj3a1wFACKq8WEmlFuVvN9pHcAKkRYglRQVnczSfrr0dWhhS4cCQB3fm+aMMcIAAJWTzhw\/l1ukVR5uMfAeTZzYLVMz4ozX6pRmHMja8GEqVamFpNWqXO1SzHwV5Wynz5C63nDRnfRQgV0tLfVlWMHn2wr+252iE\/NAIABXSdiMfZCKxrLAMDROCx3sXi8W397MwBA+AOF2W0UiiNkShTitwRqBCZKgThPlL9GUW3pOywFxR+p6L8D5BGf8Nx39AhCZV15cWcHuraCaRf7eoqorm9GMywI1kwbjM90460wp1S6h+7DNlw3E0vg5ew9wt+wQtLSMspjRG5RXmmFsBM65Rc\/pVBCYVen4QjW387a9081\/3+p7nAYa+VmILsnWJadoUunt7VIE3h9VaRQnj8AYFnaztx2srZUUFsiqKsoNja1JCicjP73klnfyzckRVNLG9eUgW4N3R1Mv50s8xXhKUSx7fPhxriNEH\/DCgBgGBrNnjgLACQtkgJhoQXHXL6hYvTQbe5HwptjuVPk67u6p9sqkRS8Tsp+9qiqUPDFnqPan6A6ePimJO5F\/p1XhSe\/\/2SQk8xXH3wx6fif6fiaj9ytz29QnjGggsaEEMboILTYXQo79zfQ1mjrf0GvJyZM85YuhEJxDddY+ZVLBPfLQj62ClKupzX8K\/IvfC6UrquDnChpYyw1bz+ioMjfqfuH1Ogc5Q8AEP4kMQlUGvYwf5sCRYSaqrpmfPHbyQOU8rf\/NrETiuj912K6ifJrZZbTldy86nncfVV4Lj4zPqUYAGzMjOPDZhAuR2kQJBS2\/1GjO5Oqy\/qvQVlMg5WfhleE+qaW2y8LrU0ZY9zJ\/+lAIyBxpB8If68LWhUrvNn7XIPDdYe\/mOaLpPVMI\/3ZY\/ha4i+o4TQidLkWRsUIlPaS9wK7ItJafLzbs5LBYAclBxF1I6RbqC1ZDYo1tQ0\/w\/k9P2iIyaIdL48A3pEeu3lv6ZRPut\/1hvOle7\/Uot\/QBjbHZYdN6tvbs1ATmBV2k78fA6W52g+Bv6Aw1Xwswl\/FxTPamY528R8fkf4\/MCusaSvrxXn8F+DygY1n9ikJwZTi7dt25Uqy0LwVXtpb9PkG8jfh\/g+i\/vRvzEXztDpEd7Mz8tAef+GCG1rqmQoqyn9Uo5W2+QOA\/wVIjSAWCfTfwAAAAABJRU5ErkJggg==","expires_in":120}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/auth/send-otp
+    metadata:
+      custom: []
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Send verification code'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      mobile:
+        custom: []
+        name: mobile
+        description: 'Must match the regex /^09[0-9]{9}$/.'
+        required: true
+        example: '09156277171'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      mobile: '09156277171'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/auth/verify-otp
+    metadata:
+      custom: []
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Verify OTP'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      mobile:
+        custom: []
+        name: mobile
+        description: 'Must match the regex /^09[0-9]{9}$/.'
+        required: true
+        example: '09156277171'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      otp:
+        custom: []
+        name: otp
+        description: 'Must be 6 digits.'
+        required: true
+        example: '810798'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      mobile: '09156277171'
+      otp: '810798'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/auth/login
+    metadata:
+      custom: []
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Login user'
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      mobile:
+        custom: []
+        name: mobile
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      password:
+        custom: []
+        name: password
+        description: 'ایمیل یا شماره موبایل.'
+        required: true
+        example: 'O[2UZ5ij-e/dl4m{o,'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      captcha_id:
+        custom: []
+        name: captcha_id
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      answer:
+        custom: []
+        name: answer
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      mobile: consequatur
+      password: 'O[2UZ5ij-e/dl4m{o,'
+      captcha_id: consequatur
+      answer: consequatur
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

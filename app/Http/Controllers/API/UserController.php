@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
+    /**
+    * List all users
+    * @authenticated
+    * @group Users
+     */
     public function index()
     {
         $users = User::orderBy('id', 'desc')->get(['id', 'first_name', 'last_name', 'email', 'mobile','roll']);
@@ -19,7 +24,11 @@ class UserController extends Controller
             'users' => $users
         ], 200);
     }
-
+    /**
+     * Create a new user
+     * @authenticated
+     * @group Users
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -66,7 +75,11 @@ class UserController extends Controller
             ]
         ], 201);
     }
-
+    /**
+     * Show user details
+     * @authenticated
+     * @group Users
+     */
     public function show($id)
     {
         $user = User::find($id);
@@ -93,6 +106,11 @@ class UserController extends Controller
             ]
         ], 200);
     }
+    /**
+     * Update user information
+     * @authenticated
+     * @group Users
+     */
     public function update(Request $request, $id)
     {
         $user = User::find($id);
@@ -154,7 +172,11 @@ class UserController extends Controller
             ]
         ], 200);
     }
-
+    /**
+     * Delete a user
+     * @authenticated
+     * @group Users
+     */
     public function destroy($id)
     {
         $user = User::find($id);
@@ -174,7 +196,11 @@ class UserController extends Controller
         ], 200);
     }
 
-//---------------------------------------
+    /**
+     * Show the logged-in user's profile
+     * @authenticated
+     * @group Users
+     */
     public function profile(Request $request)
     {
         $user = $request->user();

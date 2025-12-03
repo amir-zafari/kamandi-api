@@ -5,4 +5,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::view('/docs', 'docs')->name('docs');
+Route::view('/docs', 'scribe.index')->name('docs');

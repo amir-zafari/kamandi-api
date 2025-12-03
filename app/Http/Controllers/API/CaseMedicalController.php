@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\Validator;
 
 class CaseMedicalController extends Controller
 {
+    /**
+     * Create a new medical case with optional files
+     * @authenticated
+     * @group Medical Cases
+     */
     public function store(Request $request)
     {
         $user = auth()->user();
@@ -70,6 +75,11 @@ class CaseMedicalController extends Controller
         ], 201);
     }
 
+    /**
+     * List all medical cases for a doctor and patient
+     * @authenticated
+     * @group Medical Cases
+     */
     public function show($doctor_id, $patient_id)
     {
         $user = auth()->user();
@@ -99,7 +109,11 @@ class CaseMedicalController extends Controller
             'documents' => $documents
         ], 200);
     }
-
+    /**
+     * Update a medical case and optionally add files
+     * @authenticated
+     * @group Medical Cases
+     */
     public function update(Request $request, $id)
     {
         $user = auth()->user();
@@ -156,7 +170,11 @@ class CaseMedicalController extends Controller
             'document' => $doc->load(['type', 'files'])
         ], 200);
     }
-
+    /**
+     * Toggle the pin status of a medical case
+     * @authenticated
+     * @group Medical Cases
+     */
     public function togglePin(Request $request, $id)
     {
         $user = auth()->user();
@@ -185,7 +203,11 @@ class CaseMedicalController extends Controller
             'pin' =>  $doc->pin
         ], 200);
     }
-
+    /**
+     * Delete a medical case and all associated files
+     * @authenticated
+     * @group Medical Cases
+     */
     public function destroy($id)
     {
         $user = auth()->user();
@@ -221,7 +243,11 @@ class CaseMedicalController extends Controller
             'message' => 'Document deleted successfully'
         ], 200);
     }
-
+    /**
+     * Delete a specific file from a medical case
+     * @authenticated
+     * @group Medical Cases
+     */
     public function deleteFile($id)
     {
         $user = auth()->user();

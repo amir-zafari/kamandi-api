@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Validator;
 
 class DoctorController extends Controller
 {
+    /**
+     * List all doctors
+     * @authenticated
+     * @group Doctors
+     */
     public function index()
     {
         $doctors = Doctor::with('user')->get();
@@ -28,7 +33,11 @@ class DoctorController extends Controller
             'doctors' => $data
         ], 200);
     }
-
+    /**
+     * Create or update a doctor
+     * @authenticated
+     * @group Doctors
+     */
     public function store(Request $request)
     {
         $user = User::find($request->user_id);
@@ -83,7 +92,11 @@ class DoctorController extends Controller
             'status' => 'success'
         ], 201);
     }
-
+    /**
+     * Show doctor details
+     * @authenticated
+     * @group Doctors
+     */
     public function show($id)
     {
         // دکتر با اطلاعات کاربر مرتبط را پیدا کن
@@ -118,7 +131,11 @@ class DoctorController extends Controller
             'doctor' => $data
         ], 200);
     }
-
+    /**
+     * Update doctor information
+     * @authenticated
+     * @group Doctors
+     */
     public function update(Request $request, string $id)
     {
         $doctor = Doctor::with('user')->find($id);
@@ -167,6 +184,11 @@ class DoctorController extends Controller
             'doctor' => $doctor->load('user') // برای نمایش آپدیت شده
         ], 200);
     }
+    /**
+     * Delete a doctor
+     * @authenticated
+     * @group Doctors
+     */
     public function destroy(string $id)
     {
         $doctor = Doctor::with('user')->find($id);

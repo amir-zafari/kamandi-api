@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    // ورود کاربر
+    /**
+     * Login user
+     * @unauthenticated
+     * @group Authentication
+     */
     public function login(Request $request)
     {
         $request->validate([
@@ -72,6 +76,11 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Send verification code
+     * @unauthenticated
+     * @group Authentication
+     */
     public function sendOTP(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -98,6 +107,11 @@ class AuthController extends Controller
             'otp' => $code,
         ]);
     }
+    /**
+     * Verify OTP
+     * @unauthenticated
+     * @group Authentication
+     */
     public function verifyOTP(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -137,6 +151,11 @@ class AuthController extends Controller
             ],
         ]);
     }
+    /**
+     * Logout current device
+     * @authenticated
+     * @group Authentication (Protected)
+     */
     public function logout(Request $request)
     {
         // حذف توکن فعلی
@@ -146,7 +165,11 @@ class AuthController extends Controller
             'message' => 'Logged out successfully.'
         ], 200);
     }
-
+    /**
+     * Logout from all devices
+     * @authenticated
+     * @group Authentication (Protected)
+     */
     public function logoutAll(Request $request)
     {
         $request->user()->tokens()->delete();

@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Validator;
 
 class AppointmentController extends Controller
 {
+    /**
+     * List all appointments
+     * @authenticated
+     * @group Appointments
+     */
     public function index()
     {
         $appointments = Appointment::with(['doctor.user', 'patient.users'])
@@ -35,7 +40,11 @@ class AppointmentController extends Controller
             'appointments' => $appointments
         ], 200);
     }
-
+    /**
+     * Create a new appointment
+     * @authenticated
+     * @group Appointments
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -147,7 +156,11 @@ class AppointmentController extends Controller
             'appointment' => $appointment
         ], 201);
     }
-
+    /**
+     * Show a specific appointment
+     * @authenticated
+     * @group Appointments
+     */
     public function show($id)
     {
         $appointment = Appointment::with(['doctor.user', 'patient.users', 'creator'])->find($id);
@@ -164,7 +177,11 @@ class AppointmentController extends Controller
             'appointment' => $appointment
         ], 200);
     }
-
+    /**
+     * List all appointments for a specific patient
+     * @authenticated
+     * @group Appointments
+     */
     public function show_patient_appointments($patient_id)
     {
         $appointments = Appointment::with(['doctor.user', 'patient'])
@@ -184,7 +201,11 @@ class AppointmentController extends Controller
             'appointments' => $appointments
         ], 200);
     }
-
+    /**
+     * List all appointments for a doctor on a specific date
+     * @authenticated
+     * @group Appointments
+     */
     public function show_day($doctor_id, $date)
     {
         if (!is_numeric($doctor_id) || !Doctor::find($doctor_id)) {
@@ -221,7 +242,11 @@ class AppointmentController extends Controller
             'appointments' => $appointments
         ], 200);
     }
-
+    /**
+     * Update an appointment
+     * @authenticated
+     * @group Appointments
+     */
     public function update(Request $request, $id)
     {
         $appointment = Appointment::find($id);
@@ -259,7 +284,11 @@ class AppointmentController extends Controller
             'appointment' => $appointment
         ], 200);
     }
-
+    /**
+     * Mark an appointment as attended
+     * @authenticated
+     * @group Appointments
+     */
     public function toggleAttended($id)
     {
         $appointment = Appointment::find($id);
@@ -288,7 +317,11 @@ class AppointmentController extends Controller
             'appointment' => $appointment
         ], 200);
     }
-
+    /**
+     * Delete an appointment
+     * @authenticated
+     * @group Appointments
+     */
     public function destroy($id)
     {
         $appointment = Appointment::find($id);
