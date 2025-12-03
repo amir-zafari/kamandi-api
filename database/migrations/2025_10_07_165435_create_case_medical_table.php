@@ -17,8 +17,7 @@ return new class extends Migration
             $table->foreignId('patient_id')->constrained('patients')->onDelete('cascade');
             $table->string('title')->comment("عنوان ریز پرونده");
             $table->date('case_date')->comment('تاریخ ریز پرونده');
-            $table->string('case_type')->comment('نوع ریز پرونده');
-            $table->string('file_path')->nullable()->comment('مسیر فایل');
+            $table->string('case_medical_type_id')->comment('نوع ریز پرونده');
             $table->text('notes')->nullable()->comment('یادداشت زیر پرونده');
             $table->boolean('pin')->default(false)->comment('پین');
             $table->timestamps();

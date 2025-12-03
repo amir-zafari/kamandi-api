@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\CaseMedical;
+use App\Models\CaseMedicalFile;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -16,15 +17,14 @@ class CaseMedicalController extends Controller
         $user = auth()->user();
 
         $validator = Validator::make($request->all(), [
-            'doctor_id'        => 'required|exists:doctors,id',
-            'patient_id'       => 'required|exists:patients,id',
-            'title'            => 'required|string',
-            'case_type_id' => 'required|exists:case_types,id',
-            'case_date'    => 'required|date_format:Y-m-d',
-            'file'             => 'required|file|mimes:jpg,png,pdf,doc,docx|max:20480',
-            'notes'            => 'nullable|string',
+            'doctor_id'            => 'required|exists:doctors,id',
+            'patient_id'           => 'required|exists:patients,id',
+            'title'                => 'required|string',
+            'case_medical_type_id' => 'required|exists:case_medical_types,id',
+            'case_date'            => 'nullable|date_format:Y-m-d',
+            'files.*'              => 'nullable|file|mimes:jpg,png,pdf,doc,docx|max:20480',
+            'notes'                => 'nullable|string',
         ]);
-
         if ($validator->fails()) {
             return response()->json([
                 'status' => 'error',
@@ -32,7 +32,6 @@ class CaseMedicalController extends Controller
             ], 422);
         }
 
-        // بررسی دسترسی کاربر به بیمار
         $patient = Patient::find($request->patient_id);
         if (!$patient->users()->where('users.id', $user->id)->exists()) {
             return response()->json([
@@ -41,22 +40,33 @@ class CaseMedicalController extends Controller
             ], 403);
         }
 
-        // ذخیره فایل
-        $filePath = $request->file('file')->store('documents', 'public');
-
-        // ذخیره در دیتابیس
-        $document = CaseMedical::create([
-            'doctor_id'        => $request->doctor_id,
-            'patient_id'       => $request->patient_id,
-            'case_type_id' => $request->case_type_id,
-            'case_date'    => $request->case_date,
-            'file_path'        => $filePath,
-            'notes'            => $request->notes,
+        // ذخیره رکورد اصلی
+        $doc = CaseMedical::create([
+            'doctor_id'            => $request->doctor_id,
+            'patient_id'           => $request->patient_id,
+            'title'                => $request->title,
+            'case_medical_type_id' => $request->case_medical_type_id,
+            'case_date'            => $request->case_date,
+            'notes'                => $request->notes,
         ]);
+
+        // ذخیره چندین فایل در جدول CaseMedicalFile
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $path = $file->store('case_medicals', 'public');
+
+                $doc->files()->create([
+                    'file_path' => $path,
+                    'file_name' => $file->getClientOriginalName(),
+                    'format'    => $file->getClientOriginalExtension(),
+                    'size'      => $file->getSize(),
+                ]);
+            }
+        }
 
         return response()->json([
             'status' => 'success',
-            'document' => $document->load('documentType')
+            'document' => $doc->load(['type', 'files'])
         ], 201);
     }
 
@@ -64,6 +74,7 @@ class CaseMedicalController extends Controller
     {
         $user = auth()->user();
         $patient = Patient::find($patient_id);
+
         if (!$patient) {
             return response()->json([
                 'status' => 'error',
@@ -80,7 +91,7 @@ class CaseMedicalController extends Controller
 
         $documents = CaseMedical::where('doctor_id', $doctor_id)
             ->where('patient_id', $patient_id)
-            ->with('caseType')
+            ->with(['type', 'files'])
             ->get();
 
         return response()->json([
@@ -105,15 +116,16 @@ class CaseMedicalController extends Controller
         if (!$patient->users()->where('users.id', $user->id)->exists()) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'You do not have permission to update this document'
+                'message' => 'You do not have permission'
             ], 403);
         }
 
         $validator = Validator::make($request->all(), [
-            'case_type_id'     => 'required|exists:case_types,id',
-            'case_date'        => 'required|date_format:Y-m-d',
-            'file'             => 'nullable|file|mimes:jpg,png,pdf,doc,docx|max:20480',
-            'notes'            => 'nullable|string',
+            'title'                => 'nullable|string',
+            'case_medical_type_id' => 'nullable|exists:case_medical_types,id',
+            'case_date'            => 'nullable|date_format:Y-m-d',
+            'files.*'              => 'nullable|file|mimes:jpg,png,pdf,doc,docx|max:20480',
+            'notes'                => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -123,25 +135,28 @@ class CaseMedicalController extends Controller
             ], 422);
         }
 
-        // آپلود فایل جدید در صورت وجود
-        if ($request->hasFile('file')) {
-            if ($doc->file_path && Storage::disk('public')->exists($doc->file_path)) {
-                Storage::disk('public')->delete($doc->file_path);
-            }
-            $doc->file_path = $request->file('file')->store('documents', 'public');
-        }
+        // آپدیت فیلدهای اصلی
+        $doc->update($request->only(['title', 'case_medical_type_id', 'case_date', 'notes']));
 
-        $doc->update($request->only([
-            'case_type_id',
-            'case_date',
-            'notes'
-        ]));
+        // افزودن فایل‌های جدید به جدول CaseMedicalFile
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $path = $file->store('case_medicals', 'public');
+                $doc->files()->create([
+                    'file_path' => $path,
+                    'file_name' => $file->getClientOriginalName(),
+                    'format'    => $file->getClientOriginalExtension(),
+                    'size'      => $file->getSize(),
+                ]);
+            }
+        }
 
         return response()->json([
             'status' => 'success',
-            'document' => $doc->load('documentType')
+            'document' => $doc->load(['type', 'files'])
         ], 200);
     }
+
     public function togglePin(Request $request, $id)
     {
         $user = auth()->user();
@@ -191,8 +206,12 @@ class CaseMedicalController extends Controller
             ], 403);
         }
 
-        if ($doc->file_path && Storage::disk('public')->exists($doc->file_path)) {
-            Storage::disk('public')->delete($doc->file_path);
+        // حذف تمام فایل‌های مرتبط از جدول CaseMedicalFile
+        foreach ($doc->files as $file) {
+            if (Storage::disk('public')->exists($file->file_path)) {
+                Storage::disk('public')->delete($file->file_path);
+            }
+            $file->delete();
         }
 
         $doc->delete();
@@ -200,6 +219,48 @@ class CaseMedicalController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'Document deleted successfully'
+        ], 200);
+    }
+
+    public function deleteFile($id)
+    {
+        $user = auth()->user();
+        $file = CaseMedicalFile::find($id);
+
+        if (!$file) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'File not found'
+            ], 404);
+        }
+
+        // بررسی دسترسی کاربر به این فایل
+        $caseMedical = $file->caseMedical;
+        if (!$caseMedical) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Case medical not found'
+            ], 404);
+        }
+
+        $patient = Patient::find($caseMedical->patient_id);
+        if (!$patient->users()->where('users.id', $user->id)->exists()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'You do not have permission to delete this file'
+            ], 403);
+        }
+
+        // حذف فایل از استوریج
+        if (Storage::disk('public')->exists($file->file_path)) {
+            Storage::disk('public')->delete($file->file_path);
+        }
+
+        $file->delete();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'File deleted successfully'
         ], 200);
     }
 }

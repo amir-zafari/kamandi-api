@@ -13,9 +13,22 @@ class AppointmentController extends Controller
 {
     public function index()
     {
-        $appointments = Appointment::with(['doctor.user', 'patient'])
-            ->orderBy('date')
-            ->get();
+        $appointments = Appointment::with(['doctor.user', 'patient.users'])
+            ->orderBy('date', 'desc')
+            ->get()
+            ->map(function ($appointment) {
+                $user = $appointment->patient->users->first();
+                return [
+                    'id' => $appointment->id,
+                    'patient_name' => $appointment->patient->first_name . ' ' . $appointment->patient->last_name,
+                    'national_code' => $appointment->patient->national_id,
+                    'mobile' => $user ? $user->mobile : null,
+                    'date' => $appointment->date,
+                    'start_time' => $appointment->start_time,
+                    'status' => $appointment->status,
+                    'attended' => $appointment->attended,
+                ];
+            });
 
         return response()->json([
             'status' => 'success',
@@ -32,6 +45,13 @@ class AppointmentController extends Controller
             'start_time' => ['required', 'regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/'],
             'appointment_type' => 'sometimes|in:online,phone,in_person,referral',
             'service_type' => 'sometimes|in:doctor,injection',
+            'status' => 'sometimes|in:waiting,canceled,visited,no_show',
+            'payment_status' => 'sometimes|in:paid,pending,unpaid',
+            'payment_method' => 'sometimes|integer|min:1',
+            'transaction_id' => 'nullable|string',
+            'payment_info' => 'nullable|string',
+            'customer_ip' => 'nullable|ip',
+            'customer_user_agent' => 'nullable|string|max:1000',
         ]);
 
         if ($validator->fails()) {
@@ -65,7 +85,7 @@ class AppointmentController extends Controller
         if (strtotime($start_time) < strtotime($shift->start_time) || strtotime($start_time) >= strtotime($shift->end_time)) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Start time is not within doctor’s shift hours.'
+                'message' => 'Start time is not within doctors shift hours.'
             ], 400);
         }
 
@@ -82,7 +102,7 @@ class AppointmentController extends Controller
         if (!in_array($start_time, $validSlots)) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Start time does not match any available slot in doctor’s shift.'
+                'message' => 'Start time does not match any available slot in doctors shift.'
             ], 400);
         }
 
@@ -106,11 +126,19 @@ class AppointmentController extends Controller
         $appointment = Appointment::create([
             'doctor_id' => $doctor_id,
             'patient_id' => $patient_id,
+            'user_id' => auth()->id(),
             'date' => $date,
             'start_time' => $start_time,
             'attended' => false,
             'appointment_type' => $request->appointment_type ?? 'online',
             'service_type' => $request->service_type ?? 'doctor',
+            'status' => $request->status ?? 'waiting',
+            'payment_status' => $request->payment_status ?? 'unpaid',
+            'payment_method' => $request->payment_method ?? 1,
+            'transaction_id' => $request->transaction_id,
+            'payment_info' => $request->payment_info,
+            'customer_ip' => $request->customer_ip ?? $request->ip(),
+            'customer_user_agent' => $request->customer_user_agent ?? $request->header('User-Agent'),
         ]);
 
         return response()->json([
@@ -122,7 +150,7 @@ class AppointmentController extends Controller
 
     public function show($id)
     {
-        $appointment = Appointment::with(['doctor.user', 'patient'])->find($id);
+        $appointment = Appointment::with(['doctor.user', 'patient.users', 'creator'])->find($id);
 
         if (!$appointment) {
             return response()->json([
@@ -210,6 +238,11 @@ class AppointmentController extends Controller
             'attended' => 'sometimes|boolean',
             'appointment_type' => 'sometimes|in:online,phone,in_person,referral',
             'service_type' => 'sometimes|in:doctor,injection',
+            'status' => 'sometimes|in:waiting,canceled,visited,no_show',
+            'payment_status' => 'sometimes|in:paid,pending,unpaid',
+            'payment_method' => 'sometimes|integer|min:1',
+            'transaction_id' => 'nullable|string',
+            'payment_info' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -226,6 +259,7 @@ class AppointmentController extends Controller
             'appointment' => $appointment
         ], 200);
     }
+
     public function toggleAttended($id)
     {
         $appointment = Appointment::find($id);

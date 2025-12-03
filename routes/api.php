@@ -96,6 +96,8 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::put('/{id}', [CaseMedicalController::class, 'update']);
             Route::patch('/pin/{id}', [CaseMedicalController::class, 'togglePin']);
             Route::delete('/{id}', [CaseMedicalController::class, 'destroy']);
+            Route::delete('/file/{id}', [CaseMedicalController::class, 'deleteFile']);
+
         });
     });
 

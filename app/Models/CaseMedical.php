@@ -14,8 +14,7 @@ class CaseMedical extends Model
         'patient_id',
         'title',
         'case_date',
-        'case_type_id',
-        'file_path',
+        'case_medical_type_id',
         'notes',
         'pin'
     ];
@@ -24,13 +23,19 @@ class CaseMedical extends Model
     {
         return $this->belongsTo(Doctor::class);
     }
+
     public function patient()
     {
         return $this->belongsTo(Patient::class);
     }
-    public function caseType()
+
+    public function type()
     {
-        return $this->belongsTo(CaseType::class);
+        return $this->belongsTo(CaseMedicalType::class, 'case_medical_type_id');
     }
 
+    public function files()
+    {
+        return $this->hasMany(CaseMedicalFile::class, 'case_medical_id');
+    }
 }
