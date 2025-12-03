@@ -13,18 +13,12 @@ return new class extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('doctor_id')->constrained('doctors')->onDelete('cascade');
-            $table->foreignId('patient_id')->constrained('patients')->onDelete('cascade');
-            $table->date('visit_date')->comment('تاریخ ویزیت');
+            $table->foreignId('case_medical_id')->constrained('case_medicals')->onDelete('cascade')->comment('ارتباط با جدول case_medicals');
             $table->date('follow_up_date')->nullable()->comment('تاریخ مراجعه بعدی');
             $table->string("visit_reason")->nullable()->comment("دلیل مراجعه");
             $table->string("symptoms")->nullable()->comment("علائم");
             $table->text('diagnosis')->nullable()->comment('تشخیص پزشک');
-            $table->string("handwritten_notes")->nullable()->comment("دست نویس");
             $table->text('notes')->nullable()->comment('توضیحات ویزیت');
-
-
-
             $table->timestamps();
         });
     }

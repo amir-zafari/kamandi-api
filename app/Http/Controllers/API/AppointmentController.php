@@ -48,19 +48,12 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'doctor_id' => 'required|exists:doctors,id',
-            'patient_id' => 'required|exists:patients,id',
+            'doctor_id' => 'required|integer|exists:doctors,id',
+            'patient_id' => 'required|integer|exists:patients,id',
             'date' => 'required|date_format:Y-m-d',
             'start_time' => ['required', 'regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/'],
             'appointment_type' => 'sometimes|in:online,phone,in_person,referral',
             'service_type' => 'sometimes|in:doctor,injection',
-            'status' => 'sometimes|in:waiting,canceled,visited,no_show',
-            'payment_status' => 'sometimes|in:paid,pending,unpaid',
-            'payment_method' => 'sometimes|integer|min:1',
-            'transaction_id' => 'nullable|string',
-            'payment_info' => 'nullable|string',
-            'customer_ip' => 'nullable|ip',
-            'customer_user_agent' => 'nullable|string|max:1000',
         ]);
 
         if ($validator->fails()) {
@@ -141,13 +134,6 @@ class AppointmentController extends Controller
             'attended' => false,
             'appointment_type' => $request->appointment_type ?? 'online',
             'service_type' => $request->service_type ?? 'doctor',
-            'status' => $request->status ?? 'waiting',
-            'payment_status' => $request->payment_status ?? 'unpaid',
-            'payment_method' => $request->payment_method ?? 1,
-            'transaction_id' => $request->transaction_id,
-            'payment_info' => $request->payment_info,
-            'customer_ip' => $request->customer_ip ?? $request->ip(),
-            'customer_user_agent' => $request->customer_user_agent ?? $request->header('User-Agent'),
         ]);
 
         return response()->json([
@@ -264,10 +250,6 @@ class AppointmentController extends Controller
             'appointment_type' => 'sometimes|in:online,phone,in_person,referral',
             'service_type' => 'sometimes|in:doctor,injection',
             'status' => 'sometimes|in:waiting,canceled,visited,no_show',
-            'payment_status' => 'sometimes|in:paid,pending,unpaid',
-            'payment_method' => 'sometimes|integer|min:1',
-            'transaction_id' => 'nullable|string',
-            'payment_info' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -277,13 +259,20 @@ class AppointmentController extends Controller
             ], 422);
         }
 
-        $appointment->update($request->all());
+        $appointment->update($request->only([
+            'start_time',
+            'attended',
+            'appointment_type',
+            'service_type',
+            'status'
+        ]));
 
         return response()->json([
             'status' => 'success',
             'appointment' => $appointment
         ], 200);
     }
+
     /**
      * Mark an appointment as attended
      * @authenticated

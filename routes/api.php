@@ -10,7 +10,7 @@ use App\Http\Controllers\API\PatientController;
 use App\Http\Controllers\API\PrescriptionController;
 use App\Http\Controllers\API\TokenController;
 use App\Http\Controllers\API\UserController;
-use App\Http\Controllers\API\VisitController;
+use App\Http\Controllers\API\CaseMedicalVisitController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -77,11 +77,11 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::delete('/{id}', [AppointmentController::class, 'destroy']);      // حذف نوبت
         });
         Route::prefix('visits')->group(function () {
-            Route::post('/', [VisitController::class, 'store']);
-            Route::get('/{record_id?}', [VisitController::class, 'index']);
-            Route::get('/{id}', [VisitController::class, 'show']);
-            Route::put('/{id}', [VisitController::class, 'update']);
-            Route::delete('/{id}', [VisitController::class, 'destroy']);
+            Route::post('/', [CaseMedicalVisitController::class, 'store']);
+            Route::get('/{record_id?}', [CaseMedicalVisitController::class, 'index']);
+            Route::get('/{id}', [CaseMedicalVisitController::class, 'show']);
+            Route::put('/{id}', [CaseMedicalVisitController::class, 'update']);
+            Route::delete('/{id}', [CaseMedicalVisitController::class, 'destroy']);
         });
         Route::prefix('prescriptions')->group(function () {
             Route::post('/', [PrescriptionController::class, 'store']);

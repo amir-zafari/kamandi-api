@@ -140,7 +140,7 @@ endpoints:
         name: gender
         description: ''
         required: true
-        example: female
+        example: male
         type: string
         enumValues:
           - male
@@ -210,7 +210,7 @@ endpoints:
     cleanBodyParameters:
       first_name: vmqeopfuudtdsufvyvddq
       last_name: amniihfqcoynlazghdtqt
-      gender: female
+      gender: male
       email: andreanne00@example.org
       password: "'YAKYLk4>SJIrIV#lz."
       mobile: consequatur
@@ -345,7 +345,7 @@ endpoints:
         name: gender
         description: ''
         required: false
-        example: male
+        example: female
         type: string
         enumValues:
           - male
@@ -380,7 +380,7 @@ endpoints:
         name: roll
         description: ''
         required: false
-        example: superadmin
+        example: nurse
         type: string
         enumValues:
           - patient
@@ -415,8 +415,8 @@ endpoints:
     cleanBodyParameters:
       first_name: vmqeopfuudtdsufvyvddq
       last_name: amniihfqcoynlazghdtqt
-      gender: male
-      roll: superadmin
+      gender: female
+      roll: nurse
       password: "t(!Cs'YAKYLk4>S"
     fileParameters: []
     responses: []

@@ -38,4 +38,8 @@ class CaseMedical extends Model
     {
         return $this->hasMany(CaseMedicalFile::class, 'case_medical_id');
     }
+    public function visit()
+    {
+        return $this->hasOne(Visit::class, 'case_medical_id');
+    }
 }

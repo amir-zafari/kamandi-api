@@ -25,12 +25,6 @@
                     body .content .javascript-example code { display: none; }
             </style>
 
-    <script>
-        var tryItOutBaseUrl = "https://kamandi-api.test";
-        var useCsrf = Boolean();
-        var csrfUrl = "/sanctum/csrf-cookie";
-    </script>
-    <script src="{{ asset("/vendor/scribe/js/tryitout-5.6.0.js") }}"></script>
 
     <script src="{{ asset("/vendor/scribe/js/theme-default-5.6.0.js") }}"></script>
 
@@ -202,22 +196,7 @@
                     <a href="#endpoints">Endpoints</a>
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-visits">
-                                <a href="#endpoints-POSTapi-visits">POST api/visits</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-visits--record_id--">
-                                <a href="#endpoints-GETapi-visits--record_id--">GET api/visits/{record_id?}</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-visits--id-">
-                                <a href="#endpoints-GETapi-visits--id-">GET api/visits/{id}</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-visits--id-">
-                                <a href="#endpoints-PUTapi-visits--id-">PUT api/visits/{id}</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-visits--id-">
-                                <a href="#endpoints-DELETEapi-visits--id-">DELETE api/visits/{id}</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-prescriptions">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-prescriptions">
                                 <a href="#endpoints-POSTapi-prescriptions">POST api/prescriptions</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-prescriptions--record_id--">
@@ -256,6 +235,28 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-cases-DELETEapi-medicaldocument-file--id-">
                                 <a href="#medical-cases-DELETEapi-medicaldocument-file--id-">Delete a specific file from a medical case</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-medical-visits" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="medical-visits">
+                    <a href="#medical-visits">Medical Visits</a>
+                </li>
+                                    <ul id="tocify-subheader-medical-visits" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="medical-visits-POSTapi-visits">
+                                <a href="#medical-visits-POSTapi-visits">Create a new medical visit</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="medical-visits-GETapi-visits--record_id--">
+                                <a href="#medical-visits-GETapi-visits--record_id--">List medical visits</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="medical-visits-GETapi-visits--id-">
+                                <a href="#medical-visits-GETapi-visits--id-">Show a specific medical visit</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="medical-visits-PUTapi-visits--id-">
+                                <a href="#medical-visits-PUTapi-visits--id-">Update a medical visit</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="medical-visits-DELETEapi-visits--id-">
+                                <a href="#medical-visits-DELETEapi-visits--id-">Delete a medical visit</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -441,23 +442,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-appointments', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-appointments"
-                    onclick="tryItOut('GETapi-appointments');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-appointments"
-                    onclick="cancelTryOut('GETapi-appointments');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-appointments"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -521,19 +505,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"doctor_id\": \"consequatur\",
-    \"patient_id\": \"consequatur\",
+    \"doctor_id\": 17,
+    \"patient_id\": 17,
     \"date\": \"2025-12-03\",
     \"start_time\": \"(:05\",
     \"appointment_type\": \"in_person\",
-    \"service_type\": \"doctor\",
-    \"status\": \"visited\",
-    \"payment_status\": \"pending\",
-    \"payment_method\": 56,
-    \"transaction_id\": \"consequatur\",
-    \"payment_info\": \"consequatur\",
-    \"customer_ip\": \"64.52.10.134\",
-    \"customer_user_agent\": \"qeopfuudtdsufvyvddqam\"
+    \"service_type\": \"doctor\"
 }"
 </code></pre></div>
 
@@ -550,19 +527,12 @@ const headers = {
 };
 
 let body = {
-    "doctor_id": "consequatur",
-    "patient_id": "consequatur",
+    "doctor_id": 17,
+    "patient_id": 17,
     "date": "2025-12-03",
     "start_time": "(:05",
     "appointment_type": "in_person",
-    "service_type": "doctor",
-    "status": "visited",
-    "payment_status": "pending",
-    "payment_method": 56,
-    "transaction_id": "consequatur",
-    "payment_info": "consequatur",
-    "customer_ip": "64.52.10.134",
-    "customer_user_agent": "qeopfuudtdsufvyvddqam"
+    "service_type": "doctor"
 };
 
 fetch(url, {
@@ -599,23 +569,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-appointments', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-appointments"
-                    onclick="tryItOut('POSTapi-appointments');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-appointments"
-                    onclick="cancelTryOut('POSTapi-appointments');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-appointments"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -661,27 +614,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="doctor_id"                data-endpoint="POSTapi-appointments"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="doctor_id"                data-endpoint="POSTapi-appointments"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the doctors table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the doctors table. Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="patient_id"                data-endpoint="POSTapi-appointments"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="patient_id"                data-endpoint="POSTapi-appointments"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the patients table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the patients table. Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -734,94 +687,6 @@ Must be one of:
 <p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="status"                data-endpoint="POSTapi-appointments"
-               value="visited"
-               data-component="body">
-    <br>
-<p>Example: <code>visited</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>waiting</code></li> <li><code>canceled</code></li> <li><code>visited</code></li> <li><code>no_show</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="payment_status"                data-endpoint="POSTapi-appointments"
-               value="pending"
-               data-component="body">
-    <br>
-<p>Example: <code>pending</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>paid</code></li> <li><code>pending</code></li> <li><code>unpaid</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_method</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="payment_method"                data-endpoint="POSTapi-appointments"
-               value="56"
-               data-component="body">
-    <br>
-<p>Must be at least 1. Example: <code>56</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>transaction_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="transaction_id"                data-endpoint="POSTapi-appointments"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_info</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="payment_info"                data-endpoint="POSTapi-appointments"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>customer_ip</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="customer_ip"                data-endpoint="POSTapi-appointments"
-               value="64.52.10.134"
-               data-component="body">
-    <br>
-<p>Must be a valid IP address. Example: <code>64.52.10.134</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>customer_user_agent</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="customer_user_agent"                data-endpoint="POSTapi-appointments"
-               value="qeopfuudtdsufvyvddqam"
-               data-component="body">
-    <br>
-<p>Must not be greater than 1000 characters. Example: <code>qeopfuudtdsufvyvddqam</code></p>
         </div>
         </form>
 
@@ -905,23 +770,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-appointments--doctor_id---date-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-appointments--doctor_id---date-"
-                    onclick="tryItOut('GETapi-appointments--doctor_id---date-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-appointments--doctor_id---date-"
-                    onclick="cancelTryOut('GETapi-appointments--doctor_id---date-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-appointments--doctor_id---date-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -1071,23 +919,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-appointments--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-appointments--id-"
-                    onclick="tryItOut('GETapi-appointments--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-appointments--id-"
-                    onclick="cancelTryOut('GETapi-appointments--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-appointments--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -1165,14 +996,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"start_time\": \"(:05\",
-    \"attended\": true,
-    \"appointment_type\": \"online\",
-    \"service_type\": \"doctor\",
-    \"status\": \"waiting\",
-    \"payment_status\": \"paid\",
-    \"payment_method\": 56,
-    \"transaction_id\": \"consequatur\",
-    \"payment_info\": \"consequatur\"
+    \"attended\": false,
+    \"appointment_type\": \"referral\",
+    \"service_type\": \"injection\",
+    \"status\": \"canceled\"
 }"
 </code></pre></div>
 
@@ -1190,14 +1017,10 @@ const headers = {
 
 let body = {
     "start_time": "(:05",
-    "attended": true,
-    "appointment_type": "online",
-    "service_type": "doctor",
-    "status": "waiting",
-    "payment_status": "paid",
-    "payment_method": 56,
-    "transaction_id": "consequatur",
-    "payment_info": "consequatur"
+    "attended": false,
+    "appointment_type": "referral",
+    "service_type": "injection",
+    "status": "canceled"
 };
 
 fetch(url, {
@@ -1234,23 +1057,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-appointments--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-appointments--id-"
-                    onclick="tryItOut('PUTapi-appointments--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-appointments--id-"
-                    onclick="cancelTryOut('PUTapi-appointments--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-appointments--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -1339,7 +1145,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>appointment_type</code></b>&nbsp;&nbsp;
@@ -1348,10 +1154,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="PUTapi-appointments--id-"
-               value="online"
+               value="referral"
                data-component="body">
     <br>
-<p>Example: <code>online</code></p>
+<p>Example: <code>referral</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -1362,10 +1168,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="PUTapi-appointments--id-"
-               value="doctor"
+               value="injection"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
+<p>Example: <code>injection</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -1376,62 +1182,12 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-appointments--id-"
-               value="waiting"
+               value="canceled"
                data-component="body">
     <br>
-<p>Example: <code>waiting</code></p>
+<p>Example: <code>canceled</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>waiting</code></li> <li><code>canceled</code></li> <li><code>visited</code></li> <li><code>no_show</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="payment_status"                data-endpoint="PUTapi-appointments--id-"
-               value="paid"
-               data-component="body">
-    <br>
-<p>Example: <code>paid</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>paid</code></li> <li><code>pending</code></li> <li><code>unpaid</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_method</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="payment_method"                data-endpoint="PUTapi-appointments--id-"
-               value="56"
-               data-component="body">
-    <br>
-<p>Must be at least 1. Example: <code>56</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>transaction_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="transaction_id"                data-endpoint="PUTapi-appointments--id-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_info</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="payment_info"                data-endpoint="PUTapi-appointments--id-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
         </div>
         </form>
 
@@ -1499,23 +1255,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PATCHapi-appointments-attended--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PATCHapi-appointments-attended--id-"
-                    onclick="tryItOut('PATCHapi-appointments-attended--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PATCHapi-appointments-attended--id-"
-                    onclick="cancelTryOut('PATCHapi-appointments-attended--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PATCHapi-appointments-attended--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-purple">PATCH</small>
@@ -1637,23 +1376,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-appointments--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-appointments--id-"
-                    onclick="tryItOut('DELETEapi-appointments--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-appointments--id-"
-                    onclick="cancelTryOut('DELETEapi-appointments--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-appointments--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -1730,19 +1452,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"doctor_id\": \"consequatur\",
-    \"patient_id\": \"consequatur\",
+    \"doctor_id\": 17,
+    \"patient_id\": 17,
     \"date\": \"2025-12-03\",
     \"start_time\": \"(:05\",
     \"appointment_type\": \"phone\",
-    \"service_type\": \"doctor\",
-    \"status\": \"canceled\",
-    \"payment_status\": \"paid\",
-    \"payment_method\": 56,
-    \"transaction_id\": \"consequatur\",
-    \"payment_info\": \"consequatur\",
-    \"customer_ip\": \"64.52.10.134\",
-    \"customer_user_agent\": \"qeopfuudtdsufvyvddqam\"
+    \"service_type\": \"doctor\"
 }"
 </code></pre></div>
 
@@ -1759,19 +1474,12 @@ const headers = {
 };
 
 let body = {
-    "doctor_id": "consequatur",
-    "patient_id": "consequatur",
+    "doctor_id": 17,
+    "patient_id": 17,
     "date": "2025-12-03",
     "start_time": "(:05",
     "appointment_type": "phone",
-    "service_type": "doctor",
-    "status": "canceled",
-    "payment_status": "paid",
-    "payment_method": 56,
-    "transaction_id": "consequatur",
-    "payment_info": "consequatur",
-    "customer_ip": "64.52.10.134",
-    "customer_user_agent": "qeopfuudtdsufvyvddqam"
+    "service_type": "doctor"
 };
 
 fetch(url, {
@@ -1808,23 +1516,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-patient-appointments', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-patient-appointments"
-                    onclick="tryItOut('POSTapi-patient-appointments');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-patient-appointments"
-                    onclick="cancelTryOut('POSTapi-patient-appointments');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-patient-appointments"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -1870,27 +1561,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="doctor_id"                data-endpoint="POSTapi-patient-appointments"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="doctor_id"                data-endpoint="POSTapi-patient-appointments"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the doctors table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the doctors table. Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="patient_id"                data-endpoint="POSTapi-patient-appointments"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="patient_id"                data-endpoint="POSTapi-patient-appointments"
+               value="17"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the patients table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the patients table. Example: <code>17</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -1943,94 +1634,6 @@ Must be one of:
 <p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="status"                data-endpoint="POSTapi-patient-appointments"
-               value="canceled"
-               data-component="body">
-    <br>
-<p>Example: <code>canceled</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>waiting</code></li> <li><code>canceled</code></li> <li><code>visited</code></li> <li><code>no_show</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="payment_status"                data-endpoint="POSTapi-patient-appointments"
-               value="paid"
-               data-component="body">
-    <br>
-<p>Example: <code>paid</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>paid</code></li> <li><code>pending</code></li> <li><code>unpaid</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_method</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="payment_method"                data-endpoint="POSTapi-patient-appointments"
-               value="56"
-               data-component="body">
-    <br>
-<p>Must be at least 1. Example: <code>56</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>transaction_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="transaction_id"                data-endpoint="POSTapi-patient-appointments"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_info</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="payment_info"                data-endpoint="POSTapi-patient-appointments"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>customer_ip</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="customer_ip"                data-endpoint="POSTapi-patient-appointments"
-               value="64.52.10.134"
-               data-component="body">
-    <br>
-<p>Must be a valid IP address. Example: <code>64.52.10.134</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>customer_user_agent</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="customer_user_agent"                data-endpoint="POSTapi-patient-appointments"
-               value="qeopfuudtdsufvyvddqam"
-               data-component="body">
-    <br>
-<p>Must not be greater than 1000 characters. Example: <code>qeopfuudtdsufvyvddqam</code></p>
         </div>
         </form>
 
@@ -2114,23 +1717,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patient-appointments--doctor_id---date-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patient-appointments--doctor_id---date-"
-                    onclick="tryItOut('GETapi-patient-appointments--doctor_id---date-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patient-appointments--doctor_id---date-"
-                    onclick="cancelTryOut('GETapi-patient-appointments--doctor_id---date-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patient-appointments--doctor_id---date-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -2280,23 +1866,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patient-appointments--patient_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patient-appointments--patient_id-"
-                    onclick="tryItOut('GETapi-patient-appointments--patient_id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patient-appointments--patient_id-"
-                    onclick="cancelTryOut('GETapi-patient-appointments--patient_id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patient-appointments--patient_id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -2375,13 +1944,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"start_time\": \"(:05\",
     \"attended\": false,
-    \"appointment_type\": \"referral\",
-    \"service_type\": \"doctor\",
-    \"status\": \"visited\",
-    \"payment_status\": \"pending\",
-    \"payment_method\": 56,
-    \"transaction_id\": \"consequatur\",
-    \"payment_info\": \"consequatur\"
+    \"appointment_type\": \"phone\",
+    \"service_type\": \"injection\",
+    \"status\": \"no_show\"
 }"
 </code></pre></div>
 
@@ -2400,13 +1965,9 @@ const headers = {
 let body = {
     "start_time": "(:05",
     "attended": false,
-    "appointment_type": "referral",
-    "service_type": "doctor",
-    "status": "visited",
-    "payment_status": "pending",
-    "payment_method": 56,
-    "transaction_id": "consequatur",
-    "payment_info": "consequatur"
+    "appointment_type": "phone",
+    "service_type": "injection",
+    "status": "no_show"
 };
 
 fetch(url, {
@@ -2443,23 +2004,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-patient-appointments--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-patient-appointments--id-"
-                    onclick="tryItOut('PUTapi-patient-appointments--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-patient-appointments--id-"
-                    onclick="cancelTryOut('PUTapi-patient-appointments--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-patient-appointments--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -2557,10 +2101,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="referral"
+               value="phone"
                data-component="body">
     <br>
-<p>Example: <code>referral</code></p>
+<p>Example: <code>phone</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -2571,10 +2115,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="doctor"
+               value="injection"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
+<p>Example: <code>injection</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -2585,62 +2129,12 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="visited"
+               value="no_show"
                data-component="body">
     <br>
-<p>Example: <code>visited</code></p>
+<p>Example: <code>no_show</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>waiting</code></li> <li><code>canceled</code></li> <li><code>visited</code></li> <li><code>no_show</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_status</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="payment_status"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="pending"
-               data-component="body">
-    <br>
-<p>Example: <code>pending</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>paid</code></li> <li><code>pending</code></li> <li><code>unpaid</code></li></ul>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_method</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="payment_method"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="56"
-               data-component="body">
-    <br>
-<p>Must be at least 1. Example: <code>56</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>transaction_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="transaction_id"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>payment_info</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="payment_info"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
         </div>
         </form>
 
@@ -2708,23 +2202,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-patient-appointments--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-patient-appointments--id-"
-                    onclick="tryItOut('DELETEapi-patient-appointments--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-patient-appointments--id-"
-                    onclick="cancelTryOut('DELETEapi-patient-appointments--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-patient-appointments--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -2836,8 +2313,8 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;captcha_id&quot;: &quot;30b3cf4a-4c6a-445a-a8eb-eeda06526794&quot;,
-    &quot;image&quot;: &quot;data:image/png;base64,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&quot;,
+    &quot;captcha_id&quot;: &quot;0f9786fd-d168-4986-98ea-40f1040f577b&quot;,
+    &quot;image&quot;: &quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAA8CAIAAAAL5NQ9AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAUkklEQVR4nOVcd1xT19t/wh4BwgYZQtg7LAFFrVXcVqpWq7ZqHdVWW5VWUH+4qYh1tvopVFFLLbbWAVYFRFyIoEyRDQKyNwlJWIHk/eOmN+Fm3YShvv1++OPcc55z7gnf+4xzznMvgUqlwlih9U6W/jyv4YxwJrh6y1ELMQK3G8PnG++SaswdzcE/Gh4dzqzeLghjSeF/DdlZiZ5esyWKBfeFHFWOkPkucjL3HFUU72h421MQgvNHf8EvjJO/gauhw+EP3i6FLyK6RTU5/DhuLGciCqdfsfkv1wd/NeK3UFgaNswR3hqFtbGRE0LU3tbdcWKrC97/T2J8JP+lKBW8fkLkU4sHPZxjgpXipljUUDic+4mH2YpNozf48FF5eR9SOBHHwDSdobH4LxPjIxPjI2cvxPVzFgfJ/tQmHU1QJXwvWP9fDGfa2TG6cquGPw6ieYLk4fSCI4X/IoXDhyjyYMz5AwCFsbwZALBDOuUitMf4piML/GZzbDDW4cx7x1/z8cNoWaLbQ1Uwtfx49jnaWMxvBA1pZVIaedakERnqHYQYy8kPQSsaHZ8BAOsW+g7n7gVnnvNfOm/x4b8UR+GtvIcfUaYN594jjof7C6btdx7LO+IkDwT4k4o8DEkYYDi7FnJpScQa9PI9Dmd63iSpjp81qrfA7/b4+Ys5SGW5lWDIk4okBEUn8x23u0q89ftKYcEdqvM8kgwdi57lOE70kCiGX/kQIBRGx2foGvZZZ6lgWp218uHzDdJOFSd4FCYXNwc4GI7SbcSAuTdK/eBGnMJ3Y/6au2rZqM5HPHmilOm5GQeG7fNkgwQtPJCZus978pjNRjZcD/tnceiC4Y+DkGda6y5GBmPxEIcHb4k8BO+rIb1U1brGUl/m7mI8k1C3JAg0WpFtLZ/7y6/uX30pbS+hIGyMK9XSy9ztPB+tKi1i2jmqj8joAPDo+c4PfI5IFBvIe6gwotEv/vBBlOW8Qb+2SGOJYF/+UHPs92IEMUQLfx0M/1JeuiPvtwgZYjwMpI1ZBNcJ7xyFI4WBAVZJZXZRRWZNfSmN0XFoeywAXDkesfy7kOEMK36FKxXwk1d1aKflniNCF3nvAn+Ah8JdDyvDp5HFCEQyz/gWrad4cyPpG0mRyWl/DQz0owJHgq/rkoxknmLIruKIcAfZ+ub0P/dQ4jFNh0wN8Maz2ruXennm5M/ERCvvCH8wGlp47NyW0qpc/povloRO9JgzsnfBYGDgsILCboliEpWvLemE3qygk8V5mmW9IDbOHA0KaU/3afkfkLaX1NvcLFbf4OCAGIEuZiemprQyR6pbdLbQ3pQ0VBbWtjdJfrwet2QBQHaerXgxdId69sJN+3/vwbZe45povVlB0fEZmmW9uhPkEP6i7z0VHA3lj0qnFlQUJj67d+7mxQO//kClU/e0ncXxE4UDwx+bzS5Le1rV2NTU3iGmFy4t7OvvLa7ILKrIrKorqm0snzP184Uz1osS3h42l9E9ZJNel2R0JPi6UOHm2vbG6pbG6tZ//1qaatpYfbxHREuXOG2J77Jv56hpqEqeZ1iGcihWb/C7PfG7ms3tzZlF2XXN9XUt9YXleYw+VkNrY3fvkESKm8euUuwkb4kh6O3vp9IZ4Y9PLbddTmUwOrsYNCazs4tOZTCpdAaVwaAxuzkcDgDMm+jz7dJAUeNIPi9saK468PNqNnsQrUl4/LuX8zQTIytBYTabzezpwlS2U5uKS7Y52J/C1LP6Bzb670VmKQq0dkZc1P30hLzwa0G6RhJ21ITyJ5E8nMvz5OcP9vwiwcrVtdThp3DFvnBmTy8A7HsSI16SysAmf/BDsiE10h+vqKDEXzM4OHDpRjibzRYUZnRTUUoM9czQ+s5uIfvRikoKusa49jmba9pOB0n4nRgInu01dNRklD7in3Z8CC06PmPdQl/kT8xoN+NfysmJ/F8RCAQjXUMvR09VZcmmAgWJSMQpOU5PV0yrZC2Uk5OzHu9aWD4koK+uK0559neAP3a7ks7gOUI3B/97qVeQcmlljtCIxthCv62B22WcpYHfHIqxhYGxhb4GSb2tsfPKydvleW+Q1pdPS2rKGs1tjQUHYZx7Sdzghl6Kspy3Xvxx6cFPWmo6H7rOZzFsjbWc1kX4AvjSah9rmU0V/0/4eKHbX/fK0ctJbn7eTp6mBqamhiamBibGekZiCBYFkoZ6fWubgrw8iaiuSVTX0dAgaaiTiESSBpFEJKZk5eaWVSCSUygu2XFNnoHCo3pciRd2ZA8MhQAQlxxFcfTX1zEJv1i86wtu0M8fy7jZT+KnUOjI4ywMXj0rQ8qm1kardvIs/o07WnsvbV7rsxt1jUWZFUIpRPlDyGv0q/jCQEiy3r28OACgdXfczIgBAD1NQxosmOX+sZP5VABglJ0h2m4BANqBO1r75gl25ydpxexlc/2HG46GrlmppKBAVBOuuJGxfyMFfW0tW3NTMB/SGvHbq5DVLkgZF4X2ZN7pjKoKsbePyeFw+ll9MTcivlv/E8ofAHTRubGTgoKSlbmLgoISskBspza1U5sEV4fGFrx9zsbqFv6m7d+pA4Cdu2VBBvfx7+oQ5xLEu71magOVQeevaetqvpp2/mraeWNtswBKYAAl0AYAAITyBwByBB6FbI4QJyItdDQ1RDW9LH+N/tRJLk6CAih/gHNRYT7OVlmJ+7D0s3r9PbkbqiWV2U8yb/FL0pnc+JakoScvr2BubIM2lVXlCY7MT2FTTZuggLIqzw3rGgp3nIJu70LGD2g5Oj4jOj7j9uOaB2FFv2y68bHvKi01Hf7ujZ21MQ9//vzk9GU/Tj5zN6y4Vsg8AaC2pkCwks1m07sZg/vuCe0iMx7l5KPlyW4uYiQBpxbKyytYmbsUVbwAgMHBATuyR0llTmtHPQBcSzjraudH0uQy0cXgaqGWhg4AjDexr6zl5hOXV+X5uWONj7GFAVpm9Q20NXbqGfPyo6ht9KLM10hZUVnB80NsyoUot8dJmA++QhYJ7mQ/d7LfjsDwF+VPkl/GPXp1h9nH0+w3rRVvHlVcfnTW2sgheFGEq4U32pSdlUgmuwNc5k6MTjtzNfJOakLpmzIOh6OsqOR3wHfL0k2eDpIPkyVicHDwcSaXQm0NorOVhXh5uUu9Qh4uQdiReadopZU5axbvIhAIANDTy/jj1gm0qevfcEZLQxcALEx5NrZEmDvk10IAaKxuRQqVhbUpV9N3LjrWw+hFataGLibpDbE86FJdyHQ9etBQU7BRTk7O1+6DPUtPJe4rPLr6UoBboLLiEIdU0VSsTdQT6EVAy3sjDx7//VRJdSkSfvex+h9lPfkkZGXMnT+ETAbgUvoFofVCkV1azhzg/mp/N8mJQgprVHBlE9nxucOXJWmrFu38wGfRw4zrAJBX9CQzP8XbdToA0JmoFuoBgCUfha0d9dSuVlRfESipKOoYanU0c7cCokL/7GH2oTEqiknzPaYE8nRCzGpdqqQjRQWlKU6zNFQ1c6vS+1i8LRtncw8zPUukfODB7vmaUzy9Zic+41lLoWtZDoezPyrMiewgqItr/NbimQ+CRzkv0fIkVyGOEAO57ihcpwcWJvaoO+xidLypL108+2s0PDn3ZzizuwsEtNBQzxztBQCllUP2ThHwK2JteZMgfwCQdjtnnc//En5/wr9PhpFBfJ7EFR4GF1NOfx21uK2rGa2Z4jT75LpY9HLfh9w8UsTqINDV0jkRFJFx6XFubMbp749ra3KNP4fDOXLpOP67I3jdxdPRfhYrLb8IKWuoqbpZiztgQCC/51oKntvIycmVVuYi/g8ASJp6jjbepsY26TkJAAAwQKO3uztNvfvwt55eBgD4us8yH2dLIBAKyp53UJuQXnWMweleAZiRizIrKgvrMJVKKooOXlZWzuY9jF7Elg6wBrMeFHz40YIPF2BzLKLjM3JL69Yt9PWwN8XzWxBQme0hMWvjX/BMn7yc/Dfz9gYtDFNW5OUvoduhhrqGvi4TvJ08HckO+78M9XP1IaoRVZRV7Cxsnawcbz6MR+QbWhsXTw/UImrin4mOMs9Jpb0qepjNjaemeVAm4tBCKRLy7cjuSEQDAC9L0hZMX2tP9pg6IfDxizgASM9N9KHMpDOHaGHsqx9sLSnl1dw5cehVgsNqG/A25AxMdYJ++oLsZIYGoqz+gcPrI3MecR/My0dvTZrHNVOJJ0Nnbw8DmfJWcivT98R+xa98hiSTsJVRLuM9+cX4jyM01Ii5TPOts/0FR/OnTLQdb1P2hrv4eVGQZWYoxcPED34rOpni3Bn8q/ZRCfkZUuwp8LvDmoZSJPhcMmczak4vXjvcz+pDyppEHQBY4fI//jgIcYeYYS0d/dByVwfTwcuKfyGRknCePIF39NhQ1dLWyH1KEP6kBZvNPp98HGM8J9pPj9mWjOFPEBOfN4lqsqJqoeWaplo8Mzl0Bhvj9PT1vSgqRcry8koUGytB/jqOHMbUCKfwbsohwUp+d8jhcF6VpgOAirLaqkU7kUoanbewI2lyIzprcxd5eZ6uI+6w5p96tGYcmbeu6O3u62zhhjao21uxaeuQ39Ak3bsKCbtO3D7ANQMdjNZvzi07n3wMjUfk5eS/mr3rxNrLWmpcf3aqhxsNCp4Ien8/QdRdjKfyLJ74wzgUe7ZgY5ynLwtZA9y+H7g7KioMsZFh3WEAoLMTeywq3JDOnb5HsFJeXoFs5lT8Ogu5LHmdPclzHgA4WntP8V74JDMelSQQCEQ17jJcUVHZ0tSx4g13oZOdn+lDmWm+wAQVNjIfEr43Vrc+T78CfAFnc207vwC/juLBnPAgpJBVkbr3yuYOOs8M6Gkahq2MolgOSeDYpopN5EXQ299X+Lqwtrm+qa2pj9W3dfmWIdNu5ymovraMqXVDY1HuSqFxd7PxYUMACFULFdpLupfT7MgeKIX8256fzN1SUJbRQeOaJg11bf4dRTuyR8WbfG1NfTuyB8UR++qMqrqKli6R1s5dYt+7eXVbOO9BY9C6z4bwIg5VooqptdT5ymw2O/r+8QspJ/kXAz62Uw8sP0tSF34IIKiCrZ2tS4JXoJeT3f097ClImUqnpubwToYnOMvyYRYag5nz7762sqKitwP3EBvhTwykoPBu4Tk7Mi9w6Oxqbe2o19cxAQAVZbXVi3edvLANaUKtKIIpExY+NSg+6nYCRMDYwgClUIljkZ9W2lDd0ljdWlfRVJBe3tvdh0ouWDtNXkEe/5wBoL2rZU/sVzmVz9AaAoGwIWDH2hnbBYUP9d3eozxfaFKFmaGpu51bbilXUb4M+3rXF8GuNs41TbXHfj/F6GEi9e52bg6W9lLNEEHqy1foQdgERzslRUWcHaWgcK7ThsHBASVFZTRmKa3MQSgEAEdr78leC1Kz/tElGXk4fcDfUUfL4Jho/gCALc9bCybFPk2KFZLrAABe050/3TYX/4QB4EX5k32xmzuZPCeto6F/cPlZL2vhKep7lOcLrUdwcNPeJcHL+1j9ANBO6/j+1E6MgLKi0qGv90s1QxRDY1HevmhxZbcDWdwb+kPCmejL59Hyq6pIAWHuZil6iVmqL533bfiOa0eCr8+bthrnvJGYxWuyhBcTdY1IGw8t23Pxa/wqyGazo5Iitp7/lJ8/D/LEy9tTRPGHQExek7O10/m9kVpELaGt+iS93w5GO5FlSbZrpdIKKrkno4oKChMc7dAmQf4q8l7yX/K0kJn4y7rPeN9VcbEUfnCDukNdkhHGYKooq6koS/FFB/R44Ul8FqZJlahibKFvQjYwszF28rH5TS1urquEU1kM/sm8cjFlSKrHqmnfbJq1U/zZLMJf1InjG4O+EyrgT5n46Nek325fvpd+v7z2NWuARVRVt7e0n+k7Y9JUG0cdb6G9ROHq4M9L5b8BgMe5+aif9rS3UVVWRmUuJ/7vs9k/8PeyprjxX/LSn3IvJLmvxaZH/H3n2ifzhiSlN7XWVNYWDrApU7yEnL7iBGaTs6as8epPd43M9dU1Va1czC0cTDR18CYliMLmqE+yXw8xyDoa+jNcFwZQAsWs/6RNLexn9SspShchC0VMQnJnFwM5tafYWo03kiJkG63XYq5HhyxeJ+S7VNLmwCMojTtsFyguTfTcztcbjlgBQBUz1lJ9BQCcu/fjjfQYfiuKwpBkEkAJnOkWaGsyZIt/ZFNDj5XlfW9LGanRxGAIhXH07kCN0foikxjyOu7f1pkhLo4QhTPpJVv8xIV/WRWpacUpKfm3WmiNgq1meuSZlMAASqCFgQ1IojAsbzCUgssTZ+Tn+rqKe8NtZDFGL6cJZkX8+cflT1d+Nqo33U1PP6zB3b3Lq3qenBf3IP+2UL2c7DjzU+fl70iCPU78FFn67SY7kI1CakIFaY41TmGpLGf695KT6ocDNnDKoTGXUJkPb3oIvK3XAI7bXA53B7h6mofFQ+nSz4cJTW2j5E4bH0iVqpffsX9PwUZPCxHyXjct3bxRR6LwGIM10P+87NG9vLjUoqSe/u7QWWHzp697KzO5lfziowCRW694MCoUyhazvBX0sXr/TDi9+qNhvTX3diHj158KBoQng7QdpybGRz5YMP2t83e9QMjWhCCUFVWcx7lJlvsX5ZHYJawgak5hD9Qk4lLZHZySO0JvY2pk18L0/Ul++4esI98j5UPxLrwmmHuuzn2DjEfEIJHC+hMHTYL2ShzlfSQP3g3+hg85AGA/FqnF4vnLyEoVk4904HSiDBM6cuykqCZ6kpA0e/youT+sL/K+s5DFkObUUj3MSADQfKHWcK2ZRHlRuJL8bHnARJm7DxNjo4In2nYH6WFTJUYWsoQzCH8AIJ6/6hsSUkhQ/q5cvShGbEflKIaLtPhrozc4ACD87c5+gNb8/LxetLgsIFCp1LSEm5PmfAwAkUdub9opy0bXe4Q/WPdXKs74/+EFo/+6s27ZvPf160/DROnVNrul2JR7DOra06trmP7uM8TIpPfc91MVJzAGeFcoPF/fu95EeN7Ru4bXpyustuLdXxwD/B/kIL6IprJk9AAAAABJRU5ErkJggg==&quot;,
     &quot;expires_in&quot;: 120
 }</code>
  </pre>
@@ -2866,23 +2343,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-auth-captcha-generate', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-auth-captcha-generate"
-                    onclick="tryItOut('GETapi-auth-captcha-generate');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-auth-captcha-generate"
-                    onclick="cancelTryOut('GETapi-auth-captcha-generate');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-auth-captcha-generate"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -2985,23 +2445,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-send-otp', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-auth-send-otp"
-                    onclick="tryItOut('POSTapi-auth-send-otp');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-auth-send-otp"
-                    onclick="cancelTryOut('POSTapi-auth-send-otp');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-auth-send-otp"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -3119,23 +2562,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-verify-otp', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-auth-verify-otp"
-                    onclick="tryItOut('POSTapi-auth-verify-otp');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-auth-verify-otp"
-                    onclick="cancelTryOut('POSTapi-auth-verify-otp');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-auth-verify-otp"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -3269,23 +2695,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-login', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-auth-login"
-                    onclick="tryItOut('POSTapi-auth-login');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-auth-login"
-                    onclick="cancelTryOut('POSTapi-auth-login');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-auth-login"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -3435,23 +2844,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-logout', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-auth-logout"
-                    onclick="tryItOut('POSTapi-auth-logout');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-auth-logout"
-                    onclick="cancelTryOut('POSTapi-auth-logout');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-auth-logout"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -3560,23 +2952,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-auth-logoutall', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-auth-logoutall"
-                    onclick="tryItOut('POSTapi-auth-logoutall');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-auth-logoutall"
-                    onclick="cancelTryOut('POSTapi-auth-logoutall');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-auth-logoutall"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -3705,23 +3080,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-shifts--doctor_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-shifts--doctor_id-"
-                    onclick="tryItOut('GETapi-shifts--doctor_id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-shifts--doctor_id-"
-                    onclick="cancelTryOut('GETapi-shifts--doctor_id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-shifts--doctor_id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -3860,23 +3218,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-shifts', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-shifts"
-                    onclick="tryItOut('POSTapi-shifts');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-shifts"
-                    onclick="cancelTryOut('POSTapi-shifts');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-shifts"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -4062,23 +3403,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-shifts--id---day-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-shifts--id---day-"
-                    onclick="tryItOut('GETapi-shifts--id---day-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-shifts--id---day-"
-                    onclick="cancelTryOut('GETapi-shifts--id---day-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-shifts--id---day-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -4227,23 +3551,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-shifts--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-shifts--id-"
-                    onclick="tryItOut('PUTapi-shifts--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-shifts--id-"
-                    onclick="cancelTryOut('PUTapi-shifts--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-shifts--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -4414,23 +3721,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-shifts--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-shifts--id-"
-                    onclick="tryItOut('DELETEapi-shifts--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-shifts--id-"
-                    onclick="cancelTryOut('DELETEapi-shifts--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-shifts--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -4568,23 +3858,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patient-shifts--doctor_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patient-shifts--doctor_id-"
-                    onclick="tryItOut('GETapi-patient-shifts--doctor_id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patient-shifts--doctor_id-"
-                    onclick="cancelTryOut('GETapi-patient-shifts--doctor_id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patient-shifts--doctor_id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -4722,23 +3995,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patient-shifts--id---day-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patient-shifts--id---day-"
-                    onclick="tryItOut('GETapi-patient-shifts--id---day-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patient-shifts--id---day-"
-                    onclick="cancelTryOut('GETapi-patient-shifts--id---day-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patient-shifts--id---day-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -4892,23 +4148,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-doctors', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-doctors"
-                    onclick="tryItOut('GETapi-doctors');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-doctors"
-                    onclick="cancelTryOut('GETapi-doctors');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-doctors"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -5030,23 +4269,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-doctors', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-doctors"
-                    onclick="tryItOut('POSTapi-doctors');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-doctors"
-                    onclick="cancelTryOut('POSTapi-doctors');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-doctors"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -5220,23 +4442,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-doctors--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-doctors--id-"
-                    onclick="tryItOut('GETapi-doctors--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-doctors--id-"
-                    onclick="cancelTryOut('GETapi-doctors--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-doctors--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -5373,23 +4578,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-doctors--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-doctors--id-"
-                    onclick="tryItOut('PUTapi-doctors--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-doctors--id-"
-                    onclick="cancelTryOut('PUTapi-doctors--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-doctors--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -5596,23 +4784,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-doctors--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-doctors--id-"
-                    onclick="tryItOut('DELETEapi-doctors--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-doctors--id-"
-                    onclick="cancelTryOut('DELETEapi-doctors--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-doctors--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -5750,23 +4921,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patient-doctors', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patient-doctors"
-                    onclick="tryItOut('GETapi-patient-doctors');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patient-doctors"
-                    onclick="cancelTryOut('GETapi-patient-doctors');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patient-doctors"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -5891,23 +5045,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patient-doctors--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patient-doctors--id-"
-                    onclick="tryItOut('GETapi-patient-doctors--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patient-doctors--id-"
-                    onclick="cancelTryOut('GETapi-patient-doctors--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patient-doctors--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -5969,884 +5106,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="endpoints-POSTapi-visits">POST api/visits</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-POSTapi-visits">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "https://kamandi-api.test/api/visits" \
-    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"doctor_id\": \"consequatur\",
-    \"patient_id\": \"consequatur\",
-    \"visit_date\": \"2025-12-03\",
-    \"notes\": \"consequatur\",
-    \"diagnosis\": \"consequatur\",
-    \"follow_up_date\": \"2025-12-03\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/visits"
-);
-
-const headers = {
-    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "doctor_id": "consequatur",
-    "patient_id": "consequatur",
-    "visit_date": "2025-12-03",
-    "notes": "consequatur",
-    "diagnosis": "consequatur",
-    "follow_up_date": "2025-12-03"
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-visits">
-</span>
-<span id="execution-results-POSTapi-visits" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-visits"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-visits"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-visits" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-visits">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-POSTapi-visits" data-method="POST"
-      data-path="api/visits"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-visits', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-visits"
-                    onclick="tryItOut('POSTapi-visits');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-visits"
-                    onclick="cancelTryOut('POSTapi-visits');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-visits"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/visits</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-visits"
-               value="Bearer Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-visits"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-visits"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="doctor_id"                data-endpoint="POSTapi-visits"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the doctors table. Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="patient_id"                data-endpoint="POSTapi-visits"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the patients table. Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>appointment_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="appointment_id"                data-endpoint="POSTapi-visits"
-               value=""
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the appointments table.</p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>visit_date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="visit_date"                data-endpoint="POSTapi-visits"
-               value="2025-12-03"
-               data-component="body">
-    <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="notes"                data-endpoint="POSTapi-visits"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>diagnosis</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="diagnosis"                data-endpoint="POSTapi-visits"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>follow_up_date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="follow_up_date"                data-endpoint="POSTapi-visits"
-               value="2025-12-03"
-               data-component="body">
-    <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-GETapi-visits--record_id--">GET api/visits/{record_id?}</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-visits--record_id--">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "https://kamandi-api.test/api/visits/consequatur" \
-    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/visits/consequatur"
-);
-
-const headers = {
-    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-visits--record_id--">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-visits--record_id--" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-visits--record_id--"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-visits--record_id--"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-visits--record_id--" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-visits--record_id--">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-visits--record_id--" data-method="GET"
-      data-path="api/visits/{record_id?}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-visits--record_id--', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-visits--record_id--"
-                    onclick="tryItOut('GETapi-visits--record_id--');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-visits--record_id--"
-                    onclick="cancelTryOut('GETapi-visits--record_id--');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-visits--record_id--"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/visits/{record_id?}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-visits--record_id--"
-               value="Bearer Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-visits--record_id--"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-visits--record_id--"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>record_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="record_id"                data-endpoint="GETapi-visits--record_id--"
-               value="consequatur"
-               data-component="url">
-    <br>
-<p>The ID of the record. Example: <code>consequatur</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="endpoints-GETapi-visits--id-">GET api/visits/{id}</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-GETapi-visits--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "https://kamandi-api.test/api/visits/consequatur" \
-    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/visits/consequatur"
-);
-
-const headers = {
-    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-visits--id-">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-visits--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-visits--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-visits--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-visits--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-visits--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-GETapi-visits--id-" data-method="GET"
-      data-path="api/visits/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-visits--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-visits--id-"
-                    onclick="tryItOut('GETapi-visits--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-visits--id-"
-                    onclick="cancelTryOut('GETapi-visits--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-visits--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/visits/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-visits--id-"
-               value="Bearer Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-visits--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-visits--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="GETapi-visits--id-"
-               value="consequatur"
-               data-component="url">
-    <br>
-<p>The ID of the visit. Example: <code>consequatur</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="endpoints-PUTapi-visits--id-">PUT api/visits/{id}</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-PUTapi-visits--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PUT \
-    "https://kamandi-api.test/api/visits/consequatur" \
-    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"notes\": \"consequatur\",
-    \"diagnosis\": \"consequatur\",
-    \"follow_up_date\": \"2025-12-03\",
-    \"visit_date\": \"2025-12-03\"
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/visits/consequatur"
-);
-
-const headers = {
-    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "notes": "consequatur",
-    "diagnosis": "consequatur",
-    "follow_up_date": "2025-12-03",
-    "visit_date": "2025-12-03"
-};
-
-fetch(url, {
-    method: "PUT",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-PUTapi-visits--id-">
-</span>
-<span id="execution-results-PUTapi-visits--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PUTapi-visits--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PUTapi-visits--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-PUTapi-visits--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PUTapi-visits--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-PUTapi-visits--id-" data-method="PUT"
-      data-path="api/visits/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PUTapi-visits--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-visits--id-"
-                    onclick="tryItOut('PUTapi-visits--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-visits--id-"
-                    onclick="cancelTryOut('PUTapi-visits--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-visits--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-darkblue">PUT</small>
-            <b><code>api/visits/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-visits--id-"
-               value="Bearer Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PUTapi-visits--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PUTapi-visits--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="PUTapi-visits--id-"
-               value="consequatur"
-               data-component="url">
-    <br>
-<p>The ID of the visit. Example: <code>consequatur</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="notes"                data-endpoint="PUTapi-visits--id-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>diagnosis</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="diagnosis"                data-endpoint="PUTapi-visits--id-"
-               value="consequatur"
-               data-component="body">
-    <br>
-<p>Example: <code>consequatur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>follow_up_date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="follow_up_date"                data-endpoint="PUTapi-visits--id-"
-               value="2025-12-03"
-               data-component="body">
-    <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>visit_date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="visit_date"                data-endpoint="PUTapi-visits--id-"
-               value="2025-12-03"
-               data-component="body">
-    <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-DELETEapi-visits--id-">DELETE api/visits/{id}</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-DELETEapi-visits--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "https://kamandi-api.test/api/visits/consequatur" \
-    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/visits/consequatur"
-);
-
-const headers = {
-    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-visits--id-">
-</span>
-<span id="execution-results-DELETEapi-visits--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-visits--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-visits--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-visits--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-visits--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-DELETEapi-visits--id-" data-method="DELETE"
-      data-path="api/visits/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-visits--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-visits--id-"
-                    onclick="tryItOut('DELETEapi-visits--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-visits--id-"
-                    onclick="cancelTryOut('DELETEapi-visits--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-visits--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/visits/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-visits--id-"
-               value="Bearer Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="DELETEapi-visits--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="DELETEapi-visits--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="DELETEapi-visits--id-"
-               value="consequatur"
-               data-component="url">
-    <br>
-<p>The ID of the visit. Example: <code>consequatur</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="endpoints-POSTapi-prescriptions">POST api/prescriptions</h2>
+                                <h2 id="endpoints-POSTapi-prescriptions">POST api/prescriptions</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6927,23 +5187,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-prescriptions', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-prescriptions"
-                    onclick="tryItOut('POSTapi-prescriptions');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-prescriptions"
-                    onclick="cancelTryOut('POSTapi-prescriptions');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-prescriptions"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -7141,23 +5384,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-prescriptions--record_id--', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-prescriptions--record_id--"
-                    onclick="tryItOut('GETapi-prescriptions--record_id--');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-prescriptions--record_id--"
-                    onclick="cancelTryOut('GETapi-prescriptions--record_id--');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-prescriptions--record_id--"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -7295,23 +5521,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-prescriptions--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-prescriptions--id-"
-                    onclick="tryItOut('GETapi-prescriptions--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-prescriptions--id-"
-                    onclick="cancelTryOut('GETapi-prescriptions--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-prescriptions--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -7448,23 +5657,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-prescriptions--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-prescriptions--id-"
-                    onclick="tryItOut('PUTapi-prescriptions--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-prescriptions--id-"
-                    onclick="cancelTryOut('PUTapi-prescriptions--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-prescriptions--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -7635,23 +5827,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-prescriptions--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-prescriptions--id-"
-                    onclick="tryItOut('DELETEapi-prescriptions--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-prescriptions--id-"
-                    onclick="cancelTryOut('DELETEapi-prescriptions--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-prescriptions--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -7737,7 +5912,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "case_medical_type_id=consequatur"\
     --form "case_date=2025-12-03"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php197A.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php9F9C.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -7794,23 +5969,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-medicaldocument', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-medicaldocument"
-                    onclick="tryItOut('POSTapi-medicaldocument');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-medicaldocument"
-                    onclick="cancelTryOut('POSTapi-medicaldocument');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-medicaldocument"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -8022,23 +6180,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-medicaldocument--doctor_id---patient_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-medicaldocument--doctor_id---patient_id-"
-                    onclick="tryItOut('GETapi-medicaldocument--doctor_id---patient_id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-medicaldocument--doctor_id---patient_id-"
-                    onclick="cancelTryOut('GETapi-medicaldocument--doctor_id---patient_id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-medicaldocument--doctor_id---patient_id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -8129,7 +6270,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=consequatur"\
     --form "case_date=2025-12-03"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php198A.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php9F9D.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8183,23 +6324,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-medicaldocument--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-medicaldocument--id-"
-                    onclick="tryItOut('PUTapi-medicaldocument--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-medicaldocument--id-"
-                    onclick="cancelTryOut('PUTapi-medicaldocument--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-medicaldocument--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -8384,23 +6508,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PATCHapi-medicaldocument-pin--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PATCHapi-medicaldocument-pin--id-"
-                    onclick="tryItOut('PATCHapi-medicaldocument-pin--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PATCHapi-medicaldocument-pin--id-"
-                    onclick="cancelTryOut('PATCHapi-medicaldocument-pin--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PATCHapi-medicaldocument-pin--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-purple">PATCH</small>
@@ -8522,23 +6629,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-medicaldocument--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-medicaldocument--id-"
-                    onclick="tryItOut('DELETEapi-medicaldocument--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-medicaldocument--id-"
-                    onclick="cancelTryOut('DELETEapi-medicaldocument--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-medicaldocument--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -8660,23 +6750,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-medicaldocument-file--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-medicaldocument-file--id-"
-                    onclick="tryItOut('DELETEapi-medicaldocument-file--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-medicaldocument-file--id-"
-                    onclick="cancelTryOut('DELETEapi-medicaldocument-file--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-medicaldocument-file--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -8731,6 +6804,790 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="url">
     <br>
 <p>The ID of the file. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
+                <h1 id="medical-visits">Medical Visits</h1>
+
+    
+
+                                <h2 id="medical-visits-POSTapi-visits">Create a new medical visit</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-visits">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://kamandi-api.test/api/visits" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"doctor_id\": \"consequatur\",
+    \"patient_id\": \"consequatur\",
+    \"visit_date\": \"2025-12-03\",
+    \"notes\": \"consequatur\",
+    \"diagnosis\": \"consequatur\",
+    \"follow_up_date\": \"2025-12-03\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/visits"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "doctor_id": "consequatur",
+    "patient_id": "consequatur",
+    "visit_date": "2025-12-03",
+    "notes": "consequatur",
+    "diagnosis": "consequatur",
+    "follow_up_date": "2025-12-03"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-visits">
+</span>
+<span id="execution-results-POSTapi-visits" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-visits"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-visits"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-visits" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-visits">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-visits" data-method="POST"
+      data-path="api/visits"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-visits', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/visits</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-visits"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-visits"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-visits"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="doctor_id"                data-endpoint="POSTapi-visits"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the doctors table. Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="patient_id"                data-endpoint="POSTapi-visits"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the patients table. Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>visit_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="visit_date"                data-endpoint="POSTapi-visits"
+               value="2025-12-03"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="notes"                data-endpoint="POSTapi-visits"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>diagnosis</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="diagnosis"                data-endpoint="POSTapi-visits"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>follow_up_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="follow_up_date"                data-endpoint="POSTapi-visits"
+               value="2025-12-03"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+        </div>
+        </form>
+
+                    <h2 id="medical-visits-GETapi-visits--record_id--">List medical visits</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-visits--record_id--">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/visits/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/visits/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-visits--record_id--">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-visits--record_id--" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-visits--record_id--"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-visits--record_id--"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-visits--record_id--" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-visits--record_id--">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-visits--record_id--" data-method="GET"
+      data-path="api/visits/{record_id?}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-visits--record_id--', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/visits/{record_id?}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-visits--record_id--"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-visits--record_id--"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-visits--record_id--"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>record_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="record_id"                data-endpoint="GETapi-visits--record_id--"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the record. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="medical-visits-GETapi-visits--id-">Show a specific medical visit</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-visits--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/visits/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/visits/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-visits--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-visits--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-visits--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-visits--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-visits--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-visits--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-visits--id-" data-method="GET"
+      data-path="api/visits/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-visits--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/visits/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-visits--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-visits--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-visits--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="GETapi-visits--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the visit. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="medical-visits-PUTapi-visits--id-">Update a medical visit</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-visits--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "https://kamandi-api.test/api/visits/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"notes\": \"consequatur\",
+    \"diagnosis\": \"consequatur\",
+    \"follow_up_date\": \"2025-12-03\",
+    \"visit_date\": \"2025-12-03\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/visits/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "notes": "consequatur",
+    "diagnosis": "consequatur",
+    "follow_up_date": "2025-12-03",
+    "visit_date": "2025-12-03"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-visits--id-">
+</span>
+<span id="execution-results-PUTapi-visits--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-visits--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-visits--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-visits--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-visits--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-visits--id-" data-method="PUT"
+      data-path="api/visits/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-visits--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/visits/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-visits--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-visits--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-visits--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-visits--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the visit. Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="notes"                data-endpoint="PUTapi-visits--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>diagnosis</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="diagnosis"                data-endpoint="PUTapi-visits--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>follow_up_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="follow_up_date"                data-endpoint="PUTapi-visits--id-"
+               value="2025-12-03"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>visit_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="visit_date"                data-endpoint="PUTapi-visits--id-"
+               value="2025-12-03"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+        </div>
+        </form>
+
+                    <h2 id="medical-visits-DELETEapi-visits--id-">Delete a medical visit</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-visits--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "https://kamandi-api.test/api/visits/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/visits/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-visits--id-">
+</span>
+<span id="execution-results-DELETEapi-visits--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-visits--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-visits--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-visits--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-visits--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-visits--id-" data-method="DELETE"
+      data-path="api/visits/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-visits--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/visits/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-visits--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-visits--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-visits--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEapi-visits--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the visit. Example: <code>consequatur</code></p>
             </div>
                     </form>
 
@@ -8818,23 +7675,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patients-search', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patients-search"
-                    onclick="tryItOut('GETapi-patients-search');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patients-search"
-                    onclick="cancelTryOut('GETapi-patients-search');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patients-search"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -8959,23 +7799,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patients', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patients"
-                    onclick="tryItOut('GETapi-patients');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patients"
-                    onclick="cancelTryOut('GETapi-patients');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patients"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -9043,7 +7866,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-03T10:09:43\",
+    \"birth_date\": \"2025-12-03T16:46:45\",
     \"gender\": \"female\",
     \"blood_type\": \"mqe\",
     \"allergies\": \"opfuudtdsufvyvddqamni\",
@@ -9070,7 +7893,7 @@ let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "national_id": "consequatur",
-    "birth_date": "2025-12-03T10:09:43",
+    "birth_date": "2025-12-03T16:46:45",
     "gender": "female",
     "blood_type": "mqe",
     "allergies": "opfuudtdsufvyvddqamni",
@@ -9113,23 +7936,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-patients', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-patients"
-                    onclick="tryItOut('POSTapi-patients');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-patients"
-                    onclick="cancelTryOut('POSTapi-patients');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-patients"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -9230,10 +8036,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patients"
-               value="2025-12-03T10:09:43"
+               value="2025-12-03T16:46:45"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-03T10:09:43</code></p>
+<p>Must be a valid date. Example: <code>2025-12-03T16:46:45</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -9391,23 +8197,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patients--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patients--id-"
-                    onclick="tryItOut('GETapi-patients--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patients--id-"
-                    onclick="cancelTryOut('GETapi-patients--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patients--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -9486,8 +8275,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-03T10:09:43\",
-    \"gender\": \"female\",
+    \"birth_date\": \"2025-12-03T16:46:45\",
+    \"gender\": \"male\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
     \"chronic_diseases\": \"dlsmsjuryvojcybzvrbyi\",
@@ -9511,8 +8300,8 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-03T10:09:43",
-    "gender": "female",
+    "birth_date": "2025-12-03T16:46:45",
+    "gender": "male",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
     "chronic_diseases": "dlsmsjuryvojcybzvrbyi",
@@ -9554,23 +8343,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-patients--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-patients--id-"
-                    onclick="tryItOut('PUTapi-patients--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-patients--id-"
-                    onclick="cancelTryOut('PUTapi-patients--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-patients--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -9670,10 +8442,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patients--id-"
-               value="2025-12-03T10:09:43"
+               value="2025-12-03T16:46:45"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-03T10:09:43</code></p>
+<p>Must be a valid date. Example: <code>2025-12-03T16:46:45</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -9682,10 +8454,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PUTapi-patients--id-"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -9815,23 +8587,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-patients--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-patients--id-"
-                    onclick="tryItOut('DELETEapi-patients--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-patients--id-"
-                    onclick="cancelTryOut('DELETEapi-patients--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-patients--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -9969,23 +8724,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patient-patients', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patient-patients"
-                    onclick="tryItOut('GETapi-patient-patients');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patient-patients"
-                    onclick="cancelTryOut('GETapi-patient-patients');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patient-patients"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -10053,8 +8791,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-03T10:09:43\",
-    \"gender\": \"female\",
+    \"birth_date\": \"2025-12-03T16:46:45\",
+    \"gender\": \"male\",
     \"blood_type\": \"mqe\",
     \"allergies\": \"opfuudtdsufvyvddqamni\",
     \"chronic_diseases\": \"ihfqcoynlazghdtqtqxba\",
@@ -10080,8 +8818,8 @@ let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "national_id": "consequatur",
-    "birth_date": "2025-12-03T10:09:43",
-    "gender": "female",
+    "birth_date": "2025-12-03T16:46:45",
+    "gender": "male",
     "blood_type": "mqe",
     "allergies": "opfuudtdsufvyvddqamni",
     "chronic_diseases": "ihfqcoynlazghdtqtqxba",
@@ -10123,23 +8861,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-patient-patients', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-patient-patients"
-                    onclick="tryItOut('POSTapi-patient-patients');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-patient-patients"
-                    onclick="cancelTryOut('POSTapi-patient-patients');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-patient-patients"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -10240,10 +8961,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patient-patients"
-               value="2025-12-03T10:09:43"
+               value="2025-12-03T16:46:45"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-03T10:09:43</code></p>
+<p>Must be a valid date. Example: <code>2025-12-03T16:46:45</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -10252,10 +8973,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="POSTapi-patient-patients"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -10401,23 +9122,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patient-patients--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patient-patients--id-"
-                    onclick="tryItOut('GETapi-patient-patients--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patient-patients--id-"
-                    onclick="cancelTryOut('GETapi-patient-patients--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patient-patients--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -10496,8 +9200,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-03T10:09:43\",
-    \"gender\": \"female\",
+    \"birth_date\": \"2025-12-03T16:46:45\",
+    \"gender\": \"male\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
     \"chronic_diseases\": \"dlsmsjuryvojcybzvrbyi\",
@@ -10521,8 +9225,8 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-03T10:09:43",
-    "gender": "female",
+    "birth_date": "2025-12-03T16:46:45",
+    "gender": "male",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
     "chronic_diseases": "dlsmsjuryvojcybzvrbyi",
@@ -10564,23 +9268,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-patient-patients--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-patient-patients--id-"
-                    onclick="tryItOut('PUTapi-patient-patients--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-patient-patients--id-"
-                    onclick="cancelTryOut('PUTapi-patient-patients--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-patient-patients--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -10680,10 +9367,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patient-patients--id-"
-               value="2025-12-03T10:09:43"
+               value="2025-12-03T16:46:45"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-03T10:09:43</code></p>
+<p>Must be a valid date. Example: <code>2025-12-03T16:46:45</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -10692,10 +9379,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PUTapi-patient-patients--id-"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -10825,23 +9512,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-patient-patients--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-patient-patients--id-"
-                    onclick="tryItOut('DELETEapi-patient-patients--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-patient-patients--id-"
-                    onclick="cancelTryOut('DELETEapi-patient-patients--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-patient-patients--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -10983,23 +9653,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-users-profile', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-users-profile"
-                    onclick="tryItOut('GETapi-users-profile');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-users-profile"
-                    onclick="cancelTryOut('GETapi-users-profile');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-users-profile"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -11124,23 +9777,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-users', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-users"
-                    onclick="tryItOut('GETapi-users');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-users"
-                    onclick="cancelTryOut('GETapi-users');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-users"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -11206,7 +9842,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"gender\": \"female\",
+    \"gender\": \"male\",
     \"email\": \"andreanne00@example.org\",
     \"password\": \"\'YAKYLk4&gt;SJIrIV#lz.\",
     \"mobile\": \"consequatur\",
@@ -11230,7 +9866,7 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "gender": "female",
+    "gender": "male",
     "email": "andreanne00@example.org",
     "password": "'YAKYLk4&gt;SJIrIV#lz.",
     "mobile": "consequatur",
@@ -11272,23 +9908,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-users', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-users"
-                    onclick="tryItOut('POSTapi-users');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-users"
-                    onclick="cancelTryOut('POSTapi-users');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-users"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
@@ -11363,10 +9982,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="POSTapi-users"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -11514,23 +10133,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-users--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-users--id-"
-                    onclick="tryItOut('GETapi-users--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-users--id-"
-                    onclick="cancelTryOut('GETapi-users--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-users--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
@@ -11609,8 +10211,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"gender\": \"male\",
-    \"roll\": \"superadmin\",
+    \"gender\": \"female\",
+    \"roll\": \"nurse\",
     \"password\": \"t(!Cs\'YAKYLk4&gt;S\"
 }"
 </code></pre></div>
@@ -11630,8 +10232,8 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "gender": "male",
-    "roll": "superadmin",
+    "gender": "female",
+    "roll": "nurse",
     "password": "t(!Cs'YAKYLk4&gt;S"
 };
 
@@ -11669,23 +10271,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('PUTapi-users--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PUTapi-users--id-"
-                    onclick="tryItOut('PUTapi-users--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PUTapi-users--id-"
-                    onclick="cancelTryOut('PUTapi-users--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PUTapi-users--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-darkblue">PUT</small>
@@ -11773,10 +10358,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PUTapi-users--id-"
-               value="male"
+               value="female"
                data-component="body">
     <br>
-<p>Example: <code>male</code></p>
+<p>Example: <code>female</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -11811,10 +10396,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="roll"                data-endpoint="PUTapi-users--id-"
-               value="superadmin"
+               value="nurse"
                data-component="body">
     <br>
-<p>Example: <code>superadmin</code></p>
+<p>Example: <code>nurse</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>nurse</code></li> <li><code>doctor</code></li> <li><code>superadmin</code></li></ul>
         </div>
@@ -11908,23 +10493,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('DELETEapi-users--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-users--id-"
-                    onclick="tryItOut('DELETEapi-users--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-users--id-"
-                    onclick="cancelTryOut('DELETEapi-users--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-users--id-"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-red">DELETE</small>
@@ -12062,23 +10630,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
       onsubmit="event.preventDefault(); executeTryOut('GETapi-patient-profile', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-patient-profile"
-                    onclick="tryItOut('GETapi-patient-profile');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-patient-profile"
-                    onclick="cancelTryOut('GETapi-patient-profile');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-patient-profile"
-                    data-initial-text="Send Request 💥"
-                    data-loading-text="⏱ Sending..."
-                    hidden>Send Request 💥
-            </button>
             </h3>
             <p>
             <small class="badge badge-green">GET</small>

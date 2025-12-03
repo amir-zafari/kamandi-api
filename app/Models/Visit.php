@@ -10,12 +10,11 @@ class Visit extends Model
     use HasFactory;
 
     protected $fillable = [
-        'visit_date',
+        'case_medical_id',
         'follow_up_date',
         'visit_reason',
         'symptoms',
         'diagnosis',
-        'handwritten_notes',
         'notes',
     ];
     public function doctor()

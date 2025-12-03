@@ -76,8 +76,8 @@ endpoints:
         name: doctor_id
         description: 'The <code>id</code> of an existing record in the doctors table.'
         required: true
-        example: consequatur
-        type: string
+        example: 17
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -87,8 +87,8 @@ endpoints:
         name: patient_id
         description: 'The <code>id</code> of an existing record in the patients table.'
         required: true
-        example: consequatur
-        type: string
+        example: 17
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -143,104 +143,13 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      status:
-        custom: []
-        name: status
-        description: ''
-        required: false
-        example: visited
-        type: string
-        enumValues:
-          - waiting
-          - canceled
-          - visited
-          - no_show
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      payment_status:
-        custom: []
-        name: payment_status
-        description: ''
-        required: false
-        example: pending
-        type: string
-        enumValues:
-          - paid
-          - pending
-          - unpaid
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      payment_method:
-        custom: []
-        name: payment_method
-        description: 'Must be at least 1.'
-        required: false
-        example: 56
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      transaction_id:
-        custom: []
-        name: transaction_id
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      payment_info:
-        custom: []
-        name: payment_info
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      customer_ip:
-        custom: []
-        name: customer_ip
-        description: 'Must be a valid IP address.'
-        required: false
-        example: 64.52.10.134
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      customer_user_agent:
-        custom: []
-        name: customer_user_agent
-        description: 'Must not be greater than 1000 characters.'
-        required: false
-        example: qeopfuudtdsufvyvddqam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
     cleanBodyParameters:
-      doctor_id: consequatur
-      patient_id: consequatur
+      doctor_id: 17
+      patient_id: 17
       date: '2025-12-03'
       start_time: '(:05'
       appointment_type: in_person
       service_type: doctor
-      status: visited
-      payment_status: pending
-      payment_method: 56
-      transaction_id: consequatur
-      payment_info: consequatur
-      customer_ip: 64.52.10.134
-      customer_user_agent: qeopfuudtdsufvyvddqam
     fileParameters: []
     responses: []
     responseFields: []
@@ -427,7 +336,7 @@ endpoints:
         name: attended
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -438,7 +347,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: online
+        example: referral
         type: string
         enumValues:
           - online
@@ -453,7 +362,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: doctor
+        example: injection
         type: string
         enumValues:
           - doctor
@@ -466,7 +375,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: waiting
+        example: canceled
         type: string
         enumValues:
           - waiting
@@ -476,63 +385,12 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      payment_status:
-        custom: []
-        name: payment_status
-        description: ''
-        required: false
-        example: paid
-        type: string
-        enumValues:
-          - paid
-          - pending
-          - unpaid
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      payment_method:
-        custom: []
-        name: payment_method
-        description: 'Must be at least 1.'
-        required: false
-        example: 56
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      transaction_id:
-        custom: []
-        name: transaction_id
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      payment_info:
-        custom: []
-        name: payment_info
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
     cleanBodyParameters:
       start_time: '(:05'
-      attended: true
-      appointment_type: online
-      service_type: doctor
-      status: waiting
-      payment_status: paid
-      payment_method: 56
-      transaction_id: consequatur
-      payment_info: consequatur
+      attended: false
+      appointment_type: referral
+      service_type: injection
+      status: canceled
     fileParameters: []
     responses: []
     responseFields: []
@@ -666,8 +524,8 @@ endpoints:
         name: doctor_id
         description: 'The <code>id</code> of an existing record in the doctors table.'
         required: true
-        example: consequatur
-        type: string
+        example: 17
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -677,8 +535,8 @@ endpoints:
         name: patient_id
         description: 'The <code>id</code> of an existing record in the patients table.'
         required: true
-        example: consequatur
-        type: string
+        example: 17
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
@@ -733,104 +591,13 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      status:
-        custom: []
-        name: status
-        description: ''
-        required: false
-        example: canceled
-        type: string
-        enumValues:
-          - waiting
-          - canceled
-          - visited
-          - no_show
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      payment_status:
-        custom: []
-        name: payment_status
-        description: ''
-        required: false
-        example: paid
-        type: string
-        enumValues:
-          - paid
-          - pending
-          - unpaid
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      payment_method:
-        custom: []
-        name: payment_method
-        description: 'Must be at least 1.'
-        required: false
-        example: 56
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      transaction_id:
-        custom: []
-        name: transaction_id
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      payment_info:
-        custom: []
-        name: payment_info
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      customer_ip:
-        custom: []
-        name: customer_ip
-        description: 'Must be a valid IP address.'
-        required: false
-        example: 64.52.10.134
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      customer_user_agent:
-        custom: []
-        name: customer_user_agent
-        description: 'Must not be greater than 1000 characters.'
-        required: false
-        example: qeopfuudtdsufvyvddqam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
     cleanBodyParameters:
-      doctor_id: consequatur
-      patient_id: consequatur
+      doctor_id: 17
+      patient_id: 17
       date: '2025-12-03'
       start_time: '(:05'
       appointment_type: phone
       service_type: doctor
-      status: canceled
-      payment_status: paid
-      payment_method: 56
-      transaction_id: consequatur
-      payment_info: consequatur
-      customer_ip: 64.52.10.134
-      customer_user_agent: qeopfuudtdsufvyvddqam
     fileParameters: []
     responses: []
     responseFields: []
@@ -1028,7 +795,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: referral
+        example: phone
         type: string
         enumValues:
           - online
@@ -1043,7 +810,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: doctor
+        example: injection
         type: string
         enumValues:
           - doctor
@@ -1056,7 +823,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: visited
+        example: no_show
         type: string
         enumValues:
           - waiting
@@ -1066,63 +833,12 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      payment_status:
-        custom: []
-        name: payment_status
-        description: ''
-        required: false
-        example: pending
-        type: string
-        enumValues:
-          - paid
-          - pending
-          - unpaid
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      payment_method:
-        custom: []
-        name: payment_method
-        description: 'Must be at least 1.'
-        required: false
-        example: 56
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-      transaction_id:
-        custom: []
-        name: transaction_id
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      payment_info:
-        custom: []
-        name: payment_info
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
     cleanBodyParameters:
       start_time: '(:05'
       attended: false
-      appointment_type: referral
-      service_type: doctor
-      status: visited
-      payment_status: pending
-      payment_method: 56
-      transaction_id: consequatur
-      payment_info: consequatur
+      appointment_type: phone
+      service_type: injection
+      status: no_show
     fileParameters: []
     responses: []
     responseFields: []
