@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Appointment extends Model
 {
     use HasFactory;
-
+    use RevisionableTrait;
     protected $fillable = [
         'doctor_id',
         'patient_id',

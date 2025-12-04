@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Doctor extends Model
 {
     use HasFactory;
+    use RevisionableTrait;
     protected $fillable = [
         'user_id',
         'specialty',

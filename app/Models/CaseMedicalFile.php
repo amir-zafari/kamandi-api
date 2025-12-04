@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CaseMedicalFile extends Model
 {
+    use RevisionableTrait;
     protected $fillable = [
         'case_medical_id', 'file_path', 'file_name', 'format', 'size'
     ];

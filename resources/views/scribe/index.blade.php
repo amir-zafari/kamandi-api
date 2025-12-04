@@ -135,6 +135,16 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-currency-converter" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="currency-converter">
+                    <a href="#currency-converter">Currency Converter</a>
+                </li>
+                                    <ul id="tocify-subheader-currency-converter" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="currency-converter-POSTapi-currency-convert">
+                                <a href="#currency-converter-POSTapi-currency-convert">Convert USD to IRT</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-doctor-shifts" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="doctor-shifts">
                     <a href="#doctor-shifts">Doctor Shifts</a>
@@ -300,6 +310,37 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-revision-logs" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="revision-logs">
+                    <a href="#revision-logs">Revision Logs</a>
+                </li>
+                                    <ul id="tocify-subheader-revision-logs" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs">
+                                <a href="#revision-logs-GETapi-logs">Get all revision logs</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs-statistics">
+                                <a href="#revision-logs-GETapi-logs-statistics">Get revision log statistics</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs-recent-activity">
+                                <a href="#revision-logs-GETapi-logs-recent-activity">Get recent revision activities</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs-user--userId-">
+                                <a href="#revision-logs-GETapi-logs-user--userId-">Get logs of a specific user</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs-model">
+                                <a href="#revision-logs-GETapi-logs-model">Get logs of a specific model</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs--id-">
+                                <a href="#revision-logs-GETapi-logs--id-">Show a single revision log</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="revision-logs-POSTapi-logs-compare">
+                                <a href="#revision-logs-POSTapi-logs-compare">Compare two revisions</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="revision-logs-DELETEapi-logs-cleanup">
+                                <a href="#revision-logs-DELETEapi-logs-cleanup">Delete old revision logs</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-users" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="users">
                     <a href="#users">Users</a>
@@ -337,7 +378,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 3, 2025</li>
+        <li>Last updated: December 4, 2025</li>
     </ul>
 </div>
 
@@ -507,10 +548,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"doctor_id\": 17,
     \"patient_id\": 17,
-    \"date\": \"2025-12-03\",
+    \"date\": \"2025-12-04\",
     \"start_time\": \"(:05\",
-    \"appointment_type\": \"in_person\",
-    \"service_type\": \"doctor\"
+    \"appointment_type\": \"online\",
+    \"service_type\": \"injection\"
 }"
 </code></pre></div>
 
@@ -529,10 +570,10 @@ const headers = {
 let body = {
     "doctor_id": 17,
     "patient_id": 17,
-    "date": "2025-12-03",
+    "date": "2025-12-04",
     "start_time": "(:05",
-    "appointment_type": "in_person",
-    "service_type": "doctor"
+    "appointment_type": "online",
+    "service_type": "injection"
 };
 
 fetch(url, {
@@ -643,10 +684,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-appointments"
-               value="2025-12-03"
+               value="2025-12-04"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
@@ -667,10 +708,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="POSTapi-appointments"
-               value="in_person"
+               value="online"
                data-component="body">
     <br>
-<p>Example: <code>in_person</code></p>
+<p>Example: <code>online</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -681,10 +722,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="POSTapi-appointments"
-               value="doctor"
+               value="injection"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
+<p>Example: <code>injection</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -997,7 +1038,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"start_time\": \"(:05\",
     \"attended\": false,
-    \"appointment_type\": \"referral\",
+    \"appointment_type\": \"in_person\",
     \"service_type\": \"injection\",
     \"status\": \"canceled\"
 }"
@@ -1018,7 +1059,7 @@ const headers = {
 let body = {
     "start_time": "(:05",
     "attended": false,
-    "appointment_type": "referral",
+    "appointment_type": "in_person",
     "service_type": "injection",
     "status": "canceled"
 };
@@ -1154,10 +1195,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="PUTapi-appointments--id-"
-               value="referral"
+               value="in_person"
                data-component="body">
     <br>
-<p>Example: <code>referral</code></p>
+<p>Example: <code>in_person</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -1454,9 +1495,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"doctor_id\": 17,
     \"patient_id\": 17,
-    \"date\": \"2025-12-03\",
+    \"date\": \"2025-12-04\",
     \"start_time\": \"(:05\",
-    \"appointment_type\": \"phone\",
+    \"appointment_type\": \"referral\",
     \"service_type\": \"doctor\"
 }"
 </code></pre></div>
@@ -1476,9 +1517,9 @@ const headers = {
 let body = {
     "doctor_id": 17,
     "patient_id": 17,
-    "date": "2025-12-03",
+    "date": "2025-12-04",
     "start_time": "(:05",
-    "appointment_type": "phone",
+    "appointment_type": "referral",
     "service_type": "doctor"
 };
 
@@ -1590,10 +1631,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-patient-appointments"
-               value="2025-12-03"
+               value="2025-12-04"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
@@ -1614,10 +1655,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="POSTapi-patient-appointments"
-               value="phone"
+               value="referral"
                data-component="body">
     <br>
-<p>Example: <code>phone</code></p>
+<p>Example: <code>referral</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -1943,7 +1984,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"start_time\": \"(:05\",
-    \"attended\": false,
+    \"attended\": true,
     \"appointment_type\": \"phone\",
     \"service_type\": \"injection\",
     \"status\": \"no_show\"
@@ -1964,7 +2005,7 @@ const headers = {
 
 let body = {
     "start_time": "(:05",
-    "attended": false,
+    "attended": true,
     "appointment_type": "phone",
     "service_type": "injection",
     "status": "no_show"
@@ -2092,7 +2133,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>appointment_type</code></b>&nbsp;&nbsp;
@@ -2313,8 +2354,8 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;captcha_id&quot;: &quot;0f9786fd-d168-4986-98ea-40f1040f577b&quot;,
-    &quot;image&quot;: &quot;data:image/png;base64,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&quot;,
+    &quot;captcha_id&quot;: &quot;e20770bd-2a9d-41d2-9999-8e2f5cdc1846&quot;,
+    &quot;image&quot;: &quot;data:image/png;base64,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&quot;,
     &quot;expires_in&quot;: 120
 }</code>
  </pre>
@@ -2995,6 +3036,140 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                <h1 id="currency-converter">Currency Converter</h1>
+
+    
+
+                                <h2 id="currency-converter-POSTapi-currency-convert">Convert USD to IRT</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-currency-convert">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://kamandi-api.test/api/currency/convert" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"amount\": 73
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/currency/convert"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "amount": 73
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-currency-convert">
+</span>
+<span id="execution-results-POSTapi-currency-convert" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-currency-convert"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-currency-convert"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-currency-convert" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-currency-convert">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-currency-convert" data-method="POST"
+      data-path="api/currency/convert"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-currency-convert', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/currency/convert</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-currency-convert"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-currency-convert"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-currency-convert"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="amount"                data-endpoint="POSTapi-currency-convert"
+               value="73"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>73</code></p>
+        </div>
+        </form>
 
                 <h1 id="doctor-shifts">Doctor Shifts</h1>
 
@@ -5910,9 +6085,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "patient_id=consequatur"\
     --form "title=consequatur"\
     --form "case_medical_type_id=consequatur"\
-    --form "case_date=2025-12-03"\
+    --form "case_date=2025-12-04"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php9F9C.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php4ABC.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5931,7 +6106,7 @@ body.append('doctor_id', 'consequatur');
 body.append('patient_id', 'consequatur');
 body.append('title', 'consequatur');
 body.append('case_medical_type_id', 'consequatur');
-body.append('case_date', '2025-12-03');
+body.append('case_date', '2025-12-04');
 body.append('notes', 'consequatur');
 body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
 
@@ -6067,10 +6242,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="POSTapi-medicaldocument"
-               value="2025-12-03"
+               value="2025-12-04"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -6268,9 +6443,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "title=consequatur"\
-    --form "case_date=2025-12-03"\
+    --form "case_date=2025-12-04"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php9F9D.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php4B69.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6286,7 +6461,7 @@ const headers = {
 
 const body = new FormData();
 body.append('title', 'consequatur');
-body.append('case_date', '2025-12-03');
+body.append('case_date', '2025-12-04');
 body.append('notes', 'consequatur');
 body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
 
@@ -6411,10 +6586,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="PUTapi-medicaldocument--id-"
-               value="2025-12-03"
+               value="2025-12-04"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -6832,10 +7007,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"doctor_id\": \"consequatur\",
     \"patient_id\": \"consequatur\",
-    \"visit_date\": \"2025-12-03\",
+    \"visit_date\": \"2025-12-04\",
     \"notes\": \"consequatur\",
     \"diagnosis\": \"consequatur\",
-    \"follow_up_date\": \"2025-12-03\"
+    \"follow_up_date\": \"2025-12-04\"
 }"
 </code></pre></div>
 
@@ -6854,10 +7029,10 @@ const headers = {
 let body = {
     "doctor_id": "consequatur",
     "patient_id": "consequatur",
-    "visit_date": "2025-12-03",
+    "visit_date": "2025-12-04",
     "notes": "consequatur",
     "diagnosis": "consequatur",
-    "follow_up_date": "2025-12-03"
+    "follow_up_date": "2025-12-04"
 };
 
 fetch(url, {
@@ -6968,10 +7143,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="visit_date"                data-endpoint="POSTapi-visits"
-               value="2025-12-03"
+               value="2025-12-04"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -7004,10 +7179,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="follow_up_date"                data-endpoint="POSTapi-visits"
-               value="2025-12-03"
+               value="2025-12-04"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
         </div>
         </form>
 
@@ -7306,8 +7481,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"notes\": \"consequatur\",
     \"diagnosis\": \"consequatur\",
-    \"follow_up_date\": \"2025-12-03\",
-    \"visit_date\": \"2025-12-03\"
+    \"follow_up_date\": \"2025-12-04\",
+    \"visit_date\": \"2025-12-04\"
 }"
 </code></pre></div>
 
@@ -7326,8 +7501,8 @@ const headers = {
 let body = {
     "notes": "consequatur",
     "diagnosis": "consequatur",
-    "follow_up_date": "2025-12-03",
-    "visit_date": "2025-12-03"
+    "follow_up_date": "2025-12-04",
+    "visit_date": "2025-12-04"
 };
 
 fetch(url, {
@@ -7451,10 +7626,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="follow_up_date"                data-endpoint="PUTapi-visits--id-"
-               value="2025-12-03"
+               value="2025-12-04"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>visit_date</code></b>&nbsp;&nbsp;
@@ -7463,10 +7638,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="visit_date"                data-endpoint="PUTapi-visits--id-"
-               value="2025-12-03"
+               value="2025-12-04"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-03</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
         </div>
         </form>
 
@@ -7862,11 +8037,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"for\": \"2\",
+    \"for\": \"1\",
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-03T16:46:45\",
+    \"birth_date\": \"2025-12-04T15:06:33\",
     \"gender\": \"female\",
     \"blood_type\": \"mqe\",
     \"allergies\": \"opfuudtdsufvyvddqamni\",
@@ -7889,11 +8064,11 @@ const headers = {
 };
 
 let body = {
-    "for": "2",
+    "for": "1",
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "national_id": "consequatur",
-    "birth_date": "2025-12-03T16:46:45",
+    "birth_date": "2025-12-04T15:06:33",
     "gender": "female",
     "blood_type": "mqe",
     "allergies": "opfuudtdsufvyvddqamni",
@@ -7986,10 +8161,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="for"                data-endpoint="POSTapi-patients"
-               value="2"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>2</code></p>
+<p>Example: <code>1</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li></ul>
         </div>
@@ -8036,10 +8211,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patients"
-               value="2025-12-03T16:46:45"
+               value="2025-12-04T15:06:33"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-03T16:46:45</code></p>
+<p>Must be a valid date. Example: <code>2025-12-04T15:06:33</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -8275,8 +8450,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-03T16:46:45\",
-    \"gender\": \"male\",
+    \"birth_date\": \"2025-12-04T15:06:33\",
+    \"gender\": \"female\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
     \"chronic_diseases\": \"dlsmsjuryvojcybzvrbyi\",
@@ -8300,8 +8475,8 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-03T16:46:45",
-    "gender": "male",
+    "birth_date": "2025-12-04T15:06:33",
+    "gender": "female",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
     "chronic_diseases": "dlsmsjuryvojcybzvrbyi",
@@ -8442,10 +8617,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patients--id-"
-               value="2025-12-03T16:46:45"
+               value="2025-12-04T15:06:33"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-03T16:46:45</code></p>
+<p>Must be a valid date. Example: <code>2025-12-04T15:06:33</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -8454,10 +8629,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PUTapi-patients--id-"
-               value="male"
+               value="female"
                data-component="body">
     <br>
-<p>Example: <code>male</code></p>
+<p>Example: <code>female</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -8791,8 +8966,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-03T16:46:45\",
-    \"gender\": \"male\",
+    \"birth_date\": \"2025-12-04T15:06:33\",
+    \"gender\": \"female\",
     \"blood_type\": \"mqe\",
     \"allergies\": \"opfuudtdsufvyvddqamni\",
     \"chronic_diseases\": \"ihfqcoynlazghdtqtqxba\",
@@ -8818,8 +8993,8 @@ let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "national_id": "consequatur",
-    "birth_date": "2025-12-03T16:46:45",
-    "gender": "male",
+    "birth_date": "2025-12-04T15:06:33",
+    "gender": "female",
     "blood_type": "mqe",
     "allergies": "opfuudtdsufvyvddqamni",
     "chronic_diseases": "ihfqcoynlazghdtqtqxba",
@@ -8961,10 +9136,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patient-patients"
-               value="2025-12-03T16:46:45"
+               value="2025-12-04T15:06:33"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-03T16:46:45</code></p>
+<p>Must be a valid date. Example: <code>2025-12-04T15:06:33</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -8973,10 +9148,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="POSTapi-patient-patients"
-               value="male"
+               value="female"
                data-component="body">
     <br>
-<p>Example: <code>male</code></p>
+<p>Example: <code>female</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -9200,8 +9375,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-03T16:46:45\",
-    \"gender\": \"male\",
+    \"birth_date\": \"2025-12-04T15:06:33\",
+    \"gender\": \"female\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
     \"chronic_diseases\": \"dlsmsjuryvojcybzvrbyi\",
@@ -9225,8 +9400,8 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-03T16:46:45",
-    "gender": "male",
+    "birth_date": "2025-12-04T15:06:33",
+    "gender": "female",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
     "chronic_diseases": "dlsmsjuryvojcybzvrbyi",
@@ -9367,10 +9542,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patient-patients--id-"
-               value="2025-12-03T16:46:45"
+               value="2025-12-04T15:06:33"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-03T16:46:45</code></p>
+<p>Must be a valid date. Example: <code>2025-12-04T15:06:33</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -9379,10 +9554,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PUTapi-patient-patients--id-"
-               value="male"
+               value="female"
                data-component="body">
     <br>
-<p>Example: <code>male</code></p>
+<p>Example: <code>female</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -9568,6 +9743,1090 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>The ID of the patient. Example: <code>consequatur</code></p>
             </div>
                     </form>
+
+                <h1 id="revision-logs">Revision Logs</h1>
+
+    
+
+                                <h2 id="revision-logs-GETapi-logs">Get all revision logs</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-logs">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/logs" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/logs"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-logs">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-logs" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-logs"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-logs"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-logs" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-logs">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-logs" data-method="GET"
+      data-path="api/logs"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-logs', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/logs</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-logs"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-logs"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-logs"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="revision-logs-GETapi-logs-statistics">Get revision log statistics</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-logs-statistics">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/logs/statistics" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/logs/statistics"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-logs-statistics">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-logs-statistics" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-logs-statistics"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-logs-statistics"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-logs-statistics" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-logs-statistics">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-logs-statistics" data-method="GET"
+      data-path="api/logs/statistics"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-logs-statistics', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/logs/statistics</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-logs-statistics"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-logs-statistics"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-logs-statistics"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="revision-logs-GETapi-logs-recent-activity">Get recent revision activities</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-logs-recent-activity">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/logs/recent-activity" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/logs/recent-activity"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-logs-recent-activity">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-logs-recent-activity" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-logs-recent-activity"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-logs-recent-activity"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-logs-recent-activity" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-logs-recent-activity">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-logs-recent-activity" data-method="GET"
+      data-path="api/logs/recent-activity"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-logs-recent-activity', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/logs/recent-activity</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-logs-recent-activity"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-logs-recent-activity"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-logs-recent-activity"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="revision-logs-GETapi-logs-user--userId-">Get logs of a specific user</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-logs-user--userId-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/logs/user/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/logs/user/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-logs-user--userId-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-logs-user--userId-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-logs-user--userId-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-logs-user--userId-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-logs-user--userId-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-logs-user--userId-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-logs-user--userId-" data-method="GET"
+      data-path="api/logs/user/{userId}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-logs-user--userId-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/logs/user/{userId}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-logs-user--userId-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-logs-user--userId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-logs-user--userId-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>userId</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="userId"                data-endpoint="GETapi-logs-user--userId-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="revision-logs-GETapi-logs-model">Get logs of a specific model</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-logs-model">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/logs/model" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"model_type\": \"consequatur\",
+    \"model_id\": 17
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/logs/model"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "model_type": "consequatur",
+    "model_id": 17
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-logs-model">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-logs-model" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-logs-model"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-logs-model"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-logs-model" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-logs-model">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-logs-model" data-method="GET"
+      data-path="api/logs/model"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-logs-model', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/logs/model</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-logs-model"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-logs-model"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-logs-model"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>model_type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="model_type"                data-endpoint="GETapi-logs-model"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>model_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="model_id"                data-endpoint="GETapi-logs-model"
+               value="17"
+               data-component="body">
+    <br>
+<p>Example: <code>17</code></p>
+        </div>
+        </form>
+
+                    <h2 id="revision-logs-GETapi-logs--id-">Show a single revision log</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-logs--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/logs/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/logs/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-logs--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-logs--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-logs--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-logs--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-logs--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-logs--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-logs--id-" data-method="GET"
+      data-path="api/logs/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-logs--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/logs/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-logs--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-logs--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-logs--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="GETapi-logs--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the log. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="revision-logs-POSTapi-logs-compare">Compare two revisions</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-logs-compare">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://kamandi-api.test/api/logs/compare" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"revision_id_1\": 17,
+    \"revision_id_2\": 17
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/logs/compare"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "revision_id_1": 17,
+    "revision_id_2": 17
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-logs-compare">
+</span>
+<span id="execution-results-POSTapi-logs-compare" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-logs-compare"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-logs-compare"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-logs-compare" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-logs-compare">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-logs-compare" data-method="POST"
+      data-path="api/logs/compare"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-logs-compare', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/logs/compare</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-logs-compare"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-logs-compare"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-logs-compare"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>revision_id_1</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="revision_id_1"                data-endpoint="POSTapi-logs-compare"
+               value="17"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the revisions table. Example: <code>17</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>revision_id_2</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="revision_id_2"                data-endpoint="POSTapi-logs-compare"
+               value="17"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the revisions table. Example: <code>17</code></p>
+        </div>
+        </form>
+
+                    <h2 id="revision-logs-DELETEapi-logs-cleanup">Delete old revision logs</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-logs-cleanup">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "https://kamandi-api.test/api/logs/cleanup" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"days\": 73
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/logs/cleanup"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "days": 73
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-logs-cleanup">
+</span>
+<span id="execution-results-DELETEapi-logs-cleanup" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-logs-cleanup"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-logs-cleanup"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-logs-cleanup" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-logs-cleanup">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-logs-cleanup" data-method="DELETE"
+      data-path="api/logs/cleanup"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-logs-cleanup', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/logs/cleanup</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-logs-cleanup"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-logs-cleanup"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-logs-cleanup"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>days</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="days"                data-endpoint="DELETEapi-logs-cleanup"
+               value="73"
+               data-component="body">
+    <br>
+<p>Must be at least 1. Example: <code>73</code></p>
+        </div>
+        </form>
 
                 <h1 id="users">Users</h1>
 
@@ -10212,7 +11471,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"gender\": \"female\",
-    \"roll\": \"nurse\",
+    \"roll\": \"doctor\",
     \"password\": \"t(!Cs\'YAKYLk4&gt;S\"
 }"
 </code></pre></div>
@@ -10233,7 +11492,7 @@ let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "gender": "female",
-    "roll": "nurse",
+    "roll": "doctor",
     "password": "t(!Cs'YAKYLk4&gt;S"
 };
 
@@ -10396,10 +11655,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="roll"                data-endpoint="PUTapi-users--id-"
-               value="nurse"
+               value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>nurse</code></p>
+<p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>nurse</code></li> <li><code>doctor</code></li> <li><code>superadmin</code></li></ul>
         </div>

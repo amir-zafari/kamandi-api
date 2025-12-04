@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shift extends Model
 {
+    use RevisionableTrait;
     protected $fillable = [
         'doctor_id',
         'day',

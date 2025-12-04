@@ -3,11 +3,13 @@
 use App\Http\Controllers\API\AppointmentController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CaptchaController;
+use App\Http\Controllers\API\CurrencyConverterController;
 use App\Http\Controllers\API\DoctorController;
 use App\Http\Controllers\API\DoctorShiftController;
 use App\Http\Controllers\API\CaseMedicalController;
 use App\Http\Controllers\API\PatientController;
 use App\Http\Controllers\API\PrescriptionController;
+use App\Http\Controllers\Api\RevisionLogController;
 use App\Http\Controllers\API\TokenController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\CaseMedicalVisitController;
@@ -98,6 +100,20 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::delete('/{id}', [CaseMedicalController::class, 'destroy']);
             Route::delete('/file/{id}', [CaseMedicalController::class, 'deleteFile']);
 
+        });
+        Route::prefix('currency')->group(function () {
+            Route::post('/convert', [CurrencyConverterController::class, 'convertUsdToIrt']);
+        });
+
+        Route::prefix('logs')->group(function () {
+            Route::get('/', [RevisionLogController::class, 'index']);
+            Route::get('/statistics', [RevisionLogController::class, 'statistics']);
+            Route::get('/recent-activity', [RevisionLogController::class, 'recentActivity']);
+            Route::get('/user/{userId}', [RevisionLogController::class, 'userLogs']);
+            Route::get('/model', [RevisionLogController::class, 'modelLogs']);
+            Route::get('/{id}', [RevisionLogController::class, 'show']);
+            Route::post('/compare', [RevisionLogController::class, 'compare']);
+            Route::delete('/cleanup', [RevisionLogController::class, 'cleanup']);
         });
     });
 

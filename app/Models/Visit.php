@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Visit extends Model
 {
     use HasFactory;
-
+    use RevisionableTrait;
     protected $fillable = [
         'case_medical_id',
         'follow_up_date',

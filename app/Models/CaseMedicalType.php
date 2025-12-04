@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CaseMedicalType extends Model
 {
     use HasFactory;
-
+    use RevisionableTrait;
     protected $fillable = ['name'];
 
     public function case_medicals()
