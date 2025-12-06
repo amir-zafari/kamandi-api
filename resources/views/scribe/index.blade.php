@@ -66,7 +66,7 @@
                 </li>
                                     <ul id="tocify-subheader-appointments" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="appointments-GETapi-appointments">
-                                <a href="#appointments-GETapi-appointments">List all appointments</a>
+                                <a href="#appointments-GETapi-appointments">List all appointments with status filter</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-POSTapi-appointments">
                                 <a href="#appointments-POSTapi-appointments">Create a new appointment</a>
@@ -80,11 +80,11 @@
                                                                                 <li class="tocify-item level-2" data-unique="appointments-PUTapi-appointments--id-">
                                 <a href="#appointments-PUTapi-appointments--id-">Update an appointment</a>
                             </li>
-                                                                                <li class="tocify-item level-2" data-unique="appointments-PATCHapi-appointments-attended--id-">
-                                <a href="#appointments-PATCHapi-appointments-attended--id-">Mark an appointment as attended</a>
-                            </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-DELETEapi-appointments--id-">
-                                <a href="#appointments-DELETEapi-appointments--id-">Delete an appointment</a>
+                                <a href="#appointments-DELETEapi-appointments--id-">Delete an appointment (soft delete - only for admins)</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="appointments-POSTapi-appointments-cancel--id-">
+                                <a href="#appointments-POSTapi-appointments-cancel--id-">Cancel an appointment</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-POSTapi-patient-appointments">
                                 <a href="#appointments-POSTapi-patient-appointments">Create a new appointment</a>
@@ -99,7 +99,23 @@
                                 <a href="#appointments-PUTapi-patient-appointments--id-">Update an appointment</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-DELETEapi-patient-appointments--id-">
-                                <a href="#appointments-DELETEapi-patient-appointments--id-">Delete an appointment</a>
+                                <a href="#appointments-DELETEapi-patient-appointments--id-">Delete an appointment (soft delete - only for admins)</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-appointments-attendance" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="appointments-attendance">
+                    <a href="#appointments-attendance">Appointments - Attendance</a>
+                </li>
+                                    <ul id="tocify-subheader-appointments-attendance" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="appointments-attendance-POSTapi-appointments-mark-arrived--id-">
+                                <a href="#appointments-attendance-POSTapi-appointments-mark-arrived--id-">Mark patient as arrived (Step 1: Patient arrival)</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="appointments-attendance-POSTapi-appointments-start-visit--id-">
+                                <a href="#appointments-attendance-POSTapi-appointments-start-visit--id-">Start the visit and mark as completed (Step 2: Visit begins and completes)</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="appointments-attendance-GETapi-appointments-statistics--doctor_id---date-">
+                                <a href="#appointments-attendance-GETapi-appointments-statistics--doctor_id---date-">Get attendance statistics for a doctor on a specific date</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -406,7 +422,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-                                <h2 id="appointments-GETapi-appointments">List all appointments</h2>
+                                <h2 id="appointments-GETapi-appointments">List all appointments with status filter</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -553,8 +569,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"patient_id\": 17,
     \"date\": \"2025-12-06\",
     \"start_time\": \"(:05\",
-    \"appointment_type\": \"in_person\",
-    \"service_type\": \"doctor\"
+    \"appointment_type\": \"phone\",
+    \"service_type\": \"injection\"
 }"
 </code></pre></div>
 
@@ -575,8 +591,8 @@ let body = {
     "patient_id": 17,
     "date": "2025-12-06",
     "start_time": "(:05",
-    "appointment_type": "in_person",
-    "service_type": "doctor"
+    "appointment_type": "phone",
+    "service_type": "injection"
 };
 
 fetch(url, {
@@ -711,10 +727,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="POSTapi-appointments"
-               value="in_person"
+               value="phone"
                data-component="body">
     <br>
-<p>Example: <code>in_person</code></p>
+<p>Example: <code>phone</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -725,10 +741,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="POSTapi-appointments"
-               value="doctor"
+               value="injection"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
+<p>Example: <code>injection</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -1040,10 +1056,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"start_time\": \"(:05\",
-    \"attended\": false,
-    \"appointment_type\": \"referral\",
+    \"appointment_type\": \"online\",
     \"service_type\": \"doctor\",
-    \"status\": \"visited\"
+    \"status\": \"canceled\"
 }"
 </code></pre></div>
 
@@ -1061,10 +1076,9 @@ const headers = {
 
 let body = {
     "start_time": "(:05",
-    "attended": false,
-    "appointment_type": "referral",
+    "appointment_type": "online",
     "service_type": "doctor",
-    "status": "visited"
+    "status": "canceled"
 };
 
 fetch(url, {
@@ -1170,38 +1184,16 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must match the regex /^(?:[01]\d. Example: <code>(:05</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>attended</code></b>&nbsp;&nbsp;
-<small>boolean</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <label data-endpoint="PUTapi-appointments--id-" style="display: none">
-            <input type="radio" name="attended"
-                   value="true"
-                   data-endpoint="PUTapi-appointments--id-"
-                   data-component="body"             >
-            <code>true</code>
-        </label>
-        <label data-endpoint="PUTapi-appointments--id-" style="display: none">
-            <input type="radio" name="attended"
-                   value="false"
-                   data-endpoint="PUTapi-appointments--id-"
-                   data-component="body"             >
-            <code>false</code>
-        </label>
-    <br>
-<p>Example: <code>false</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>appointment_type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="PUTapi-appointments--id-"
-               value="referral"
+               value="online"
                data-component="body">
     <br>
-<p>Example: <code>referral</code></p>
+<p>Example: <code>online</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -1226,137 +1218,16 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-appointments--id-"
-               value="visited"
+               value="canceled"
                data-component="body">
     <br>
-<p>Example: <code>visited</code></p>
+<p>Example: <code>canceled</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>waiting</code></li> <li><code>canceled</code></li> <li><code>visited</code></li> <li><code>no_show</code></li></ul>
         </div>
         </form>
 
-                    <h2 id="appointments-PATCHapi-appointments-attended--id-">Mark an appointment as attended</h2>
-
-<p>
-<small class="badge badge-darkred">requires authentication</small>
-</p>
-
-
-
-<span id="example-requests-PATCHapi-appointments-attended--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PATCH \
-    "https://kamandi-api.test/api/appointments/attended/consequatur" \
-    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/appointments/attended/consequatur"
-);
-
-const headers = {
-    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PATCH",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-PATCHapi-appointments-attended--id-">
-</span>
-<span id="execution-results-PATCHapi-appointments-attended--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PATCHapi-appointments-attended--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PATCHapi-appointments-attended--id-"
-      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-PATCHapi-appointments-attended--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PATCHapi-appointments-attended--id-">
-
-Tip: Check that you&#039;re properly connected to the network.
-If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
-You can check the Dev Tools console for debugging information.</code></pre>
-</span>
-<form id="form-PATCHapi-appointments-attended--id-" data-method="PATCH"
-      data-path="api/appointments/attended/{id}"
-      data-authed="1"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-appointments-attended--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-            </h3>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/appointments/attended/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="PATCHapi-appointments-attended--id-"
-               value="Bearer Bearer {YOUR_TOKEN}"
-               data-component="header">
-    <br>
-<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="PATCHapi-appointments-attended--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="PATCHapi-appointments-attended--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="PATCHapi-appointments-attended--id-"
-               value="consequatur"
-               data-component="url">
-    <br>
-<p>The ID of the attended. Example: <code>consequatur</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="appointments-DELETEapi-appointments--id-">Delete an appointment</h2>
+                    <h2 id="appointments-DELETEapi-appointments--id-">Delete an appointment (soft delete - only for admins)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1477,6 +1348,149 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                    <h2 id="appointments-POSTapi-appointments-cancel--id-">Cancel an appointment</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-appointments-cancel--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://kamandi-api.test/api/appointments/cancel/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"cancel_reason\": \"vmqeopfuudtdsufvyvddq\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/appointments/cancel/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "cancel_reason": "vmqeopfuudtdsufvyvddq"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-appointments-cancel--id-">
+</span>
+<span id="execution-results-POSTapi-appointments-cancel--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-appointments-cancel--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-appointments-cancel--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-appointments-cancel--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-appointments-cancel--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-appointments-cancel--id-" data-method="POST"
+      data-path="api/appointments/cancel/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-appointments-cancel--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/appointments/cancel/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-appointments-cancel--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-appointments-cancel--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-appointments-cancel--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="POSTapi-appointments-cancel--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the cancel. Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>cancel_reason</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="cancel_reason"                data-endpoint="POSTapi-appointments-cancel--id-"
+               value="vmqeopfuudtdsufvyvddq"
+               data-component="body">
+    <br>
+<p>Must be at least 3 characters. Must not be greater than 500 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+        </div>
+        </form>
+
                     <h2 id="appointments-POSTapi-patient-appointments">Create a new appointment</h2>
 
 <p>
@@ -1501,7 +1515,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"date\": \"2025-12-06\",
     \"start_time\": \"(:05\",
     \"appointment_type\": \"in_person\",
-    \"service_type\": \"doctor\"
+    \"service_type\": \"injection\"
 }"
 </code></pre></div>
 
@@ -1523,7 +1537,7 @@ let body = {
     "date": "2025-12-06",
     "start_time": "(:05",
     "appointment_type": "in_person",
-    "service_type": "doctor"
+    "service_type": "injection"
 };
 
 fetch(url, {
@@ -1672,10 +1686,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="POSTapi-patient-appointments"
-               value="doctor"
+               value="injection"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
+<p>Example: <code>injection</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -1987,10 +2001,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"start_time\": \"(:05\",
-    \"attended\": true,
     \"appointment_type\": \"phone\",
     \"service_type\": \"doctor\",
-    \"status\": \"no_show\"
+    \"status\": \"canceled\"
 }"
 </code></pre></div>
 
@@ -2008,10 +2021,9 @@ const headers = {
 
 let body = {
     "start_time": "(:05",
-    "attended": true,
     "appointment_type": "phone",
     "service_type": "doctor",
-    "status": "no_show"
+    "status": "canceled"
 };
 
 fetch(url, {
@@ -2117,28 +2129,6 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Must match the regex /^(?:[01]\d. Example: <code>(:05</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>attended</code></b>&nbsp;&nbsp;
-<small>boolean</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <label data-endpoint="PUTapi-patient-appointments--id-" style="display: none">
-            <input type="radio" name="attended"
-                   value="true"
-                   data-endpoint="PUTapi-patient-appointments--id-"
-                   data-component="body"             >
-            <code>true</code>
-        </label>
-        <label data-endpoint="PUTapi-patient-appointments--id-" style="display: none">
-            <input type="radio" name="attended"
-                   value="false"
-                   data-endpoint="PUTapi-patient-appointments--id-"
-                   data-component="body"             >
-            <code>false</code>
-        </label>
-    <br>
-<p>Example: <code>true</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>appointment_type</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
@@ -2173,16 +2163,16 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="no_show"
+               value="canceled"
                data-component="body">
     <br>
-<p>Example: <code>no_show</code></p>
+<p>Example: <code>canceled</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>waiting</code></li> <li><code>canceled</code></li> <li><code>visited</code></li> <li><code>no_show</code></li></ul>
         </div>
         </form>
 
-                    <h2 id="appointments-DELETEapi-patient-appointments--id-">Delete an appointment</h2>
+                    <h2 id="appointments-DELETEapi-patient-appointments--id-">Delete an appointment (soft delete - only for admins)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2303,6 +2293,445 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                <h1 id="appointments-attendance">Appointments - Attendance</h1>
+
+    
+
+                                <h2 id="appointments-attendance-POSTapi-appointments-mark-arrived--id-">Mark patient as arrived (Step 1: Patient arrival)</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-appointments-mark-arrived--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://kamandi-api.test/api/appointments/mark-arrived/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"attendance_notes\": \"vmqeopfuudtdsufvyvddq\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/appointments/mark-arrived/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "attendance_notes": "vmqeopfuudtdsufvyvddq"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-appointments-mark-arrived--id-">
+</span>
+<span id="execution-results-POSTapi-appointments-mark-arrived--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-appointments-mark-arrived--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-appointments-mark-arrived--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-appointments-mark-arrived--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-appointments-mark-arrived--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-appointments-mark-arrived--id-" data-method="POST"
+      data-path="api/appointments/mark-arrived/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-appointments-mark-arrived--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/appointments/mark-arrived/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-appointments-mark-arrived--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-appointments-mark-arrived--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-appointments-mark-arrived--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="POSTapi-appointments-mark-arrived--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the mark arrived. Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>attendance_notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="attendance_notes"                data-endpoint="POSTapi-appointments-mark-arrived--id-"
+               value="vmqeopfuudtdsufvyvddq"
+               data-component="body">
+    <br>
+<p>Must not be greater than 1000 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+        </div>
+        </form>
+
+                    <h2 id="appointments-attendance-POSTapi-appointments-start-visit--id-">Start the visit and mark as completed (Step 2: Visit begins and completes)</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-appointments-start-visit--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://kamandi-api.test/api/appointments/start-visit/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"visit_notes\": \"vmqeopfuudtdsufvyvddq\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/appointments/start-visit/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "visit_notes": "vmqeopfuudtdsufvyvddq"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-appointments-start-visit--id-">
+</span>
+<span id="execution-results-POSTapi-appointments-start-visit--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-appointments-start-visit--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-appointments-start-visit--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-appointments-start-visit--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-appointments-start-visit--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-appointments-start-visit--id-" data-method="POST"
+      data-path="api/appointments/start-visit/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-appointments-start-visit--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/appointments/start-visit/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-appointments-start-visit--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-appointments-start-visit--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-appointments-start-visit--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="POSTapi-appointments-start-visit--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the start visit. Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>visit_notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="visit_notes"                data-endpoint="POSTapi-appointments-start-visit--id-"
+               value="vmqeopfuudtdsufvyvddq"
+               data-component="body">
+    <br>
+<p>Must not be greater than 2000 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+        </div>
+        </form>
+
+                    <h2 id="appointments-attendance-GETapi-appointments-statistics--doctor_id---date-">Get attendance statistics for a doctor on a specific date</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-appointments-statistics--doctor_id---date-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/appointments/statistics/consequatur/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/appointments/statistics/consequatur/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-appointments-statistics--doctor_id---date-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-appointments-statistics--doctor_id---date-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-appointments-statistics--doctor_id---date-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-appointments-statistics--doctor_id---date-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-appointments-statistics--doctor_id---date-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-appointments-statistics--doctor_id---date-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-appointments-statistics--doctor_id---date-" data-method="GET"
+      data-path="api/appointments/statistics/{doctor_id}/{date}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-appointments-statistics--doctor_id---date-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/appointments/statistics/{doctor_id}/{date}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-appointments-statistics--doctor_id---date-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-appointments-statistics--doctor_id---date-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-appointments-statistics--doctor_id---date-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="doctor_id"                data-endpoint="GETapi-appointments-statistics--doctor_id---date-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the doctor. Example: <code>consequatur</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date"                data-endpoint="GETapi-appointments-statistics--doctor_id---date-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
                 <h1 id="authentication">Authentication</h1>
 
     
@@ -2357,8 +2786,8 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;captcha_id&quot;: &quot;e75f0ae4-247e-4ae6-b2c3-fb45f51ffd4e&quot;,
-    &quot;image&quot;: &quot;data:image/png;base64,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&quot;,
+    &quot;captcha_id&quot;: &quot;a61b7f6b-da27-49e4-8567-5bfc364af925&quot;,
+    &quot;image&quot;: &quot;data:image/png;base64,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&quot;,
     &quot;expires_in&quot;: 120
 }</code>
  </pre>
@@ -6274,7 +6703,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "case_medical_type_id=consequatur"\
     --form "case_date=2025-12-06"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpBC8B.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php4AC0.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6632,7 +7061,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=consequatur"\
     --form "case_date=2025-12-06"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpBC9C.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php4B7D.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8228,7 +8657,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-06T07:03:05\",
+    \"birth_date\": \"2025-12-06T09:42:04\",
     \"gender\": \"male\",
     \"blood_type\": \"mqe\",
     \"allergies\": \"opfuudtdsufvyvddqamni\",
@@ -8255,7 +8684,7 @@ let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "national_id": "consequatur",
-    "birth_date": "2025-12-06T07:03:05",
+    "birth_date": "2025-12-06T09:42:04",
     "gender": "male",
     "blood_type": "mqe",
     "allergies": "opfuudtdsufvyvddqamni",
@@ -8398,10 +8827,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patients"
-               value="2025-12-06T07:03:05"
+               value="2025-12-06T09:42:04"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T07:03:05</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T09:42:04</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -8637,7 +9066,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-06T07:03:05\",
+    \"birth_date\": \"2025-12-06T09:42:04\",
     \"gender\": \"female\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
@@ -8662,7 +9091,7 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-06T07:03:05",
+    "birth_date": "2025-12-06T09:42:04",
     "gender": "female",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
@@ -8804,10 +9233,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patients--id-"
-               value="2025-12-06T07:03:05"
+               value="2025-12-06T09:42:04"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T07:03:05</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T09:42:04</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -9153,8 +9582,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-06T07:03:05\",
-    \"gender\": \"female\",
+    \"birth_date\": \"2025-12-06T09:42:05\",
+    \"gender\": \"male\",
     \"blood_type\": \"mqe\",
     \"allergies\": \"opfuudtdsufvyvddqamni\",
     \"chronic_diseases\": \"ihfqcoynlazghdtqtqxba\",
@@ -9180,8 +9609,8 @@ let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "national_id": "consequatur",
-    "birth_date": "2025-12-06T07:03:05",
-    "gender": "female",
+    "birth_date": "2025-12-06T09:42:05",
+    "gender": "male",
     "blood_type": "mqe",
     "allergies": "opfuudtdsufvyvddqamni",
     "chronic_diseases": "ihfqcoynlazghdtqtqxba",
@@ -9323,10 +9752,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patient-patients"
-               value="2025-12-06T07:03:05"
+               value="2025-12-06T09:42:05"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T07:03:05</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T09:42:05</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -9335,10 +9764,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="POSTapi-patient-patients"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -9562,7 +9991,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-06T07:03:05\",
+    \"birth_date\": \"2025-12-06T09:42:05\",
     \"gender\": \"female\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
@@ -9587,7 +10016,7 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-06T07:03:05",
+    "birth_date": "2025-12-06T09:42:05",
     "gender": "female",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
@@ -9729,10 +10158,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patient-patients--id-"
-               value="2025-12-06T07:03:05"
+               value="2025-12-06T09:42:05"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T07:03:05</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T09:42:05</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -11292,7 +11721,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"email\": \"andreanne00@example.org\",
     \"password\": \"\'YAKYLk4&gt;SJIrIV#lz.\",
     \"mobile\": \"consequatur\",
-    \"roll\": \"doctor\",
+    \"roll\": \"nurse\",
     \"national_id\": \"consequatur\"
 }"
 </code></pre></div>
@@ -11316,7 +11745,7 @@ let body = {
     "email": "andreanne00@example.org",
     "password": "'YAKYLk4&gt;SJIrIV#lz.",
     "mobile": "consequatur",
-    "roll": "doctor",
+    "roll": "nurse",
     "national_id": "consequatur"
 };
 
@@ -11478,10 +11907,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="roll"                data-endpoint="POSTapi-users"
-               value="doctor"
+               value="nurse"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
+<p>Example: <code>nurse</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>nurse</code></li> <li><code>doctor</code></li> <li><code>superadmin</code></li></ul>
         </div>
@@ -11657,8 +12086,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"gender\": \"female\",
-    \"roll\": \"nurse\",
+    \"gender\": \"male\",
+    \"roll\": \"superadmin\",
     \"password\": \"t(!Cs\'YAKYLk4&gt;S\"
 }"
 </code></pre></div>
@@ -11678,8 +12107,8 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "gender": "female",
-    "roll": "nurse",
+    "gender": "male",
+    "roll": "superadmin",
     "password": "t(!Cs'YAKYLk4&gt;S"
 };
 
@@ -11804,10 +12233,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PUTapi-users--id-"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -11842,10 +12271,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="roll"                data-endpoint="PUTapi-users--id-"
-               value="nurse"
+               value="superadmin"
                data-component="body">
     <br>
-<p>Example: <code>nurse</code></p>
+<p>Example: <code>superadmin</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>nurse</code></li> <li><code>doctor</code></li> <li><code>superadmin</code></li></ul>
         </div>

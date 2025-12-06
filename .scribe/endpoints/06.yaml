@@ -12,7 +12,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all appointments'
+      title: 'List all appointments with status filter'
       description: ''
       authenticated: true
       deprecated: false
@@ -118,7 +118,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: in_person
+        example: phone
         type: string
         enumValues:
           - online
@@ -133,7 +133,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: doctor
+        example: injection
         type: string
         enumValues:
           - doctor
@@ -146,8 +146,8 @@ endpoints:
       patient_id: 17
       date: '2025-12-06'
       start_time: '(:05'
-      appointment_type: in_person
-      service_type: doctor
+      appointment_type: phone
+      service_type: injection
     fileParameters: []
     responses: []
     responseFields: []
@@ -329,23 +329,12 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      attended:
-        custom: []
-        name: attended
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
       appointment_type:
         custom: []
         name: appointment_type
         description: ''
         required: false
-        example: referral
+        example: online
         type: string
         enumValues:
           - online
@@ -373,7 +362,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: visited
+        example: canceled
         type: string
         enumValues:
           - waiting
@@ -385,57 +374,9 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       start_time: '(:05'
-      attended: false
-      appointment_type: referral
+      appointment_type: online
       service_type: doctor
-      status: visited
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PATCH
-    uri: 'api/appointments/attended/{id}'
-    metadata:
-      custom: []
-      groupName: Appointments
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Mark an appointment as attended'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        custom: []
-        name: id
-        description: 'The ID of the attended.'
-        required: true
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      id: consequatur
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+      status: canceled
     fileParameters: []
     responses: []
     responseFields: []
@@ -457,7 +398,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete an appointment'
+      title: 'Delete an appointment (soft delete - only for admins)'
       description: ''
       authenticated: true
       deprecated: false
@@ -483,6 +424,65 @@ endpoints:
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/appointments/cancel/{id}'
+    metadata:
+      custom: []
+      groupName: Appointments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Cancel an appointment'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the cancel.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      cancel_reason:
+        custom: []
+        name: cancel_reason
+        description: 'Must be at least 3 characters. Must not be greater than 500 characters.'
+        required: true
+        example: vmqeopfuudtdsufvyvddq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      cancel_reason: vmqeopfuudtdsufvyvddq
     fileParameters: []
     responses: []
     responseFields: []
@@ -581,7 +581,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: doctor
+        example: injection
         type: string
         enumValues:
           - doctor
@@ -595,7 +595,7 @@ endpoints:
       date: '2025-12-06'
       start_time: '(:05'
       appointment_type: in_person
-      service_type: doctor
+      service_type: injection
     fileParameters: []
     responses: []
     responseFields: []
@@ -777,17 +777,6 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      attended:
-        custom: []
-        name: attended
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
       appointment_type:
         custom: []
         name: appointment_type
@@ -821,7 +810,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: no_show
+        example: canceled
         type: string
         enumValues:
           - waiting
@@ -833,10 +822,9 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       start_time: '(:05'
-      attended: true
       appointment_type: phone
       service_type: doctor
-      status: no_show
+      status: canceled
     fileParameters: []
     responses: []
     responseFields: []
@@ -858,7 +846,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete an appointment'
+      title: 'Delete an appointment (soft delete - only for admins)'
       description: ''
       authenticated: true
       deprecated: false

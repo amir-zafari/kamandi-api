@@ -1,18 +1,18 @@
-name: 'Medical Visits'
+name: 'Appointments - Attendance'
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - POST
-    uri: api/visits
+    uri: 'api/appointments/mark-arrived/{id}'
     metadata:
       custom: []
-      groupName: 'Medical Visits'
+      groupName: 'Appointments - Attendance'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create a new medical visit'
+      title: 'Mark patient as arrived (Step 1: Patient arrival)'
       description: ''
       authenticated: true
       deprecated: false
@@ -20,15 +20,129 @@ endpoints:
       Authorization: 'Bearer Bearer {YOUR_TOKEN}'
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the mark arrived.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
+      attendance_notes:
+        custom: []
+        name: attendance_notes
+        description: 'Must not be greater than 1000 characters.'
+        required: false
+        example: vmqeopfuudtdsufvyvddq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      attendance_notes: vmqeopfuudtdsufvyvddq
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/appointments/start-visit/{id}'
+    metadata:
+      custom: []
+      groupName: 'Appointments - Attendance'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Start the visit and mark as completed (Step 2: Visit begins and completes)'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The ID of the start visit.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      visit_notes:
+        custom: []
+        name: visit_notes
+        description: 'Must not be greater than 2000 characters.'
+        required: false
+        example: vmqeopfuudtdsufvyvddq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      visit_notes: vmqeopfuudtdsufvyvddq
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/appointments/statistics/{doctor_id}/{date}'
+    metadata:
+      custom: []
+      groupName: 'Appointments - Attendance'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get attendance statistics for a doctor on a specific date'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
       doctor_id:
         custom: []
         name: doctor_id
-        description: 'The <code>id</code> of an existing record in the doctors table.'
+        description: 'The ID of the doctor.'
         required: true
         example: consequatur
         type: string
@@ -36,10 +150,10 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      patient_id:
+      date:
         custom: []
-        name: patient_id
-        description: 'The <code>id</code> of an existing record in the patients table.'
+        name: date
+        description: ''
         required: true
         example: consequatur
         type: string
@@ -47,100 +161,9 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      visit_date:
-        custom: []
-        name: visit_date
-        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
-        required: false
-        example: '2025-12-06'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      notes:
-        custom: []
-        name: notes
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      diagnosis:
-        custom: []
-        name: diagnosis
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      follow_up_date:
-        custom: []
-        name: follow_up_date
-        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
-        required: false
-        example: '2025-12-06'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-    cleanBodyParameters:
+    cleanUrlParameters:
       doctor_id: consequatur
-      patient_id: consequatur
-      visit_date: '2025-12-06'
-      notes: consequatur
-      diagnosis: consequatur
-      follow_up_date: '2025-12-06'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: 'api/visits/{record_id?}'
-    metadata:
-      custom: []
-      groupName: 'Medical Visits'
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'List medical visits'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      record_id:
-        custom: []
-        name: record_id
-        description: 'The ID of the record.'
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      record_id: consequatur
+      date: consequatur
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -156,204 +179,6 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: 'api/visits/{id}'
-    metadata:
-      custom: []
-      groupName: 'Medical Visits'
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Show a specific medical visit'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        custom: []
-        name: id
-        description: 'The ID of the visit.'
-        required: true
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      id: consequatur
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - PUT
-    uri: 'api/visits/{id}'
-    metadata:
-      custom: []
-      groupName: 'Medical Visits'
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Update a medical visit'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        custom: []
-        name: id
-        description: 'The ID of the visit.'
-        required: true
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      id: consequatur
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      notes:
-        custom: []
-        name: notes
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      diagnosis:
-        custom: []
-        name: diagnosis
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      follow_up_date:
-        custom: []
-        name: follow_up_date
-        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
-        required: false
-        example: '2025-12-06'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      visit_date:
-        custom: []
-        name: visit_date
-        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
-        required: false
-        example: '2025-12-06'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-    cleanBodyParameters:
-      notes: consequatur
-      diagnosis: consequatur
-      follow_up_date: '2025-12-06'
-      visit_date: '2025-12-06'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - DELETE
-    uri: 'api/visits/{id}'
-    metadata:
-      custom: []
-      groupName: 'Medical Visits'
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Delete a medical visit'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        custom: []
-        name: id
-        description: 'The ID of the visit.'
-        required: true
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      id: consequatur
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
     responseFields: []
     auth:
       - headers

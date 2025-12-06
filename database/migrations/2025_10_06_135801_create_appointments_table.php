@@ -15,9 +15,22 @@ return new class extends Migration
             $table->id();
             $table->foreignId('doctor_id')->constrained('doctors')->onDelete('cascade');
             $table->foreignId('patient_id')->constrained('patients')->onDelete('cascade');
+
+            $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null')->comment('کاربری که نوبت را ثبت کرده');
+            $table->foreignId('canceled_by')->nullable()->constrained('users')->onDelete('set null')->comment('کاربری که نوبت را لغو کرده');
+            $table->timestamp('canceled_at')->nullable()->comment('زمان لغو نوبت');
+            $table->text('cancel_reason')->nullable()->comment('دلیل لغو نوبت');
+
             $table->date('date')->comment('تاریخ نوبت');
             $table->time('start_time')->comment('ساعت شروع نوبت');
-            $table->boolean('attended')->default(false)->comment('آیا بیمار حضور پیدا کرده یا نه');
+
+            $table->enum('attended', ['not_arrived', 'arrived', 'completed'])->default('not_arrived')->comment('آیا بیمار حضور پیدا کرده یا نه');
+            $table->foreignId('marked_attended_by')->nullable()->constrained('users')->onDelete('set null')->comment('کاربری که حضور را ثبت کرده');
+            $table->timestamp('arrival_time')->nullable()->comment('زمان ورود بیمار به مطب');
+            $table->timestamp('visit_start_time')->nullable()->comment('زمان شروع ویزیت');
+            $table->text('attendance_notes')->nullable()->comment('یادداشت‌های مربوط به حضور');
+            $table->integer('waiting_time')->nullable()->comment('مدت زمان انتظار به دقیقه');
+
             $table->enum('appointment_type', ['online', 'phone', 'in_person', 'referral'])->default('online')->comment('نوع نوبت: اینترنتی، تلفنی، حضوری، معرفی');
             $table->enum('service_type', ['doctor', 'injection'])->default('doctor')->comment('نوع خدمت: دکتر یا تزریقات');
             $table->enum('status',['waiting','canceled','visited','no_show'])->default('no_show')->comment('وضعیت نوبت');

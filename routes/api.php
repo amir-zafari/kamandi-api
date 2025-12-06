@@ -75,8 +75,12 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::get('/{doctor_id}/{date}', [AppointmentController::class, 'show_day']);  //نمایش نوبت های یک پزشک در یک روز
             Route::get('/{id}', [AppointmentController::class, 'show']); //نمایش جزعیات یک نوبت
             Route::put('/{id}', [AppointmentController::class, 'update']);    // ویرایش نوبت
-            Route::patch('/attended/{id}', [AppointmentController::class, 'toggleAttended']);
             Route::delete('/{id}', [AppointmentController::class, 'destroy']);      // حذف نوبت
+            Route::post('/cancel/{id}', [AppointmentController::class, 'cancel']);
+            Route::post('/mark-arrived/{id}', [AppointmentController::class, 'markArrived']);  // گام 1: ثبت ورود
+            Route::post('/start-visit/{id}', [AppointmentController::class, 'startVisit']);    // گام 2: شروع و تکمیل ویزیت
+            Route::get('/statistics/{doctor_id}/{date}', [AppointmentController::class, 'attendanceStatistics']); // آمار حضور
+
         });
         Route::prefix('visits')->group(function () {
             Route::post('/', [CaseMedicalVisitController::class, 'store']);

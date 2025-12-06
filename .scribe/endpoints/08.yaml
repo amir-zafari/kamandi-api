@@ -1,18 +1,18 @@
-name: Endpoints
+name: 'Medical Visits'
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
       - POST
-    uri: api/prescriptions
+    uri: api/visits
     metadata:
       custom: []
-      groupName: Endpoints
+      groupName: 'Medical Visits'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Create a new medical visit'
       description: ''
       authenticated: true
       deprecated: false
@@ -25,10 +25,10 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      medical_record_id:
+      doctor_id:
         custom: []
-        name: medical_record_id
-        description: 'The <code>id</code> of an existing record in the medical_records table.'
+        name: doctor_id
+        description: 'The <code>id</code> of an existing record in the doctors table.'
         required: true
         example: consequatur
         type: string
@@ -36,21 +36,10 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      visit_id:
+      patient_id:
         custom: []
-        name: visit_id
-        description: 'The <code>id</code> of an existing record in the visits table.'
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        deprecated: false
-      medication_name:
-        custom: []
-        name: medication_name
-        description: ''
+        name: patient_id
+        description: 'The <code>id</code> of an existing record in the patients table.'
         required: true
         example: consequatur
         type: string
@@ -58,9 +47,20 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      dosage:
+      visit_date:
         custom: []
-        name: dosage
+        name: visit_date
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2025-12-06'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notes:
+        custom: []
+        name: notes
         description: ''
         required: false
         example: consequatur
@@ -69,9 +69,9 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-      instructions:
+      diagnosis:
         custom: []
-        name: instructions
+        name: diagnosis
         description: ''
         required: false
         example: consequatur
@@ -80,23 +80,24 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
-      duration_days:
+      follow_up_date:
         custom: []
-        name: duration_days
-        description: 'Must be at least 1.'
+        name: follow_up_date
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: 45
-        type: integer
+        example: '2025-12-06'
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         deprecated: false
     cleanBodyParameters:
-      medical_record_id: consequatur
-      medication_name: consequatur
-      dosage: consequatur
-      instructions: consequatur
-      duration_days: 45
+      doctor_id: consequatur
+      patient_id: consequatur
+      visit_date: '2025-12-06'
+      notes: consequatur
+      diagnosis: consequatur
+      follow_up_date: '2025-12-06'
     fileParameters: []
     responses: []
     responseFields: []
@@ -111,14 +112,14 @@ endpoints:
     custom: []
     httpMethods:
       - GET
-    uri: 'api/prescriptions/{record_id?}'
+    uri: 'api/visits/{record_id?}'
     metadata:
       custom: []
-      groupName: Endpoints
+      groupName: 'Medical Visits'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'List medical visits'
       description: ''
       authenticated: true
       deprecated: false
@@ -167,14 +168,14 @@ endpoints:
     custom: []
     httpMethods:
       - GET
-    uri: 'api/prescriptions/{id}'
+    uri: 'api/visits/{id}'
     metadata:
       custom: []
-      groupName: Endpoints
+      groupName: 'Medical Visits'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Show a specific medical visit'
       description: ''
       authenticated: true
       deprecated: false
@@ -186,7 +187,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the prescription.'
+        description: 'The ID of the visit.'
         required: true
         example: consequatur
         type: string
@@ -223,14 +224,14 @@ endpoints:
     custom: []
     httpMethods:
       - PUT
-    uri: 'api/prescriptions/{id}'
+    uri: 'api/visits/{id}'
     metadata:
       custom: []
-      groupName: Endpoints
+      groupName: 'Medical Visits'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Update a medical visit'
       description: ''
       authenticated: true
       deprecated: false
@@ -242,7 +243,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the prescription.'
+        description: 'The ID of the visit.'
         required: true
         example: consequatur
         type: string
@@ -255,55 +256,55 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      medication_name:
+      notes:
         custom: []
-        name: medication_name
+        name: notes
         description: ''
         required: false
         example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      dosage:
+      diagnosis:
         custom: []
-        name: dosage
+        name: diagnosis
         description: ''
         required: false
         example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      instructions:
+      follow_up_date:
         custom: []
-        name: instructions
-        description: ''
+        name: follow_up_date
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: consequatur
+        example: '2025-12-06'
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      duration_days:
+      visit_date:
         custom: []
-        name: duration_days
-        description: 'Must be at least 1.'
+        name: visit_date
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: 45
-        type: integer
+        example: '2025-12-06'
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
     cleanBodyParameters:
-      medication_name: consequatur
-      dosage: consequatur
-      instructions: consequatur
-      duration_days: 45
+      notes: consequatur
+      diagnosis: consequatur
+      follow_up_date: '2025-12-06'
+      visit_date: '2025-12-06'
     fileParameters: []
     responses: []
     responseFields: []
@@ -318,14 +319,14 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: 'api/prescriptions/{id}'
+    uri: 'api/visits/{id}'
     metadata:
       custom: []
-      groupName: Endpoints
+      groupName: 'Medical Visits'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Delete a medical visit'
       description: ''
       authenticated: true
       deprecated: false
@@ -337,7 +338,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the prescription.'
+        description: 'The ID of the visit.'
         required: true
         example: consequatur
         type: string
