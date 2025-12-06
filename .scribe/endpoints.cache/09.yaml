@@ -6,6 +6,98 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - GET
+    uri: api/medicaldocument/filter
+    metadata:
+      custom: []
+      groupName: 'Medical Cases'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Filter medical cases by doctor, patient and type'
+      description: |-
+        Examples:
+        - Filter by doctor_id:
+          GET /api/medicaldocument/filter?doctor_id=1
+
+        - Filter by patient_id:
+          GET /api/medicaldocument/filter?patient_id=5
+
+        - Filter by case_medical_type_id:
+          GET /api/medicaldocument/filter?case_medical_type_id=2
+
+        - Combined filters:
+          GET /api/medicaldocument/filter?doctor_id=1&patient_id=5&case_medical_type_id=2
+
+        - Without filters (get all):
+          GET /api/medicaldocument/filter
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      doctor_id:
+        custom: []
+        name: doctor_id
+        description: 'The <code>id</code> of an existing record in the doctors table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      patient_id:
+        custom: []
+        name: patient_id
+        description: 'The <code>id</code> of an existing record in the patients table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      case_medical_type_id:
+        custom: []
+        name: case_medical_type_id
+        description: 'The <code>id</code> of an existing record in the case_medical_types table.'
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - POST
     uri: api/medicaldocument
     metadata:
@@ -76,7 +168,7 @@ endpoints:
         name: case_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-04'
+        example: '2025-12-06'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -110,7 +202,7 @@ endpoints:
       patient_id: consequatur
       title: consequatur
       case_medical_type_id: consequatur
-      case_date: '2025-12-04'
+      case_date: '2025-12-06'
       notes: consequatur
     fileParameters:
       files:
@@ -255,7 +347,7 @@ endpoints:
         name: case_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-04'
+        example: '2025-12-06'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -286,7 +378,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       title: consequatur
-      case_date: '2025-12-04'
+      case_date: '2025-12-06'
       notes: consequatur
     fileParameters:
       files:

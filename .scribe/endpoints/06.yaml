@@ -96,7 +96,7 @@ endpoints:
         name: date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: true
-        example: '2025-12-04'
+        example: '2025-12-06'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -118,7 +118,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: online
+        example: in_person
         type: string
         enumValues:
           - online
@@ -133,7 +133,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: injection
+        example: doctor
         type: string
         enumValues:
           - doctor
@@ -144,10 +144,10 @@ endpoints:
     cleanBodyParameters:
       doctor_id: 17
       patient_id: 17
-      date: '2025-12-04'
+      date: '2025-12-06'
       start_time: '(:05'
-      appointment_type: online
-      service_type: injection
+      appointment_type: in_person
+      service_type: doctor
     fileParameters: []
     responses: []
     responseFields: []
@@ -345,7 +345,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: in_person
+        example: referral
         type: string
         enumValues:
           - online
@@ -360,7 +360,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: injection
+        example: doctor
         type: string
         enumValues:
           - doctor
@@ -373,7 +373,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: canceled
+        example: visited
         type: string
         enumValues:
           - waiting
@@ -386,9 +386,9 @@ endpoints:
     cleanBodyParameters:
       start_time: '(:05'
       attended: false
-      appointment_type: in_person
-      service_type: injection
-      status: canceled
+      appointment_type: referral
+      service_type: doctor
+      status: visited
     fileParameters: []
     responses: []
     responseFields: []
@@ -544,7 +544,7 @@ endpoints:
         name: date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: true
-        example: '2025-12-04'
+        example: '2025-12-06'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -566,7 +566,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: referral
+        example: in_person
         type: string
         enumValues:
           - online
@@ -592,9 +592,9 @@ endpoints:
     cleanBodyParameters:
       doctor_id: 17
       patient_id: 17
-      date: '2025-12-04'
+      date: '2025-12-06'
       start_time: '(:05'
-      appointment_type: referral
+      appointment_type: in_person
       service_type: doctor
     fileParameters: []
     responses: []
@@ -808,7 +808,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: injection
+        example: doctor
         type: string
         enumValues:
           - doctor
@@ -835,7 +835,7 @@ endpoints:
       start_time: '(:05'
       attended: true
       appointment_type: phone
-      service_type: injection
+      service_type: doctor
       status: no_show
     fileParameters: []
     responses: []

@@ -289,4 +289,91 @@ class CaseMedicalController extends Controller
             'message' => 'File deleted successfully'
         ], 200);
     }
+    /**
+     * Filter medical cases by doctor, patient and type
+     *
+     * Examples:
+     * - Filter by doctor_id:
+     *   GET /api/medicaldocument/filter?doctor_id=1
+     *
+     * - Filter by patient_id:
+     *   GET /api/medicaldocument/filter?patient_id=5
+     *
+     * - Filter by case_medical_type_id:
+     *   GET /api/medicaldocument/filter?case_medical_type_id=2
+     *
+     * - Combined filters:
+     *   GET /api/medicaldocument/filter?doctor_id=1&patient_id=5&case_medical_type_id=2
+     *
+     * - Without filters (get all):
+     *   GET /api/medicaldocument/filter
+     *
+     * @authenticated
+     * @group Medical Cases
+     */
+    public function filter(Request $request)
+    {
+        $user = auth()->user();
+
+        $validator = Validator::make($request->all(), [
+            'doctor_id'            => 'nullable|exists:doctors,id',
+            'patient_id'           => 'nullable|exists:patients,id',
+            'case_medical_type_id' => 'nullable|exists:case_medical_types,id',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        // شروع کوئری
+        $query = CaseMedical::query();
+
+        // اعمال فیلتر doctor_id
+        if ($request->filled('doctor_id')) {
+            $query->where('doctor_id', $request->doctor_id);
+        }
+
+        // اعمال فیلتر patient_id
+        if ($request->filled('patient_id')) {
+            $patientId = $request->patient_id;
+            $patient = Patient::find($patientId);
+
+            if (!$patient) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Patient not found'
+                ], 404);
+            }
+
+            // بررسی دسترسی کاربر به بیمار
+            if (!$patient->users()->where('users.id', $user->id)->exists()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'You do not have permission to access this patient'
+                ], 403);
+            }
+
+            $query->where('patient_id', $patientId);
+        }
+
+        // اعمال فیلتر case_medical_type_id
+        if ($request->filled('case_medical_type_id')) {
+            $query->where('case_medical_type_id', $request->case_medical_type_id);
+        }
+
+        // دریافت نتایج با روابط
+        $documents = $query->with(['type', 'files', 'doctor', 'patient'])
+            ->orderBy('case_date', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return response()->json([
+            'status' => 'success',
+            'count' => $documents->count(),
+            'documents' => $documents
+        ], 200);
+    }
 }

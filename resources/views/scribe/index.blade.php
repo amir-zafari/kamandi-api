@@ -228,7 +228,10 @@
                     <a href="#medical-cases">Medical Cases</a>
                 </li>
                                     <ul id="tocify-subheader-medical-cases" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="medical-cases-POSTapi-medicaldocument">
+                                                    <li class="tocify-item level-2" data-unique="medical-cases-GETapi-medicaldocument-filter">
+                                <a href="#medical-cases-GETapi-medicaldocument-filter">Filter medical cases by doctor, patient and type</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="medical-cases-POSTapi-medicaldocument">
                                 <a href="#medical-cases-POSTapi-medicaldocument">Create a new medical case with optional files</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-cases-GETapi-medicaldocument--doctor_id---patient_id-">
@@ -378,7 +381,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 4, 2025</li>
+        <li>Last updated: December 6, 2025</li>
     </ul>
 </div>
 
@@ -548,10 +551,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"doctor_id\": 17,
     \"patient_id\": 17,
-    \"date\": \"2025-12-04\",
+    \"date\": \"2025-12-06\",
     \"start_time\": \"(:05\",
-    \"appointment_type\": \"online\",
-    \"service_type\": \"injection\"
+    \"appointment_type\": \"in_person\",
+    \"service_type\": \"doctor\"
 }"
 </code></pre></div>
 
@@ -570,10 +573,10 @@ const headers = {
 let body = {
     "doctor_id": 17,
     "patient_id": 17,
-    "date": "2025-12-04",
+    "date": "2025-12-06",
     "start_time": "(:05",
-    "appointment_type": "online",
-    "service_type": "injection"
+    "appointment_type": "in_person",
+    "service_type": "doctor"
 };
 
 fetch(url, {
@@ -684,10 +687,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-appointments"
-               value="2025-12-04"
+               value="2025-12-06"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
@@ -708,10 +711,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="POSTapi-appointments"
-               value="online"
+               value="in_person"
                data-component="body">
     <br>
-<p>Example: <code>online</code></p>
+<p>Example: <code>in_person</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -722,10 +725,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="POSTapi-appointments"
-               value="injection"
+               value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>injection</code></p>
+<p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -1038,9 +1041,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"start_time\": \"(:05\",
     \"attended\": false,
-    \"appointment_type\": \"in_person\",
-    \"service_type\": \"injection\",
-    \"status\": \"canceled\"
+    \"appointment_type\": \"referral\",
+    \"service_type\": \"doctor\",
+    \"status\": \"visited\"
 }"
 </code></pre></div>
 
@@ -1059,9 +1062,9 @@ const headers = {
 let body = {
     "start_time": "(:05",
     "attended": false,
-    "appointment_type": "in_person",
-    "service_type": "injection",
-    "status": "canceled"
+    "appointment_type": "referral",
+    "service_type": "doctor",
+    "status": "visited"
 };
 
 fetch(url, {
@@ -1195,10 +1198,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="PUTapi-appointments--id-"
-               value="in_person"
+               value="referral"
                data-component="body">
     <br>
-<p>Example: <code>in_person</code></p>
+<p>Example: <code>referral</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -1209,10 +1212,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="PUTapi-appointments--id-"
-               value="injection"
+               value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>injection</code></p>
+<p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -1223,10 +1226,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-appointments--id-"
-               value="canceled"
+               value="visited"
                data-component="body">
     <br>
-<p>Example: <code>canceled</code></p>
+<p>Example: <code>visited</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>waiting</code></li> <li><code>canceled</code></li> <li><code>visited</code></li> <li><code>no_show</code></li></ul>
         </div>
@@ -1495,9 +1498,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"doctor_id\": 17,
     \"patient_id\": 17,
-    \"date\": \"2025-12-04\",
+    \"date\": \"2025-12-06\",
     \"start_time\": \"(:05\",
-    \"appointment_type\": \"referral\",
+    \"appointment_type\": \"in_person\",
     \"service_type\": \"doctor\"
 }"
 </code></pre></div>
@@ -1517,9 +1520,9 @@ const headers = {
 let body = {
     "doctor_id": 17,
     "patient_id": 17,
-    "date": "2025-12-04",
+    "date": "2025-12-06",
     "start_time": "(:05",
-    "appointment_type": "referral",
+    "appointment_type": "in_person",
     "service_type": "doctor"
 };
 
@@ -1631,10 +1634,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-patient-appointments"
-               value="2025-12-04"
+               value="2025-12-06"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
@@ -1655,10 +1658,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="POSTapi-patient-appointments"
-               value="referral"
+               value="in_person"
                data-component="body">
     <br>
-<p>Example: <code>referral</code></p>
+<p>Example: <code>in_person</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -1986,7 +1989,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"start_time\": \"(:05\",
     \"attended\": true,
     \"appointment_type\": \"phone\",
-    \"service_type\": \"injection\",
+    \"service_type\": \"doctor\",
     \"status\": \"no_show\"
 }"
 </code></pre></div>
@@ -2007,7 +2010,7 @@ let body = {
     "start_time": "(:05",
     "attended": true,
     "appointment_type": "phone",
-    "service_type": "injection",
+    "service_type": "doctor",
     "status": "no_show"
 };
 
@@ -2156,10 +2159,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="injection"
+               value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>injection</code></p>
+<p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -2354,8 +2357,8 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;captcha_id&quot;: &quot;e20770bd-2a9d-41d2-9999-8e2f5cdc1846&quot;,
-    &quot;image&quot;: &quot;data:image/png;base64,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&quot;,
+    &quot;captcha_id&quot;: &quot;e75f0ae4-247e-4ae6-b2c3-fb45f51ffd4e&quot;,
+    &quot;image&quot;: &quot;data:image/png;base64,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&quot;,
     &quot;expires_in&quot;: 120
 }</code>
  </pre>
@@ -6063,7 +6066,191 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="medical-cases-POSTapi-medicaldocument">Create a new medical case with optional files</h2>
+                                <h2 id="medical-cases-GETapi-medicaldocument-filter">Filter medical cases by doctor, patient and type</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Examples:</p>
+<ul>
+<li>
+<p>Filter by doctor_id:
+GET /api/medicaldocument/filter?doctor_id=1</p>
+</li>
+<li>
+<p>Filter by patient_id:
+GET /api/medicaldocument/filter?patient_id=5</p>
+</li>
+<li>
+<p>Filter by case_medical_type_id:
+GET /api/medicaldocument/filter?case_medical_type_id=2</p>
+</li>
+<li>
+<p>Combined filters:
+GET /api/medicaldocument/filter?doctor_id=1&amp;patient_id=5&amp;case_medical_type_id=2</p>
+</li>
+<li>
+<p>Without filters (get all):
+GET /api/medicaldocument/filter</p>
+</li>
+</ul>
+
+<span id="example-requests-GETapi-medicaldocument-filter">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/medicaldocument/filter" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/medicaldocument/filter"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-medicaldocument-filter">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-medicaldocument-filter" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-medicaldocument-filter"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-medicaldocument-filter"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-medicaldocument-filter" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-medicaldocument-filter">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-medicaldocument-filter" data-method="GET"
+      data-path="api/medicaldocument/filter"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-medicaldocument-filter', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/medicaldocument/filter</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-medicaldocument-filter"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-medicaldocument-filter"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-medicaldocument-filter"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="doctor_id"                data-endpoint="GETapi-medicaldocument-filter"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the doctors table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="patient_id"                data-endpoint="GETapi-medicaldocument-filter"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the patients table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>case_medical_type_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="case_medical_type_id"                data-endpoint="GETapi-medicaldocument-filter"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the case_medical_types table.</p>
+        </div>
+        </form>
+
+                    <h2 id="medical-cases-POSTapi-medicaldocument">Create a new medical case with optional files</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6085,9 +6272,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "patient_id=consequatur"\
     --form "title=consequatur"\
     --form "case_medical_type_id=consequatur"\
-    --form "case_date=2025-12-04"\
+    --form "case_date=2025-12-06"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php4ABC.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpBC8B.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6106,7 +6293,7 @@ body.append('doctor_id', 'consequatur');
 body.append('patient_id', 'consequatur');
 body.append('title', 'consequatur');
 body.append('case_medical_type_id', 'consequatur');
-body.append('case_date', '2025-12-04');
+body.append('case_date', '2025-12-06');
 body.append('notes', 'consequatur');
 body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
 
@@ -6242,10 +6429,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="POSTapi-medicaldocument"
-               value="2025-12-04"
+               value="2025-12-06"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -6443,9 +6630,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "title=consequatur"\
-    --form "case_date=2025-12-04"\
+    --form "case_date=2025-12-06"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php4B69.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpBC9C.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6461,7 +6648,7 @@ const headers = {
 
 const body = new FormData();
 body.append('title', 'consequatur');
-body.append('case_date', '2025-12-04');
+body.append('case_date', '2025-12-06');
 body.append('notes', 'consequatur');
 body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
 
@@ -6586,10 +6773,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="PUTapi-medicaldocument--id-"
-               value="2025-12-04"
+               value="2025-12-06"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -7007,10 +7194,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"doctor_id\": \"consequatur\",
     \"patient_id\": \"consequatur\",
-    \"visit_date\": \"2025-12-04\",
+    \"visit_date\": \"2025-12-06\",
     \"notes\": \"consequatur\",
     \"diagnosis\": \"consequatur\",
-    \"follow_up_date\": \"2025-12-04\"
+    \"follow_up_date\": \"2025-12-06\"
 }"
 </code></pre></div>
 
@@ -7029,10 +7216,10 @@ const headers = {
 let body = {
     "doctor_id": "consequatur",
     "patient_id": "consequatur",
-    "visit_date": "2025-12-04",
+    "visit_date": "2025-12-06",
     "notes": "consequatur",
     "diagnosis": "consequatur",
-    "follow_up_date": "2025-12-04"
+    "follow_up_date": "2025-12-06"
 };
 
 fetch(url, {
@@ -7143,10 +7330,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="visit_date"                data-endpoint="POSTapi-visits"
-               value="2025-12-04"
+               value="2025-12-06"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -7179,10 +7366,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="follow_up_date"                data-endpoint="POSTapi-visits"
-               value="2025-12-04"
+               value="2025-12-06"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
         </div>
         </form>
 
@@ -7481,8 +7668,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"notes\": \"consequatur\",
     \"diagnosis\": \"consequatur\",
-    \"follow_up_date\": \"2025-12-04\",
-    \"visit_date\": \"2025-12-04\"
+    \"follow_up_date\": \"2025-12-06\",
+    \"visit_date\": \"2025-12-06\"
 }"
 </code></pre></div>
 
@@ -7501,8 +7688,8 @@ const headers = {
 let body = {
     "notes": "consequatur",
     "diagnosis": "consequatur",
-    "follow_up_date": "2025-12-04",
-    "visit_date": "2025-12-04"
+    "follow_up_date": "2025-12-06",
+    "visit_date": "2025-12-06"
 };
 
 fetch(url, {
@@ -7626,10 +7813,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="follow_up_date"                data-endpoint="PUTapi-visits--id-"
-               value="2025-12-04"
+               value="2025-12-06"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>visit_date</code></b>&nbsp;&nbsp;
@@ -7638,10 +7825,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="visit_date"                data-endpoint="PUTapi-visits--id-"
-               value="2025-12-04"
+               value="2025-12-06"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-04</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
         </div>
         </form>
 
@@ -8041,8 +8228,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-04T15:06:33\",
-    \"gender\": \"female\",
+    \"birth_date\": \"2025-12-06T07:03:05\",
+    \"gender\": \"male\",
     \"blood_type\": \"mqe\",
     \"allergies\": \"opfuudtdsufvyvddqamni\",
     \"chronic_diseases\": \"ihfqcoynlazghdtqtqxba\",
@@ -8068,8 +8255,8 @@ let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "national_id": "consequatur",
-    "birth_date": "2025-12-04T15:06:33",
-    "gender": "female",
+    "birth_date": "2025-12-06T07:03:05",
+    "gender": "male",
     "blood_type": "mqe",
     "allergies": "opfuudtdsufvyvddqamni",
     "chronic_diseases": "ihfqcoynlazghdtqtqxba",
@@ -8211,10 +8398,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patients"
-               value="2025-12-04T15:06:33"
+               value="2025-12-06T07:03:05"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-04T15:06:33</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T07:03:05</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -8223,10 +8410,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="POSTapi-patients"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -8450,7 +8637,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-04T15:06:33\",
+    \"birth_date\": \"2025-12-06T07:03:05\",
     \"gender\": \"female\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
@@ -8475,7 +8662,7 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-04T15:06:33",
+    "birth_date": "2025-12-06T07:03:05",
     "gender": "female",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
@@ -8617,10 +8804,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patients--id-"
-               value="2025-12-04T15:06:33"
+               value="2025-12-06T07:03:05"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-04T15:06:33</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T07:03:05</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -8962,11 +9149,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"for\": \"1\",
+    \"for\": \"2\",
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-04T15:06:33\",
+    \"birth_date\": \"2025-12-06T07:03:05\",
     \"gender\": \"female\",
     \"blood_type\": \"mqe\",
     \"allergies\": \"opfuudtdsufvyvddqamni\",
@@ -8989,11 +9176,11 @@ const headers = {
 };
 
 let body = {
-    "for": "1",
+    "for": "2",
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "national_id": "consequatur",
-    "birth_date": "2025-12-04T15:06:33",
+    "birth_date": "2025-12-06T07:03:05",
     "gender": "female",
     "blood_type": "mqe",
     "allergies": "opfuudtdsufvyvddqamni",
@@ -9086,10 +9273,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="for"                data-endpoint="POSTapi-patient-patients"
-               value="1"
+               value="2"
                data-component="body">
     <br>
-<p>Example: <code>1</code></p>
+<p>Example: <code>2</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li></ul>
         </div>
@@ -9136,10 +9323,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patient-patients"
-               value="2025-12-04T15:06:33"
+               value="2025-12-06T07:03:05"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-04T15:06:33</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T07:03:05</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -9375,7 +9562,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-04T15:06:33\",
+    \"birth_date\": \"2025-12-06T07:03:05\",
     \"gender\": \"female\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
@@ -9400,7 +9587,7 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-04T15:06:33",
+    "birth_date": "2025-12-06T07:03:05",
     "gender": "female",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
@@ -9542,10 +9729,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patient-patients--id-"
-               value="2025-12-04T15:06:33"
+               value="2025-12-06T07:03:05"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-04T15:06:33</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T07:03:05</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -11105,7 +11292,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"email\": \"andreanne00@example.org\",
     \"password\": \"\'YAKYLk4&gt;SJIrIV#lz.\",
     \"mobile\": \"consequatur\",
-    \"roll\": \"superadmin\",
+    \"roll\": \"doctor\",
     \"national_id\": \"consequatur\"
 }"
 </code></pre></div>
@@ -11129,7 +11316,7 @@ let body = {
     "email": "andreanne00@example.org",
     "password": "'YAKYLk4&gt;SJIrIV#lz.",
     "mobile": "consequatur",
-    "roll": "superadmin",
+    "roll": "doctor",
     "national_id": "consequatur"
 };
 
@@ -11291,10 +11478,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="roll"                data-endpoint="POSTapi-users"
-               value="superadmin"
+               value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>superadmin</code></p>
+<p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>nurse</code></li> <li><code>doctor</code></li> <li><code>superadmin</code></li></ul>
         </div>
@@ -11471,7 +11658,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"gender\": \"female\",
-    \"roll\": \"doctor\",
+    \"roll\": \"nurse\",
     \"password\": \"t(!Cs\'YAKYLk4&gt;S\"
 }"
 </code></pre></div>
@@ -11492,7 +11679,7 @@ let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "gender": "female",
-    "roll": "doctor",
+    "roll": "nurse",
     "password": "t(!Cs'YAKYLk4&gt;S"
 };
 
@@ -11655,10 +11842,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="roll"                data-endpoint="PUTapi-users--id-"
-               value="doctor"
+               value="nurse"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
+<p>Example: <code>nurse</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>nurse</code></li> <li><code>doctor</code></li> <li><code>superadmin</code></li></ul>
         </div>

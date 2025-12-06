@@ -93,6 +93,7 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::delete('/{id}', [PrescriptionController::class, 'destroy']);
         });
         Route::prefix('medicaldocument')->group(function () {
+            Route::get('/filter', [CaseMedicalController::class, 'filter']);
             Route::post('/', [CaseMedicalController::class, 'store']);
             Route::get('/{doctor_id}/{patient_id}', [CaseMedicalController::class, 'show']);
             Route::put('/{id}', [CaseMedicalController::class, 'update']);

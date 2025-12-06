@@ -54,7 +54,7 @@ endpoints:
         name: visit_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-04'
+        example: '2025-12-06'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -87,7 +87,7 @@ endpoints:
         name: follow_up_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-04'
+        example: '2025-12-06'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -96,10 +96,10 @@ endpoints:
     cleanBodyParameters:
       doctor_id: consequatur
       patient_id: consequatur
-      visit_date: '2025-12-04'
+      visit_date: '2025-12-06'
       notes: consequatur
       diagnosis: consequatur
-      follow_up_date: '2025-12-04'
+      follow_up_date: '2025-12-06'
     fileParameters: []
     responses: []
     responseFields: []
@@ -285,7 +285,7 @@ endpoints:
         name: follow_up_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-04'
+        example: '2025-12-06'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -296,7 +296,7 @@ endpoints:
         name: visit_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-04'
+        example: '2025-12-06'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -305,8 +305,8 @@ endpoints:
     cleanBodyParameters:
       notes: consequatur
       diagnosis: consequatur
-      follow_up_date: '2025-12-04'
-      visit_date: '2025-12-04'
+      follow_up_date: '2025-12-06'
+      visit_date: '2025-12-06'
     fileParameters: []
     responses: []
     responseFields: []

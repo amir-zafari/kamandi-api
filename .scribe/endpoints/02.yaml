@@ -186,7 +186,7 @@ endpoints:
         name: roll
         description: ''
         required: true
-        example: superadmin
+        example: doctor
         type: string
         enumValues:
           - patient
@@ -214,7 +214,7 @@ endpoints:
       email: andreanne00@example.org
       password: "'YAKYLk4>SJIrIV#lz."
       mobile: consequatur
-      roll: superadmin
+      roll: doctor
       national_id: consequatur
     fileParameters: []
     responses: []
@@ -380,7 +380,7 @@ endpoints:
         name: roll
         description: ''
         required: false
-        example: doctor
+        example: nurse
         type: string
         enumValues:
           - patient
@@ -416,7 +416,7 @@ endpoints:
       first_name: vmqeopfuudtdsufvyvddq
       last_name: amniihfqcoynlazghdtqt
       gender: female
-      roll: doctor
+      roll: nurse
       password: "t(!Cs'YAKYLk4>S"
     fileParameters: []
     responses: []
