@@ -376,4 +376,161 @@ class CaseMedicalController extends Controller
             'documents' => $documents
         ], 200);
     }
+    /**
+     * Search in medical cases
+     *
+     * Search in: title, notes, diagnosis, symptoms, visit_reason
+     *
+     * Examples:
+     * - Search with keyword:
+     *   GET /api/medicaldocument/search?q=سردرد
+     *
+     * - Search with filters:
+     *   GET /api/medicaldocument/search?q=آزمایش&doctor_id=1&patient_id=5
+     *
+     * - Search by date range:
+     *   GET /api/medicaldocument/search?q=کرونا&date_from=2024-01-01&date_to=2024-12-31
+     *
+     * - Search by type:
+     *   GET /api/medicaldocument/search?q=خون&case_medical_type_id=2
+     *
+     * @authenticated
+     * @group Medical Cases
+     */
+    public function search(Request $request)
+    {
+        $user = auth()->user();
+
+        $validator = Validator::make($request->all(), [
+            'q'                    => 'required|string|min:2',
+            'doctor_id'            => 'nullable|exists:doctors,id',
+            'patient_id'           => 'nullable|exists:patients,id',
+            'case_medical_type_id' => 'nullable|exists:case_medical_types,id',
+            'date_from'            => 'nullable|date_format:Y-m-d',
+            'date_to'              => 'nullable|date_format:Y-m-d',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        $searchTerm = $request->q;
+
+        // شروع کوئری
+        $query = CaseMedical::query();
+
+        // جستجو در فیلدهای CaseMedical
+        $query->where(function ($q) use ($searchTerm) {
+            $q->where('title', 'LIKE', "%{$searchTerm}%")
+                ->orWhere('notes', 'LIKE', "%{$searchTerm}%");
+        });
+
+        // جستجو در جدول Visit مرتبط
+        $query->orWhereHas('visit', function ($q) use ($searchTerm) {
+            $q->where('visit_reason', 'LIKE', "%{$searchTerm}%")
+                ->orWhere('symptoms', 'LIKE', "%{$searchTerm}%")
+                ->orWhere('diagnosis', 'LIKE', "%{$searchTerm}%")
+                ->orWhere('notes', 'LIKE', "%{$searchTerm}%");
+        });
+
+        // فیلتر بر اساس doctor_id
+        if ($request->filled('doctor_id')) {
+            $query->where('doctor_id', $request->doctor_id);
+        }
+
+        // فیلتر بر اساس patient_id
+        if ($request->filled('patient_id')) {
+            $patientId = $request->patient_id;
+            $patient = Patient::find($patientId);
+
+            if (!$patient) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Patient not found'
+                ], 404);
+            }
+
+            // بررسی دسترسی کاربر به بیمار
+            if (!$patient->users()->where('users.id', $user->id)->exists()) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'You do not have permission to access this patient'
+                ], 403);
+            }
+
+            $query->where('patient_id', $patientId);
+        }
+
+        // فیلتر بر اساس case_medical_type_id
+        if ($request->filled('case_medical_type_id')) {
+            $query->where('case_medical_type_id', $request->case_medical_type_id);
+        }
+
+        // فیلتر بر اساس بازه تاریخ
+        if ($request->filled('date_from')) {
+            $query->where('case_date', '>=', $request->date_from);
+        }
+
+        if ($request->filled('date_to')) {
+            $query->where('case_date', '<=', $request->date_to);
+        }
+
+        // دریافت نتایج با روابط
+        $documents = $query->with(['type', 'files', 'doctor', 'patient', 'visit'])
+            ->orderBy('case_date', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->map(function ($doc) use ($searchTerm) {
+                // هایلایت کردن کلمات جستجو شده
+                $highlighted = [];
+
+                if (stripos($doc->title, $searchTerm) !== false) {
+                    $highlighted[] = 'title';
+                }
+                if (stripos($doc->notes, $searchTerm) !== false) {
+                    $highlighted[] = 'notes';
+                }
+                if ($doc->visit) {
+                    if (stripos($doc->visit->visit_reason, $searchTerm) !== false) {
+                        $highlighted[] = 'visit_reason';
+                    }
+                    if (stripos($doc->visit->symptoms, $searchTerm) !== false) {
+                        $highlighted[] = 'symptoms';
+                    }
+                    if (stripos($doc->visit->diagnosis, $searchTerm) !== false) {
+                        $highlighted[] = 'diagnosis';
+                    }
+                    if (stripos($doc->visit->notes, $searchTerm) !== false) {
+                        $highlighted[] = 'visit_notes';
+                    }
+                }
+
+                return [
+                    'id' => $doc->id,
+                    'title' => $doc->title,
+                    'case_date' => $doc->case_date,
+                    'notes' => $doc->notes,
+                    'pin' => $doc->pin,
+                    'doctor' => $doc->doctor,
+                    'patient' => $doc->patient,
+                    'type' => $doc->type,
+                    'files' => $doc->files,
+                    'visit' => $doc->visit,
+                    'highlighted_fields' => $highlighted, // فیلدهایی که کلمه جستجو در آنها یافت شد
+                    'match_count' => count($highlighted), // تعداد تطابق‌ها
+                ];
+            })
+            ->sortByDesc('match_count') // مرتب‌سازی بر اساس تعداد تطابق‌ها
+            ->values();
+
+        return response()->json([
+            'status' => 'success',
+            'search_term' => $searchTerm,
+            'count' => $documents->count(),
+            'documents' => $documents
+        ], 200);
+    }
 }

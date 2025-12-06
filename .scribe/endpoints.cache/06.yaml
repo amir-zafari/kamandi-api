@@ -120,7 +120,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: phone
+        example: referral
         type: string
         enumValues:
           - online
@@ -135,7 +135,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: injection
+        example: doctor
         type: string
         enumValues:
           - doctor
@@ -148,8 +148,8 @@ endpoints:
       patient_id: 17
       date: '2025-12-06'
       start_time: '(:05'
-      appointment_type: phone
-      service_type: injection
+      appointment_type: referral
+      service_type: doctor
     fileParameters: []
     responses: []
     responseFields: []
@@ -568,7 +568,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: in_person
+        example: online
         type: string
         enumValues:
           - online
@@ -583,7 +583,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: injection
+        example: doctor
         type: string
         enumValues:
           - doctor
@@ -596,8 +596,8 @@ endpoints:
       patient_id: 17
       date: '2025-12-06'
       start_time: '(:05'
-      appointment_type: in_person
-      service_type: injection
+      appointment_type: online
+      service_type: doctor
     fileParameters: []
     responses: []
     responseFields: []
@@ -784,7 +784,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: phone
+        example: referral
         type: string
         enumValues:
           - online
@@ -799,7 +799,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: doctor
+        example: injection
         type: string
         enumValues:
           - doctor
@@ -812,7 +812,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: canceled
+        example: visited
         type: string
         enumValues:
           - waiting
@@ -824,9 +824,9 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       start_time: '(:05'
-      appointment_type: phone
-      service_type: doctor
-      status: canceled
+      appointment_type: referral
+      service_type: injection
+      status: visited
     fileParameters: []
     responses: []
     responseFields: []

@@ -569,8 +569,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"patient_id\": 17,
     \"date\": \"2025-12-06\",
     \"start_time\": \"(:05\",
-    \"appointment_type\": \"phone\",
-    \"service_type\": \"injection\"
+    \"appointment_type\": \"referral\",
+    \"service_type\": \"doctor\"
 }"
 </code></pre></div>
 
@@ -591,8 +591,8 @@ let body = {
     "patient_id": 17,
     "date": "2025-12-06",
     "start_time": "(:05",
-    "appointment_type": "phone",
-    "service_type": "injection"
+    "appointment_type": "referral",
+    "service_type": "doctor"
 };
 
 fetch(url, {
@@ -727,10 +727,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="POSTapi-appointments"
-               value="phone"
+               value="referral"
                data-component="body">
     <br>
-<p>Example: <code>phone</code></p>
+<p>Example: <code>referral</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -741,10 +741,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="POSTapi-appointments"
-               value="injection"
+               value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>injection</code></p>
+<p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -1514,8 +1514,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"patient_id\": 17,
     \"date\": \"2025-12-06\",
     \"start_time\": \"(:05\",
-    \"appointment_type\": \"in_person\",
-    \"service_type\": \"injection\"
+    \"appointment_type\": \"online\",
+    \"service_type\": \"doctor\"
 }"
 </code></pre></div>
 
@@ -1536,8 +1536,8 @@ let body = {
     "patient_id": 17,
     "date": "2025-12-06",
     "start_time": "(:05",
-    "appointment_type": "in_person",
-    "service_type": "injection"
+    "appointment_type": "online",
+    "service_type": "doctor"
 };
 
 fetch(url, {
@@ -1672,10 +1672,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="POSTapi-patient-appointments"
-               value="in_person"
+               value="online"
                data-component="body">
     <br>
-<p>Example: <code>in_person</code></p>
+<p>Example: <code>online</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -1686,10 +1686,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="POSTapi-patient-appointments"
-               value="injection"
+               value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>injection</code></p>
+<p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -2001,9 +2001,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"start_time\": \"(:05\",
-    \"appointment_type\": \"phone\",
-    \"service_type\": \"doctor\",
-    \"status\": \"canceled\"
+    \"appointment_type\": \"referral\",
+    \"service_type\": \"injection\",
+    \"status\": \"visited\"
 }"
 </code></pre></div>
 
@@ -2021,9 +2021,9 @@ const headers = {
 
 let body = {
     "start_time": "(:05",
-    "appointment_type": "phone",
-    "service_type": "doctor",
-    "status": "canceled"
+    "appointment_type": "referral",
+    "service_type": "injection",
+    "status": "visited"
 };
 
 fetch(url, {
@@ -2135,10 +2135,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="phone"
+               value="referral"
                data-component="body">
     <br>
-<p>Example: <code>phone</code></p>
+<p>Example: <code>referral</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -2149,10 +2149,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="doctor"
+               value="injection"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
+<p>Example: <code>injection</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -2163,10 +2163,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="canceled"
+               value="visited"
                data-component="body">
     <br>
-<p>Example: <code>canceled</code></p>
+<p>Example: <code>visited</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>waiting</code></li> <li><code>canceled</code></li> <li><code>visited</code></li> <li><code>no_show</code></li></ul>
         </div>
@@ -2786,8 +2786,8 @@ access-control-allow-origin: *
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;captcha_id&quot;: &quot;a61b7f6b-da27-49e4-8567-5bfc364af925&quot;,
-    &quot;image&quot;: &quot;data:image/png;base64,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&quot;,
+    &quot;captcha_id&quot;: &quot;bbe3581a-e24b-4899-b1ab-13ddf70463cd&quot;,
+    &quot;image&quot;: &quot;data:image/png;base64,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&quot;,
     &quot;expires_in&quot;: 120
 }</code>
  </pre>
@@ -6703,7 +6703,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "case_medical_type_id=consequatur"\
     --form "case_date=2025-12-06"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php4AC0.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php1EF1.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -7061,7 +7061,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=consequatur"\
     --form "case_date=2025-12-06"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php4B7D.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php1F5F.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8653,11 +8653,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"for\": \"1\",
+    \"for\": \"2\",
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-06T09:42:04\",
+    \"birth_date\": \"2025-12-06T14:35:39\",
     \"gender\": \"male\",
     \"blood_type\": \"mqe\",
     \"allergies\": \"opfuudtdsufvyvddqamni\",
@@ -8680,11 +8680,11 @@ const headers = {
 };
 
 let body = {
-    "for": "1",
+    "for": "2",
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "national_id": "consequatur",
-    "birth_date": "2025-12-06T09:42:04",
+    "birth_date": "2025-12-06T14:35:39",
     "gender": "male",
     "blood_type": "mqe",
     "allergies": "opfuudtdsufvyvddqamni",
@@ -8777,10 +8777,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="for"                data-endpoint="POSTapi-patients"
-               value="1"
+               value="2"
                data-component="body">
     <br>
-<p>Example: <code>1</code></p>
+<p>Example: <code>2</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li></ul>
         </div>
@@ -8827,10 +8827,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patients"
-               value="2025-12-06T09:42:04"
+               value="2025-12-06T14:35:39"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T09:42:04</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T14:35:39</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -9066,8 +9066,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-06T09:42:04\",
-    \"gender\": \"female\",
+    \"birth_date\": \"2025-12-06T14:35:39\",
+    \"gender\": \"male\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
     \"chronic_diseases\": \"dlsmsjuryvojcybzvrbyi\",
@@ -9091,8 +9091,8 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-06T09:42:04",
-    "gender": "female",
+    "birth_date": "2025-12-06T14:35:39",
+    "gender": "male",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
     "chronic_diseases": "dlsmsjuryvojcybzvrbyi",
@@ -9233,10 +9233,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patients--id-"
-               value="2025-12-06T09:42:04"
+               value="2025-12-06T14:35:39"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T09:42:04</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T14:35:39</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -9245,10 +9245,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PUTapi-patients--id-"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -9578,12 +9578,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"for\": \"2\",
+    \"for\": \"1\",
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-06T09:42:05\",
-    \"gender\": \"male\",
+    \"birth_date\": \"2025-12-06T14:35:40\",
+    \"gender\": \"female\",
     \"blood_type\": \"mqe\",
     \"allergies\": \"opfuudtdsufvyvddqamni\",
     \"chronic_diseases\": \"ihfqcoynlazghdtqtqxba\",
@@ -9605,12 +9605,12 @@ const headers = {
 };
 
 let body = {
-    "for": "2",
+    "for": "1",
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "national_id": "consequatur",
-    "birth_date": "2025-12-06T09:42:05",
-    "gender": "male",
+    "birth_date": "2025-12-06T14:35:40",
+    "gender": "female",
     "blood_type": "mqe",
     "allergies": "opfuudtdsufvyvddqamni",
     "chronic_diseases": "ihfqcoynlazghdtqtqxba",
@@ -9702,10 +9702,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="for"                data-endpoint="POSTapi-patient-patients"
-               value="2"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>2</code></p>
+<p>Example: <code>1</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li></ul>
         </div>
@@ -9752,10 +9752,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patient-patients"
-               value="2025-12-06T09:42:05"
+               value="2025-12-06T14:35:40"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T09:42:05</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T14:35:40</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -9764,10 +9764,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="POSTapi-patient-patients"
-               value="male"
+               value="female"
                data-component="body">
     <br>
-<p>Example: <code>male</code></p>
+<p>Example: <code>female</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -9991,7 +9991,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-06T09:42:05\",
+    \"birth_date\": \"2025-12-06T14:35:40\",
     \"gender\": \"female\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
@@ -10016,7 +10016,7 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-06T09:42:05",
+    "birth_date": "2025-12-06T14:35:40",
     "gender": "female",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
@@ -10158,10 +10158,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patient-patients--id-"
-               value="2025-12-06T09:42:05"
+               value="2025-12-06T14:35:40"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T09:42:05</code></p>
+<p>Must be a valid date. Example: <code>2025-12-06T14:35:40</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -11721,7 +11721,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"email\": \"andreanne00@example.org\",
     \"password\": \"\'YAKYLk4&gt;SJIrIV#lz.\",
     \"mobile\": \"consequatur\",
-    \"roll\": \"nurse\",
+    \"roll\": \"doctor\",
     \"national_id\": \"consequatur\"
 }"
 </code></pre></div>
@@ -11745,7 +11745,7 @@ let body = {
     "email": "andreanne00@example.org",
     "password": "'YAKYLk4&gt;SJIrIV#lz.",
     "mobile": "consequatur",
-    "roll": "nurse",
+    "roll": "doctor",
     "national_id": "consequatur"
 };
 
@@ -11907,10 +11907,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="roll"                data-endpoint="POSTapi-users"
-               value="nurse"
+               value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>nurse</code></p>
+<p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>nurse</code></li> <li><code>doctor</code></li> <li><code>superadmin</code></li></ul>
         </div>
@@ -12087,7 +12087,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"gender\": \"male\",
-    \"roll\": \"superadmin\",
+    \"roll\": \"doctor\",
     \"password\": \"t(!Cs\'YAKYLk4&gt;S\"
 }"
 </code></pre></div>
@@ -12108,7 +12108,7 @@ let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "gender": "male",
-    "roll": "superadmin",
+    "roll": "doctor",
     "password": "t(!Cs'YAKYLk4&gt;S"
 };
 
@@ -12271,10 +12271,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="roll"                data-endpoint="PUTapi-users--id-"
-               value="superadmin"
+               value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>superadmin</code></p>
+<p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>nurse</code></li> <li><code>doctor</code></li> <li><code>superadmin</code></li></ul>
         </div>
