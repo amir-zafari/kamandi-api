@@ -107,6 +107,35 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::delete('/file/{id}', [CaseMedicalController::class, 'deleteFile']);
 
         });
+
+        // Route های جداگانه برای هر تایپ CaseMedical
+        Route::prefix('text-records')->group(function () {
+            Route::post('/', [CaseMedicalController::class, 'storeTextRecord']);
+            Route::get('/{doctor_id}/{patient_id}', [CaseMedicalController::class, 'getTextRecords']);
+            Route::put('/{id}', [CaseMedicalController::class, 'updateTextRecord']);
+            Route::delete('/{id}', [CaseMedicalController::class, 'destroyTextRecord']);
+        });
+
+        Route::prefix('handwritten-records')->group(function () {
+            Route::post('/', [CaseMedicalController::class, 'storeHandwrittenRecord']);
+            Route::get('/{doctor_id}/{patient_id}', [CaseMedicalController::class, 'getHandwrittenRecords']);
+            Route::put('/{id}', [CaseMedicalController::class, 'updateHandwrittenRecord']);
+            Route::delete('/{id}', [CaseMedicalController::class, 'destroyHandwrittenRecord']);
+        });
+
+        Route::prefix('document-records')->group(function () {
+            Route::post('/', [CaseMedicalController::class, 'storeDocumentRecord']);
+            Route::get('/{doctor_id}/{patient_id}', [CaseMedicalController::class, 'getDocumentRecords']);
+            Route::put('/{id}', [CaseMedicalController::class, 'updateDocumentRecord']);
+            Route::delete('/{id}', [CaseMedicalController::class, 'destroyDocumentRecord']);
+        });
+
+        Route::prefix('visit-reports')->group(function () {
+            Route::post('/', [CaseMedicalVisitController::class, 'storeVisitReport']);
+            Route::get('/{doctor_id}/{patient_id}', [CaseMedicalVisitController::class, 'getVisitReports']);
+            Route::put('/{id}', [CaseMedicalVisitController::class, 'updateVisitReport']);
+            Route::delete('/{id}', [CaseMedicalVisitController::class, 'destroyVisitReport']);
+        });
         Route::prefix('currency')->group(function () {
             Route::post('/convert', [CurrencyConverterController::class, 'convertUsdToIrt']);
         });

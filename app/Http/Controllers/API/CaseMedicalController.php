@@ -533,4 +533,523 @@ class CaseMedicalController extends Controller
             'documents' => $documents
         ], 200);
     }
+
+    // ======== متدهای مخصوص تایپ متن (ID: 1) ========
+
+    /**
+     * ذخیره پرونده متنی
+     * @authenticated
+     * @group Text Records
+     */
+    public function storeTextRecord(Request $request)
+    {
+        $user = auth()->user();
+
+        $validator = Validator::make($request->all(), [
+            'doctor_id'  => 'required|exists:doctors,id',
+            'patient_id' => 'required|exists:patients,id',
+            'title'      => 'required|string',
+            'case_date'  => 'nullable|date_format:Y-m-d',
+            'notes'      => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
+        }
+
+        $patient = Patient::find($request->patient_id);
+        if (!$patient->users()->where('users.id', $user->id)->exists()) {
+            return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+        }
+
+        try {
+            $caseMedical = CaseMedical::create([
+                'doctor_id' => $request->doctor_id,
+                'patient_id' => $request->patient_id,
+                'title' => $request->title,
+                'case_medical_type_id' => 1, // تایپ متن ثابت
+                'case_date' => $request->case_date ?? now()->format('Y-m-d'),
+                'notes' => $request->notes,
+                'pin' => false,
+            ]);
+
+            $caseMedical->load(['patient', 'doctor.user', 'type']);
+
+            return response()->json(['status' => 'success', 'text_record' => $caseMedical], 201);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در ایجاد پرونده متنی'], 500);
+        }
+    }
+
+    /**
+     * دریافت پرونده‌های متنی
+     * @authenticated
+     * @group Text Records
+     */
+    public function getTextRecords($doctor_id, $patient_id)
+    {
+        $user = auth()->user();
+        $patient = Patient::find($patient_id);
+        
+        if (!$patient || !$patient->users()->where('users.id', $user->id)->exists()) {
+            return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+        }
+
+        try {
+            $textRecords = CaseMedical::with(['patient', 'doctor.user', 'type', 'files'])
+                ->where('doctor_id', $doctor_id)
+                ->where('patient_id', $patient_id)
+                ->where('case_medical_type_id', 1) // فقط تایپ متن
+                ->orderBy('case_date', 'desc')
+                ->get();
+
+            return response()->json(['status' => 'success', 'text_records' => $textRecords], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در دریافت پرونده‌های متنی'], 500);
+        }
+    }
+
+    /**
+     * بروزرسانی پرونده متنی
+     * @authenticated
+     * @group Text Records
+     */
+    public function updateTextRecord(Request $request, $id)
+    {
+        $user = auth()->user();
+        
+        $validator = Validator::make($request->all(), [
+            'title'     => 'nullable|string',
+            'case_date' => 'nullable|date_format:Y-m-d',
+            'notes'     => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
+        }
+
+        try {
+            $caseMedical = CaseMedical::where('id', $id)
+                ->where('case_medical_type_id', 1) // فقط تایپ متن
+                ->first();
+
+            if (!$caseMedical) {
+                return response()->json(['status' => 'error', 'message' => 'پرونده متنی یافت نشد'], 404);
+            }
+
+            $patient = Patient::find($caseMedical->patient_id);
+            if (!$patient->users()->where('users.id', $user->id)->exists()) {
+                return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+            }
+
+            $caseMedical->update($request->only(['title', 'case_date', 'notes']));
+            $caseMedical->load(['patient', 'doctor.user', 'type']);
+
+            return response()->json(['status' => 'success', 'text_record' => $caseMedical], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در بروزرسانی پرونده متنی'], 500);
+        }
+    }
+
+    /**
+     * حذف پرونده متنی
+     * @authenticated
+     * @group Text Records
+     */
+    public function destroyTextRecord($id)
+    {
+        $user = auth()->user();
+        
+        try {
+            $caseMedical = CaseMedical::where('id', $id)
+                ->where('case_medical_type_id', 1) // فقط تایپ متن
+                ->first();
+
+            if (!$caseMedical) {
+                return response()->json(['status' => 'error', 'message' => 'پرونده متنی یافت نشد'], 404);
+            }
+
+            $patient = Patient::find($caseMedical->patient_id);
+            if (!$patient->users()->where('users.id', $user->id)->exists()) {
+                return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+            }
+
+            $caseMedical->delete();
+
+            return response()->json(['status' => 'success', 'message' => 'پرونده متنی با موفقیت حذف شد'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در حذف پرونده متنی'], 500);
+        }
+    }
+
+    // ======== متدهای مخصوص تایپ دست‌نویس (ID: 2) ========
+
+    /**
+     * ذخیره پرونده دست‌نویس
+     * @authenticated
+     * @group Handwritten Records
+     */
+    public function storeHandwrittenRecord(Request $request)
+    {
+        $user = auth()->user();
+
+        $validator = Validator::make($request->all(), [
+            'doctor_id'  => 'required|exists:doctors,id',
+            'patient_id' => 'required|exists:patients,id',
+            'title'      => 'required|string',
+            'case_date'  => 'nullable|date_format:Y-m-d',
+            'files.*'    => 'nullable|file|mimes:jpg,png,pdf|max:20480',
+            'notes'      => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
+        }
+
+        $patient = Patient::find($request->patient_id);
+        if (!$patient->users()->where('users.id', $user->id)->exists()) {
+            return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+        }
+
+        try {
+            $caseMedical = CaseMedical::create([
+                'doctor_id' => $request->doctor_id,
+                'patient_id' => $request->patient_id,
+                'title' => $request->title,
+                'case_medical_type_id' => 2, // تایپ دست‌نویس ثابت
+                'case_date' => $request->case_date ?? now()->format('Y-m-d'),
+                'notes' => $request->notes,
+                'pin' => false,
+            ]);
+
+            // آپلود فایل‌ها اگر وجود دارند
+            if ($request->hasFile('files')) {
+                foreach ($request->file('files') as $file) {
+                    $path = $file->store('case_medicals', 'public');
+                    $caseMedical->files()->create([
+                        'file_path' => $path,
+                        'file_name' => $file->getClientOriginalName(),
+                        'format' => $file->getClientOriginalExtension(),
+                        'size' => $file->getSize(),
+                    ]);
+                }
+            }
+
+            $caseMedical->load(['patient', 'doctor.user', 'type', 'files']);
+
+            return response()->json(['status' => 'success', 'handwritten_record' => $caseMedical], 201);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در ایجاد پرونده دست‌نویس'], 500);
+        }
+    }
+
+    /**
+     * دریافت پرونده‌های دست‌نویس
+     * @authenticated
+     * @group Handwritten Records
+     */
+    public function getHandwrittenRecords($doctor_id, $patient_id)
+    {
+        $user = auth()->user();
+        $patient = Patient::find($patient_id);
+        
+        if (!$patient || !$patient->users()->where('users.id', $user->id)->exists()) {
+            return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+        }
+
+        try {
+            $handwrittenRecords = CaseMedical::with(['patient', 'doctor.user', 'type', 'files'])
+                ->where('doctor_id', $doctor_id)
+                ->where('patient_id', $patient_id)
+                ->where('case_medical_type_id', 2) // فقط تایپ دست‌نویس
+                ->orderBy('case_date', 'desc')
+                ->get();
+
+            return response()->json(['status' => 'success', 'handwritten_records' => $handwrittenRecords], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در دریافت پرونده‌های دست‌نویس'], 500);
+        }
+    }
+
+    /**
+     * بروزرسانی پرونده دست‌نویس
+     * @authenticated
+     * @group Handwritten Records
+     */
+    public function updateHandwrittenRecord(Request $request, $id)
+    {
+        $user = auth()->user();
+        
+        $validator = Validator::make($request->all(), [
+            'title'     => 'nullable|string',
+            'case_date' => 'nullable|date_format:Y-m-d',
+            'files.*'   => 'nullable|file|mimes:jpg,png,pdf|max:20480',
+            'notes'     => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
+        }
+
+        try {
+            $caseMedical = CaseMedical::where('id', $id)
+                ->where('case_medical_type_id', 2) // فقط تایپ دست‌نویس
+                ->first();
+
+            if (!$caseMedical) {
+                return response()->json(['status' => 'error', 'message' => 'پرونده دست‌نویس یافت نشد'], 404);
+            }
+
+            $patient = Patient::find($caseMedical->patient_id);
+            if (!$patient->users()->where('users.id', $user->id)->exists()) {
+                return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+            }
+
+            $caseMedical->update($request->only(['title', 'case_date', 'notes']));
+
+            // آپلود فایل‌های جدید اگر وجود دارند
+            if ($request->hasFile('files')) {
+                foreach ($request->file('files') as $file) {
+                    $path = $file->store('case_medicals', 'public');
+                    $caseMedical->files()->create([
+                        'file_path' => $path,
+                        'file_name' => $file->getClientOriginalName(),
+                        'format' => $file->getClientOriginalExtension(),
+                        'size' => $file->getSize(),
+                    ]);
+                }
+            }
+
+            $caseMedical->load(['patient', 'doctor.user', 'type', 'files']);
+
+            return response()->json(['status' => 'success', 'handwritten_record' => $caseMedical], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در بروزرسانی پرونده دست‌نویس'], 500);
+        }
+    }
+
+    /**
+     * حذف پرونده دست‌نویس
+     * @authenticated
+     * @group Handwritten Records
+     */
+    public function destroyHandwrittenRecord($id)
+    {
+        $user = auth()->user();
+        
+        try {
+            $caseMedical = CaseMedical::where('id', $id)
+                ->where('case_medical_type_id', 2) // فقط تایپ دست‌نویس
+                ->with('files')
+                ->first();
+
+            if (!$caseMedical) {
+                return response()->json(['status' => 'error', 'message' => 'پرونده دست‌نویس یافت نشد'], 404);
+            }
+
+            $patient = Patient::find($caseMedical->patient_id);
+            if (!$patient->users()->where('users.id', $user->id)->exists()) {
+                return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+            }
+
+            // حذف فایل‌ها از storage
+            foreach ($caseMedical->files as $file) {
+                if (Storage::disk('public')->exists($file->file_path)) {
+                    Storage::disk('public')->delete($file->file_path);
+                }
+            }
+
+            $caseMedical->delete();
+
+            return response()->json(['status' => 'success', 'message' => 'پرونده دست‌نویس با موفقیت حذف شد'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در حذف پرونده دست‌نویس'], 500);
+        }
+    }
+
+    // ======== متدهای مخصوص تایپ اسناد (ID: 3) ========
+
+    /**
+     * ذخیره پرونده اسناد
+     * @authenticated
+     * @group Document Records
+     */
+    public function storeDocumentRecord(Request $request)
+    {
+        $user = auth()->user();
+
+        $validator = Validator::make($request->all(), [
+            'doctor_id'  => 'required|exists:doctors,id',
+            'patient_id' => 'required|exists:patients,id',
+            'title'      => 'required|string',
+            'case_date'  => 'nullable|date_format:Y-m-d',
+            'files.*'    => 'nullable|file|mimes:jpg,png,pdf,doc,docx|max:20480',
+            'notes'      => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
+        }
+
+        $patient = Patient::find($request->patient_id);
+        if (!$patient->users()->where('users.id', $user->id)->exists()) {
+            return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+        }
+
+        try {
+            $caseMedical = CaseMedical::create([
+                'doctor_id' => $request->doctor_id,
+                'patient_id' => $request->patient_id,
+                'title' => $request->title,
+                'case_medical_type_id' => 3, // تایپ اسناد ثابت
+                'case_date' => $request->case_date ?? now()->format('Y-m-d'),
+                'notes' => $request->notes,
+                'pin' => false,
+            ]);
+
+            // آپلود فایل‌ها اگر وجود دارند
+            if ($request->hasFile('files')) {
+                foreach ($request->file('files') as $file) {
+                    $path = $file->store('case_medicals', 'public');
+                    $caseMedical->files()->create([
+                        'file_path' => $path,
+                        'file_name' => $file->getClientOriginalName(),
+                        'format' => $file->getClientOriginalExtension(),
+                        'size' => $file->getSize(),
+                    ]);
+                }
+            }
+
+            $caseMedical->load(['patient', 'doctor.user', 'type', 'files']);
+
+            return response()->json(['status' => 'success', 'document_record' => $caseMedical], 201);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در ایجاد پرونده اسناد'], 500);
+        }
+    }
+
+    /**
+     * دریافت پرونده‌های اسناد
+     * @authenticated
+     * @group Document Records
+     */
+    public function getDocumentRecords($doctor_id, $patient_id)
+    {
+        $user = auth()->user();
+        $patient = Patient::find($patient_id);
+        
+        if (!$patient || !$patient->users()->where('users.id', $user->id)->exists()) {
+            return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+        }
+
+        try {
+            $documentRecords = CaseMedical::with(['patient', 'doctor.user', 'type', 'files'])
+                ->where('doctor_id', $doctor_id)
+                ->where('patient_id', $patient_id)
+                ->where('case_medical_type_id', 3) // فقط تایپ اسناد
+                ->orderBy('case_date', 'desc')
+                ->get();
+
+            return response()->json(['status' => 'success', 'document_records' => $documentRecords], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در دریافت پرونده‌های اسناد'], 500);
+        }
+    }
+
+    /**
+     * بروزرسانی پرونده اسناد
+     * @authenticated
+     * @group Document Records
+     */
+    public function updateDocumentRecord(Request $request, $id)
+    {
+        $user = auth()->user();
+        
+        $validator = Validator::make($request->all(), [
+            'title'     => 'nullable|string',
+            'case_date' => 'nullable|date_format:Y-m-d',
+            'files.*'   => 'nullable|file|mimes:jpg,png,pdf,doc,docx|max:20480',
+            'notes'     => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
+        }
+
+        try {
+            $caseMedical = CaseMedical::where('id', $id)
+                ->where('case_medical_type_id', 3) // فقط تایپ اسناد
+                ->first();
+
+            if (!$caseMedical) {
+                return response()->json(['status' => 'error', 'message' => 'پرونده اسناد یافت نشد'], 404);
+            }
+
+            $patient = Patient::find($caseMedical->patient_id);
+            if (!$patient->users()->where('users.id', $user->id)->exists()) {
+                return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+            }
+
+            $caseMedical->update($request->only(['title', 'case_date', 'notes']));
+
+            // آپلود فایل‌های جدید اگر وجود دارند
+            if ($request->hasFile('files')) {
+                foreach ($request->file('files') as $file) {
+                    $path = $file->store('case_medicals', 'public');
+                    $caseMedical->files()->create([
+                        'file_path' => $path,
+                        'file_name' => $file->getClientOriginalName(),
+                        'format' => $file->getClientOriginalExtension(),
+                        'size' => $file->getSize(),
+                    ]);
+                }
+            }
+
+            $caseMedical->load(['patient', 'doctor.user', 'type', 'files']);
+
+            return response()->json(['status' => 'success', 'document_record' => $caseMedical], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در بروزرسانی پرونده اسناد'], 500);
+        }
+    }
+
+    /**
+     * حذف پرونده اسناد
+     * @authenticated
+     * @group Document Records
+     */
+    public function destroyDocumentRecord($id)
+    {
+        $user = auth()->user();
+        
+        try {
+            $caseMedical = CaseMedical::where('id', $id)
+                ->where('case_medical_type_id', 3) // فقط تایپ اسناد
+                ->with('files')
+                ->first();
+
+            if (!$caseMedical) {
+                return response()->json(['status' => 'error', 'message' => 'پرونده اسناد یافت نشد'], 404);
+            }
+
+            $patient = Patient::find($caseMedical->patient_id);
+            if (!$patient->users()->where('users.id', $user->id)->exists()) {
+                return response()->json(['status' => 'error', 'message' => 'دسترسی به این بیمار ندارید'], 403);
+            }
+
+            // حذف فایل‌ها از storage
+            foreach ($caseMedical->files as $file) {
+                if (Storage::disk('public')->exists($file->file_path)) {
+                    Storage::disk('public')->delete($file->file_path);
+                }
+            }
+
+            $caseMedical->delete();
+
+            return response()->json(['status' => 'success', 'message' => 'پرونده اسناد با موفقیت حذف شد'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['status' => 'error', 'message' => 'خطا در حذف پرونده اسناد'], 500);
+        }
+    }
+
 }
