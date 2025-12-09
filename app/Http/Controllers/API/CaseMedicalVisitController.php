@@ -73,6 +73,9 @@ class CaseMedicalVisitController extends Controller
             'notes' => 'nullable|string',
             'diagnosis' => 'nullable|string',
             'follow_up_date' => 'nullable|date_format:Y-m-d',
+            'visit_reason' => 'nullable|string|max:255',
+            'symptoms' => 'nullable|string|max:500',
+            'prescribed_medications' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -108,6 +111,9 @@ class CaseMedicalVisitController extends Controller
                 'case_medical_id' => $caseMedical->id,
                 'diagnosis' => $request->diagnosis,
                 'follow_up_date' => $request->follow_up_date,
+                'visit_reason' => $request->visit_reason,
+                'symptoms' => $request->symptoms,
+                'prescribed_medications' => $request->prescribed_medications,
             ]);
 
             return [
@@ -184,6 +190,9 @@ class CaseMedicalVisitController extends Controller
             'diagnosis' => 'nullable|string',
             'follow_up_date' => 'nullable|date_format:Y-m-d',
             'visit_date' => 'nullable|date_format:Y-m-d',
+            'visit_reason' => 'nullable|string|max:255',
+            'symptoms' => 'nullable|string|max:500',
+            'prescribed_medications' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -205,6 +214,9 @@ class CaseMedicalVisitController extends Controller
                 $caseMedical->visit->update([
                     'diagnosis' => $request->diagnosis ?? $caseMedical->visit->diagnosis,
                     'follow_up_date' => $request->follow_up_date ?? $caseMedical->visit->follow_up_date,
+                    'visit_reason' => $request->visit_reason ?? $caseMedical->visit->visit_reason,
+                    'symptoms' => $request->symptoms ?? $caseMedical->visit->symptoms,
+                    'prescribed_medications' => $request->prescribed_medications ?? $caseMedical->visit->prescribed_medications,
                 ]);
             }
         });

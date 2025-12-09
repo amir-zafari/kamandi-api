@@ -16,6 +16,7 @@ class Visit extends Model
         'symptoms',
         'diagnosis',
         'notes',
+        'prescribed_medications',
     ];
     public function doctor()
     {
