@@ -10,6 +10,66 @@ use Illuminate\Support\Facades\Validator;
 class PatientController extends Controller
 {
     /**
+     * Process and resize photo to 48x48 and convert to base64
+     */
+    private function processPhoto($photoData)
+    {
+        try {
+            // Remove data:image/jpeg;base64, prefix if exists
+            if (strpos($photoData, 'data:image/') === 0) {
+                $photoData = substr($photoData, strpos($photoData, ',') + 1);
+            }
+            
+            // Decode base64
+            $imageData = base64_decode($photoData);
+            
+            if ($imageData === false) {
+                return null;
+            }
+            
+            // Create image resource from string
+            $sourceImage = imagecreatefromstring($imageData);
+            if ($sourceImage === false) {
+                return null;
+            }
+            
+            // Get original dimensions
+            $originalWidth = imagesx($sourceImage);
+            $originalHeight = imagesy($sourceImage);
+            
+            // Create new 48x48 image
+            $resizedImage = imagecreatetruecolor(48, 48);
+            
+            // Handle transparency for PNG images
+            imagealphablending($resizedImage, false);
+            imagesavealpha($resizedImage, true);
+            $transparent = imagecolorallocatealpha($resizedImage, 255, 255, 255, 127);
+            imagefill($resizedImage, 0, 0, $transparent);
+            
+            // Resize image
+            imagecopyresampled(
+                $resizedImage, $sourceImage,
+                0, 0, 0, 0,
+                48, 48, $originalWidth, $originalHeight
+            );
+            
+            // Start output buffering
+            ob_start();
+            imagejpeg($resizedImage, null, 90);
+            $resizedImageData = ob_get_contents();
+            ob_end_clean();
+            
+            // Clean up memory
+            imagedestroy($sourceImage);
+            imagedestroy($resizedImage);
+            
+            // Convert to base64
+            return base64_encode($resizedImageData);
+        } catch (\Exception $e) {
+            return null;
+        }
+    }
+    /**
      * List all patients with special appointments
      * @authenticated
      * @group Patients
@@ -73,6 +133,7 @@ class PatientController extends Controller
      * @bodyParam chronic_diseases string Chronic diseases. Example: دیابت نوع 2
      * @bodyParam emergency_contact string Emergency contact info. Example: 09123456789
      * @bodyParam address string Patient's address. Example: تهران، خیابان ولیعصر
+     * @bodyParam photo string Base64 encoded photo (will be resized to 48x48). Example: iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==
      * 
      * @response 201 {
      *   "status": "success",
@@ -117,6 +178,7 @@ class PatientController extends Controller
             'chronic_diseases'  => 'nullable|string|max:500',
             'emergency_contact' => 'nullable|string|max:500',
             'address'           => 'nullable|string|max:500',
+            'photo'             => 'nullable|string', // Base64 encoded photo
         ]);
         if ($validator->fails()) {
             return response()->json([
@@ -124,9 +186,22 @@ class PatientController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
+        
+        // Process photo if provided
+        $processedPhoto = null;
+        if ($request->has('photo') && !empty($request->photo)) {
+            $processedPhoto = $this->processPhoto($request->photo);
+            if ($processedPhoto === null) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Invalid photo format or processing failed'
+                ], 422);
+            }
+        }
+        
         $patient = Patient::where('national_id', $request->national_id)->first();
         if ($patient) {
-            $patient->update([
+            $updateData = [
                 'first_name'        => $request->first_name,
                 'last_name'         => $request->last_name,
                 'gender'            => $request->gender,
@@ -136,7 +211,14 @@ class PatientController extends Controller
                 'chronic_diseases'  => $request->chronic_diseases,
                 'emergency_contact' => $request->emergency_contact,
                 'address'           => $request->address,
-            ]);
+            ];
+            
+            // Only update photo if provided
+            if ($processedPhoto !== null) {
+                $updateData['photo'] = $processedPhoto;
+            }
+            
+            $patient->update($updateData);
             $action = 'updated';
         } else {
             $patient = Patient::create([
@@ -150,6 +232,7 @@ class PatientController extends Controller
                 'chronic_diseases'  => $request->chronic_diseases,
                 'emergency_contact' => $request->emergency_contact,
                 'address'           => $request->address,
+                'photo'             => $processedPhoto,
             ]);
             $action = 'created';
         }
@@ -263,6 +346,7 @@ class PatientController extends Controller
             'chronic_diseases'  => 'sometimes|nullable|string|max:500',
             'emergency_contact' => 'sometimes|nullable|string|max:500',
             'address'           => 'sometimes|nullable|string|max:500',
+            'photo'             => 'sometimes|nullable|string', // Base64 encoded photo
         ]);
 
         if ($validator->fails()) {
@@ -271,10 +355,23 @@ class PatientController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
+        
+        // Process photo if provided
+        if ($request->has('photo') && !empty($request->photo)) {
+            $processedPhoto = $this->processPhoto($request->photo);
+            if ($processedPhoto === null) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Invalid photo format or processing failed'
+                ], 422);
+            }
+            $request->merge(['photo' => $processedPhoto]);
+        }
+        
         $allowed = [
             'first_name', 'last_name', 'national_id', 'birth_date', 'gender',
             'blood_type', 'allergies', 'chronic_diseases',
-            'emergency_contact', 'address'
+            'emergency_contact', 'address', 'photo'
         ];
         $data = $request->only($allowed);
         $patient->update($data);

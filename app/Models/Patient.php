@@ -21,6 +21,7 @@ class Patient extends Model
         'notes',
         'emergency_contact',
         'address',
+        'photo',
     ];
     public function users()
     {
