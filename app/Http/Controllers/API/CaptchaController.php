@@ -10,9 +10,24 @@ use Illuminate\Support\Facades\Cache;
 class CaptchaController extends Controller
 {
     /**
-     * Captcha generate
+     * Generate captcha image
+     * 
+     * Generate a new captcha image with unique ID for authentication purposes.
+     * 
      * @unauthenticated
      * @group Authentication
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "captcha_id": "550e8400-e29b-41d4-a716-446655440000",
+     *   "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAA...",
+     *   "expires_in": 120
+     * }
+     * 
+     * @response 500 {
+     *   "status": "error",
+     *   "message": "Failed to generate captcha"
+     * }
      */
     public function generate(Request $request)
     {

@@ -12,8 +12,28 @@ class DoctorController extends Controller
 {
     /**
      * List all doctors
+     * 
+     * Get a list of all doctors with their basic information and specialties.
+     * 
      * @authenticated
      * @group Doctors
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "doctors": [
+     *     {
+     *       "id": 1,
+     *       "user_id": 5,
+     *       "first_name": "احمد",
+     *       "last_name": "محمدی",
+     *       "specialty": "قلب و عروق"
+     *     }
+     *   ]
+     * }
+     * 
+     * @response 401 {
+     *   "message": "Unauthenticated."
+     * }
      */
     public function index()
     {
@@ -35,8 +55,32 @@ class DoctorController extends Controller
     }
     /**
      * Create or update a doctor
+     * 
+     * Create a new doctor record or update existing one. Changes user role to 'doctor'.
+     * 
      * @authenticated
      * @group Doctors
+     * 
+     * @bodyParam user_id integer required The user's ID to make doctor. Example: 5
+     * @bodyParam specialty string Doctor's specialty. Example: قلب و عروق
+     * @bodyParam code_nzam string required Medical council registration number (unique). Example: 12345
+     * @bodyParam work_experience string Doctor's work experience description. Example: 10 سال تجربه کار
+     * 
+     * @response 201 {
+     *   "status": "success"
+     * }
+     * 
+     * @response 404 {
+     *   "status": "error",
+     *   "message": "User not found."
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "errors": {
+     *     "code_nzam": ["The code nzam has already been taken."]
+     *   }
+     * }
      */
     public function store(Request $request)
     {

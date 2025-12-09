@@ -15,7 +15,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Mark patient as arrived (Step 1: Patient arrival)'
-      description: ''
+      description: 'Mark a patient as arrived for their appointment. Only doctors, nurses, and admins can perform this action.'
       authenticated: true
       deprecated: false
     headers:
@@ -26,34 +26,75 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the mark arrived.'
+        description: 'The appointment ID.'
         required: true
-        example: consequatur
-        type: string
+        example: 1
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: consequatur
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       attendance_notes:
         custom: []
         name: attendance_notes
-        description: 'Must not be greater than 1000 characters.'
+        description: "Optional notes about the patient's arrival."
         required: false
-        example: vmqeopfuudtdsufvyvddq
+        example: 'بیمار با تاخیر حاضر شد'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
     cleanBodyParameters:
-      attendance_notes: vmqeopfuudtdsufvyvddq
+      attendance_notes: 'بیمار با تاخیر حاضر شد'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "message": "Patient marked as arrived successfully.",
+            "appointment": {
+              "id": 1,
+              "attended": "arrived",
+              "arrival_time": "2024-01-15T09:05:00",
+              "attendance_notes": "بیمار با تاخیر حاضر شد"
+            },
+            "marked_by": {
+              "id": 2,
+              "name": "دکتر احمد محمدی",
+              "role": "doctor"
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: |-
+          {
+            "status": "error",
+            "message": "You do not have permission to mark attendance."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "status": "error",
+            "message": "Appointment not found."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -74,7 +115,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Start the visit and mark as completed (Step 2: Visit begins and completes)'
-      description: ''
+      description: 'Start and complete the visit for an appointment. Only doctors and admins can perform this action.'
       authenticated: true
       deprecated: false
     headers:
@@ -85,34 +126,72 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the start visit.'
+        description: 'The appointment ID.'
         required: true
-        example: consequatur
-        type: string
+        example: 1
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: consequatur
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       visit_notes:
         custom: []
         name: visit_notes
-        description: 'Must not be greater than 2000 characters.'
+        description: 'Optional notes about the visit.'
         required: false
-        example: vmqeopfuudtdsufvyvddq
+        example: 'ویزیت عادی انجام شد'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
     cleanBodyParameters:
-      visit_notes: vmqeopfuudtdsufvyvddq
+      visit_notes: 'ویزیت عادی انجام شد'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "message": "Visit completed successfully.",
+            "appointment": {
+              "id": 1,
+              "attended": "completed",
+              "status": "visited",
+              "visit_start_time": "2024-01-15T09:15:00",
+              "waiting_time": 10
+            },
+            "waiting_time_minutes": 10
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: |-
+          {
+            "status": "error",
+            "message": "Only doctors can start visits."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "status": "error",
+            "message": "Appointment not found."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers

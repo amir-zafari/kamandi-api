@@ -13,7 +13,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Search patients'
-      description: ''
+      description: 'Search through patients by name or national ID. Results depend on user role permissions.'
       authenticated: true
       deprecated: false
     headers:
@@ -22,21 +22,63 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      q:
+        custom: []
+        name: q
+        description: 'Search query (name or national ID).'
+        required: true
+        example: احمد
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      q: احمد
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         custom: []
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "patients": [
+              {
+                "id": 1,
+                "first_name": "احمد",
+                "last_name": "محمدی",
+                "national_id": "1234567890",
+                "birth_date": "1990-01-15",
+                "gender": "male"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
         status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        content: |-
+          {
+            "status": "error",
+            "message": "Unauthenticated."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "message": "Search query (q) is required."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -101,7 +143,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Create or update a patient'
-      description: ''
+      description: 'Create a new patient record or update existing one. Can link patient to current user.'
       authenticated: true
       deprecated: false
     headers:
@@ -116,142 +158,170 @@ endpoints:
       for:
         custom: []
         name: for
-        description: ''
+        description: '1=for self, 2=for others.'
         required: true
-        example: '2'
-        type: string
-        enumValues:
-          - '1'
-          - '2'
-        exampleWasSpecified: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       first_name:
         custom: []
         name: first_name
-        description: 'Must not be greater than 255 characters.'
+        description: "Patient's first name."
         required: true
-        example: vmqeopfuudtdsufvyvddq
+        example: احمد
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       last_name:
         custom: []
         name: last_name
-        description: 'Must not be greater than 255 characters.'
+        description: "Patient's last name."
         required: true
-        example: amniihfqcoynlazghdtqt
+        example: محمدی
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       national_id:
         custom: []
         name: national_id
-        description: ''
+        description: 'National identification number.'
         required: true
-        example: consequatur
+        example: '1234567890'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       birth_date:
         custom: []
         name: birth_date
-        description: 'Must be a valid date.'
+        description: 'Birth date (Y-m-d format).'
         required: true
-        example: '2025-12-06T14:35:39'
-        type: string
+        example: '1990-01-15'
+        type: date
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       gender:
         custom: []
         name: gender
-        description: ''
+        description: 'Gender (male/female).'
         required: true
         example: male
         type: string
-        enumValues:
-          - male
-          - female
-        exampleWasSpecified: false
+        enumValues: []
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       blood_type:
         custom: []
         name: blood_type
-        description: 'Must not be greater than 3 characters.'
+        description: 'Blood type.'
         required: false
-        example: mqe
+        example: A+
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       allergies:
         custom: []
         name: allergies
-        description: 'Must not be greater than 500 characters.'
+        description: "Patient's allergies."
         required: false
-        example: opfuudtdsufvyvddqamni
+        example: 'آلرژی به پنی‌سیلین'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       chronic_diseases:
         custom: []
         name: chronic_diseases
-        description: 'Must not be greater than 500 characters.'
+        description: 'Chronic diseases.'
         required: false
-        example: ihfqcoynlazghdtqtqxba
+        example: 'دیابت نوع 2'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       emergency_contact:
         custom: []
         name: emergency_contact
-        description: 'Must not be greater than 500 characters.'
+        description: 'Emergency contact info.'
         required: false
-        example: jwbpilpmufinllwloauyd
+        example: '09123456789'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       address:
         custom: []
         name: address
-        description: 'Must not be greater than 500 characters.'
+        description: "Patient's address."
         required: false
-        example: lsmsjuryvojcybzvrbyic
+        example: 'تهران، خیابان ولیعصر'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
     cleanBodyParameters:
-      for: '2'
-      first_name: vmqeopfuudtdsufvyvddq
-      last_name: amniihfqcoynlazghdtqt
-      national_id: consequatur
-      birth_date: '2025-12-06T14:35:39'
+      for: 1
+      first_name: احمد
+      last_name: محمدی
+      national_id: '1234567890'
+      birth_date: '1990-01-15'
       gender: male
-      blood_type: mqe
-      allergies: opfuudtdsufvyvddqamni
-      chronic_diseases: ihfqcoynlazghdtqtqxba
-      emergency_contact: jwbpilpmufinllwloauyd
-      address: lsmsjuryvojcybzvrbyic
+      blood_type: A+
+      allergies: 'آلرژی به پنی‌سیلین'
+      chronic_diseases: 'دیابت نوع 2'
+      emergency_contact: '09123456789'
+      address: 'تهران، خیابان ولیعصر'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "status": "success",
+            "action": "created",
+            "patient": {
+              "id": 1,
+              "first_name": "احمد",
+              "last_name": "محمدی",
+              "national_id": "1234567890",
+              "birth_date": "1990-01-15",
+              "gender": "male",
+              "blood_type": "A+",
+              "allergies": "آلرژی به پنی‌سیلین"
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "errors": {
+              "national_id": ["The national id field is required."]
+            }
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -390,7 +460,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-06T14:35:39'
+        example: '2025-12-09T12:35:52'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -401,7 +471,7 @@ endpoints:
         name: gender
         description: ''
         required: false
-        example: male
+        example: female
         type: string
         enumValues:
           - male
@@ -467,8 +537,8 @@ endpoints:
     cleanBodyParameters:
       first_name: vmqeopfuudtdsufvyvddq
       last_name: amniihfqcoynlazghdtqt
-      birth_date: '2025-12-06T14:35:39'
-      gender: male
+      birth_date: '2025-12-09T12:35:52'
+      gender: female
       blood_type: qxb
       allergies: ajwbpilpmufinllwloauy
       chronic_diseases: dlsmsjuryvojcybzvrbyi
@@ -587,7 +657,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Create or update a patient'
-      description: ''
+      description: 'Create a new patient record or update existing one. Can link patient to current user.'
       authenticated: true
       deprecated: false
     headers:
@@ -602,142 +672,170 @@ endpoints:
       for:
         custom: []
         name: for
-        description: ''
+        description: '1=for self, 2=for others.'
         required: true
-        example: '1'
-        type: string
-        enumValues:
-          - '1'
-          - '2'
-        exampleWasSpecified: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       first_name:
         custom: []
         name: first_name
-        description: 'Must not be greater than 255 characters.'
+        description: "Patient's first name."
         required: true
-        example: vmqeopfuudtdsufvyvddq
+        example: احمد
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       last_name:
         custom: []
         name: last_name
-        description: 'Must not be greater than 255 characters.'
+        description: "Patient's last name."
         required: true
-        example: amniihfqcoynlazghdtqt
+        example: محمدی
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       national_id:
         custom: []
         name: national_id
-        description: ''
+        description: 'National identification number.'
         required: true
-        example: consequatur
+        example: '1234567890'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       birth_date:
         custom: []
         name: birth_date
-        description: 'Must be a valid date.'
+        description: 'Birth date (Y-m-d format).'
         required: true
-        example: '2025-12-06T14:35:40'
-        type: string
+        example: '1990-01-15'
+        type: date
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       gender:
         custom: []
         name: gender
-        description: ''
+        description: 'Gender (male/female).'
         required: true
-        example: female
+        example: male
         type: string
-        enumValues:
-          - male
-          - female
-        exampleWasSpecified: false
+        enumValues: []
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       blood_type:
         custom: []
         name: blood_type
-        description: 'Must not be greater than 3 characters.'
+        description: 'Blood type.'
         required: false
-        example: mqe
+        example: A+
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       allergies:
         custom: []
         name: allergies
-        description: 'Must not be greater than 500 characters.'
+        description: "Patient's allergies."
         required: false
-        example: opfuudtdsufvyvddqamni
+        example: 'آلرژی به پنی‌سیلین'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       chronic_diseases:
         custom: []
         name: chronic_diseases
-        description: 'Must not be greater than 500 characters.'
+        description: 'Chronic diseases.'
         required: false
-        example: ihfqcoynlazghdtqtqxba
+        example: 'دیابت نوع 2'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       emergency_contact:
         custom: []
         name: emergency_contact
-        description: 'Must not be greater than 500 characters.'
+        description: 'Emergency contact info.'
         required: false
-        example: jwbpilpmufinllwloauyd
+        example: '09123456789'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       address:
         custom: []
         name: address
-        description: 'Must not be greater than 500 characters.'
+        description: "Patient's address."
         required: false
-        example: lsmsjuryvojcybzvrbyic
+        example: 'تهران، خیابان ولیعصر'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
     cleanBodyParameters:
-      for: '1'
-      first_name: vmqeopfuudtdsufvyvddq
-      last_name: amniihfqcoynlazghdtqt
-      national_id: consequatur
-      birth_date: '2025-12-06T14:35:40'
-      gender: female
-      blood_type: mqe
-      allergies: opfuudtdsufvyvddqamni
-      chronic_diseases: ihfqcoynlazghdtqtqxba
-      emergency_contact: jwbpilpmufinllwloauyd
-      address: lsmsjuryvojcybzvrbyic
+      for: 1
+      first_name: احمد
+      last_name: محمدی
+      national_id: '1234567890'
+      birth_date: '1990-01-15'
+      gender: male
+      blood_type: A+
+      allergies: 'آلرژی به پنی‌سیلین'
+      chronic_diseases: 'دیابت نوع 2'
+      emergency_contact: '09123456789'
+      address: 'تهران، خیابان ولیعصر'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "status": "success",
+            "action": "created",
+            "patient": {
+              "id": 1,
+              "first_name": "احمد",
+              "last_name": "محمدی",
+              "national_id": "1234567890",
+              "birth_date": "1990-01-15",
+              "gender": "male",
+              "blood_type": "A+",
+              "allergies": "آلرژی به پنی‌سیلین"
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "errors": {
+              "national_id": ["The national id field is required."]
+            }
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -876,7 +974,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-06T14:35:40'
+        example: '2025-12-09T12:35:52'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -887,7 +985,7 @@ endpoints:
         name: gender
         description: ''
         required: false
-        example: female
+        example: male
         type: string
         enumValues:
           - male
@@ -953,8 +1051,8 @@ endpoints:
     cleanBodyParameters:
       first_name: vmqeopfuudtdsufvyvddq
       last_name: amniihfqcoynlazghdtqt
-      birth_date: '2025-12-06T14:35:40'
-      gender: female
+      birth_date: '2025-12-09T12:35:52'
+      gender: male
       blood_type: qxb
       allergies: ajwbpilpmufinllwloauy
       chronic_diseases: dlsmsjuryvojcybzvrbyi

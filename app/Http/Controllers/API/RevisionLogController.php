@@ -12,8 +12,51 @@ class RevisionLogController extends Controller
 {
     /**
      * Get all revision logs
+     * 
+     * Retrieve all revision logs with advanced filtering and pagination options.
+     * 
      * @authenticated
      * @group Revision Logs
+     * 
+     * @queryParam user_id integer Filter by user ID. Example: 1
+     * @queryParam ip_address string Filter by IP address. Example: 192.168.1.1
+     * @queryParam date string Filter by specific date (Y-m-d). Example: 2024-01-15
+     * @queryParam from_date string Filter from date (Y-m-d). Example: 2024-01-01
+     * @queryParam to_date string Filter to date (Y-m-d). Example: 2024-01-31
+     * @queryParam model_type string Filter by model type. Example: App\\Models\\User
+     * @queryParam model_id integer Filter by model ID. Example: 5
+     * @queryParam field string Filter by changed field name. Example: email
+     * @queryParam sort_by string Sort field (default: created_at). Example: created_at
+     * @queryParam sort_order string Sort order (asc/desc, default: desc). Example: desc
+     * @queryParam per_page integer Items per page (default: 20). Example: 50
+     * 
+     * @response 200 {
+     *   "success": true,
+     *   "data": {
+     *     "current_page": 1,
+     *     "data": [
+     *       {
+     *         "id": 1,
+     *         "user": {
+     *           "id": 1,
+     *           "name": "احمد محمدی",
+     *           "email": "ahmad@example.com"
+     *         },
+     *         "model": {
+     *           "type": "User",
+     *           "id": 5
+     *         },
+     *         "field": "email",
+     *         "old_value": "old@example.com",
+     *         "new_value": "new@example.com",
+     *         "created_at": "2024-01-15 10:30:00",
+     *         "created_at_human": "2 hours ago"
+     *       }
+     *     ],
+     *     "total": 100
+     *   },
+     *   "message": "لاگ‌ها با موفقیت دریافت شد"
+     * }
      */
     public function index(Request $request): JsonResponse
     {
@@ -84,8 +127,53 @@ class RevisionLogController extends Controller
 
     /**
      * Get revision log statistics
+     * 
+     * Get comprehensive statistics about revision activities for a specific date.
+     * 
      * @authenticated
      * @group Revision Logs
+     * 
+     * @queryParam date string Target date for statistics (Y-m-d, default: today). Example: 2024-01-15
+     * 
+     * @response 200 {
+     *   "success": true,
+     *   "data": {
+     *     "date": "2024-01-15",
+     *     "total_changes": 150,
+     *     "active_users": 12,
+     *     "changes_by_model": [
+     *       {
+     *         "model": "User",
+     *         "count": 45
+     *       },
+     *       {
+     *         "model": "Patient",
+     *         "count": 30
+     *       }
+     *     ],
+     *     "changes_by_user": [
+     *       {
+     *         "user_id": 1,
+     *         "user_name": "احمد محمدی",
+     *         "user_email": "ahmad@example.com",
+     *         "count": 25
+     *       }
+     *     ],
+     *     "most_changed_fields": [
+     *       {
+     *         "key": "email",
+     *         "count": 15
+     *       }
+     *     ],
+     *     "changes_by_hour": [
+     *       {
+     *         "hour": 9,
+     *         "count": 10
+     *       }
+     *     ]
+     *   },
+     *   "message": "آمار با موفقیت دریافت شد"
+     * }
      */
     public function statistics(Request $request): JsonResponse
     {

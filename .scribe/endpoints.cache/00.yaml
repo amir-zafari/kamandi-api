@@ -14,8 +14,8 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Captcha generate'
-      description: ''
+      title: 'Generate captcha image'
+      description: 'Generate a new captcha image with unique ID for authentication purposes.'
       authenticated: false
       deprecated: false
     headers:
@@ -32,12 +32,25 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"status":"success","captcha_id":"bbe3581a-e24b-4899-b1ab-13ddf70463cd","image":"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAA8CAIAAAAL5NQ9AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAToklEQVR4nO1ceUBTx9Y\/CYRAgBACJOyiyC5VcV9LRWzFfcGKtj6LtT67YgUXSgUtCgIuT9tq1aIWK7ZarFKsG69uiGBFUEHWgux72MlCkvfHjTeXm5uVEGm\/7\/fXLGfmzr2\/nDNnzsyE1NbWBv+Pvw\/ChV\/u0fsKW0J+VUMZDOwpqkYSJ9uaNO4k4ebvWhqOFCXnW7TVFY4\/+FtTWPxHDK4k3M0eSbzHsNK429DZcxULnA6LVbdPl0ALVcSOpWar2zPgKBTW5yOJ5Piw5PgwDbpTF3ldrRq3dX1ju+rCSY9vAcB3d4VI9taVAgXC6YmhCmr\/Fb9NtvDWwb2qDwaLuOIsNP3Bgoka9EBSMBciLAaFxRPWlpVHOQ+P0uCRQxkIeX7BCa96IGpAEYUIFBMJAHlnm0av0txwDRHonryC1kZPJmvg\/SinEIFSIgeIc\/zmlQaW2JLC6Cj3iKhBehwW2iVvb\/iVrXsCtNKVilCVQgSyRCYezAwOmRLx9YXoj5drf3SDj\/TE0FdiNg9ubw+JMdNKV+pRiEC7Gtm87aJl7BKtdKUW\/o7THiE0oRABjsjzidcCg99Ea39O7lkRRBv4+FRH9MFfI0IWI+kLN2KX+xP4jQj+MeQhkFCYH5brFT9Gg\/aDOkfyU+4ZLJ2uxQ6HJnk7z4dHBu7RuLmGWnjm4v53lnyOpE88fWR89RwMprODRfGxZNcPgpSKpR865\/fpSmlWffJOcB68bz65+GCNa4idBuPUGVSisPfhH0YT3lAqpkAjG6OqWVH2GoxPK3hVPotuoPlcKA+DvfxQC+mJoWybuFFz1Y4jRt7YutNfw4CLjqF9ChHII\/Kbizs+WrJL64\/jRmcbRvSLTul+2kvKzQGAd8f46OyJCLRD4Z7t7eFEq5xXopEIeXff+SLKwFw3T8SR11eYru\/up5tHgxa18F42b\/pEKmGVLonU8bT3qjQPi8EypLKQJVJUk0e2G62t\/gfDciZceRYaMEq2fNs+jpdfObxq8pJPtQWtZeiOQslTB0Ej1SLv6a14b1+199FaRAkW5FDQktrtrxR87kgZSA9YqErhtoZfY9mL1eq6MC3dfR7xlKAxkT9vvbxi70I0q0ufRWc2s6ejpSjzNxJZf4z\/amx5bmrbmAUMWXltauGTJ3dee22m6vIKiKzIynGapORj6WbaQ5gDnZBXnnc778aPlfmZYpFw6vKQCQs+UKWVvhZHoBZ\/B07\/viksHuQQKY+\/7l6BsRElPTHUzJIxY5WN4kdUN+ZW1Gc3t\/8l6Oul09guDr4jbKfiZJ42\/+Rt+TZhc927Ko\/Svq8p+hNJm1rYqthK13OhPKDnPGSVsry2fffJrKqGrurGzq4e3olFxf7rFClfQ2vR4+LzuaUXO7rrcFUj7V9f5X\/M0MBUQXNdqh3+0dsXtNaWIenAiB9tXcaq0ko9LeT3CbgCfi+fxxPwuX2CXj6XKxDwBPxePo\/bx+\/l87gCPpIdZmmzZLxypWxt576o76hu7OQMf8eURnk3wFNWKclk0rUHL17mSJ4LonCd3Lj5LQDw+7obuvLrO5908evlPa60+vbX5wJG20pDrA6u4qpiEpKut5wMANbND152+wAV85\/9odJ3URE9HS3CPoEp01q2itvdjqbplqoGZtWjcGLU+qqWBlUk\/b0moBQeOV6xcb0ToVj4kXtpGeVo1oJhFCRjXdnMfptWVY2ddiwTbIm3z6xrWbtLqm6JxEJc\/3pkCkXfiMvvQEtae8uc3DxdHHzREndHnM1UonwikejQZ1ssbKwNaTQzS+YwdzemDZvJZunpK\/qYfXxeWc7NwozUF88yTMxZy8OT6Ja2AFCZk+foI1lZcbskFJLIesZmlnL76g\/1KDTUV9UV7hNJv6Y8\/gDAntXPpm0+eNvDiTnc1gxLJMtCbMUY09TWi8jUNXfjOqHoUYsq0\/uV6Bt5DQ8Y67JsuO1UfT2Dspp7SVfX8vt6kNrHJb8gFOJsZl5z62hLptJX4zQ03k\/FnzUl6+lZOzmOnjlt1oqlwzzccLVikejXfR\/UFD5Esp0tdRdi1gR+ccaUaY3yx+d2i4QCJG3CZJPIqsZ11Yv\/GhkYYrN6ZLIx1ZBpTLczt3Jm2TGN6WiV\/6gJAMApV3TkMvW3\/ziw++lTV69gQ8xNLr8PANITQ1kW4qCw+MYWkpFQelaxqrET14+F2XAHllR1rBgjw9c8WTHrsIuDb8yLGwDgbDd95piPUIG65mdJuTlJuTmlNaTSGhI65422ZO5J6MF1npt7HlfS2tAo+y4iobC2rPz3k2fC5i49vGlbd3sHtpZEJi8I+cbObTxa0tlc+0vM2m7MkWVup9QpUd2KgrruTGVzPZlMpuobUCkUmoGhvp4ettYv5tPcyhIAoOjp58eesTDBR01bUsMsFvTzVtIfVq7ddQ0nNmNY2zqfBuyC4aP49Mt3\/kLSQXPc1oDpqE\/6TfVZ+acv3ZMcKyUBacvqh2Ym\/Ty6+tbCQ+dnIWkqbYSIeRgAds5TyV\/AIfvazYQNnymWsRk+LPLcKSa73wG1Pj4v7fBnFU\/uoCUMa6fAL5JodAsAaKzIT44MRMo9pi+es16yCSzm3SBR\/QHg4oMLSyYTHFBSTwsdLa3tmSwrOoNuZIzjL6+yBOEPAOa+NlmWPwDA8QcADmwC5\/DuC0aT\/fp+Yhh7+zA7B8dfQVWCt\/NCPbLEyItBnFt6Ea3dF3kUAFIL89GS8c5+O+eN1Yw\/AGipk3oDVva232TciE45+8nBvVMXzCW\/\/CZ15S9i39so4POxDfUNqAtCvnadJD3f1lZfkRIb3NvJAcxECABYZwfhDwAI+QMtHsjftj8STQdN9VexlQOL2L+POJpRUC69h2CPYbrPyCY5PuxWz060xNMhlGZo7uYojQQ9LpZYv8i0x6wlE394\/KdRZxpSQjNkYo2qBuBgDKmpqZmVna2rz+gZi+eHHE7YdT6JRpcMtaKgMPXYSVxbsp7+3A8TvN+QrkRbakpS4tbxujt6uzhooQJDujM\/FQDCGo8AwL597dkHkrVD4ZnncU9FklnE2ow523O8rExWvsQwXiq4nVwTjaSNDPXN6dL9DRcHSQCJJxCu332js4cPAMdju7FM1zR1BYXF+9IicbcGxroGoulGTvGOixeScnOGs7s9DIs4JWEFFVeRKjNjm+vZsU\/KLovEIs1eFjsX2rqOwFa5+oxeH70DzV4+dpLP5cn2MGttJDby0lxZ+Mve4I6mGrSEbiWXwkivBQAQz9oIAJs3m03cFKQdCnkNHr0CyViDpviTibypSV6SiwqLPF8PsotA0umJoaYkqQFZNNN55ljJ6CsbOjcduAUA67cZ21lJvR5Bn6i+pRsAgsLig8LiUSJ\/yrcAklSMyjtNaT5e9nh1yu3NDZwitLyuJf9R0blzN\/\/9fWqgoI+r+L3iRPdlC1vrpYbUnI0\/jj1tYYA5S3K2vaejM\/f2XcKeaxkTpr8tvbnR9KIgM+UwmlXLndEOhSfvpqHpVVPmqNIkPTEUCXJ6YFzwuubuw5tn2VgYI9lrD14cTckDACyFAFDT1IWmCz1XFXquSo4P83h+nmE1Ay3vbn\/0pOySUCRx00lAMqWx0fkSAMrrMq9kSq0xIbaQ8QE56K+FTBkKAcBjktQIFT7MIex5+exp4wKC\/d7bCSAJLIgxyzATJlvxwLDQQow0q6zgea0kejJl5KgRLOXBPWyEGmckmWaGR7b5LduaKhSJASD29EMfN\/ZEL2tzOpXTIVH02qauy2W1SBrxSpLsxADA\/O+hNmP8s5h0Jx\/XwAkeq01prF5e+5lrweV1mUjVw+dn\/MZvNjFSdRGNoBXjzjCtCb41lteGymoFXY3yDaTS6FePbkFXhABAM7PU0zdQfTxaoPDkHakKvjPtTQWSQLQ9hHVVkDXfOHf2F8GTdp14AABCkfjDuPTrh5Y5sExRChNvF12MCAAAZHkHaGBlzKmE5KmtHRWIGMPEfpX\/MXuW9HysEdVsxazD8WcnIXEckVhYUnVrrKsaVwl6u7u5PdK1o4UNQZwMuyrnduMXmji4THzTwMjkt0Of9PElVp3X08HndhsYyvwY5WCgFHK6Oy\/nSMy9qSFtoY\/ck7vy9vZM88VourpBYiHXL\/J+9LwBib01tPa8tfVXCkW6hnFn0uVtI4x1WZb+aB+Sbu+sszJ3wQmYmdjas8ZWNkg2BFpe8o1D03OelQfBORKsCgKAOZvgSldXm3R2NzRWfqR9mPe0hZu+TdkbjGSFAn5J1lWv15cpbYig31yY8sNVFZuhOJt5ndcnMQKLx82k9Q\/fIECnPcLtvVErpYaXJxA2vwykMd0Zpi+d1bqazuZ66fyXVVrz7hgfwp2EMS5L0bSYJDzxzbuyd137hFIvkUoxASIQ8gcyoRnCubClThpnN7NQHrEDgEPlBZYOrmj2+f3LqrRC0I\/CpWveUiDaeehH2cLTd6XRwtVTCRwZBeQhwK3ud6T8GZn2ODLt8Z7F41N2z6e+VL4ebh8qI+olyevNwmy4I1vqTRiMIGG9VgB4Una5tvkpKuBsNx0AKg9L73x\/H4YP4GGBXRTSLZiEoe268go0beVgBwAnGm7Kij3LT0bT8fOCPaYtQrM1RX92tvbbb8nZ+QgAThVzQAZqGFLTT1fjSu4U5pY1SlYzLmz7CSM8sLUqnoowpRlQKGSBQLJKm+tiu2CGM5JuKr8f89H0zw\/exjVB7S0hfFwDUTtZUfeg8MJtJGh+fP+aVoOSdgq6bwWeTm\/ZWo4CAMdPpHe+18Ur2k1swawoCFWwtaGxqboWzTp5ugPA++zZspKjvPpdK3CbMv\/uTwkgFgMAiMXP712auHCD9KUixwHAWleCY5UDmguxjsxqjCOjInmRaY+RxAhbs6IXkt9X1Ut6knJzwNwWoCtojlvy9SJsQ8TeWjKMCLv1dl6YmhGBLCfEIC5iX32RlZFberHduAYr5sDyabzrC0rcLzywWii7KASAjMtX0LSBoaHnJIIoByGMGVYOnpOr8iXecuH9y1gKFUBzCps62tLyJCtfPTJ55aTZoCZ5aJRy7aNGlMKapi6cq8L3EuaVNGPjbQBQ19wtj0Ijqpn7MP\/8csmnzCo4jRPQI1PMe0eOC9hfVnpclTdF8dd3B\/\/My0OzFjIriu72jktHv0ez0xYGUI2IB0kIj2mLUAo5deWNFfksJy+lrTRf2idlXBWKJNbvTe9JVnSG0mkPBS7KjN1yyi6Tuipbzn0HAAYUvWPhs+nG\/ZZKsltOWGCDbViY0ti+Yz8NDcr8\/NP0iVRX3DSpFCM2hDDE0i+G08KOVk5M8MaOFsm+GIVqsOyTf6vYM4KR4\/31DQwBwJhhNS5gnRFdpb86UaSFCd+mhX44D80mxsQFb9+CpEUi0am7Uovh1V09kPNkDX3S3TUxV\/qN4lZuqN5+yT5m0TBr+oFNr6+LvgEAFH2ynZWJSCRdiiR+xQ3+sp8n7OboZ0Rl9PIk+2j6elRv54U+roHDbaeSSf1+tbKHBLA4uC8iZHM0mi19dhrrbT5Kv8Xj9ppbWZH19KpLyjJSr\/R0SH9Y72wPZTmod6uNQjWaEbSFwXJ08JysYMv3SPiujXukkVgNjz9df5Yd9I1ka4JB0b9lGu6we4oG\/SA206LHfEOMxGejGeoXnX+PULi4ksOkG8qznzhcurs9u+AHe9ZYH9fAUSPmGxsp\/0UrPd3aGtPy4Yk3REL88Q5ZLN74\/qqtm1QZ58ChIYWhZw9fe3iTSiYLTS0\/mBGw0U\/RZfnwC\/f2LMcv+bETXnElZ8+pbAe2iaM1fZi16ZxJThoMCYf2rloSiUw3JoieKAaOyMz\/HJvymWRXgdPYtGGir+LmDCvLtZHbps5X8hdSKiKs6nq8A8FSrfjpKVfvtUhaEwoHcoZa9ojfd3GxG7bIvRcvDwfuH900Vb2ZRi0QaqSAzy98mFP\/opLT0FhTWs7j9rY1Nne0tPJ5PBOGmaObyzg\/3ynz3jIwJA4LDBLUplDjOW8oXAJSF0Pquqs8KKGwuv2gvVkIktZY+f6O5DVfqbQMcETSWiTybnLrjCCVQm6qA09h3PlrWwLxy93\/U+TJg1pE5v941Gv1INp5LJRoYXpi6JTymbSvFiqQGSRE5Xwd5fMxYdW55LKVQc7yGtZlcmymSAJRtSdbbN9TaXWlIhAiV9A36m0YoVRYYxSkHPdcul65HAAoplCtaa+n+neavXbcsKGPgZvWiz81LnlbC\/+hB1gK68UR1iTJMlZn9\/ZKRTkjyX9XMztEnB28FmqRvPzo614R0jVNa1EY003u2+74uX7XCvwaLrzk+h4XlU7iAAAcuBrp89rO11W90zVAJHLig83DYAgQKaVQK+QVXv\/DfQ7xnwx13tluOhP\/V8z\/GOCIvJYc9maQjkiVUKj6tNfAK2RT3Qd5VK8eFxNSloQuVS7XH9rVyAtRlcujHJWKqb20F3xVRPkSf3NHu9jP2fW5+Q7lckMVKhK57eew2BVyZW4d6fLdSHwoBIehcstX64gSh0eRVPp7QW7iD4bBawb+RP6VBIOA0Lz07NF+E0GHc+SQo7As\/wtnr91Iuuhpmpv3PAXCiRkFwdM8Vez5smjvQvJWDYZU91uszXy1o7gIdEDkq6SwYS+HvVVH\/7ElDwe+Prvp41WEVU1\/xFm9sUXFfrbkNceNlnukWF0if22NWMyMVi4HAENQC\/\/BGCSN\/B8dODBiZRmTNAAAAABJRU5ErkJggg==","expires_in":120}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        content: |-
+          {
+            "status": "success",
+            "captcha_id": "550e8400-e29b-41d4-a716-446655440000",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAA...",
+            "expires_in": 120
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 500
+        content: |-
+          {
+            "status": "error",
+            "message": "Failed to generate captcha"
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth: []
     controller: null
@@ -55,7 +68,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Send verification code'
-      description: ''
+      description: "Send an OTP verification code to user's mobile number for authentication."
       authenticated: false
       deprecated: false
     headers:
@@ -69,18 +82,37 @@ endpoints:
       mobile:
         custom: []
         name: mobile
-        description: 'Must match the regex /^09[0-9]{9}$/.'
+        description: 'Iranian mobile number (09xxxxxxxxx format).'
         required: true
-        example: '09156277171'
+        example: '09123456789'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      mobile: '09156277171'
+      mobile: '09123456789'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "message": "کد تأیید ارسال شد",
+            "otp": 123456
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "mobile": ["The mobile field is required."]
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth: []
     controller: null
@@ -98,7 +130,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Verify OTP'
-      description: ''
+      description: "Verify the OTP code sent to user's mobile number and return authentication token."
       authenticated: false
       deprecated: false
     headers:
@@ -112,30 +144,74 @@ endpoints:
       mobile:
         custom: []
         name: mobile
-        description: 'Must match the regex /^09[0-9]{9}$/.'
+        description: 'Iranian mobile number (09xxxxxxxxx format).'
         required: true
-        example: '09156277171'
+        example: '09123456789'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       otp:
         custom: []
         name: otp
-        description: 'Must be 6 digits.'
+        description: '6-digit OTP code.'
         required: true
-        example: '810798'
+        example: '123456'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      mobile: '09156277171'
-      otp: '810798'
+      mobile: '09123456789'
+      otp: '123456'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "access_token": "1|token_string_here",
+            "token_type": "Bearer",
+            "user": {
+              "id": 1,
+              "first_name": "احمد",
+              "last_name": "محمدی",
+              "roll": "patient"
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 400
+        content: |-
+          {
+            "message": "Invalid verification code"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 400
+        content: |-
+          {
+            "message": "Verification code has expired"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "mobile": ["The mobile field is required."],
+            "otp": ["The otp must be 6 digits."]
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth: []
     controller: null
@@ -153,7 +229,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Login user'
-      description: ''
+      description: 'Authenticate a user with email/mobile and password, along with captcha verification.'
       authenticated: false
       deprecated: false
     headers:
@@ -167,54 +243,99 @@ endpoints:
       mobile:
         custom: []
         name: mobile
-        description: ''
+        description: 'Email or mobile number for authentication.'
         required: true
-        example: consequatur
+        example: '09123456789'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       password:
         custom: []
         name: password
-        description: 'ایمیل یا شماره موبایل.'
+        description: "User's password."
         required: true
-        example: 'O[2UZ5ij-e/dl4m{o,'
+        example: password123
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       captcha_id:
         custom: []
         name: captcha_id
-        description: ''
+        description: 'Captcha ID received from captcha generation.'
         required: true
-        example: consequatur
+        example: uuid-string
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       answer:
         custom: []
         name: answer
-        description: ''
+        description: 'Captcha answer.'
         required: true
-        example: consequatur
+        example: ABC12
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      mobile: consequatur
-      password: 'O[2UZ5ij-e/dl4m{o,'
-      captcha_id: consequatur
-      answer: consequatur
+      mobile: '09123456789'
+      password: password123
+      captcha_id: uuid-string
+      answer: ABC12
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "access_token": "1|token_string_here",
+            "token_type": "Bearer",
+            "user": {
+              "id": 1,
+              "first_name": "احمد",
+              "last_name": "محمدی",
+              "roll": "patient",
+              "mobile": "09123456789"
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 400
+        content: |-
+          {
+            "status": "error",
+            "message": "Captcha expired"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 401
+        content: |-
+          {
+            "message": "Invalid login credentials"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "message": "Invalid identifier format"
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth: []
     controller: null

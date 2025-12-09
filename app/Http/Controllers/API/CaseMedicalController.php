@@ -14,8 +14,53 @@ class CaseMedicalController extends Controller
 {
     /**
      * Create a new medical case with optional files
+     * 
+     * Create a new medical case record with optional file attachments for a patient.
+     * 
      * @authenticated
      * @group Medical Cases
+     * 
+     * @bodyParam doctor_id integer required The doctor's ID. Example: 1
+     * @bodyParam patient_id integer required The patient's ID. Example: 5
+     * @bodyParam title string required Title of the medical case. Example: آزمایش خون
+     * @bodyParam case_medical_type_id integer required Type of medical case. Example: 2
+     * @bodyParam case_date string Date of the case (Y-m-d format). Example: 2024-01-15
+     * @bodyParam files file[] Optional files (jpg,png,pdf,doc,docx - max 20MB each). 
+     * @bodyParam notes string Optional notes about the case. Example: بیمار نیاز به پیگیری دارد
+     * 
+     * @response 201 {
+     *   "status": "success",
+     *   "document": {
+     *     "id": 1,
+     *     "doctor_id": 1,
+     *     "patient_id": 5,
+     *     "title": "آزمایش خون",
+     *     "case_medical_type_id": 2,
+     *     "case_date": "2024-01-15",
+     *     "notes": "بیمار نیاز به پیگیری دارد",
+     *     "files": [
+     *       {
+     *         "id": 1,
+     *         "file_path": "case_medicals/file1.jpg",
+     *         "file_name": "test_result.jpg",
+     *         "format": "jpg",
+     *         "size": 1024000
+     *       }
+     *     ]
+     *   }
+     * }
+     * 
+     * @response 403 {
+     *   "status": "error",
+     *   "message": "You do not have permission to upload documents for this patient"
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "errors": {
+     *     "title": ["The title field is required."]
+     *   }
+     * }
      */
     public function store(Request $request)
     {
@@ -378,24 +423,50 @@ class CaseMedicalController extends Controller
     }
     /**
      * Search in medical cases
-     *
-     * Search in: title, notes, diagnosis, symptoms, visit_reason
-     *
-     * Examples:
-     * - Search with keyword:
-     *   GET /api/medicaldocument/search?q=سردرد
-     *
-     * - Search with filters:
-     *   GET /api/medicaldocument/search?q=آزمایش&doctor_id=1&patient_id=5
-     *
-     * - Search by date range:
-     *   GET /api/medicaldocument/search?q=کرونا&date_from=2024-01-01&date_to=2024-12-31
-     *
-     * - Search by type:
-     *   GET /api/medicaldocument/search?q=خون&case_medical_type_id=2
+     * 
+     * Search through medical cases by keywords in title, notes, diagnosis, symptoms, and visit reason.
+     * Supports additional filters for advanced search capabilities.
      *
      * @authenticated
      * @group Medical Cases
+     * 
+     * @queryParam q string required Search keyword (minimum 2 characters). Example: سردرد
+     * @queryParam doctor_id integer Filter by doctor ID. Example: 1
+     * @queryParam patient_id integer Filter by patient ID. Example: 5
+     * @queryParam case_medical_type_id integer Filter by case type. Example: 2
+     * @queryParam date_from string Filter from date (Y-m-d format). Example: 2024-01-01
+     * @queryParam date_to string Filter to date (Y-m-d format). Example: 2024-12-31
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "search_term": "سردرد",
+     *   "count": 3,
+     *   "documents": [
+     *     {
+     *       "id": 1,
+     *       "title": "شکایت از سردرد",
+     *       "case_date": "2024-01-15",
+     *       "notes": "بیمار از سردرد شدید شکایت دارد",
+     *       "highlighted_fields": ["title", "notes"],
+     *       "match_count": 2,
+     *       "doctor": {...},
+     *       "patient": {...},
+     *       "visit": {...}
+     *     }
+     *   ]
+     * }
+     * 
+     * @response 403 {
+     *   "status": "error",
+     *   "message": "You do not have permission to access this patient"
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "errors": {
+     *     "q": ["The q field is required."]
+     *   }
+     * }
      */
     public function search(Request $request)
     {
@@ -686,8 +757,50 @@ class CaseMedicalController extends Controller
 
     /**
      * ذخیره پرونده دست‌نویس
+     * 
+     * Create a new handwritten medical record with image/PDF files for a patient.
+     * 
      * @authenticated
      * @group Handwritten Records
+     * 
+     * @bodyParam doctor_id integer required The doctor's ID. Example: 1
+     * @bodyParam patient_id integer required The patient's ID. Example: 5
+     * @bodyParam title string required Title of the handwritten record. Example: نسخه دست‌نویس
+     * @bodyParam case_date string Date of the record (Y-m-d format). Example: 2024-01-15
+     * @bodyParam files file[] Optional handwritten files (jpg,png,pdf - max 20MB each).
+     * @bodyParam notes string Optional notes about the record. Example: نسخه توسط دکتر نوشته شده
+     * 
+     * @response 201 {
+     *   "status": "success",
+     *   "handwritten_record": {
+     *     "id": 1,
+     *     "doctor_id": 1,
+     *     "patient_id": 5,
+     *     "title": "نسخه دست‌نویس",
+     *     "case_medical_type_id": 2,
+     *     "case_date": "2024-01-15",
+     *     "notes": "نسخه توسط دکتر نوشته شده",
+     *     "files": [
+     *       {
+     *         "id": 1,
+     *         "file_path": "case_medicals/prescription.jpg",
+     *         "file_name": "prescription_handwritten.jpg",
+     *         "format": "jpg",
+     *         "size": 2048000
+     *       }
+     *     ]
+     *   }
+     * }
+     * 
+     * @response 403 {
+     *   "status": "error",
+     *   "message": "دسترسی به این بیمار ندارید"
+     * }
+     * 
+     * @response 500 {
+     *   "status": "error",
+     *   "message": "خطا در ایجاد پرونده دست‌نویس"
+     * }
      */
     public function storeHandwrittenRecord(Request $request)
     {

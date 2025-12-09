@@ -15,7 +15,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List all shifts for a doctor'
-      description: ''
+      description: 'Get all scheduled shifts for a specific doctor with calculated slot information.'
       authenticated: true
       deprecated: false
     headers:
@@ -26,16 +26,16 @@ endpoints:
       doctor_id:
         custom: []
         name: doctor_id
-        description: 'The ID of the doctor.'
+        description: "Doctor's ID."
         required: true
-        example: consequatur
-        type: string
+        example: 1
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      doctor_id: consequatur
+      doctor_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -44,13 +44,33 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "shifts": [
+              {
+                "id": 1,
+                "day": 1,
+                "start_time": "09:00",
+                "end_time": "17:00",
+                "duration": 30,
+                "slots": 16
+              }
+            ]
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "status": "error",
+            "message": "Doctor not found."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -166,7 +186,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Show available slots for a doctor on a specific date'
-      description: ''
+      description: 'Get available appointment slots for a doctor on a specific date, excluding already booked slots.'
       authenticated: true
       deprecated: false
     headers:
@@ -196,9 +216,33 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      doctor_id:
+        custom: []
+        name: doctor_id
+        description: "Doctor's ID."
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Date in Y-m-d format.'
+        required: true
+        example: '2024-01-15'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
     cleanUrlParameters:
       id: consequatur
       day: consequatur
+      doctor_id: 1
+      date: '2024-01-15'
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -207,13 +251,42 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "shifts": [
+              {
+                "shift_id": 1,
+                "start_time": "09:00",
+                "end_time": "17:00",
+                "duration": 30,
+                "slots": ["09:00", "09:30", "10:00", "10:30"]
+              }
+            ]
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "status": "error",
+            "message": "No shifts found for this doctor on this date."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "message": "Invalid date format."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -376,7 +449,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List all shifts for a doctor'
-      description: ''
+      description: 'Get all scheduled shifts for a specific doctor with calculated slot information.'
       authenticated: true
       deprecated: false
     headers:
@@ -387,16 +460,16 @@ endpoints:
       doctor_id:
         custom: []
         name: doctor_id
-        description: 'The ID of the doctor.'
+        description: "Doctor's ID."
         required: true
-        example: consequatur
-        type: string
+        example: 1
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      doctor_id: consequatur
+      doctor_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -405,13 +478,33 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "shifts": [
+              {
+                "id": 1,
+                "day": 1,
+                "start_time": "09:00",
+                "end_time": "17:00",
+                "duration": 30,
+                "slots": 16
+              }
+            ]
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "status": "error",
+            "message": "Doctor not found."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -432,7 +525,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Show available slots for a doctor on a specific date'
-      description: ''
+      description: 'Get available appointment slots for a doctor on a specific date, excluding already booked slots.'
       authenticated: true
       deprecated: false
     headers:
@@ -462,9 +555,33 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      doctor_id:
+        custom: []
+        name: doctor_id
+        description: "Doctor's ID."
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Date in Y-m-d format.'
+        required: true
+        example: '2024-01-15'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
     cleanUrlParameters:
       id: consequatur
       day: consequatur
+      doctor_id: 1
+      date: '2024-01-15'
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -473,13 +590,42 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "shifts": [
+              {
+                "shift_id": 1,
+                "start_time": "09:00",
+                "end_time": "17:00",
+                "duration": 30,
+                "slots": ["09:00", "09:30", "10:00", "10:30"]
+              }
+            ]
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "status": "error",
+            "message": "No shifts found for this doctor on this date."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "message": "Invalid date format."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers

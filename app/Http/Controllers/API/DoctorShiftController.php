@@ -14,8 +14,32 @@ class DoctorShiftController extends Controller
 {
     /**
      * List all shifts for a doctor
+     * 
+     * Get all scheduled shifts for a specific doctor with calculated slot information.
+     * 
      * @authenticated
      * @group Doctor Shifts
+     * 
+     * @urlParam doctor_id integer required Doctor's ID. Example: 1
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "shifts": [
+     *     {
+     *       "id": 1,
+     *       "day": 1,
+     *       "start_time": "09:00",
+     *       "end_time": "17:00",
+     *       "duration": 30,
+     *       "slots": 16
+     *     }
+     *   ]
+     * }
+     * 
+     * @response 404 {
+     *   "status": "error",
+     *   "message": "Doctor not found."
+     * }
      */
     public function index($doctor_id)
     {
@@ -89,8 +113,37 @@ class DoctorShiftController extends Controller
     }
     /**
      * Show available slots for a doctor on a specific date
+     * 
+     * Get available appointment slots for a doctor on a specific date, excluding already booked slots.
+     * 
      * @authenticated
      * @group Doctor Shifts
+     * 
+     * @urlParam doctor_id integer required Doctor's ID. Example: 1
+     * @urlParam date string required Date in Y-m-d format. Example: 2024-01-15
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "shifts": [
+     *     {
+     *       "shift_id": 1,
+     *       "start_time": "09:00",
+     *       "end_time": "17:00",
+     *       "duration": 30,
+     *       "slots": ["09:00", "09:30", "10:00", "10:30"]
+     *     }
+     *   ]
+     * }
+     * 
+     * @response 404 {
+     *   "status": "error",
+     *   "message": "No shifts found for this doctor on this date."
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "message": "Invalid date format."
+     * }
      */
     public function show($doctor_id, $date)
     {

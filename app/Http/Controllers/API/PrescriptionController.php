@@ -9,6 +9,31 @@ use Illuminate\Support\Facades\Validator;
 
 class PrescriptionController extends Controller
 {
+    /**
+     * List prescriptions
+     * 
+     * Get all prescriptions or filter by medical record ID.
+     * 
+     * @authenticated
+     * @group Prescriptions
+     * 
+     * @urlParam record_id integer optional Filter by medical record ID. Example: 5
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "prescriptions": [
+     *     {
+     *       "id": 1,
+     *       "medical_record_id": 5,
+     *       "visit_id": 3,
+     *       "medication_name": "آسپرین",
+     *       "dosage": "100mg",
+     *       "instructions": "روزی دو بار با غذا",
+     *       "duration_days": 7
+     *     }
+     *   ]
+     * }
+     */
     public function index($record_id = null)
     {
         if (!is_null($record_id)) {
@@ -24,6 +49,40 @@ class PrescriptionController extends Controller
     }
 
 
+    /**
+     * Create a new prescription
+     * 
+     * Create a prescription for a patient's medical record.
+     * 
+     * @authenticated
+     * @group Prescriptions
+     * 
+     * @bodyParam medical_record_id integer required Medical record ID. Example: 5
+     * @bodyParam visit_id integer Optional visit ID. Example: 3
+     * @bodyParam medication_name string required Name of medication. Example: آسپرین
+     * @bodyParam dosage string Medication dosage. Example: 100mg
+     * @bodyParam instructions string Usage instructions. Example: روزی دو بار با غذا
+     * @bodyParam duration_days integer Duration in days. Example: 7
+     * 
+     * @response 201 {
+     *   "status": "success",
+     *   "prescription": {
+     *     "id": 1,
+     *     "medical_record_id": 5,
+     *     "medication_name": "آسپرین",
+     *     "dosage": "100mg",
+     *     "instructions": "روزی دو بار با غذا",
+     *     "duration_days": 7
+     *   }
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "errors": {
+     *     "medication_name": ["The medication name field is required."]
+     *   }
+     * }
+     */
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -41,6 +100,33 @@ class PrescriptionController extends Controller
         return response()->json(['status'=>'success','prescription'=>$presc], 201);
     }
 
+    /**
+     * Show a prescription
+     * 
+     * Get details of a specific prescription by ID.
+     * 
+     * @authenticated
+     * @group Prescriptions
+     * 
+     * @urlParam id integer required Prescription ID. Example: 1
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "prescription": {
+     *     "id": 1,
+     *     "medical_record_id": 5,
+     *     "medication_name": "آسپرین",
+     *     "dosage": "100mg",
+     *     "instructions": "روزی دو بار با غذا",
+     *     "duration_days": 7
+     *   }
+     * }
+     * 
+     * @response 404 {
+     *   "status": "error",
+     *   "message": "Not found"
+     * }
+     */
     public function show($id)
     {
         $p = Prescription::find($id);

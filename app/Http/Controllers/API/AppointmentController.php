@@ -13,8 +13,43 @@ class AppointmentController extends Controller
 {
     /**
      * List all appointments with status filter
+     * 
+     * Get a list of all appointments with optional filters for status, attendance, date, and doctor.
+     * 
      * @authenticated
      * @group Appointments
+     * 
+     * @queryParam status string Filter by appointment status. Example: waiting
+     * @queryParam attended string Filter by attendance status. Example: arrived
+     * @queryParam date string Filter by appointment date (Y-m-d format). Example: 2024-01-15
+     * @queryParam doctor_id integer Filter by doctor ID. Example: 1
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "appointments": [
+     *     {
+     *       "id": 1,
+     *       "patient_name": "احمد محمدی",
+     *       "national_code": "1234567890",
+     *       "mobile": "09123456789",
+     *       "date": "2024-01-15",
+     *       "start_time": "09:00",
+     *       "status": "waiting",
+     *       "attended": "not_arrived",
+     *       "attended_label": "حاضر نشده",
+     *       "appointment_type": "online",
+     *       "service_type": "doctor",
+     *       "is_cancelable": true,
+     *       "is_editable": true,
+     *       "arrival_time": null,
+     *       "waiting_time": null
+     *     }
+     *   ]
+     * }
+     * 
+     * @response 401 {
+     *   "message": "Unauthenticated."
+     * }
      */
     public function index(Request $request)
     {
@@ -72,8 +107,50 @@ class AppointmentController extends Controller
 
     /**
      * Create a new appointment
+     * 
+     * Book a new appointment for a patient with a doctor at a specific time.
+     * 
      * @authenticated
      * @group Appointments
+     * 
+     * @bodyParam doctor_id integer required The doctor's ID. Example: 1
+     * @bodyParam patient_id integer required The patient's ID. Example: 5
+     * @bodyParam date string required Appointment date in Y-m-d format. Example: 2024-01-15
+     * @bodyParam start_time string required Appointment start time in HH:MM format. Example: 09:00
+     * @bodyParam appointment_type string Type of appointment. Example: online
+     * @bodyParam service_type string Type of service. Example: doctor
+     * 
+     * @response 201 {
+     *   "status": "success",
+     *   "message": "Appointment booked successfully.",
+     *   "appointment": {
+     *     "id": 1,
+     *     "doctor_id": 1,
+     *     "patient_id": 5,
+     *     "date": "2024-01-15",
+     *     "start_time": "09:00",
+     *     "status": "waiting",
+     *     "appointment_type": "online",
+     *     "service_type": "doctor"
+     *   }
+     * }
+     * 
+     * @response 400 {
+     *   "status": "error",
+     *   "message": "Cannot book appointment in the past."
+     * }
+     * 
+     * @response 409 {
+     *   "status": "error",
+     *   "message": "Doctor already has an appointment at this time."
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "errors": {
+     *     "doctor_id": ["The doctor id field is required."]
+     *   }
+     * }
      */
     public function store(Request $request)
     {
@@ -196,8 +273,35 @@ class AppointmentController extends Controller
 
     /**
      * Show a specific appointment
+     * 
+     * Get detailed information about a specific appointment by its ID.
+     * 
      * @authenticated
      * @group Appointments
+     * 
+     * @urlParam id integer required The appointment ID. Example: 1
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "appointment": {
+     *     "id": 1,
+     *     "doctor_id": 1,
+     *     "patient_id": 5,
+     *     "date": "2024-01-15",
+     *     "start_time": "09:00",
+     *     "status": "waiting",
+     *     "attended_label": "حاضر نشده",
+     *     "is_cancelable": true,
+     *     "is_editable": true,
+     *     "can_mark_attended": true,
+     *     "can_start_visit": false
+     *   }
+     * }
+     * 
+     * @response 404 {
+     *   "status": "error",
+     *   "message": "Appointment not found."
+     * }
      */
     public function show($id)
     {
@@ -400,8 +504,44 @@ class AppointmentController extends Controller
 
     /**
      * Cancel an appointment
+     * 
+     * Cancel an existing appointment with a reason. Different rules apply based on user role.
+     * 
      * @authenticated
      * @group Appointments
+     * 
+     * @urlParam id integer required The appointment ID to cancel. Example: 1
+     * @bodyParam cancel_reason string required Reason for cancellation (min 3, max 500 characters). Example: بیمار نمی‌تواند حاضر شود
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "message": "Appointment canceled successfully.",
+     *   "appointment": {
+     *     "id": 1,
+     *     "status": "canceled",
+     *     "canceled_by": 1,
+     *     "canceled_at": "2024-01-15T10:30:00",
+     *     "cancel_reason": "بیمار نمی‌تواند حاضر شود"
+     *   },
+     *   "canceled_by_role": "patient"
+     * }
+     * 
+     * @response 403 {
+     *   "status": "error",
+     *   "message": "Patients can only cancel appointments at least 2 hours before the scheduled time."
+     * }
+     * 
+     * @response 404 {
+     *   "status": "error",
+     *   "message": "Appointment not found."
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "errors": {
+     *     "cancel_reason": ["The cancel reason field is required."]
+     *   }
+     * }
      */
     public function cancel(Request $request, $id)
     {
@@ -508,8 +648,40 @@ class AppointmentController extends Controller
 
     /**
      * Mark patient as arrived (Step 1: Patient arrival)
+     * 
+     * Mark a patient as arrived for their appointment. Only doctors, nurses, and admins can perform this action.
+     * 
      * @authenticated
      * @group Appointments - Attendance
+     * 
+     * @urlParam id integer required The appointment ID. Example: 1
+     * @bodyParam attendance_notes string Optional notes about the patient's arrival. Example: بیمار با تاخیر حاضر شد
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "message": "Patient marked as arrived successfully.",
+     *   "appointment": {
+     *     "id": 1,
+     *     "attended": "arrived",
+     *     "arrival_time": "2024-01-15T09:05:00",
+     *     "attendance_notes": "بیمار با تاخیر حاضر شد"
+     *   },
+     *   "marked_by": {
+     *     "id": 2,
+     *     "name": "دکتر احمد محمدی",
+     *     "role": "doctor"
+     *   }
+     * }
+     * 
+     * @response 403 {
+     *   "status": "error",
+     *   "message": "You do not have permission to mark attendance."
+     * }
+     * 
+     * @response 404 {
+     *   "status": "error",
+     *   "message": "Appointment not found."
+     * }
      */
     public function markArrived(Request $request, $id)
     {
@@ -573,8 +745,37 @@ class AppointmentController extends Controller
 
     /**
      * Start the visit and mark as completed (Step 2: Visit begins and completes)
+     * 
+     * Start and complete the visit for an appointment. Only doctors and admins can perform this action.
+     * 
      * @authenticated
      * @group Appointments - Attendance
+     * 
+     * @urlParam id integer required The appointment ID. Example: 1
+     * @bodyParam visit_notes string Optional notes about the visit. Example: ویزیت عادی انجام شد
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "message": "Visit completed successfully.",
+     *   "appointment": {
+     *     "id": 1,
+     *     "attended": "completed",
+     *     "status": "visited",
+     *     "visit_start_time": "2024-01-15T09:15:00",
+     *     "waiting_time": 10
+     *   },
+     *   "waiting_time_minutes": 10
+     * }
+     * 
+     * @response 403 {
+     *   "status": "error",
+     *   "message": "Only doctors can start visits."
+     * }
+     * 
+     * @response 404 {
+     *   "status": "error",
+     *   "message": "Appointment not found."
+     * }
      */
     public function startVisit(Request $request, $id)
     {

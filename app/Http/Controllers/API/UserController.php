@@ -11,9 +11,30 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     /**
-    * List all users
-    * @authenticated
-    * @group Users
+     * List all users
+     * 
+     * Get a list of all users in the system with their basic information.
+     * 
+     * @authenticated
+     * @group Users
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "users": [
+     *     {
+     *       "id": 1,
+     *       "first_name": "احمد",
+     *       "last_name": "محمدی",
+     *       "email": "ahmad@example.com",
+     *       "mobile": "09123456789",
+     *       "roll": "patient"
+     *     }
+     *   ]
+     * }
+     * 
+     * @response 401 {
+     *   "message": "Unauthenticated."
+     * }
      */
     public function index()
     {
@@ -26,8 +47,42 @@ class UserController extends Controller
     }
     /**
      * Create a new user
+     * 
+     * Create a new user account with specified role and information.
+     * 
      * @authenticated
      * @group Users
+     * 
+     * @bodyParam first_name string required User's first name. Example: احمد
+     * @bodyParam last_name string required User's last name. Example: محمدی
+     * @bodyParam gender string required User's gender (male/female). Example: male
+     * @bodyParam email string User's email address (optional, must be unique). Example: ahmad@example.com
+     * @bodyParam password string User's password (minimum 6 characters). Example: password123
+     * @bodyParam mobile string required User's mobile number (must be unique). Example: 09123456789
+     * @bodyParam roll string required User's role (patient/nurse/doctor/superadmin). Example: patient
+     * @bodyParam national_id string required National ID (must be unique). Example: 1234567890
+     * 
+     * @response 201 {
+     *   "status": "success",
+     *   "user": {
+     *     "id": 1,
+     *     "first_name": "احمد",
+     *     "last_name": "محمدی",
+     *     "gender": "male",
+     *     "email": "ahmad@example.com",
+     *     "mobile": "09123456789",
+     *     "national_id": "1234567890",
+     *     "roll": "patient",
+     *     "created_at": "2024-01-15T10:30:00"
+     *   }
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "errors": {
+     *     "mobile": ["The mobile has already been taken."]
+     *   }
+     * }
      */
     public function store(Request $request)
     {

@@ -10,9 +10,42 @@ use Illuminate\Support\Facades\Validator;
 class CurrencyConverterController extends Controller
 {
     /**
-     * Convert USD to IRT
-     * @group Currency Converter
+     * Convert USD to Iranian Toman (IRT)
+     * 
+     * Convert USD amount to Iranian Toman using live exchange rate from Nobitex API.
+     * 
      * @authenticated
+     * @group Currency Converter
+     * 
+     * @bodyParam amount numeric required USD amount to convert (must be positive). Example: 100
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "data": {
+     *     "usd_amount": 100,
+     *     "usd_amount_formatted": "100.00",
+     *     "exchange_rate": 42000000,
+     *     "exchange_rate_formatted": "42,000,000",
+     *     "irt_amount": 4200000000,
+     *     "irt_amount_formatted": "4,200,000,000",
+     *     "currency": "IRT",
+     *     "source": "Nobitex",
+     *     "timestamp": "2024-01-15T10:30:00Z",
+     *     "last_update": "2024-01-15 10:25:00"
+     *   }
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "errors": {
+     *     "amount": ["The amount field is required."]
+     *   }
+     * }
+     * 
+     * @response 500 {
+     *   "status": "error",
+     *   "message": "Failed to fetch exchange rate from Nobitex"
+     * }
      */
     public function convertUsdToIrt(Request $request)
     {

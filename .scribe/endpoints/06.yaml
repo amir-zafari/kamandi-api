@@ -13,7 +13,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List all appointments with status filter'
-      description: ''
+      description: 'Get a list of all appointments with optional filters for status, attendance, date, and doctor.'
       authenticated: true
       deprecated: false
     headers:
@@ -22,21 +22,97 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
+    queryParameters:
+      status:
+        custom: []
+        name: status
+        description: 'Filter by appointment status.'
+        required: false
+        example: waiting
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      attended:
+        custom: []
+        name: attended
+        description: 'Filter by attendance status.'
+        required: false
+        example: arrived
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Filter by appointment date (Y-m-d format).'
+        required: false
+        example: '2024-01-15'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      doctor_id:
+        custom: []
+        name: doctor_id
+        description: 'Filter by doctor ID.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanQueryParameters:
+      status: waiting
+      attended: arrived
+      date: '2024-01-15'
+      doctor_id: 1
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         custom: []
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "appointments": [
+              {
+                "id": 1,
+                "patient_name": "احمد محمدی",
+                "national_code": "1234567890",
+                "mobile": "09123456789",
+                "date": "2024-01-15",
+                "start_time": "09:00",
+                "status": "waiting",
+                "attended": "not_arrived",
+                "attended_label": "حاضر نشده",
+                "appointment_type": "online",
+                "service_type": "doctor",
+                "is_cancelable": true,
+                "is_editable": true,
+                "arrival_time": null,
+                "waiting_time": null
+              }
+            ]
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
         status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        content: |-
+          {
+            "message": "Unauthenticated."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -57,7 +133,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Create a new appointment'
-      description: ''
+      description: 'Book a new appointment for a patient with a doctor at a specific time.'
       authenticated: true
       deprecated: false
     headers:
@@ -72,84 +148,130 @@ endpoints:
       doctor_id:
         custom: []
         name: doctor_id
-        description: 'The <code>id</code> of an existing record in the doctors table.'
+        description: "The doctor's ID."
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       patient_id:
         custom: []
         name: patient_id
-        description: 'The <code>id</code> of an existing record in the patients table.'
+        description: "The patient's ID."
         required: true
-        example: 17
+        example: 5
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       date:
         custom: []
         name: date
-        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        description: 'Appointment date in Y-m-d format.'
         required: true
-        example: '2025-12-06'
+        example: '2024-01-15'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       start_time:
         custom: []
         name: start_time
-        description: 'Must match the regex /^(?:[01]\d.'
+        description: 'Appointment start time in HH:MM format.'
         required: true
-        example: '(:05'
+        example: '09:00'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       appointment_type:
         custom: []
         name: appointment_type
-        description: ''
+        description: 'Type of appointment.'
         required: false
-        example: referral
+        example: online
         type: string
-        enumValues:
-          - online
-          - phone
-          - in_person
-          - referral
-        exampleWasSpecified: false
+        enumValues: []
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       service_type:
         custom: []
         name: service_type
-        description: ''
+        description: 'Type of service.'
         required: false
         example: doctor
         type: string
-        enumValues:
-          - doctor
-          - injection
-        exampleWasSpecified: false
+        enumValues: []
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      doctor_id: 17
-      patient_id: 17
-      date: '2025-12-06'
-      start_time: '(:05'
-      appointment_type: referral
+      doctor_id: 1
+      patient_id: 5
+      date: '2024-01-15'
+      start_time: '09:00'
+      appointment_type: online
       service_type: doctor
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "status": "success",
+            "message": "Appointment booked successfully.",
+            "appointment": {
+              "id": 1,
+              "doctor_id": 1,
+              "patient_id": 5,
+              "date": "2024-01-15",
+              "start_time": "09:00",
+              "status": "waiting",
+              "appointment_type": "online",
+              "service_type": "doctor"
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 400
+        content: |-
+          {
+            "status": "error",
+            "message": "Cannot book appointment in the past."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 409
+        content: |-
+          {
+            "status": "error",
+            "message": "Doctor already has an appointment at this time."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "errors": {
+              "doctor_id": ["The doctor id field is required."]
+            }
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -238,7 +360,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Show a specific appointment'
-      description: ''
+      description: 'Get detailed information about a specific appointment by its ID.'
       authenticated: true
       deprecated: false
     headers:
@@ -249,16 +371,16 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the appointment.'
+        description: 'The appointment ID.'
         required: true
-        example: consequatur
-        type: string
+        example: 1
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: consequatur
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -267,13 +389,36 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "appointment": {
+              "id": 1,
+              "doctor_id": 1,
+              "patient_id": 5,
+              "date": "2024-01-15",
+              "start_time": "09:00",
+              "status": "waiting",
+              "attended_label": "حاضر نشده",
+              "is_cancelable": true,
+              "is_editable": true,
+              "can_mark_attended": true,
+              "can_start_visit": false
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "status": "error",
+            "message": "Appointment not found."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -349,7 +494,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: doctor
+        example: injection
         type: string
         enumValues:
           - doctor
@@ -375,7 +520,7 @@ endpoints:
     cleanBodyParameters:
       start_time: '(:05'
       appointment_type: online
-      service_type: doctor
+      service_type: injection
       status: canceled
     fileParameters: []
     responses: []
@@ -446,7 +591,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Cancel an appointment'
-      description: ''
+      description: 'Cancel an existing appointment with a reason. Different rules apply based on user role.'
       authenticated: true
       deprecated: false
     headers:
@@ -457,34 +602,84 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the cancel.'
+        description: 'The appointment ID to cancel.'
         required: true
-        example: consequatur
-        type: string
+        example: 1
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      id: consequatur
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       cancel_reason:
         custom: []
         name: cancel_reason
-        description: 'Must be at least 3 characters. Must not be greater than 500 characters.'
+        description: 'Reason for cancellation (min 3, max 500 characters).'
         required: true
-        example: vmqeopfuudtdsufvyvddq
+        example: 'بیمار نمی‌تواند حاضر شود'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      cancel_reason: vmqeopfuudtdsufvyvddq
+      cancel_reason: 'بیمار نمی‌تواند حاضر شود'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "message": "Appointment canceled successfully.",
+            "appointment": {
+              "id": 1,
+              "status": "canceled",
+              "canceled_by": 1,
+              "canceled_at": "2024-01-15T10:30:00",
+              "cancel_reason": "بیمار نمی‌تواند حاضر شود"
+            },
+            "canceled_by_role": "patient"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: |-
+          {
+            "status": "error",
+            "message": "Patients can only cancel appointments at least 2 hours before the scheduled time."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "status": "error",
+            "message": "Appointment not found."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "errors": {
+              "cancel_reason": ["The cancel reason field is required."]
+            }
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -505,7 +700,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Create a new appointment'
-      description: ''
+      description: 'Book a new appointment for a patient with a doctor at a specific time.'
       authenticated: true
       deprecated: false
     headers:
@@ -520,84 +715,130 @@ endpoints:
       doctor_id:
         custom: []
         name: doctor_id
-        description: 'The <code>id</code> of an existing record in the doctors table.'
+        description: "The doctor's ID."
         required: true
-        example: 17
+        example: 1
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       patient_id:
         custom: []
         name: patient_id
-        description: 'The <code>id</code> of an existing record in the patients table.'
+        description: "The patient's ID."
         required: true
-        example: 17
+        example: 5
         type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       date:
         custom: []
         name: date
-        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        description: 'Appointment date in Y-m-d format.'
         required: true
-        example: '2025-12-06'
+        example: '2024-01-15'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       start_time:
         custom: []
         name: start_time
-        description: 'Must match the regex /^(?:[01]\d.'
+        description: 'Appointment start time in HH:MM format.'
         required: true
-        example: '(:05'
+        example: '09:00'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       appointment_type:
         custom: []
         name: appointment_type
-        description: ''
+        description: 'Type of appointment.'
         required: false
         example: online
         type: string
-        enumValues:
-          - online
-          - phone
-          - in_person
-          - referral
-        exampleWasSpecified: false
+        enumValues: []
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       service_type:
         custom: []
         name: service_type
-        description: ''
+        description: 'Type of service.'
         required: false
         example: doctor
         type: string
-        enumValues:
-          - doctor
-          - injection
-        exampleWasSpecified: false
+        enumValues: []
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      doctor_id: 17
-      patient_id: 17
-      date: '2025-12-06'
-      start_time: '(:05'
+      doctor_id: 1
+      patient_id: 5
+      date: '2024-01-15'
+      start_time: '09:00'
       appointment_type: online
       service_type: doctor
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "status": "success",
+            "message": "Appointment booked successfully.",
+            "appointment": {
+              "id": 1,
+              "doctor_id": 1,
+              "patient_id": 5,
+              "date": "2024-01-15",
+              "start_time": "09:00",
+              "status": "waiting",
+              "appointment_type": "online",
+              "service_type": "doctor"
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 400
+        content: |-
+          {
+            "status": "error",
+            "message": "Cannot book appointment in the past."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 409
+        content: |-
+          {
+            "status": "error",
+            "message": "Doctor already has an appointment at this time."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "errors": {
+              "doctor_id": ["The doctor id field is required."]
+            }
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -782,7 +1023,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: referral
+        example: phone
         type: string
         enumValues:
           - online
@@ -822,7 +1063,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       start_time: '(:05'
-      appointment_type: referral
+      appointment_type: phone
       service_type: injection
       status: visited
     fileParameters: []

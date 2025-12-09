@@ -14,8 +14,41 @@ class AuthController extends Controller
 {
     /**
      * Login user
+     * 
+     * Authenticate a user with email/mobile and password, along with captcha verification.
+     * 
      * @unauthenticated
      * @group Authentication
+     * 
+     * @bodyParam mobile string required Email or mobile number for authentication. Example: 09123456789
+     * @bodyParam password string required User's password. Example: password123
+     * @bodyParam captcha_id string required Captcha ID received from captcha generation. Example: uuid-string
+     * @bodyParam answer string required Captcha answer. Example: ABC12
+     * 
+     * @response 200 {
+     *   "access_token": "1|token_string_here",
+     *   "token_type": "Bearer",
+     *   "user": {
+     *     "id": 1,
+     *     "first_name": "احمد",
+     *     "last_name": "محمدی",
+     *     "roll": "patient",
+     *     "mobile": "09123456789"
+     *   }
+     * }
+     * 
+     * @response 400 {
+     *   "status": "error",
+     *   "message": "Captcha expired"
+     * }
+     * 
+     * @response 401 {
+     *   "message": "Invalid login credentials"
+     * }
+     * 
+     * @response 422 {
+     *   "message": "Invalid identifier format"
+     * }
      */
     public function login(Request $request)
     {
@@ -78,8 +111,22 @@ class AuthController extends Controller
 
     /**
      * Send verification code
+     * 
+     * Send an OTP verification code to user's mobile number for authentication.
+     * 
      * @unauthenticated
      * @group Authentication
+     * 
+     * @bodyParam mobile string required Iranian mobile number (09xxxxxxxxx format). Example: 09123456789
+     * 
+     * @response 200 {
+     *   "message": "کد تأیید ارسال شد",
+     *   "otp": 123456
+     * }
+     * 
+     * @response 422 {
+     *   "mobile": ["The mobile field is required."]
+     * }
      */
     public function sendOTP(Request $request)
     {
@@ -109,8 +156,38 @@ class AuthController extends Controller
     }
     /**
      * Verify OTP
+     * 
+     * Verify the OTP code sent to user's mobile number and return authentication token.
+     * 
      * @unauthenticated
      * @group Authentication
+     * 
+     * @bodyParam mobile string required Iranian mobile number (09xxxxxxxxx format). Example: 09123456789
+     * @bodyParam otp string required 6-digit OTP code. Example: 123456
+     * 
+     * @response 200 {
+     *   "access_token": "1|token_string_here",
+     *   "token_type": "Bearer",
+     *   "user": {
+     *     "id": 1,
+     *     "first_name": "احمد",
+     *     "last_name": "محمدی",
+     *     "roll": "patient"
+     *   }
+     * }
+     * 
+     * @response 400 {
+     *   "message": "Invalid verification code"
+     * }
+     * 
+     * @response 400 {
+     *   "message": "Verification code has expired"
+     * }
+     * 
+     * @response 422 {
+     *   "mobile": ["The mobile field is required."],
+     *   "otp": ["The otp must be 6 digits."]
+     * }
      */
     public function verifyOTP(Request $request)
     {

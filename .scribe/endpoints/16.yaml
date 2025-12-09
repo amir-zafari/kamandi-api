@@ -1,0 +1,93 @@
+name: 'Currency Converter'
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/currency/convert
+    metadata:
+      custom: []
+      groupName: 'Currency Converter'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Convert USD to Iranian Toman (IRT)'
+      description: 'Convert USD amount to Iranian Toman using live exchange rate from Nobitex API.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      amount:
+        custom: []
+        name: amount
+        description: 'USD amount to convert (must be positive).'
+        required: true
+        example: '100'
+        type: numeric
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      amount: '100'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "data": {
+              "usd_amount": 100,
+              "usd_amount_formatted": "100.00",
+              "exchange_rate": 42000000,
+              "exchange_rate_formatted": "42,000,000",
+              "irt_amount": 4200000000,
+              "irt_amount_formatted": "4,200,000,000",
+              "currency": "IRT",
+              "source": "Nobitex",
+              "timestamp": "2024-01-15T10:30:00Z",
+              "last_update": "2024-01-15 10:25:00"
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "errors": {
+              "amount": ["The amount field is required."]
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 500
+        content: |-
+          {
+            "status": "error",
+            "message": "Failed to fetch exchange rate from Nobitex"
+          }
+        headers: []
+        description: ''
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null

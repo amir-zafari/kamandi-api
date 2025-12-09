@@ -1,206 +1,18 @@
-name: 'Revision Logs'
+name: 'Text Records'
 description: ''
 endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: api/logs
+      - POST
+    uri: api/text-records
     metadata:
       custom: []
-      groupName: 'Revision Logs'
+      groupName: 'Text Records'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get all revision logs'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/logs/statistics
-    metadata:
-      custom: []
-      groupName: 'Revision Logs'
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get revision log statistics'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/logs/recent-activity
-    metadata:
-      custom: []
-      groupName: 'Revision Logs'
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get recent revision activities'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: 'api/logs/user/{userId}'
-    metadata:
-      custom: []
-      groupName: 'Revision Logs'
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get logs of a specific user'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      userId:
-        custom: []
-        name: userId
-        description: ''
-        required: true
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        deprecated: false
-    cleanUrlParameters:
-      userId: consequatur
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - GET
-    uri: api/logs/model
-    metadata:
-      custom: []
-      groupName: 'Revision Logs'
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get logs of a specific model'
+      title: 'ذخیره پرونده متنی'
       description: ''
       authenticated: true
       deprecated: false
@@ -213,9 +25,31 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      model_type:
+      doctor_id:
         custom: []
-        name: model_type
+        name: doctor_id
+        description: 'The <code>id</code> of an existing record in the doctors table.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      patient_id:
+        custom: []
+        name: patient_id
+        description: 'The <code>id</code> of an existing record in the patients table.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      title:
+        custom: []
+        name: title
         description: ''
         required: true
         example: consequatur
@@ -224,20 +58,93 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-      model_id:
+      case_date:
         custom: []
-        name: model_id
+        name: case_date
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2025-12-09'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      notes:
+        custom: []
+        name: notes
         description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      doctor_id: consequatur
+      patient_id: consequatur
+      title: consequatur
+      case_date: '2025-12-09'
+      notes: consequatur
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/text-records/{doctor_id}/{patient_id}'
+    metadata:
+      custom: []
+      groupName: 'Text Records'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'دریافت پرونده‌های متنی'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      doctor_id:
+        custom: []
+        name: doctor_id
+        description: 'The ID of the doctor.'
         required: true
-        example: 17
-        type: integer
+        example: consequatur
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-    cleanBodyParameters:
-      model_type: consequatur
-      model_id: 17
+      patient_id:
+        custom: []
+        name: patient_id
+        description: 'The ID of the patient.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      doctor_id: consequatur
+      patient_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
@@ -260,15 +167,15 @@ endpoints:
   -
     custom: []
     httpMethods:
-      - GET
-    uri: 'api/logs/{id}'
+      - PUT
+    uri: 'api/text-records/{id}'
     metadata:
       custom: []
-      groupName: 'Revision Logs'
+      groupName: 'Text Records'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show a single revision log'
+      title: 'بروزرسانی پرونده متنی'
       description: ''
       authenticated: true
       deprecated: false
@@ -280,7 +187,7 @@ endpoints:
       id:
         custom: []
         name: id
-        description: 'The ID of the log.'
+        description: 'The ID of the text record.'
         required: true
         example: consequatur
         type: string
@@ -292,76 +199,44 @@ endpoints:
       id: consequatur
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-    auth:
-      - headers
-      - Authorization
-      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
-    controller: null
-    method: null
-    route: null
-  -
-    custom: []
-    httpMethods:
-      - POST
-    uri: api/logs/compare
-    metadata:
-      custom: []
-      groupName: 'Revision Logs'
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Compare two revisions'
-      description: ''
-      authenticated: true
-      deprecated: false
-    headers:
-      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
     bodyParameters:
-      revision_id_1:
+      title:
         custom: []
-        name: revision_id_1
-        description: 'The <code>id</code> of an existing record in the revisions table.'
-        required: true
-        example: 17
-        type: integer
+        name: title
+        description: ''
+        required: false
+        example: consequatur
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         deprecated: false
-      revision_id_2:
+      case_date:
         custom: []
-        name: revision_id_2
-        description: 'The <code>id</code> of an existing record in the revisions table.'
-        required: true
-        example: 17
-        type: integer
+        name: case_date
+        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2025-12-09'
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
+        deprecated: false
+      notes:
+        custom: []
+        name: notes
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         deprecated: false
     cleanBodyParameters:
-      revision_id_1: 17
-      revision_id_2: 17
+      title: consequatur
+      case_date: '2025-12-09'
+      notes: consequatur
     fileParameters: []
     responses: []
     responseFields: []
@@ -376,14 +251,14 @@ endpoints:
     custom: []
     httpMethods:
       - DELETE
-    uri: api/logs/cleanup
+    uri: 'api/text-records/{id}'
     metadata:
       custom: []
-      groupName: 'Revision Logs'
+      groupName: 'Text Records'
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete old revision logs'
+      title: 'حذف پرونده متنی'
       description: ''
       authenticated: true
       deprecated: false
@@ -391,24 +266,24 @@ endpoints:
       Authorization: 'Bearer Bearer {YOUR_TOKEN}'
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      days:
+    urlParameters:
+      id:
         custom: []
-        name: days
-        description: 'Must be at least 1.'
+        name: id
+        description: 'The ID of the text record.'
         required: true
-        example: 73
-        type: integer
+        example: consequatur
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
-    cleanBodyParameters:
-      days: 73
+    cleanUrlParameters:
+      id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []

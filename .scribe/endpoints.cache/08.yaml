@@ -15,7 +15,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Create a new medical visit'
-      description: ''
+      description: 'Create a comprehensive visit record with case medical information and visit details.'
       authenticated: true
       deprecated: false
     headers:
@@ -30,78 +30,157 @@ endpoints:
       doctor_id:
         custom: []
         name: doctor_id
-        description: 'The <code>id</code> of an existing record in the doctors table.'
+        description: "Doctor's ID."
         required: true
-        example: consequatur
-        type: string
+        example: 1
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       patient_id:
         custom: []
         name: patient_id
-        description: 'The <code>id</code> of an existing record in the patients table.'
+        description: "Patient's ID."
         required: true
-        example: consequatur
-        type: string
+        example: 5
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       visit_date:
         custom: []
         name: visit_date
-        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        description: 'Visit date (Y-m-d format).'
         required: false
-        example: '2025-12-06'
-        type: string
+        example: '2024-01-15'
+        type: date
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       notes:
         custom: []
         name: notes
-        description: ''
+        description: 'General notes about the visit.'
         required: false
-        example: consequatur
+        example: 'ویزیت عمومی'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       diagnosis:
         custom: []
         name: diagnosis
-        description: ''
+        description: 'Medical diagnosis.'
         required: false
-        example: consequatur
+        example: 'سرماخوردگی عادی'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       follow_up_date:
         custom: []
         name: follow_up_date
-        description: 'Must be a valid date in the format <code>Y-m-d</code>.'
+        description: 'Follow-up appointment date.'
         required: false
-        example: '2025-12-06'
+        example: '2024-01-22'
+        type: date
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      visit_reason:
+        custom: []
+        name: visit_reason
+        description: 'Reason for visit.'
+        required: false
+        example: 'شکایت از تب و سردرد'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      symptoms:
+        custom: []
+        name: symptoms
+        description: 'Patient symptoms.'
+        required: false
+        example: 'تب، سردرد، گلودرد'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      prescribed_medications:
+        custom: []
+        name: prescribed_medications
+        description: 'Prescribed medications.'
+        required: false
+        example: 'پاراستامول، ویتامین C'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
     cleanBodyParameters:
-      doctor_id: consequatur
-      patient_id: consequatur
-      visit_date: '2025-12-06'
-      notes: consequatur
-      diagnosis: consequatur
-      follow_up_date: '2025-12-06'
+      doctor_id: 1
+      patient_id: 5
+      visit_date: '2024-01-15'
+      notes: 'ویزیت عمومی'
+      diagnosis: 'سرماخوردگی عادی'
+      follow_up_date: '2024-01-22'
+      visit_reason: 'شکایت از تب و سردرد'
+      symptoms: 'تب، سردرد، گلودرد'
+      prescribed_medications: 'پاراستامول، ویتامین C'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "status": "success",
+            "message": "Visit created successfully",
+            "case_medical": {
+              "id": 1,
+              "title": "گزارش ویزیت - 2024-01-15",
+              "case_medical_type_id": 3,
+              "case_date": "2024-01-15",
+              "visit": {
+                "diagnosis": "سرماخوردگی عادی",
+                "symptoms": "تب، سردرد، گلودرد",
+                "prescribed_medications": "پاراستامول، ویتامین C"
+              }
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 403
+        content: |-
+          {
+            "status": "error",
+            "message": "You do not have permission to create visit for this patient"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "errors": {
+              "doctor_id": ["The doctor id field is required."]
+            }
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -285,7 +364,7 @@ endpoints:
         name: follow_up_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-06'
+        example: '2025-12-09'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -296,7 +375,40 @@ endpoints:
         name: visit_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-06'
+        example: '2025-12-09'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      visit_reason:
+        custom: []
+        name: visit_reason
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: mqeopfuudtdsufvyvddqa
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      symptoms:
+        custom: []
+        name: symptoms
+        description: 'Must not be greater than 500 characters.'
+        required: false
+        example: mniihfqcoynlazghdtqtq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      prescribed_medications:
+        custom: []
+        name: prescribed_medications
+        description: ''
+        required: false
+        example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -305,8 +417,11 @@ endpoints:
     cleanBodyParameters:
       notes: consequatur
       diagnosis: consequatur
-      follow_up_date: '2025-12-06'
-      visit_date: '2025-12-06'
+      follow_up_date: '2025-12-09'
+      visit_date: '2025-12-09'
+      visit_reason: mqeopfuudtdsufvyvddqa
+      symptoms: mniihfqcoynlazghdtqtq
+      prescribed_medications: consequatur
     fileParameters: []
     responses: []
     responseFields: []

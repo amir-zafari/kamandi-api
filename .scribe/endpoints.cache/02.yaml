@@ -59,7 +59,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List all users'
-      description: ''
+      description: 'Get a list of all users in the system with their basic information.'
       authenticated: true
       deprecated: false
     headers:
@@ -76,13 +76,32 @@ endpoints:
     responses:
       -
         custom: []
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "users": [
+              {
+                "id": 1,
+                "first_name": "احمد",
+                "last_name": "محمدی",
+                "email": "ahmad@example.com",
+                "mobile": "09123456789",
+                "roll": "patient"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
         status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        content: |-
+          {
+            "message": "Unauthenticated."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -103,7 +122,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Create a new user'
-      description: ''
+      description: 'Create a new user account with specified role and information.'
       authenticated: true
       deprecated: false
     headers:
@@ -118,108 +137,134 @@ endpoints:
       first_name:
         custom: []
         name: first_name
-        description: 'Must not be greater than 255 characters.'
+        description: "User's first name."
         required: true
-        example: vmqeopfuudtdsufvyvddq
+        example: احمد
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       last_name:
         custom: []
         name: last_name
-        description: 'Must not be greater than 255 characters.'
+        description: "User's last name."
         required: true
-        example: amniihfqcoynlazghdtqt
+        example: محمدی
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       gender:
         custom: []
         name: gender
-        description: ''
+        description: "User's gender (male/female)."
         required: true
         example: male
         type: string
-        enumValues:
-          - male
-          - female
-        exampleWasSpecified: false
+        enumValues: []
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       email:
         custom: []
         name: email
-        description: 'Must be a valid email address.'
+        description: "User's email address (optional, must be unique)."
         required: false
-        example: andreanne00@example.org
+        example: ahmad@example.com
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       password:
         custom: []
         name: password
-        description: 'Must be at least 6 characters.'
+        description: "User's password (minimum 6 characters)."
         required: false
-        example: "'YAKYLk4>SJIrIV#lz."
+        example: password123
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       mobile:
         custom: []
         name: mobile
-        description: ''
+        description: "User's mobile number (must be unique)."
         required: true
-        example: consequatur
+        example: '09123456789'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       roll:
         custom: []
         name: roll
-        description: ''
+        description: "User's role (patient/nurse/doctor/superadmin)."
         required: true
-        example: doctor
+        example: patient
         type: string
-        enumValues:
-          - patient
-          - nurse
-          - doctor
-          - superadmin
-        exampleWasSpecified: false
+        enumValues: []
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       national_id:
         custom: []
         name: national_id
-        description: ''
+        description: 'National ID (must be unique).'
         required: true
-        example: consequatur
+        example: '1234567890'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
     cleanBodyParameters:
-      first_name: vmqeopfuudtdsufvyvddq
-      last_name: amniihfqcoynlazghdtqt
+      first_name: احمد
+      last_name: محمدی
       gender: male
-      email: andreanne00@example.org
-      password: "'YAKYLk4>SJIrIV#lz."
-      mobile: consequatur
-      roll: doctor
-      national_id: consequatur
+      email: ahmad@example.com
+      password: password123
+      mobile: '09123456789'
+      roll: patient
+      national_id: '1234567890'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "status": "success",
+            "user": {
+              "id": 1,
+              "first_name": "احمد",
+              "last_name": "محمدی",
+              "gender": "male",
+              "email": "ahmad@example.com",
+              "mobile": "09123456789",
+              "national_id": "1234567890",
+              "roll": "patient",
+              "created_at": "2024-01-15T10:30:00"
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "errors": {
+              "mobile": ["The mobile has already been taken."]
+            }
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -382,7 +427,7 @@ endpoints:
         name: roll
         description: ''
         required: false
-        example: doctor
+        example: nurse
         type: string
         enumValues:
           - patient
@@ -418,7 +463,7 @@ endpoints:
       first_name: vmqeopfuudtdsufvyvddq
       last_name: amniihfqcoynlazghdtqt
       gender: male
-      roll: doctor
+      roll: nurse
       password: "t(!Cs'YAKYLk4>S"
     fileParameters: []
     responses: []

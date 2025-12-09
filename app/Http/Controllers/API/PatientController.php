@@ -56,8 +56,45 @@ class PatientController extends Controller
 
     /**
      * Create or update a patient
+     * 
+     * Create a new patient record or update existing one. Can link patient to current user.
+     * 
      * @authenticated
      * @group Patients
+     * 
+     * @bodyParam for integer required 1=for self, 2=for others. Example: 1
+     * @bodyParam first_name string required Patient's first name. Example: احمد
+     * @bodyParam last_name string required Patient's last name. Example: محمدی
+     * @bodyParam national_id string required National identification number. Example: 1234567890
+     * @bodyParam birth_date date required Birth date (Y-m-d format). Example: 1990-01-15
+     * @bodyParam gender string required Gender (male/female). Example: male
+     * @bodyParam blood_type string Blood type. Example: A+
+     * @bodyParam allergies string Patient's allergies. Example: آلرژی به پنی‌سیلین
+     * @bodyParam chronic_diseases string Chronic diseases. Example: دیابت نوع 2
+     * @bodyParam emergency_contact string Emergency contact info. Example: 09123456789
+     * @bodyParam address string Patient's address. Example: تهران، خیابان ولیعصر
+     * 
+     * @response 201 {
+     *   "status": "success",
+     *   "action": "created",
+     *   "patient": {
+     *     "id": 1,
+     *     "first_name": "احمد",
+     *     "last_name": "محمدی",
+     *     "national_id": "1234567890",
+     *     "birth_date": "1990-01-15",
+     *     "gender": "male",
+     *     "blood_type": "A+",
+     *     "allergies": "آلرژی به پنی‌سیلین"
+     *   }
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "errors": {
+     *     "national_id": ["The national id field is required."]
+     *   }
+     * }
      */
     public function store(Request $request)
     {
@@ -313,8 +350,37 @@ class PatientController extends Controller
     }
     /**
      * Search patients
+     * 
+     * Search through patients by name or national ID. Results depend on user role permissions.
+     * 
      * @authenticated
      * @group Patients
+     * 
+     * @queryParam q string required Search query (name or national ID). Example: احمد
+     * 
+     * @response 200 {
+     *   "status": "success",
+     *   "patients": [
+     *     {
+     *       "id": 1,
+     *       "first_name": "احمد",
+     *       "last_name": "محمدی",
+     *       "national_id": "1234567890",
+     *       "birth_date": "1990-01-15",
+     *       "gender": "male"
+     *     }
+     *   ]
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "message": "Search query (q) is required."
+     * }
+     * 
+     * @response 401 {
+     *   "status": "error",
+     *   "message": "Unauthenticated."
+     * }
      */
     public function search(Request $request)
     {

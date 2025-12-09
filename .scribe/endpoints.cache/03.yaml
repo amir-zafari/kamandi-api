@@ -15,7 +15,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List all doctors'
-      description: ''
+      description: 'Get a list of all doctors with their basic information and specialties.'
       authenticated: true
       deprecated: false
     headers:
@@ -32,13 +32,31 @@ endpoints:
     responses:
       -
         custom: []
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "doctors": [
+              {
+                "id": 1,
+                "user_id": 5,
+                "first_name": "احمد",
+                "last_name": "محمدی",
+                "specialty": "قلب و عروق"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
         status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        content: |-
+          {
+            "message": "Unauthenticated."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -59,7 +77,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Create or update a doctor'
-      description: ''
+      description: "Create a new doctor record or update existing one. Changes user role to 'doctor'."
       authenticated: true
       deprecated: false
     headers:
@@ -74,53 +92,85 @@ endpoints:
       user_id:
         custom: []
         name: user_id
-        description: 'The <code>id</code> of an existing record in the users table.'
+        description: "The user's ID to make doctor."
         required: true
-        example: consequatur
-        type: string
+        example: 5
+        type: integer
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       specialty:
         custom: []
         name: specialty
-        description: 'Must not be greater than 255 characters.'
+        description: "Doctor's specialty."
         required: false
-        example: mqeopfuudtdsufvyvddqa
+        example: 'قلب و عروق'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
       code_nzam:
         custom: []
         name: code_nzam
-        description: ''
-        required: false
-        example: null
+        description: 'Medical council registration number (unique).'
+        required: true
+        example: '12345'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: false
         deprecated: false
       work_experience:
         custom: []
         name: work_experience
-        description: 'Must not be greater than 255 characters.'
+        description: "Doctor's work experience description."
         required: false
-        example: mniihfqcoynlazghdtqtq
+        example: '10 سال تجربه کار'
         type: string
         enumValues: []
-        exampleWasSpecified: false
+        exampleWasSpecified: true
         nullable: true
         deprecated: false
     cleanBodyParameters:
-      user_id: consequatur
-      specialty: mqeopfuudtdsufvyvddqa
-      work_experience: mniihfqcoynlazghdtqtq
+      user_id: 5
+      specialty: 'قلب و عروق'
+      code_nzam: '12345'
+      work_experience: '10 سال تجربه کار'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "status": "success"
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+            "status": "error",
+            "message": "User not found."
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 422
+        content: |-
+          {
+            "status": "error",
+            "errors": {
+              "code_nzam": ["The code nzam has already been taken."]
+            }
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers
@@ -372,7 +422,7 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'List all doctors'
-      description: ''
+      description: 'Get a list of all doctors with their basic information and specialties.'
       authenticated: true
       deprecated: false
     headers:
@@ -389,13 +439,31 @@ endpoints:
     responses:
       -
         custom: []
+        status: 200
+        content: |-
+          {
+            "status": "success",
+            "doctors": [
+              {
+                "id": 1,
+                "user_id": 5,
+                "first_name": "احمد",
+                "last_name": "محمدی",
+                "specialty": "قلب و عروق"
+              }
+            ]
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
         status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
+        content: |-
+          {
+            "message": "Unauthenticated."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth:
       - headers

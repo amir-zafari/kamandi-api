@@ -125,7 +125,7 @@
                 </li>
                                     <ul id="tocify-subheader-authentication" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="authentication-GETapi-auth-captcha-generate">
-                                <a href="#authentication-GETapi-auth-captcha-generate">Captcha generate</a>
+                                <a href="#authentication-GETapi-auth-captcha-generate">Generate captcha image</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-send-otp">
                                 <a href="#authentication-POSTapi-auth-send-otp">Send verification code</a>
@@ -157,7 +157,7 @@
                 </li>
                                     <ul id="tocify-subheader-currency-converter" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="currency-converter-POSTapi-currency-convert">
-                                <a href="#currency-converter-POSTapi-currency-convert">Convert USD to IRT</a>
+                                <a href="#currency-converter-POSTapi-currency-convert">Convert USD to Iranian Toman (IRT)</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -217,25 +217,54 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-document-records" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="document-records">
+                    <a href="#document-records">Document Records</a>
+                </li>
+                                    <ul id="tocify-subheader-document-records" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="document-records-POSTapi-document-records">
+                                <a href="#document-records-POSTapi-document-records">ذخیره پرونده اسناد</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="document-records-GETapi-document-records--doctor_id---patient_id-">
+                                <a href="#document-records-GETapi-document-records--doctor_id---patient_id-">دریافت پرونده‌های اسناد</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="document-records-PUTapi-document-records--id-">
+                                <a href="#document-records-PUTapi-document-records--id-">بروزرسانی پرونده اسناد</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="document-records-DELETEapi-document-records--id-">
+                                <a href="#document-records-DELETEapi-document-records--id-">حذف پرونده اسناد</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-endpoints" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="endpoints">
                     <a href="#endpoints">Endpoints</a>
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-prescriptions">
-                                <a href="#endpoints-POSTapi-prescriptions">POST api/prescriptions</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-prescriptions--record_id--">
-                                <a href="#endpoints-GETapi-prescriptions--record_id--">GET api/prescriptions/{record_id?}</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-prescriptions--id-">
-                                <a href="#endpoints-GETapi-prescriptions--id-">GET api/prescriptions/{id}</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-PUTapi-prescriptions--id-">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-PUTapi-prescriptions--id-">
                                 <a href="#endpoints-PUTapi-prescriptions--id-">PUT api/prescriptions/{id}</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-prescriptions--id-">
                                 <a href="#endpoints-DELETEapi-prescriptions--id-">DELETE api/prescriptions/{id}</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-handwritten-records" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="handwritten-records">
+                    <a href="#handwritten-records">Handwritten Records</a>
+                </li>
+                                    <ul id="tocify-subheader-handwritten-records" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="handwritten-records-POSTapi-handwritten-records">
+                                <a href="#handwritten-records-POSTapi-handwritten-records">ذخیره پرونده دست‌نویس</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="handwritten-records-GETapi-handwritten-records--doctor_id---patient_id-">
+                                <a href="#handwritten-records-GETapi-handwritten-records--doctor_id---patient_id-">دریافت پرونده‌های دست‌نویس</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="handwritten-records-PUTapi-handwritten-records--id-">
+                                <a href="#handwritten-records-PUTapi-handwritten-records--id-">بروزرسانی پرونده دست‌نویس</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="handwritten-records-DELETEapi-handwritten-records--id-">
+                                <a href="#handwritten-records-DELETEapi-handwritten-records--id-">حذف پرونده دست‌نویس</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -244,7 +273,10 @@
                     <a href="#medical-cases">Medical Cases</a>
                 </li>
                                     <ul id="tocify-subheader-medical-cases" class="tocify-subheader">
-                                                    <li class="tocify-item level-2" data-unique="medical-cases-GETapi-medicaldocument-filter">
+                                                    <li class="tocify-item level-2" data-unique="medical-cases-GETapi-medicaldocument-search">
+                                <a href="#medical-cases-GETapi-medicaldocument-search">Search in medical cases</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="medical-cases-GETapi-medicaldocument-filter">
                                 <a href="#medical-cases-GETapi-medicaldocument-filter">Filter medical cases by doctor, patient and type</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-cases-POSTapi-medicaldocument">
@@ -329,6 +361,22 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-prescriptions" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="prescriptions">
+                    <a href="#prescriptions">Prescriptions</a>
+                </li>
+                                    <ul id="tocify-subheader-prescriptions" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="prescriptions-POSTapi-prescriptions">
+                                <a href="#prescriptions-POSTapi-prescriptions">Create a new prescription</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="prescriptions-GETapi-prescriptions--record_id--">
+                                <a href="#prescriptions-GETapi-prescriptions--record_id--">List prescriptions</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="prescriptions-GETapi-prescriptions--id-">
+                                <a href="#prescriptions-GETapi-prescriptions--id-">Show a prescription</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-revision-logs" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="revision-logs">
                     <a href="#revision-logs">Revision Logs</a>
@@ -360,6 +408,25 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-text-records" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="text-records">
+                    <a href="#text-records">Text Records</a>
+                </li>
+                                    <ul id="tocify-subheader-text-records" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="text-records-POSTapi-text-records">
+                                <a href="#text-records-POSTapi-text-records">ذخیره پرونده متنی</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="text-records-GETapi-text-records--doctor_id---patient_id-">
+                                <a href="#text-records-GETapi-text-records--doctor_id---patient_id-">دریافت پرونده‌های متنی</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="text-records-PUTapi-text-records--id-">
+                                <a href="#text-records-PUTapi-text-records--id-">بروزرسانی پرونده متنی</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="text-records-DELETEapi-text-records--id-">
+                                <a href="#text-records-DELETEapi-text-records--id-">حذف پرونده متنی</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-users" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="users">
                     <a href="#users">Users</a>
@@ -388,6 +455,25 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-visit-reports" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="visit-reports">
+                    <a href="#visit-reports">Visit Reports</a>
+                </li>
+                                    <ul id="tocify-subheader-visit-reports" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="visit-reports-POSTapi-visit-reports">
+                                <a href="#visit-reports-POSTapi-visit-reports">ایجاد گزارش ویزیت (CaseMedical + Visit)</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="visit-reports-GETapi-visit-reports--doctor_id---patient_id-">
+                                <a href="#visit-reports-GETapi-visit-reports--doctor_id---patient_id-">دریافت گزارش‌های ویزیت</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="visit-reports-PUTapi-visit-reports--id-">
+                                <a href="#visit-reports-PUTapi-visit-reports--id-">بروزرسانی گزارش ویزیت</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="visit-reports-DELETEapi-visit-reports--id-">
+                                <a href="#visit-reports-DELETEapi-visit-reports--id-">حذف گزارش ویزیت</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
             </div>
 
     <ul class="toc-footer" id="toc-footer">
@@ -397,7 +483,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 6, 2025</li>
+        <li>Last updated: December 9, 2025</li>
     </ul>
 </div>
 
@@ -428,7 +514,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get a list of all appointments with optional filters for status, attendance, date, and doctor.</p>
 
 <span id="example-requests-GETapi-appointments">
 <blockquote>Example request:</blockquote>
@@ -436,7 +522,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://kamandi-api.test/api/appointments" \
+    --get "https://kamandi-api.test/api/appointments?status=waiting&amp;attended=arrived&amp;date=2024-01-15&amp;doctor_id=1" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -446,6 +532,15 @@ You can switch the language used with the tabs at the top right (or from the nav
     <pre><code class="language-javascript">const url = new URL(
     "https://kamandi-api.test/api/appointments"
 );
+
+const params = {
+    "status": "waiting",
+    "attended": "arrived",
+    "date": "2024-01-15",
+    "doctor_id": "1",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Authorization": "Bearer Bearer {YOUR_TOKEN}",
@@ -462,16 +557,37 @@ fetch(url, {
 
 <span id="example-responses-GETapi-appointments">
             <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;appointments&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;patient_name&quot;: &quot;احمد محمدی&quot;,
+            &quot;national_code&quot;: &quot;1234567890&quot;,
+            &quot;mobile&quot;: &quot;09123456789&quot;,
+            &quot;date&quot;: &quot;2024-01-15&quot;,
+            &quot;start_time&quot;: &quot;09:00&quot;,
+            &quot;status&quot;: &quot;waiting&quot;,
+            &quot;attended&quot;: &quot;not_arrived&quot;,
+            &quot;attended_label&quot;: &quot;حاضر نشده&quot;,
+            &quot;appointment_type&quot;: &quot;online&quot;,
+            &quot;service_type&quot;: &quot;doctor&quot;,
+            &quot;is_cancelable&quot;: true,
+            &quot;is_editable&quot;: true,
+            &quot;arrival_time&quot;: null,
+            &quot;waiting_time&quot;: null
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
             <p>Example response (401):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;message&quot;: &quot;Unauthenticated.&quot;
@@ -544,7 +660,56 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>status</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="status"                data-endpoint="GETapi-appointments"
+               value="waiting"
+               data-component="query">
+    <br>
+<p>Filter by appointment status. Example: <code>waiting</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>attended</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="attended"                data-endpoint="GETapi-appointments"
+               value="arrived"
+               data-component="query">
+    <br>
+<p>Filter by attendance status. Example: <code>arrived</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date"                data-endpoint="GETapi-appointments"
+               value="2024-01-15"
+               data-component="query">
+    <br>
+<p>Filter by appointment date (Y-m-d format). Example: <code>2024-01-15</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="doctor_id"                data-endpoint="GETapi-appointments"
+               value="1"
+               data-component="query">
+    <br>
+<p>Filter by doctor ID. Example: <code>1</code></p>
+            </div>
+                </form>
 
                     <h2 id="appointments-POSTapi-appointments">Create a new appointment</h2>
 
@@ -552,7 +717,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Book a new appointment for a patient with a doctor at a specific time.</p>
 
 <span id="example-requests-POSTapi-appointments">
 <blockquote>Example request:</blockquote>
@@ -565,11 +730,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"doctor_id\": 17,
-    \"patient_id\": 17,
-    \"date\": \"2025-12-06\",
-    \"start_time\": \"(:05\",
-    \"appointment_type\": \"referral\",
+    \"doctor_id\": 1,
+    \"patient_id\": 5,
+    \"date\": \"2024-01-15\",
+    \"start_time\": \"09:00\",
+    \"appointment_type\": \"online\",
     \"service_type\": \"doctor\"
 }"
 </code></pre></div>
@@ -587,11 +752,11 @@ const headers = {
 };
 
 let body = {
-    "doctor_id": 17,
-    "patient_id": 17,
-    "date": "2025-12-06",
-    "start_time": "(:05",
-    "appointment_type": "referral",
+    "doctor_id": 1,
+    "patient_id": 5,
+    "date": "2024-01-15",
+    "start_time": "09:00",
+    "appointment_type": "online",
     "service_type": "doctor"
 };
 
@@ -604,7 +769,61 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-appointments">
-</span>
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Appointment booked successfully.&quot;,
+    &quot;appointment&quot;: {
+        &quot;id&quot;: 1,
+        &quot;doctor_id&quot;: 1,
+        &quot;patient_id&quot;: 5,
+        &quot;date&quot;: &quot;2024-01-15&quot;,
+        &quot;start_time&quot;: &quot;09:00&quot;,
+        &quot;status&quot;: &quot;waiting&quot;,
+        &quot;appointment_type&quot;: &quot;online&quot;,
+        &quot;service_type&quot;: &quot;doctor&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Cannot book appointment in the past.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (409):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Doctor already has an appointment at this time.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;doctor_id&quot;: [
+            &quot;The doctor id field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-appointments" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-appointments"></span>:
@@ -679,10 +898,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="doctor_id"                data-endpoint="POSTapi-appointments"
-               value="17"
+               value="1"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the doctors table. Example: <code>17</code></p>
+<p>The doctor's ID. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
@@ -691,10 +910,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="patient_id"                data-endpoint="POSTapi-appointments"
-               value="17"
+               value="5"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the patients table. Example: <code>17</code></p>
+<p>The patient's ID. Example: <code>5</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -703,10 +922,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-appointments"
-               value="2025-12-06"
+               value="2024-01-15"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
+<p>Appointment date in Y-m-d format. Example: <code>2024-01-15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
@@ -715,10 +934,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_time"                data-endpoint="POSTapi-appointments"
-               value="(:05"
+               value="09:00"
                data-component="body">
     <br>
-<p>Must match the regex /^(?:[01]\d. Example: <code>(:05</code></p>
+<p>Appointment start time in HH:MM format. Example: <code>09:00</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>appointment_type</code></b>&nbsp;&nbsp;
@@ -727,12 +946,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="POSTapi-appointments"
-               value="referral"
+               value="online"
                data-component="body">
     <br>
-<p>Example: <code>referral</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
+<p>Type of appointment. Example: <code>online</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>service_type</code></b>&nbsp;&nbsp;
@@ -744,9 +961,7 @@ Must be one of:
                value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
+<p>Type of service. Example: <code>doctor</code></p>
         </div>
         </form>
 
@@ -905,7 +1120,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get detailed information about a specific appointment by its ID.</p>
 
 <span id="example-requests-GETapi-appointments--id-">
 <blockquote>Example request:</blockquote>
@@ -913,7 +1128,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://kamandi-api.test/api/appointments/consequatur" \
+    --get "https://kamandi-api.test/api/appointments/1" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -921,7 +1136,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/appointments/consequatur"
+    "https://kamandi-api.test/api/appointments/1"
 );
 
 const headers = {
@@ -939,19 +1154,35 @@ fetch(url, {
 
 <span id="example-responses-GETapi-appointments--id-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;appointment&quot;: {
+        &quot;id&quot;: 1,
+        &quot;doctor_id&quot;: 1,
+        &quot;patient_id&quot;: 5,
+        &quot;date&quot;: &quot;2024-01-15&quot;,
+        &quot;start_time&quot;: &quot;09:00&quot;,
+        &quot;status&quot;: &quot;waiting&quot;,
+        &quot;attended_label&quot;: &quot;حاضر نشده&quot;,
+        &quot;is_cancelable&quot;: true,
+        &quot;is_editable&quot;: true,
+        &quot;can_mark_attended&quot;: true,
+        &quot;can_start_visit&quot;: false
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Appointment not found.&quot;
 }</code>
  </pre>
     </span>
@@ -1024,15 +1255,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="GETapi-appointments--id-"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-appointments--id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the appointment. Example: <code>consequatur</code></p>
+<p>The appointment ID. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -1057,7 +1288,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"start_time\": \"(:05\",
     \"appointment_type\": \"online\",
-    \"service_type\": \"doctor\",
+    \"service_type\": \"injection\",
     \"status\": \"canceled\"
 }"
 </code></pre></div>
@@ -1077,7 +1308,7 @@ const headers = {
 let body = {
     "start_time": "(:05",
     "appointment_type": "online",
-    "service_type": "doctor",
+    "service_type": "injection",
     "status": "canceled"
 };
 
@@ -1204,10 +1435,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="PUTapi-appointments--id-"
-               value="doctor"
+               value="injection"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
+<p>Example: <code>injection</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -1354,7 +1585,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Cancel an existing appointment with a reason. Different rules apply based on user role.</p>
 
 <span id="example-requests-POSTapi-appointments-cancel--id-">
 <blockquote>Example request:</blockquote>
@@ -1362,19 +1593,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://kamandi-api.test/api/appointments/cancel/consequatur" \
+    "https://kamandi-api.test/api/appointments/cancel/1" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"cancel_reason\": \"vmqeopfuudtdsufvyvddq\"
+    \"cancel_reason\": \"بیمار نمی‌تواند حاضر شود\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/appointments/cancel/consequatur"
+    "https://kamandi-api.test/api/appointments/cancel/1"
 );
 
 const headers = {
@@ -1384,7 +1615,7 @@ const headers = {
 };
 
 let body = {
-    "cancel_reason": "vmqeopfuudtdsufvyvddq"
+    "cancel_reason": "بیمار نمی‌تواند حاضر شود"
 };
 
 fetch(url, {
@@ -1396,7 +1627,59 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-appointments-cancel--id-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Appointment canceled successfully.&quot;,
+    &quot;appointment&quot;: {
+        &quot;id&quot;: 1,
+        &quot;status&quot;: &quot;canceled&quot;,
+        &quot;canceled_by&quot;: 1,
+        &quot;canceled_at&quot;: &quot;2024-01-15T10:30:00&quot;,
+        &quot;cancel_reason&quot;: &quot;بیمار نمی&zwnj;تواند حاضر شود&quot;
+    },
+    &quot;canceled_by_role&quot;: &quot;patient&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Patients can only cancel appointments at least 2 hours before the scheduled time.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Appointment not found.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;cancel_reason&quot;: [
+            &quot;The cancel reason field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-appointments-cancel--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-appointments-cancel--id-"></span>:
@@ -1466,15 +1749,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="POSTapi-appointments-cancel--id-"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="POSTapi-appointments-cancel--id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the cancel. Example: <code>consequatur</code></p>
+<p>The appointment ID to cancel. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1484,10 +1767,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="cancel_reason"                data-endpoint="POSTapi-appointments-cancel--id-"
-               value="vmqeopfuudtdsufvyvddq"
+               value="بیمار نمی‌تواند حاضر شود"
                data-component="body">
     <br>
-<p>Must be at least 3 characters. Must not be greater than 500 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+<p>Reason for cancellation (min 3, max 500 characters). Example: <code>بیمار نمی‌تواند حاضر شود</code></p>
         </div>
         </form>
 
@@ -1497,7 +1780,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Book a new appointment for a patient with a doctor at a specific time.</p>
 
 <span id="example-requests-POSTapi-patient-appointments">
 <blockquote>Example request:</blockquote>
@@ -1510,10 +1793,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"doctor_id\": 17,
-    \"patient_id\": 17,
-    \"date\": \"2025-12-06\",
-    \"start_time\": \"(:05\",
+    \"doctor_id\": 1,
+    \"patient_id\": 5,
+    \"date\": \"2024-01-15\",
+    \"start_time\": \"09:00\",
     \"appointment_type\": \"online\",
     \"service_type\": \"doctor\"
 }"
@@ -1532,10 +1815,10 @@ const headers = {
 };
 
 let body = {
-    "doctor_id": 17,
-    "patient_id": 17,
-    "date": "2025-12-06",
-    "start_time": "(:05",
+    "doctor_id": 1,
+    "patient_id": 5,
+    "date": "2024-01-15",
+    "start_time": "09:00",
     "appointment_type": "online",
     "service_type": "doctor"
 };
@@ -1549,7 +1832,61 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-patient-appointments">
-</span>
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Appointment booked successfully.&quot;,
+    &quot;appointment&quot;: {
+        &quot;id&quot;: 1,
+        &quot;doctor_id&quot;: 1,
+        &quot;patient_id&quot;: 5,
+        &quot;date&quot;: &quot;2024-01-15&quot;,
+        &quot;start_time&quot;: &quot;09:00&quot;,
+        &quot;status&quot;: &quot;waiting&quot;,
+        &quot;appointment_type&quot;: &quot;online&quot;,
+        &quot;service_type&quot;: &quot;doctor&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Cannot book appointment in the past.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (409):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Doctor already has an appointment at this time.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;doctor_id&quot;: [
+            &quot;The doctor id field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-patient-appointments" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-patient-appointments"></span>:
@@ -1624,10 +1961,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="doctor_id"                data-endpoint="POSTapi-patient-appointments"
-               value="17"
+               value="1"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the doctors table. Example: <code>17</code></p>
+<p>The doctor's ID. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
@@ -1636,10 +1973,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="patient_id"                data-endpoint="POSTapi-patient-appointments"
-               value="17"
+               value="5"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the patients table. Example: <code>17</code></p>
+<p>The patient's ID. Example: <code>5</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
@@ -1648,10 +1985,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-patient-appointments"
-               value="2025-12-06"
+               value="2024-01-15"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
+<p>Appointment date in Y-m-d format. Example: <code>2024-01-15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
@@ -1660,10 +1997,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_time"                data-endpoint="POSTapi-patient-appointments"
-               value="(:05"
+               value="09:00"
                data-component="body">
     <br>
-<p>Must match the regex /^(?:[01]\d. Example: <code>(:05</code></p>
+<p>Appointment start time in HH:MM format. Example: <code>09:00</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>appointment_type</code></b>&nbsp;&nbsp;
@@ -1675,9 +2012,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="online"
                data-component="body">
     <br>
-<p>Example: <code>online</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
+<p>Type of appointment. Example: <code>online</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>service_type</code></b>&nbsp;&nbsp;
@@ -1689,9 +2024,7 @@ Must be one of:
                value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
+<p>Type of service. Example: <code>doctor</code></p>
         </div>
         </form>
 
@@ -2001,7 +2334,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"start_time\": \"(:05\",
-    \"appointment_type\": \"referral\",
+    \"appointment_type\": \"phone\",
     \"service_type\": \"injection\",
     \"status\": \"visited\"
 }"
@@ -2021,7 +2354,7 @@ const headers = {
 
 let body = {
     "start_time": "(:05",
-    "appointment_type": "referral",
+    "appointment_type": "phone",
     "service_type": "injection",
     "status": "visited"
 };
@@ -2135,10 +2468,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="referral"
+               value="phone"
                data-component="body">
     <br>
-<p>Example: <code>referral</code></p>
+<p>Example: <code>phone</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -2303,7 +2636,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Mark a patient as arrived for their appointment. Only doctors, nurses, and admins can perform this action.</p>
 
 <span id="example-requests-POSTapi-appointments-mark-arrived--id-">
 <blockquote>Example request:</blockquote>
@@ -2311,19 +2644,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://kamandi-api.test/api/appointments/mark-arrived/consequatur" \
+    "https://kamandi-api.test/api/appointments/mark-arrived/1" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"attendance_notes\": \"vmqeopfuudtdsufvyvddq\"
+    \"attendance_notes\": \"بیمار با تاخیر حاضر شد\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/appointments/mark-arrived/consequatur"
+    "https://kamandi-api.test/api/appointments/mark-arrived/1"
 );
 
 const headers = {
@@ -2333,7 +2666,7 @@ const headers = {
 };
 
 let body = {
-    "attendance_notes": "vmqeopfuudtdsufvyvddq"
+    "attendance_notes": "بیمار با تاخیر حاضر شد"
 };
 
 fetch(url, {
@@ -2345,7 +2678,48 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-appointments-mark-arrived--id-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Patient marked as arrived successfully.&quot;,
+    &quot;appointment&quot;: {
+        &quot;id&quot;: 1,
+        &quot;attended&quot;: &quot;arrived&quot;,
+        &quot;arrival_time&quot;: &quot;2024-01-15T09:05:00&quot;,
+        &quot;attendance_notes&quot;: &quot;بیمار با تاخیر حاضر شد&quot;
+    },
+    &quot;marked_by&quot;: {
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;دکتر احمد محمدی&quot;,
+        &quot;role&quot;: &quot;doctor&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;You do not have permission to mark attendance.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Appointment not found.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-appointments-mark-arrived--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-appointments-mark-arrived--id-"></span>:
@@ -2415,15 +2789,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="POSTapi-appointments-mark-arrived--id-"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="POSTapi-appointments-mark-arrived--id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the mark arrived. Example: <code>consequatur</code></p>
+<p>The appointment ID. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2433,10 +2807,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="attendance_notes"                data-endpoint="POSTapi-appointments-mark-arrived--id-"
-               value="vmqeopfuudtdsufvyvddq"
+               value="بیمار با تاخیر حاضر شد"
                data-component="body">
     <br>
-<p>Must not be greater than 1000 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+<p>Optional notes about the patient's arrival. Example: <code>بیمار با تاخیر حاضر شد</code></p>
         </div>
         </form>
 
@@ -2446,7 +2820,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Start and complete the visit for an appointment. Only doctors and admins can perform this action.</p>
 
 <span id="example-requests-POSTapi-appointments-start-visit--id-">
 <blockquote>Example request:</blockquote>
@@ -2454,19 +2828,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://kamandi-api.test/api/appointments/start-visit/consequatur" \
+    "https://kamandi-api.test/api/appointments/start-visit/1" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"visit_notes\": \"vmqeopfuudtdsufvyvddq\"
+    \"visit_notes\": \"ویزیت عادی انجام شد\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/appointments/start-visit/consequatur"
+    "https://kamandi-api.test/api/appointments/start-visit/1"
 );
 
 const headers = {
@@ -2476,7 +2850,7 @@ const headers = {
 };
 
 let body = {
-    "visit_notes": "vmqeopfuudtdsufvyvddq"
+    "visit_notes": "ویزیت عادی انجام شد"
 };
 
 fetch(url, {
@@ -2488,7 +2862,45 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-appointments-start-visit--id-">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Visit completed successfully.&quot;,
+    &quot;appointment&quot;: {
+        &quot;id&quot;: 1,
+        &quot;attended&quot;: &quot;completed&quot;,
+        &quot;status&quot;: &quot;visited&quot;,
+        &quot;visit_start_time&quot;: &quot;2024-01-15T09:15:00&quot;,
+        &quot;waiting_time&quot;: 10
+    },
+    &quot;waiting_time_minutes&quot;: 10
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Only doctors can start visits.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Appointment not found.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-appointments-start-visit--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-appointments-start-visit--id-"></span>:
@@ -2558,15 +2970,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="id"                data-endpoint="POSTapi-appointments-start-visit--id-"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="POSTapi-appointments-start-visit--id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the start visit. Example: <code>consequatur</code></p>
+<p>The appointment ID. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -2576,10 +2988,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="visit_notes"                data-endpoint="POSTapi-appointments-start-visit--id-"
-               value="vmqeopfuudtdsufvyvddq"
+               value="ویزیت عادی انجام شد"
                data-component="body">
     <br>
-<p>Must not be greater than 2000 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+<p>Optional notes about the visit. Example: <code>ویزیت عادی انجام شد</code></p>
         </div>
         </form>
 
@@ -2736,12 +3148,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="authentication-GETapi-auth-captcha-generate">Captcha generate</h2>
+                                <h2 id="authentication-GETapi-auth-captcha-generate">Generate captcha image</h2>
 
 <p>
 </p>
 
-
+<p>Generate a new captcha image with unique ID for authentication purposes.</p>
 
 <span id="example-requests-GETapi-auth-captcha-generate">
 <blockquote>Example request:</blockquote>
@@ -2775,20 +3187,23 @@ fetch(url, {
             <blockquote>
             <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;captcha_id&quot;: &quot;bbe3581a-e24b-4899-b1ab-13ddf70463cd&quot;,
-    &quot;image&quot;: &quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAA8CAIAAAAL5NQ9AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAToklEQVR4nO1ceUBTx9Y/CYRAgBACJOyiyC5VcV9LRWzFfcGKtj6LtT67YgUXSgUtCgIuT9tq1aIWK7ZarFKsG69uiGBFUEHWgux72MlCkvfHjTeXm5uVEGm/7/fXLGfmzr2/nDNnzsyE1NbWBv+Pvw/ChV/u0fsKW0J+VUMZDOwpqkYSJ9uaNO4k4ebvWhqOFCXnW7TVFY4/+FtTWPxHDK4k3M0eSbzHsNK429DZcxULnA6LVbdPl0ALVcSOpWar2zPgKBTW5yOJ5Piw5PgwDbpTF3ldrRq3dX1ju+rCSY9vAcB3d4VI9taVAgXC6YmhCmr/Fb9NtvDWwb2qDwaLuOIsNP3Bgoka9EBSMBciLAaFxRPWlpVHOQ+P0uCRQxkIeX7BCa96IGpAEYUIFBMJAHlnm0av0txwDRHonryC1kZPJmvg/SinEIFSIgeIc/zmlQaW2JLC6Cj3iKhBehwW2iVvb/iVrXsCtNKVilCVQgSyRCYezAwOmRLx9YXoj5drf3SDj/TE0FdiNg9ubw+JMdNKV+pRiEC7Gtm87aJl7BKtdKUW/o7THiE0oRABjsjzidcCg99Ea39O7lkRRBv4+FRH9MFfI0IWI+kLN2KX+xP4jQj+MeQhkFCYH5brFT9Gg/aDOkfyU+4ZLJ2uxQ6HJnk7z4dHBu7RuLmGWnjm4v53lnyOpE88fWR89RwMprODRfGxZNcPgpSKpR865/fpSmlWffJOcB68bz65+GCNa4idBuPUGVSisPfhH0YT3lAqpkAjG6OqWVH2GoxPK3hVPotuoPlcKA+DvfxQC+mJoWybuFFz1Y4jRt7YutNfw4CLjqF9ChHII/Kbizs+WrJL64/jRmcbRvSLTul+2kvKzQGAd8f46OyJCLRD4Z7t7eFEq5xXopEIeXff+SLKwFw3T8SR11eYru/up5tHgxa18F42b/pEKmGVLonU8bT3qjQPi8EypLKQJVJUk0e2G62t/gfDciZceRYaMEq2fNs+jpdfObxq8pJPtQWtZeiOQslTB0Ej1SLv6a14b1+199FaRAkW5FDQktrtrxR87kgZSA9YqErhtoZfY9mL1eq6MC3dfR7xlKAxkT9vvbxi70I0q0ufRWc2s6ejpSjzNxJZf4z/amx5bmrbmAUMWXltauGTJ3dee22m6vIKiKzIynGapORj6WbaQ5gDnZBXnnc778aPlfmZYpFw6vKQCQs+UKWVvhZHoBZ/B07/viksHuQQKY+/7l6BsRElPTHUzJIxY5WN4kdUN+ZW1Gc3t/8l6Oul09guDr4jbKfiZJ42/+Rt+TZhc927Ko/Svq8p+hNJm1rYqthK13OhPKDnPGSVsry2fffJrKqGrurGzq4e3olFxf7rFClfQ2vR4+LzuaUXO7rrcFUj7V9f5X/M0MBUQXNdqh3+0dsXtNaWIenAiB9tXcaq0ko9LeT3CbgCfi+fxxPwuX2CXj6XKxDwBPxePo/bx+/l87gCPpIdZmmzZLxypWxt576o76hu7OQMf8eURnk3wFNWKclk0rUHL17mSJ4LonCd3Lj5LQDw+7obuvLrO5908evlPa60+vbX5wJG20pDrA6u4qpiEpKut5wMANbND152+wAV85/9odJ3URE9HS3CPoEp01q2itvdjqbplqoGZtWjcGLU+qqWBlUk/b0moBQeOV6xcb0ToVj4kXtpGeVo1oJhFCRjXdnMfptWVY2ddiwTbIm3z6xrWbtLqm6JxEJc/3pkCkXfiMvvQEtae8uc3DxdHHzREndHnM1UonwikejQZ1ssbKwNaTQzS+YwdzemDZvJZunpK/qYfXxeWc7NwozUF88yTMxZy8OT6Ja2AFCZk+foI1lZcbskFJLIesZmlnL76g/1KDTUV9UV7hNJv6Y8/gDAntXPpm0+eNvDiTnc1gxLJMtCbMUY09TWi8jUNXfjOqHoUYsq0/uV6Bt5DQ8Y67JsuO1UfT2Dspp7SVfX8vt6kNrHJb8gFOJsZl5z62hLptJX4zQ03k/FnzUl6+lZOzmOnjlt1oqlwzzccLVikejXfR/UFD5Esp0tdRdi1gR+ccaUaY3yx+d2i4QCJG3CZJPIqsZ11Yv/GhkYYrN6ZLIx1ZBpTLczt3Jm2TGN6WiV/6gJAMApV3TkMvW3/ziw++lTV69gQ8xNLr8PANITQ1kW4qCw+MYWkpFQelaxqrET14+F2XAHllR1rBgjw9c8WTHrsIuDb8yLGwDgbDd95piPUIG65mdJuTlJuTmlNaTSGhI65422ZO5J6MF1npt7HlfS2tAo+y4iobC2rPz3k2fC5i49vGlbd3sHtpZEJi8I+cbObTxa0tlc+0vM2m7MkWVup9QpUd2KgrruTGVzPZlMpuobUCkUmoGhvp4ettYv5tPcyhIAoOjp58eesTDBR01bUsMsFvTzVtIfVq7ddQ0nNmNY2zqfBuyC4aP49Mt3/kLSQXPc1oDpqE/6TfVZ+acv3ZMcKyUBacvqh2Ym/Ty6+tbCQ+dnIWkqbYSIeRgAds5TyV/AIfvazYQNnymWsRk+LPLcKSa73wG1Pj4v7fBnFU/uoCUMa6fAL5JodAsAaKzIT44MRMo9pi+es16yCSzm3SBR/QHg4oMLSyYTHFBSTwsdLa3tmSwrOoNuZIzjL6+yBOEPAOa+NlmWPwDA8QcADmwC5/DuC0aT/fp+Yhh7+zA7B8dfQVWCt/NCPbLEyItBnFt6Ea3dF3kUAFIL89GS8c5+O+eN1Yw/AGipk3oDVva232TciE45+8nBvVMXzCW//CZ15S9i39so4POxDfUNqAtCvnadJD3f1lZfkRIb3NvJAcxECABYZwfhDwAI+QMtHsjftj8STQdN9VexlQOL2L+POJpRUC69h2CPYbrPyCY5PuxWz060xNMhlGZo7uYojQQ9LpZYv8i0x6wlE394/KdRZxpSQjNkYo2qBuBgDKmpqZmVna2rz+gZi+eHHE7YdT6JRpcMtaKgMPXYSVxbsp7+3A8TvN+QrkRbakpS4tbxujt6uzhooQJDujM/FQDCGo8AwL597dkHkrVD4ZnncU9FklnE2ow523O8rExWvsQwXiq4nVwTjaSNDPXN6dL9DRcHSQCJJxCu332js4cPAMdju7FM1zR1BYXF+9IicbcGxroGoulGTvGOixeScnOGs7s9DIs4JWEFFVeRKjNjm+vZsU/KLovEIs1eFjsX2rqOwFa5+oxeH70DzV4+dpLP5cn2MGttJDby0lxZ+Mve4I6mGrSEbiWXwkivBQAQz9oIAJs3m03cFKQdCnkNHr0CyViDpviTibypSV6SiwqLPF8PsotA0umJoaYkqQFZNNN55ljJ6CsbOjcduAUA67cZ21lJvR5Bn6i+pRsAgsLig8LiUSJ/yrcAklSMyjtNaT5e9nh1yu3NDZwitLyuJf9R0blzN//9fWqgoI+r+L3iRPdlC1vrpYbUnI0/jj1tYYA5S3K2vaejM/f2XcKeaxkTpr8tvbnR9KIgM+UwmlXLndEOhSfvpqHpVVPmqNIkPTEUCXJ6YFzwuubuw5tn2VgYI9lrD14cTckDACyFAFDT1IWmCz1XFXquSo4P83h+nmE1Ay3vbn/0pOySUCRx00lAMqWx0fkSAMrrMq9kSq0xIbaQ8QE56K+FTBkKAcBjktQIFT7MIex5+exp4wKC/d7bCSAJLIgxyzATJlvxwLDQQow0q6zgea0kejJl5KgRLOXBPWyEGmckmWaGR7b5LduaKhSJASD29EMfN/ZEL2tzOpXTIVH02qauy2W1SBrxSpLsxADA/O+hNmP8s5h0Jx/XwAkeq01prF5e+5lrweV1mUjVw+dn/MZvNjFSdRGNoBXjzjCtCb41lteGymoFXY3yDaTS6FePbkFXhABAM7PU0zdQfTxaoPDkHakKvjPtTQWSQLQ9hHVVkDXfOHf2F8GTdp14AABCkfjDuPTrh5Y5sExRChNvF12MCAAAZHkHaGBlzKmE5KmtHRWIGMPEfpX/MXuW9HysEdVsxazD8WcnIXEckVhYUnVrrKsaVwl6u7u5PdK1o4UNQZwMuyrnduMXmji4THzTwMjkt0Of9PElVp3X08HndhsYyvwY5WCgFHK6Oy/nSMy9qSFtoY/ck7vy9vZM88VourpBYiHXL/J+9LwBib01tPa8tfVXCkW6hnFn0uVtI4x1WZb+aB+Sbu+sszJ3wQmYmdjas8ZWNkg2BFpe8o1D03OelQfBORKsCgKAOZvgSldXm3R2NzRWfqR9mPe0hZu+TdkbjGSFAn5J1lWv15cpbYig31yY8sNVFZuhOJt5ndcnMQKLx82k9Q/fIECnPcLtvVErpYaXJxA2vwykMd0Zpi+d1bqazuZ66fyXVVrz7hgfwp2EMS5L0bSYJDzxzbuyd137hFIvkUoxASIQ8gcyoRnCubClThpnN7NQHrEDgEPlBZYOrmj2+f3LqrRC0I/CpWveUiDaeehH2cLTd6XRwtVTCRwZBeQhwK3ud6T8GZn2ODLt8Z7F41N2z6e+VL4ebh8qI+olyevNwmy4I1vqTRiMIGG9VgB4Una5tvkpKuBsNx0AKg9L73x/H4YP4GGBXRTSLZiEoe268go0beVgBwAnGm7Kij3LT0bT8fOCPaYtQrM1RX92tvbbb8nZ+QgAThVzQAZqGFLTT1fjSu4U5pY1SlYzLmz7CSM8sLUqnoowpRlQKGSBQLJKm+tiu2CGM5JuKr8f89H0zw/exjVB7S0hfFwDUTtZUfeg8MJtJGh+fP+aVoOSdgq6bwWeTm/ZWo4CAMdPpHe+18Ur2k1swawoCFWwtaGxqboWzTp5ugPA++zZspKjvPpdK3CbMv/uTwkgFgMAiMXP712auHCD9KUixwHAWleCY5UDmguxjsxqjCOjInmRaY+RxAhbs6IXkt9X1Ut6knJzwNwWoCtojlvy9SJsQ8TeWjKMCLv1dl6YmhGBLCfEIC5iX32RlZFberHduAYr5sDyabzrC0rcLzywWii7KASAjMtX0LSBoaHnJIIoByGMGVYOnpOr8iXecuH9y1gKFUBzCps62tLyJCtfPTJ55aTZoCZ5aJRy7aNGlMKapi6cq8L3EuaVNGPjbQBQ19wtj0Ijqpn7MP/8csmnzCo4jRPQI1PMe0eOC9hfVnpclTdF8dd3B//My0OzFjIriu72jktHv0ez0xYGUI2IB0kIj2mLUAo5deWNFfksJy+lrTRf2idlXBWKJNbvTe9JVnSG0mkPBS7KjN1yyi6Tuipbzn0HAAYUvWPhs+nG/ZZKsltOWGCDbViY0ti+Yz8NDcr8/NP0iVRX3DSpFCM2hDDE0i+G08KOVk5M8MaOFsm+GIVqsOyTf6vYM4KR4/31DQwBwJhhNS5gnRFdpb86UaSFCd+mhX44D80mxsQFb9+CpEUi0am7Uovh1V09kPNkDX3S3TUxV/qN4lZuqN5+yT5m0TBr+oFNr6+LvgEAFH2ynZWJSCRdiiR+xQ3+sp8n7OboZ0Rl9PIk+2j6elRv54U+roHDbaeSSf1+tbKHBLA4uC8iZHM0mi19dhrrbT5Kv8Xj9ppbWZH19KpLyjJSr/R0SH9Y72wPZTmod6uNQjWaEbSFwXJ08JysYMv3SPiujXukkVgNjz9df5Yd9I1ka4JB0b9lGu6we4oG/SA206LHfEOMxGejGeoXnX+PULi4ksOkG8qznzhcurs9u+AHe9ZYH9fAUSPmGxsp/0UrPd3aGtPy4Yk3REL88Q5ZLN74/qqtm1QZ58ChIYWhZw9fe3iTSiYLTS0/mBGw0U/RZfnwC/f2LMcv+bETXnElZ8+pbAe2iaM1fZi16ZxJThoMCYf2rloSiUw3JoieKAaOyMz/HJvymWRXgdPYtGGir+LmDCvLtZHbps5X8hdSKiKs6nq8A8FSrfjpKVfvtUhaEwoHcoZa9ojfd3GxG7bIvRcvDwfuH900Vb2ZRi0QaqSAzy98mFP/opLT0FhTWs7j9rY1Nne0tPJ5PBOGmaObyzg/3ynz3jIwJA4LDBLUplDjOW8oXAJSF0Pquqs8KKGwuv2gvVkIktZY+f6O5DVfqbQMcETSWiTybnLrjCCVQm6qA09h3PlrWwLxy93/U+TJg1pE5v941Gv1INp5LJRoYXpi6JTymbSvFiqQGSRE5Xwd5fMxYdW55LKVQc7yGtZlcmymSAJRtSdbbN9TaXWlIhAiV9A36m0YoVRYYxSkHPdcul65HAAoplCtaa+n+neavXbcsKGPgZvWiz81LnlbC/+hB1gK68UR1iTJMlZn9/ZKRTkjyX9XMztEnB28FmqRvPzo614R0jVNa1EY003u2+74uX7XCvwaLrzk+h4XlU7iAAAcuBrp89rO11W90zVAJHLig83DYAgQKaVQK+QVXv/DfQ7xnwx13tluOhP/V8z/GOCIvJYc9maQjkiVUKj6tNfAK2RT3Qd5VK8eFxNSloQuVS7XH9rVyAtRlcujHJWKqb20F3xVRPkSf3NHu9jP2fW5+Q7lckMVKhK57eew2BVyZW4d6fLdSHwoBIehcstX64gSh0eRVPp7QW7iD4bBawb+RP6VBIOA0Lz07NF+E0GHc+SQo7As/wtnr91Iuuhpmpv3PAXCiRkFwdM8Vez5smjvQvJWDYZU91uszXy1o7gIdEDkq6SwYS+HvVVH/7ElDwe+Prvp41WEVU1/xFm9sUXFfrbkNceNlnukWF0if22NWMyMVi4HAENQC//BGCSN/B8dODBiZRmTNAAAAABJRU5ErkJggg==&quot;,
+    &quot;captcha_id&quot;: &quot;550e8400-e29b-41d4-a716-446655440000&quot;,
+    &quot;image&quot;: &quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAA...&quot;,
     &quot;expires_in&quot;: 120
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Failed to generate captcha&quot;
 }</code>
  </pre>
     </span>
@@ -2853,7 +3268,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-
+<p>Send an OTP verification code to user's mobile number for authentication.</p>
 
 <span id="example-requests-POSTapi-auth-send-otp">
 <blockquote>Example request:</blockquote>
@@ -2865,7 +3280,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"mobile\": \"09156277171\"
+    \"mobile\": \"09123456789\"
 }"
 </code></pre></div>
 
@@ -2881,7 +3296,7 @@ const headers = {
 };
 
 let body = {
-    "mobile": "09156277171"
+    "mobile": "09123456789"
 };
 
 fetch(url, {
@@ -2893,7 +3308,28 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-auth-send-otp">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;کد تأیید ارسال شد&quot;,
+    &quot;otp&quot;: 123456
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;mobile&quot;: [
+        &quot;The mobile field is required.&quot;
+    ]
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-auth-send-otp" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-auth-send-otp"></span>:
@@ -2956,10 +3392,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="mobile"                data-endpoint="POSTapi-auth-send-otp"
-               value="09156277171"
+               value="09123456789"
                data-component="body">
     <br>
-<p>Must match the regex /^09[0-9]{9}$/. Example: <code>09156277171</code></p>
+<p>Iranian mobile number (09xxxxxxxxx format). Example: <code>09123456789</code></p>
         </div>
         </form>
 
@@ -2968,7 +3404,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-
+<p>Verify the OTP code sent to user's mobile number and return authentication token.</p>
 
 <span id="example-requests-POSTapi-auth-verify-otp">
 <blockquote>Example request:</blockquote>
@@ -2980,8 +3416,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"mobile\": \"09156277171\",
-    \"otp\": \"810798\"
+    \"mobile\": \"09123456789\",
+    \"otp\": \"123456\"
 }"
 </code></pre></div>
 
@@ -2997,8 +3433,8 @@ const headers = {
 };
 
 let body = {
-    "mobile": "09156277171",
-    "otp": "810798"
+    "mobile": "09123456789",
+    "otp": "123456"
 };
 
 fetch(url, {
@@ -3010,7 +3446,55 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-auth-verify-otp">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;access_token&quot;: &quot;1|token_string_here&quot;,
+    &quot;token_type&quot;: &quot;Bearer&quot;,
+    &quot;user&quot;: {
+        &quot;id&quot;: 1,
+        &quot;first_name&quot;: &quot;احمد&quot;,
+        &quot;last_name&quot;: &quot;محمدی&quot;,
+        &quot;roll&quot;: &quot;patient&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Invalid verification code&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Verification code has expired&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;mobile&quot;: [
+        &quot;The mobile field is required.&quot;
+    ],
+    &quot;otp&quot;: [
+        &quot;The otp must be 6 digits.&quot;
+    ]
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-auth-verify-otp" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-auth-verify-otp"></span>:
@@ -3073,10 +3557,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="mobile"                data-endpoint="POSTapi-auth-verify-otp"
-               value="09156277171"
+               value="09123456789"
                data-component="body">
     <br>
-<p>Must match the regex /^09[0-9]{9}$/. Example: <code>09156277171</code></p>
+<p>Iranian mobile number (09xxxxxxxxx format). Example: <code>09123456789</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>otp</code></b>&nbsp;&nbsp;
@@ -3085,10 +3569,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="otp"                data-endpoint="POSTapi-auth-verify-otp"
-               value="810798"
+               value="123456"
                data-component="body">
     <br>
-<p>Must be 6 digits. Example: <code>810798</code></p>
+<p>6-digit OTP code. Example: <code>123456</code></p>
         </div>
         </form>
 
@@ -3097,7 +3581,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-
+<p>Authenticate a user with email/mobile and password, along with captcha verification.</p>
 
 <span id="example-requests-POSTapi-auth-login">
 <blockquote>Example request:</blockquote>
@@ -3109,10 +3593,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"mobile\": \"consequatur\",
-    \"password\": \"O[2UZ5ij-e\\/dl4m{o,\",
-    \"captcha_id\": \"consequatur\",
-    \"answer\": \"consequatur\"
+    \"mobile\": \"09123456789\",
+    \"password\": \"password123\",
+    \"captcha_id\": \"uuid-string\",
+    \"answer\": \"ABC12\"
 }"
 </code></pre></div>
 
@@ -3128,10 +3612,10 @@ const headers = {
 };
 
 let body = {
-    "mobile": "consequatur",
-    "password": "O[2UZ5ij-e\/dl4m{o,",
-    "captcha_id": "consequatur",
-    "answer": "consequatur"
+    "mobile": "09123456789",
+    "password": "password123",
+    "captcha_id": "uuid-string",
+    "answer": "ABC12"
 };
 
 fetch(url, {
@@ -3143,7 +3627,52 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-auth-login">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;access_token&quot;: &quot;1|token_string_here&quot;,
+    &quot;token_type&quot;: &quot;Bearer&quot;,
+    &quot;user&quot;: {
+        &quot;id&quot;: 1,
+        &quot;first_name&quot;: &quot;احمد&quot;,
+        &quot;last_name&quot;: &quot;محمدی&quot;,
+        &quot;roll&quot;: &quot;patient&quot;,
+        &quot;mobile&quot;: &quot;09123456789&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (400):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Captcha expired&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Invalid login credentials&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Invalid identifier format&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-auth-login" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-auth-login"></span>:
@@ -3206,10 +3735,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="mobile"                data-endpoint="POSTapi-auth-login"
-               value="consequatur"
+               value="09123456789"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Email or mobile number for authentication. Example: <code>09123456789</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -3218,10 +3747,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-auth-login"
-               value="O[2UZ5ij-e/dl4m{o,"
+               value="password123"
                data-component="body">
     <br>
-<p>ایمیل یا شماره موبایل. Example: <code>O[2UZ5ij-e/dl4m{o,</code></p>
+<p>User's password. Example: <code>password123</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>captcha_id</code></b>&nbsp;&nbsp;
@@ -3230,10 +3759,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="captcha_id"                data-endpoint="POSTapi-auth-login"
-               value="consequatur"
+               value="uuid-string"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Captcha ID received from captcha generation. Example: <code>uuid-string</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>answer</code></b>&nbsp;&nbsp;
@@ -3242,10 +3771,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="answer"                data-endpoint="POSTapi-auth-login"
-               value="consequatur"
+               value="ABC12"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Captcha answer. Example: <code>ABC12</code></p>
         </div>
         </form>
 
@@ -3473,13 +4002,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="currency-converter-POSTapi-currency-convert">Convert USD to IRT</h2>
+                                <h2 id="currency-converter-POSTapi-currency-convert">Convert USD to Iranian Toman (IRT)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Convert USD amount to Iranian Toman using live exchange rate from Nobitex API.</p>
 
 <span id="example-requests-POSTapi-currency-convert">
 <blockquote>Example request:</blockquote>
@@ -3492,7 +4021,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"amount\": 73
+    \"amount\": \"100\"
 }"
 </code></pre></div>
 
@@ -3509,7 +4038,7 @@ const headers = {
 };
 
 let body = {
-    "amount": 73
+    "amount": "100"
 };
 
 fetch(url, {
@@ -3521,7 +4050,52 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-currency-convert">
-</span>
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;data&quot;: {
+        &quot;usd_amount&quot;: 100,
+        &quot;usd_amount_formatted&quot;: &quot;100.00&quot;,
+        &quot;exchange_rate&quot;: 42000000,
+        &quot;exchange_rate_formatted&quot;: &quot;42,000,000&quot;,
+        &quot;irt_amount&quot;: 4200000000,
+        &quot;irt_amount_formatted&quot;: &quot;4,200,000,000&quot;,
+        &quot;currency&quot;: &quot;IRT&quot;,
+        &quot;source&quot;: &quot;Nobitex&quot;,
+        &quot;timestamp&quot;: &quot;2024-01-15T10:30:00Z&quot;,
+        &quot;last_update&quot;: &quot;2024-01-15 10:25:00&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;amount&quot;: [
+            &quot;The amount field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Failed to fetch exchange rate from Nobitex&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-currency-convert" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-currency-convert"></span>:
@@ -3591,15 +4165,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
-<small>number</small>&nbsp;
+<small>numeric</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="amount"                data-endpoint="POSTapi-currency-convert"
-               value="73"
+                <input type="text" style="display: none"
+                              name="amount"                data-endpoint="POSTapi-currency-convert"
+               value="100"
                data-component="body">
     <br>
-<p>Must be at least 0. Example: <code>73</code></p>
+<p>USD amount to convert (must be positive). Example: <code>100</code></p>
         </div>
         </form>
 
@@ -3613,7 +4187,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get all scheduled shifts for a specific doctor with calculated slot information.</p>
 
 <span id="example-requests-GETapi-shifts--doctor_id-">
 <blockquote>Example request:</blockquote>
@@ -3621,7 +4195,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://kamandi-api.test/api/shifts/consequatur" \
+    --get "https://kamandi-api.test/api/shifts/1" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -3629,7 +4203,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/shifts/consequatur"
+    "https://kamandi-api.test/api/shifts/1"
 );
 
 const headers = {
@@ -3647,19 +4221,32 @@ fetch(url, {
 
 <span id="example-responses-GETapi-shifts--doctor_id-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;shifts&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;day&quot;: 1,
+            &quot;start_time&quot;: &quot;09:00&quot;,
+            &quot;end_time&quot;: &quot;17:00&quot;,
+            &quot;duration&quot;: 30,
+            &quot;slots&quot;: 16
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Doctor not found.&quot;
 }</code>
  </pre>
     </span>
@@ -3732,15 +4319,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="doctor_id"                data-endpoint="GETapi-shifts--doctor_id-"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="doctor_id"                data-endpoint="GETapi-shifts--doctor_id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the doctor. Example: <code>consequatur</code></p>
+<p>Doctor's ID. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -3936,7 +4523,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get available appointment slots for a doctor on a specific date, excluding already booked slots.</p>
 
 <span id="example-requests-GETapi-shifts--id---day-">
 <blockquote>Example request:</blockquote>
@@ -3970,19 +4557,46 @@ fetch(url, {
 
 <span id="example-responses-GETapi-shifts--id---day-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;shifts&quot;: [
+        {
+            &quot;shift_id&quot;: 1,
+            &quot;start_time&quot;: &quot;09:00&quot;,
+            &quot;end_time&quot;: &quot;17:00&quot;,
+            &quot;duration&quot;: 30,
+            &quot;slots&quot;: [
+                &quot;09:00&quot;,
+                &quot;09:30&quot;,
+                &quot;10:00&quot;,
+                &quot;10:30&quot;
+            ]
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;No shifts found for this doctor on this date.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Invalid date format.&quot;
 }</code>
  </pre>
     </span>
@@ -4076,6 +4690,30 @@ You can check the Dev Tools console for debugging information.</code></pre>
                data-component="url">
     <br>
 <p>Example: <code>consequatur</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="doctor_id"                data-endpoint="GETapi-shifts--id---day-"
+               value="1"
+               data-component="url">
+    <br>
+<p>Doctor's ID. Example: <code>1</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date"                data-endpoint="GETapi-shifts--id---day-"
+               value="2024-01-15"
+               data-component="url">
+    <br>
+<p>Date in Y-m-d format. Example: <code>2024-01-15</code></p>
             </div>
                     </form>
 
@@ -4391,7 +5029,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get all scheduled shifts for a specific doctor with calculated slot information.</p>
 
 <span id="example-requests-GETapi-patient-shifts--doctor_id-">
 <blockquote>Example request:</blockquote>
@@ -4399,7 +5037,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://kamandi-api.test/api/patient/shifts/consequatur" \
+    --get "https://kamandi-api.test/api/patient/shifts/1" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4407,7 +5045,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/patient/shifts/consequatur"
+    "https://kamandi-api.test/api/patient/shifts/1"
 );
 
 const headers = {
@@ -4425,19 +5063,32 @@ fetch(url, {
 
 <span id="example-responses-GETapi-patient-shifts--doctor_id-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;shifts&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;day&quot;: 1,
+            &quot;start_time&quot;: &quot;09:00&quot;,
+            &quot;end_time&quot;: &quot;17:00&quot;,
+            &quot;duration&quot;: 30,
+            &quot;slots&quot;: 16
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Doctor not found.&quot;
 }</code>
  </pre>
     </span>
@@ -4510,15 +5161,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="doctor_id"                data-endpoint="GETapi-patient-shifts--doctor_id-"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="doctor_id"                data-endpoint="GETapi-patient-shifts--doctor_id-"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the doctor. Example: <code>consequatur</code></p>
+<p>Doctor's ID. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -4528,7 +5179,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get available appointment slots for a doctor on a specific date, excluding already booked slots.</p>
 
 <span id="example-requests-GETapi-patient-shifts--id---day-">
 <blockquote>Example request:</blockquote>
@@ -4562,19 +5213,46 @@ fetch(url, {
 
 <span id="example-responses-GETapi-patient-shifts--id---day-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;shifts&quot;: [
+        {
+            &quot;shift_id&quot;: 1,
+            &quot;start_time&quot;: &quot;09:00&quot;,
+            &quot;end_time&quot;: &quot;17:00&quot;,
+            &quot;duration&quot;: 30,
+            &quot;slots&quot;: [
+                &quot;09:00&quot;,
+                &quot;09:30&quot;,
+                &quot;10:00&quot;,
+                &quot;10:30&quot;
+            ]
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;No shifts found for this doctor on this date.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Invalid date format.&quot;
 }</code>
  </pre>
     </span>
@@ -4669,6 +5347,30 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>consequatur</code></p>
             </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="doctor_id"                data-endpoint="GETapi-patient-shifts--id---day-"
+               value="1"
+               data-component="url">
+    <br>
+<p>Doctor's ID. Example: <code>1</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date"                data-endpoint="GETapi-patient-shifts--id---day-"
+               value="2024-01-15"
+               data-component="url">
+    <br>
+<p>Date in Y-m-d format. Example: <code>2024-01-15</code></p>
+            </div>
                     </form>
 
                 <h1 id="doctors">Doctors</h1>
@@ -4681,7 +5383,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get a list of all doctors with their basic information and specialties.</p>
 
 <span id="example-requests-GETapi-doctors">
 <blockquote>Example request:</blockquote>
@@ -4715,16 +5417,27 @@ fetch(url, {
 
 <span id="example-responses-GETapi-doctors">
             <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;doctors&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;user_id&quot;: 5,
+            &quot;first_name&quot;: &quot;احمد&quot;,
+            &quot;last_name&quot;: &quot;محمدی&quot;,
+            &quot;specialty&quot;: &quot;قلب و عروق&quot;
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
             <p>Example response (401):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;message&quot;: &quot;Unauthenticated.&quot;
@@ -4805,7 +5518,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Create a new doctor record or update existing one. Changes user role to 'doctor'.</p>
 
 <span id="example-requests-POSTapi-doctors">
 <blockquote>Example request:</blockquote>
@@ -4818,9 +5531,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"user_id\": \"consequatur\",
-    \"specialty\": \"mqeopfuudtdsufvyvddqa\",
-    \"work_experience\": \"mniihfqcoynlazghdtqtq\"
+    \"user_id\": 5,
+    \"specialty\": \"قلب و عروق\",
+    \"code_nzam\": \"12345\",
+    \"work_experience\": \"10 سال تجربه کار\"
 }"
 </code></pre></div>
 
@@ -4837,9 +5551,10 @@ const headers = {
 };
 
 let body = {
-    "user_id": "consequatur",
-    "specialty": "mqeopfuudtdsufvyvddqa",
-    "work_experience": "mniihfqcoynlazghdtqtq"
+    "user_id": 5,
+    "specialty": "قلب و عروق",
+    "code_nzam": "12345",
+    "work_experience": "10 سال تجربه کار"
 };
 
 fetch(url, {
@@ -4851,7 +5566,40 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-doctors">
-</span>
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;User not found.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;code_nzam&quot;: [
+            &quot;The code nzam has already been taken.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-doctors" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-doctors"></span>:
@@ -4921,15 +5669,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="user_id"                data-endpoint="POSTapi-doctors"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="user_id"                data-endpoint="POSTapi-doctors"
+               value="5"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the users table. Example: <code>consequatur</code></p>
+<p>The user's ID to make doctor. Example: <code>5</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>specialty</code></b>&nbsp;&nbsp;
@@ -4938,22 +5686,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="specialty"                data-endpoint="POSTapi-doctors"
-               value="mqeopfuudtdsufvyvddqa"
+               value="قلب و عروق"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
+<p>Doctor's specialty. Example: <code>قلب و عروق</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>code_nzam</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="code_nzam"                data-endpoint="POSTapi-doctors"
-               value=""
+               value="12345"
                data-component="body">
     <br>
-
+<p>Medical council registration number (unique). Example: <code>12345</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>work_experience</code></b>&nbsp;&nbsp;
@@ -4962,10 +5710,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="work_experience"                data-endpoint="POSTapi-doctors"
-               value="mniihfqcoynlazghdtqtq"
+               value="10 سال تجربه کار"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>mniihfqcoynlazghdtqtq</code></p>
+<p>Doctor's work experience description. Example: <code>10 سال تجربه کار</code></p>
         </div>
         </form>
 
@@ -5454,7 +6202,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get a list of all doctors with their basic information and specialties.</p>
 
 <span id="example-requests-GETapi-patient-doctors">
 <blockquote>Example request:</blockquote>
@@ -5488,16 +6236,27 @@ fetch(url, {
 
 <span id="example-responses-GETapi-patient-doctors">
             <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;doctors&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;user_id&quot;: 5,
+            &quot;first_name&quot;: &quot;احمد&quot;,
+            &quot;last_name&quot;: &quot;محمدی&quot;,
+            &quot;specialty&quot;: &quot;قلب و عروق&quot;
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
             <p>Example response (401):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;message&quot;: &quot;Unauthenticated.&quot;
@@ -5709,11 +6468,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                <h1 id="endpoints">Endpoints</h1>
+                <h1 id="document-records">Document Records</h1>
 
     
 
-                                <h2 id="endpoints-POSTapi-prescriptions">POST api/prescriptions</h2>
+                                <h2 id="document-records-POSTapi-document-records">ذخیره پرونده اسناد</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -5721,83 +6480,81 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-POSTapi-prescriptions">
+<span id="example-requests-POSTapi-document-records">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "https://kamandi-api.test/api/prescriptions" \
+    "https://kamandi-api.test/api/document-records" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
+    --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --data "{
-    \"medical_record_id\": \"consequatur\",
-    \"medication_name\": \"consequatur\",
-    \"dosage\": \"consequatur\",
-    \"instructions\": \"consequatur\",
-    \"duration_days\": 45
-}"
-</code></pre></div>
+    --form "doctor_id=consequatur"\
+    --form "patient_id=consequatur"\
+    --form "title=consequatur"\
+    --form "case_date=2025-12-09"\
+    --form "notes=consequatur"\
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php1B7E.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/prescriptions"
+    "https://kamandi-api.test/api/document-records"
 );
 
 const headers = {
     "Authorization": "Bearer Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
 
-let body = {
-    "medical_record_id": "consequatur",
-    "medication_name": "consequatur",
-    "dosage": "consequatur",
-    "instructions": "consequatur",
-    "duration_days": 45
-};
+const body = new FormData();
+body.append('doctor_id', 'consequatur');
+body.append('patient_id', 'consequatur');
+body.append('title', 'consequatur');
+body.append('case_date', '2025-12-09');
+body.append('notes', 'consequatur');
+body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
 
 fetch(url, {
     method: "POST",
     headers,
-    body: JSON.stringify(body),
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-POSTapi-prescriptions">
+<span id="example-responses-POSTapi-document-records">
 </span>
-<span id="execution-results-POSTapi-prescriptions" hidden>
+<span id="execution-results-POSTapi-document-records" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-POSTapi-prescriptions"></span>:
+                id="execution-response-status-POSTapi-document-records"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-prescriptions"
+    <pre class="json"><code id="execution-response-content-POSTapi-document-records"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-POSTapi-prescriptions" hidden>
+<span id="execution-error-POSTapi-document-records" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-prescriptions">
+    <pre><code id="execution-error-message-POSTapi-document-records">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-POSTapi-prescriptions" data-method="POST"
-      data-path="api/prescriptions"
+<form id="form-POSTapi-document-records" data-method="POST"
+      data-path="api/document-records"
       data-authed="1"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-prescriptions', this);">
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-document-records', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-black">POST</small>
-            <b><code>api/prescriptions</code></b>
+            <b><code>api/document-records</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -5806,7 +6563,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-prescriptions"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-document-records"
                value="Bearer Bearer {YOUR_TOKEN}"
                data-component="header">
     <br>
@@ -5818,11 +6575,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="POSTapi-prescriptions"
-               value="application/json"
+                              name="Content-Type"                data-endpoint="POSTapi-document-records"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -5830,7 +6587,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="POSTapi-prescriptions"
+                              name="Accept"                data-endpoint="POSTapi-document-records"
                value="application/json"
                data-component="header">
     <br>
@@ -5838,80 +6595,82 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>medical_record_id</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="medical_record_id"                data-endpoint="POSTapi-prescriptions"
+                              name="doctor_id"                data-endpoint="POSTapi-document-records"
                value="consequatur"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the medical_records table. Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the doctors table. Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>visit_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="visit_id"                data-endpoint="POSTapi-prescriptions"
-               value=""
-               data-component="body">
-    <br>
-<p>The <code>id</code> of an existing record in the visits table.</p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>medication_name</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="medication_name"                data-endpoint="POSTapi-prescriptions"
+                              name="patient_id"                data-endpoint="POSTapi-document-records"
                value="consequatur"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>The <code>id</code> of an existing record in the patients table. Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>dosage</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="dosage"                data-endpoint="POSTapi-prescriptions"
+                              name="title"                data-endpoint="POSTapi-document-records"
                value="consequatur"
                data-component="body">
     <br>
 <p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>instructions</code></b>&nbsp;&nbsp;
+            <b style="line-height: 2;"><code>case_date</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="instructions"                data-endpoint="POSTapi-prescriptions"
+                              name="case_date"                data-endpoint="POSTapi-document-records"
+               value="2025-12-09"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="notes"                data-endpoint="POSTapi-document-records"
                value="consequatur"
                data-component="body">
     <br>
 <p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>duration_days</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
+            <b style="line-height: 2;"><code>files</code></b>&nbsp;&nbsp;
+<small>file[]</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
-                <input type="number" style="display: none"
-               step="any"               name="duration_days"                data-endpoint="POSTapi-prescriptions"
-               value="45"
+                <input type="file" style="display: none"
+                              name="files[0]"                data-endpoint="POSTapi-document-records"
+               data-component="body">
+        <input type="file" style="display: none"
+               name="files[1]"                data-endpoint="POSTapi-document-records"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>45</code></p>
+<p>Must be a file. Must not be greater than 20480 kilobytes.</p>
         </div>
         </form>
 
-                    <h2 id="endpoints-GETapi-prescriptions--record_id--">GET api/prescriptions/{record_id?}</h2>
+                    <h2 id="document-records-GETapi-document-records--doctor_id---patient_id-">دریافت پرونده‌های اسناد</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -5919,13 +6678,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-GETapi-prescriptions--record_id--">
+<span id="example-requests-GETapi-document-records--doctor_id---patient_id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://kamandi-api.test/api/prescriptions/consequatur" \
+    --get "https://kamandi-api.test/api/document-records/consequatur/consequatur" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -5933,7 +6692,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/prescriptions/consequatur"
+    "https://kamandi-api.test/api/document-records/consequatur/consequatur"
 );
 
 const headers = {
@@ -5949,7 +6708,7 @@ fetch(url, {
 
 </span>
 
-<span id="example-responses-GETapi-prescriptions--record_id--">
+<span id="example-responses-GETapi-document-records--doctor_id---patient_id-">
             <blockquote>
             <p>Example response (401):</p>
         </blockquote>
@@ -5967,34 +6726,34 @@ access-control-allow-origin: *
 }</code>
  </pre>
     </span>
-<span id="execution-results-GETapi-prescriptions--record_id--" hidden>
+<span id="execution-results-GETapi-document-records--doctor_id---patient_id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-prescriptions--record_id--"></span>:
+                id="execution-response-status-GETapi-document-records--doctor_id---patient_id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-prescriptions--record_id--"
+    <pre class="json"><code id="execution-response-content-GETapi-document-records--doctor_id---patient_id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-prescriptions--record_id--" hidden>
+<span id="execution-error-GETapi-document-records--doctor_id---patient_id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-prescriptions--record_id--">
+    <pre><code id="execution-error-message-GETapi-document-records--doctor_id---patient_id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-prescriptions--record_id--" data-method="GET"
-      data-path="api/prescriptions/{record_id?}"
+<form id="form-GETapi-document-records--doctor_id---patient_id-" data-method="GET"
+      data-path="api/document-records/{doctor_id}/{patient_id}"
       data-authed="1"
       data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-prescriptions--record_id--', this);">
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-document-records--doctor_id---patient_id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
             <small class="badge badge-green">GET</small>
-            <b><code>api/prescriptions/{record_id?}</code></b>
+            <b><code>api/document-records/{doctor_id}/{patient_id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -6003,7 +6762,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-prescriptions--record_id--"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-document-records--doctor_id---patient_id-"
                value="Bearer Bearer {YOUR_TOKEN}"
                data-component="header">
     <br>
@@ -6015,7 +6774,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-prescriptions--record_id--"
+                              name="Content-Type"                data-endpoint="GETapi-document-records--doctor_id---patient_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -6027,7 +6786,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-prescriptions--record_id--"
+                              name="Accept"                data-endpoint="GETapi-document-records--doctor_id---patient_id-"
                value="application/json"
                data-component="header">
     <br>
@@ -6035,20 +6794,32 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
                     <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>record_id</code></b>&nbsp;&nbsp;
+                <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
-<i>optional</i> &nbsp;
+ &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="record_id"                data-endpoint="GETapi-prescriptions--record_id--"
+                              name="doctor_id"                data-endpoint="GETapi-document-records--doctor_id---patient_id-"
                value="consequatur"
                data-component="url">
     <br>
-<p>The ID of the record. Example: <code>consequatur</code></p>
+<p>The ID of the doctor. Example: <code>consequatur</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="patient_id"                data-endpoint="GETapi-document-records--doctor_id---patient_id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the patient. Example: <code>consequatur</code></p>
             </div>
                     </form>
 
-                    <h2 id="endpoints-GETapi-prescriptions--id-">GET api/prescriptions/{id}</h2>
+                    <h2 id="document-records-PUTapi-document-records--id-">بروزرسانی پرونده اسناد</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6056,82 +6827,77 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 
 
-<span id="example-requests-GETapi-prescriptions--id-">
+<span id="example-requests-PUTapi-document-records--id-">
 <blockquote>Example request:</blockquote>
 
 
 <div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "https://kamandi-api.test/api/prescriptions/consequatur" \
+    <pre><code class="language-bash">curl --request PUT \
+    "https://kamandi-api.test/api/document-records/consequatur" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "title=consequatur"\
+    --form "case_date=2025-12-09"\
+    --form "notes=consequatur"\
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php1B8E.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "https://kamandi-api.test/api/prescriptions/consequatur"
+    "https://kamandi-api.test/api/document-records/consequatur"
 );
 
 const headers = {
     "Authorization": "Bearer Bearer {YOUR_TOKEN}",
-    "Content-Type": "application/json",
+    "Content-Type": "multipart/form-data",
     "Accept": "application/json",
 };
 
+const body = new FormData();
+body.append('title', 'consequatur');
+body.append('case_date', '2025-12-09');
+body.append('notes', 'consequatur');
+body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
+
 fetch(url, {
-    method: "GET",
+    method: "PUT",
     headers,
+    body,
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
 
-<span id="example-responses-GETapi-prescriptions--id-">
-            <blockquote>
-            <p>Example response (401):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-prescriptions--id-" hidden>
+<span id="example-responses-PUTapi-document-records--id-">
+</span>
+<span id="execution-results-PUTapi-document-records--id-" hidden>
     <blockquote>Received response<span
-                id="execution-response-status-GETapi-prescriptions--id-"></span>:
+                id="execution-response-status-PUTapi-document-records--id-"></span>:
     </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-prescriptions--id-"
+    <pre class="json"><code id="execution-response-content-PUTapi-document-records--id-"
       data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
 </span>
-<span id="execution-error-GETapi-prescriptions--id-" hidden>
+<span id="execution-error-PUTapi-document-records--id-" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-prescriptions--id-">
+    <pre><code id="execution-error-message-PUTapi-document-records--id-">
 
 Tip: Check that you&#039;re properly connected to the network.
 If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
 You can check the Dev Tools console for debugging information.</code></pre>
 </span>
-<form id="form-GETapi-prescriptions--id-" data-method="GET"
-      data-path="api/prescriptions/{id}"
+<form id="form-PUTapi-document-records--id-" data-method="PUT"
+      data-path="api/document-records/{id}"
       data-authed="1"
-      data-hasfiles="0"
+      data-hasfiles="1"
       data-isarraybody="0"
       autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-prescriptions--id-', this);">
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-document-records--id-', this);">
     <h3>
         Request&nbsp;&nbsp;&nbsp;
             </h3>
             <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/prescriptions/{id}</code></b>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/document-records/{id}</code></b>
         </p>
                 <h4 class="fancy-heading-panel"><b>Headers</b></h4>
                                 <div style="padding-left: 28px; clear: unset;">
@@ -6140,7 +6906,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Authorization" class="auth-value"               data-endpoint="GETapi-prescriptions--id-"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-document-records--id-"
                value="Bearer Bearer {YOUR_TOKEN}"
                data-component="header">
     <br>
@@ -6152,11 +6918,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Content-Type"                data-endpoint="GETapi-prescriptions--id-"
-               value="application/json"
+                              name="Content-Type"                data-endpoint="PUTapi-document-records--id-"
+               value="multipart/form-data"
                data-component="header">
     <br>
-<p>Example: <code>application/json</code></p>
+<p>Example: <code>multipart/form-data</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -6164,7 +6930,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="Accept"                data-endpoint="GETapi-prescriptions--id-"
+                              name="Accept"                data-endpoint="PUTapi-document-records--id-"
                value="application/json"
                data-component="header">
     <br>
@@ -6177,15 +6943,191 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
-                              name="id"                data-endpoint="GETapi-prescriptions--id-"
+                              name="id"                data-endpoint="PUTapi-document-records--id-"
                value="consequatur"
                data-component="url">
     <br>
-<p>The ID of the prescription. Example: <code>consequatur</code></p>
+<p>The ID of the document record. Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="PUTapi-document-records--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>case_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="case_date"                data-endpoint="PUTapi-document-records--id-"
+               value="2025-12-09"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="notes"                data-endpoint="PUTapi-document-records--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>files</code></b>&nbsp;&nbsp;
+<small>file[]</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="files[0]"                data-endpoint="PUTapi-document-records--id-"
+               data-component="body">
+        <input type="file" style="display: none"
+               name="files[1]"                data-endpoint="PUTapi-document-records--id-"
+               data-component="body">
+    <br>
+<p>Must be a file. Must not be greater than 20480 kilobytes.</p>
+        </div>
+        </form>
+
+                    <h2 id="document-records-DELETEapi-document-records--id-">حذف پرونده اسناد</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-document-records--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "https://kamandi-api.test/api/document-records/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/document-records/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-document-records--id-">
+</span>
+<span id="execution-results-DELETEapi-document-records--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-document-records--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-document-records--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-document-records--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-document-records--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-document-records--id-" data-method="DELETE"
+      data-path="api/document-records/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-document-records--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/document-records/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-document-records--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-document-records--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-document-records--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEapi-document-records--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the document record. Example: <code>consequatur</code></p>
             </div>
                     </form>
 
-                    <h2 id="endpoints-PUTapi-prescriptions--id-">PUT api/prescriptions/{id}</h2>
+                <h1 id="endpoints">Endpoints</h1>
+
+    
+
+                                <h2 id="endpoints-PUTapi-prescriptions--id-">PUT api/prescriptions/{id}</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6491,11 +7433,1040 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                <h1 id="handwritten-records">Handwritten Records</h1>
+
+    
+
+                                <h2 id="handwritten-records-POSTapi-handwritten-records">ذخیره پرونده دست‌نویس</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Create a new handwritten medical record with image/PDF files for a patient.</p>
+
+<span id="example-requests-POSTapi-handwritten-records">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://kamandi-api.test/api/handwritten-records" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "doctor_id=1"\
+    --form "patient_id=5"\
+    --form "title=نسخه دست‌نویس"\
+    --form "case_date=2024-01-15"\
+    --form "notes=نسخه توسط دکتر نوشته شده"\
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php1B6C.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/handwritten-records"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('doctor_id', '1');
+body.append('patient_id', '5');
+body.append('title', 'نسخه دست‌نویس');
+body.append('case_date', '2024-01-15');
+body.append('notes', 'نسخه توسط دکتر نوشته شده');
+body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-handwritten-records">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;handwritten_record&quot;: {
+        &quot;id&quot;: 1,
+        &quot;doctor_id&quot;: 1,
+        &quot;patient_id&quot;: 5,
+        &quot;title&quot;: &quot;نسخه دست&zwnj;نویس&quot;,
+        &quot;case_medical_type_id&quot;: 2,
+        &quot;case_date&quot;: &quot;2024-01-15&quot;,
+        &quot;notes&quot;: &quot;نسخه توسط دکتر نوشته شده&quot;,
+        &quot;files&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;file_path&quot;: &quot;case_medicals/prescription.jpg&quot;,
+                &quot;file_name&quot;: &quot;prescription_handwritten.jpg&quot;,
+                &quot;format&quot;: &quot;jpg&quot;,
+                &quot;size&quot;: 2048000
+            }
+        ]
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;دسترسی به این بیمار ندارید&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;خطا در ایجاد پرونده دست&zwnj;نویس&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-handwritten-records" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-handwritten-records"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-handwritten-records"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-handwritten-records" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-handwritten-records">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-handwritten-records" data-method="POST"
+      data-path="api/handwritten-records"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-handwritten-records', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/handwritten-records</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-handwritten-records"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-handwritten-records"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-handwritten-records"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="doctor_id"                data-endpoint="POSTapi-handwritten-records"
+               value="1"
+               data-component="body">
+    <br>
+<p>The doctor's ID. Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="patient_id"                data-endpoint="POSTapi-handwritten-records"
+               value="5"
+               data-component="body">
+    <br>
+<p>The patient's ID. Example: <code>5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="POSTapi-handwritten-records"
+               value="نسخه دست‌نویس"
+               data-component="body">
+    <br>
+<p>Title of the handwritten record. Example: <code>نسخه دست‌نویس</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>case_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="case_date"                data-endpoint="POSTapi-handwritten-records"
+               value="2024-01-15"
+               data-component="body">
+    <br>
+<p>Date of the record (Y-m-d format). Example: <code>2024-01-15</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="notes"                data-endpoint="POSTapi-handwritten-records"
+               value="نسخه توسط دکتر نوشته شده"
+               data-component="body">
+    <br>
+<p>Optional notes about the record. Example: <code>نسخه توسط دکتر نوشته شده</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>files</code></b>&nbsp;&nbsp;
+<small>file[]</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="files[0]"                data-endpoint="POSTapi-handwritten-records"
+               data-component="body">
+        <input type="file" style="display: none"
+               name="files[1]"                data-endpoint="POSTapi-handwritten-records"
+               data-component="body">
+    <br>
+<p>Optional handwritten files (jpg,png,pdf - max 20MB each).</p>
+        </div>
+        </form>
+
+                    <h2 id="handwritten-records-GETapi-handwritten-records--doctor_id---patient_id-">دریافت پرونده‌های دست‌نویس</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-handwritten-records--doctor_id---patient_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/handwritten-records/consequatur/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/handwritten-records/consequatur/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-handwritten-records--doctor_id---patient_id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-handwritten-records--doctor_id---patient_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-handwritten-records--doctor_id---patient_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-handwritten-records--doctor_id---patient_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-handwritten-records--doctor_id---patient_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-handwritten-records--doctor_id---patient_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-handwritten-records--doctor_id---patient_id-" data-method="GET"
+      data-path="api/handwritten-records/{doctor_id}/{patient_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-handwritten-records--doctor_id---patient_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/handwritten-records/{doctor_id}/{patient_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-handwritten-records--doctor_id---patient_id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-handwritten-records--doctor_id---patient_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-handwritten-records--doctor_id---patient_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="doctor_id"                data-endpoint="GETapi-handwritten-records--doctor_id---patient_id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the doctor. Example: <code>consequatur</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="patient_id"                data-endpoint="GETapi-handwritten-records--doctor_id---patient_id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the patient. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="handwritten-records-PUTapi-handwritten-records--id-">بروزرسانی پرونده دست‌نویس</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-handwritten-records--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "https://kamandi-api.test/api/handwritten-records/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "title=consequatur"\
+    --form "case_date=2025-12-09"\
+    --form "notes=consequatur"\
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php1B6D.tmp" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/handwritten-records/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('title', 'consequatur');
+body.append('case_date', '2025-12-09');
+body.append('notes', 'consequatur');
+body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-handwritten-records--id-">
+</span>
+<span id="execution-results-PUTapi-handwritten-records--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-handwritten-records--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-handwritten-records--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-handwritten-records--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-handwritten-records--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-handwritten-records--id-" data-method="PUT"
+      data-path="api/handwritten-records/{id}"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-handwritten-records--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/handwritten-records/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-handwritten-records--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-handwritten-records--id-"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-handwritten-records--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-handwritten-records--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the handwritten record. Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="PUTapi-handwritten-records--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>case_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="case_date"                data-endpoint="PUTapi-handwritten-records--id-"
+               value="2025-12-09"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="notes"                data-endpoint="PUTapi-handwritten-records--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>files</code></b>&nbsp;&nbsp;
+<small>file[]</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="file" style="display: none"
+                              name="files[0]"                data-endpoint="PUTapi-handwritten-records--id-"
+               data-component="body">
+        <input type="file" style="display: none"
+               name="files[1]"                data-endpoint="PUTapi-handwritten-records--id-"
+               data-component="body">
+    <br>
+<p>Must be a file. Must not be greater than 20480 kilobytes.</p>
+        </div>
+        </form>
+
+                    <h2 id="handwritten-records-DELETEapi-handwritten-records--id-">حذف پرونده دست‌نویس</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-handwritten-records--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "https://kamandi-api.test/api/handwritten-records/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/handwritten-records/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-handwritten-records--id-">
+</span>
+<span id="execution-results-DELETEapi-handwritten-records--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-handwritten-records--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-handwritten-records--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-handwritten-records--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-handwritten-records--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-handwritten-records--id-" data-method="DELETE"
+      data-path="api/handwritten-records/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-handwritten-records--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/handwritten-records/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-handwritten-records--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-handwritten-records--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-handwritten-records--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEapi-handwritten-records--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the handwritten record. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
                 <h1 id="medical-cases">Medical Cases</h1>
 
     
 
-                                <h2 id="medical-cases-GETapi-medicaldocument-filter">Filter medical cases by doctor, patient and type</h2>
+                                <h2 id="medical-cases-GETapi-medicaldocument-search">Search in medical cases</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Search through medical cases by keywords in title, notes, diagnosis, symptoms, and visit reason.
+Supports additional filters for advanced search capabilities.</p>
+
+<span id="example-requests-GETapi-medicaldocument-search">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/medicaldocument/search?q=%D8%B3%D8%B1%D8%AF%D8%B1%D8%AF&amp;doctor_id=1&amp;patient_id=5&amp;case_medical_type_id=2&amp;date_from=2024-01-01&amp;date_to=2024-12-31" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"q\": \"vmqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur\",
+    \"date_from\": \"2025-12-09\",
+    \"date_to\": \"2025-12-09\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/medicaldocument/search"
+);
+
+const params = {
+    "q": "سردرد",
+    "doctor_id": "1",
+    "patient_id": "5",
+    "case_medical_type_id": "2",
+    "date_from": "2024-01-01",
+    "date_to": "2024-12-31",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "q": "vmqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur",
+    "date_from": "2025-12-09",
+    "date_to": "2025-12-09"
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-medicaldocument-search">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+  &quot;status&quot;: &quot;success&quot;,
+  &quot;search_term&quot;: &quot;سردرد&quot;,
+  &quot;count&quot;: 3,
+  &quot;documents&quot;: [
+    {
+      &quot;id&quot;: 1,
+      &quot;title&quot;: &quot;شکایت از سردرد&quot;,
+      &quot;case_date&quot;: &quot;2024-01-15&quot;,
+      &quot;notes&quot;: &quot;بیمار از سردرد شدید شکایت دارد&quot;,
+      &quot;highlighted_fields&quot;: [&quot;title&quot;, &quot;notes&quot;],
+      &quot;match_count&quot;: 2,
+      &quot;doctor&quot;: {...},
+      &quot;patient&quot;: {...},
+      &quot;visit&quot;: {...}
+    }
+  ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;You do not have permission to access this patient&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;q&quot;: [
+            &quot;The q field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-medicaldocument-search" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-medicaldocument-search"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-medicaldocument-search"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-medicaldocument-search" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-medicaldocument-search">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-medicaldocument-search" data-method="GET"
+      data-path="api/medicaldocument/search"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-medicaldocument-search', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/medicaldocument/search</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-medicaldocument-search"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-medicaldocument-search"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-medicaldocument-search"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>q</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="q"                data-endpoint="GETapi-medicaldocument-search"
+               value="سردرد"
+               data-component="query">
+    <br>
+<p>Search keyword (minimum 2 characters). Example: <code>سردرد</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="doctor_id"                data-endpoint="GETapi-medicaldocument-search"
+               value="1"
+               data-component="query">
+    <br>
+<p>Filter by doctor ID. Example: <code>1</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="patient_id"                data-endpoint="GETapi-medicaldocument-search"
+               value="5"
+               data-component="query">
+    <br>
+<p>Filter by patient ID. Example: <code>5</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>case_medical_type_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="case_medical_type_id"                data-endpoint="GETapi-medicaldocument-search"
+               value="2"
+               data-component="query">
+    <br>
+<p>Filter by case type. Example: <code>2</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>date_from</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date_from"                data-endpoint="GETapi-medicaldocument-search"
+               value="2024-01-01"
+               data-component="query">
+    <br>
+<p>Filter from date (Y-m-d format). Example: <code>2024-01-01</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>date_to</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date_to"                data-endpoint="GETapi-medicaldocument-search"
+               value="2024-12-31"
+               data-component="query">
+    <br>
+<p>Filter to date (Y-m-d format). Example: <code>2024-12-31</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>q</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="q"                data-endpoint="GETapi-medicaldocument-search"
+               value="vmqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur"
+               data-component="body">
+    <br>
+<p>Must be at least 2 characters. Example: <code>vmqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="doctor_id"                data-endpoint="GETapi-medicaldocument-search"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the doctors table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="patient_id"                data-endpoint="GETapi-medicaldocument-search"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the patients table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>case_medical_type_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="case_medical_type_id"                data-endpoint="GETapi-medicaldocument-search"
+               value=""
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the case_medical_types table.</p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>date_from</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date_from"                data-endpoint="GETapi-medicaldocument-search"
+               value="2025-12-09"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>date_to</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date_to"                data-endpoint="GETapi-medicaldocument-search"
+               value="2025-12-09"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+        </form>
+
+                    <h2 id="medical-cases-GETapi-medicaldocument-filter">Filter medical cases by doctor, patient and type</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6685,7 +8656,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Create a new medical case record with optional file attachments for a patient.</p>
 
 <span id="example-requests-POSTapi-medicaldocument">
 <blockquote>Example request:</blockquote>
@@ -6697,13 +8668,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "doctor_id=consequatur"\
-    --form "patient_id=consequatur"\
-    --form "title=consequatur"\
-    --form "case_medical_type_id=consequatur"\
-    --form "case_date=2025-12-06"\
-    --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php1EF1.tmp" </code></pre></div>
+    --form "doctor_id=1"\
+    --form "patient_id=5"\
+    --form "title=آزمایش خون"\
+    --form "case_medical_type_id=2"\
+    --form "case_date=2024-01-15"\
+    --form "notes=بیمار نیاز به پیگیری دارد"\
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php1B3A.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -6718,12 +8689,12 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('doctor_id', 'consequatur');
-body.append('patient_id', 'consequatur');
-body.append('title', 'consequatur');
-body.append('case_medical_type_id', 'consequatur');
-body.append('case_date', '2025-12-06');
-body.append('notes', 'consequatur');
+body.append('doctor_id', '1');
+body.append('patient_id', '5');
+body.append('title', 'آزمایش خون');
+body.append('case_medical_type_id', '2');
+body.append('case_date', '2024-01-15');
+body.append('notes', 'بیمار نیاز به پیگیری دارد');
 body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
 
 fetch(url, {
@@ -6735,7 +8706,58 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-medicaldocument">
-</span>
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;document&quot;: {
+        &quot;id&quot;: 1,
+        &quot;doctor_id&quot;: 1,
+        &quot;patient_id&quot;: 5,
+        &quot;title&quot;: &quot;آزمایش خون&quot;,
+        &quot;case_medical_type_id&quot;: 2,
+        &quot;case_date&quot;: &quot;2024-01-15&quot;,
+        &quot;notes&quot;: &quot;بیمار نیاز به پیگیری دارد&quot;,
+        &quot;files&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;file_path&quot;: &quot;case_medicals/file1.jpg&quot;,
+                &quot;file_name&quot;: &quot;test_result.jpg&quot;,
+                &quot;format&quot;: &quot;jpg&quot;,
+                &quot;size&quot;: 1024000
+            }
+        ]
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;You do not have permission to upload documents for this patient&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;title&quot;: [
+            &quot;The title field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-medicaldocument" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-medicaldocument"></span>:
@@ -6805,27 +8827,27 @@ You can check the Dev Tools console for debugging information.</code></pre>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="doctor_id"                data-endpoint="POSTapi-medicaldocument"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="doctor_id"                data-endpoint="POSTapi-medicaldocument"
+               value="1"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the doctors table. Example: <code>consequatur</code></p>
+<p>The doctor's ID. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="patient_id"                data-endpoint="POSTapi-medicaldocument"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="patient_id"                data-endpoint="POSTapi-medicaldocument"
+               value="5"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the patients table. Example: <code>consequatur</code></p>
+<p>The patient's ID. Example: <code>5</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
@@ -6834,22 +8856,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-medicaldocument"
-               value="consequatur"
+               value="آزمایش خون"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Title of the medical case. Example: <code>آزمایش خون</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>case_medical_type_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="case_medical_type_id"                data-endpoint="POSTapi-medicaldocument"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="case_medical_type_id"                data-endpoint="POSTapi-medicaldocument"
+               value="2"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the case_medical_types table. Example: <code>consequatur</code></p>
+<p>Type of medical case. Example: <code>2</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>case_date</code></b>&nbsp;&nbsp;
@@ -6858,10 +8880,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="POSTapi-medicaldocument"
-               value="2025-12-06"
+               value="2024-01-15"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
+<p>Date of the case (Y-m-d format). Example: <code>2024-01-15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -6870,10 +8892,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="notes"                data-endpoint="POSTapi-medicaldocument"
-               value="consequatur"
+               value="بیمار نیاز به پیگیری دارد"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Optional notes about the case. Example: <code>بیمار نیاز به پیگیری دارد</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>files</code></b>&nbsp;&nbsp;
@@ -6887,7 +8909,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                name="files[1]"                data-endpoint="POSTapi-medicaldocument"
                data-component="body">
     <br>
-<p>Must be a file. Must not be greater than 20480 kilobytes.</p>
+<p>Optional files (jpg,png,pdf,doc,docx - max 20MB each).</p>
         </div>
         </form>
 
@@ -7059,9 +9081,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "title=consequatur"\
-    --form "case_date=2025-12-06"\
+    --form "case_date=2025-12-09"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php1F5F.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\php1B3B.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -7077,7 +9099,7 @@ const headers = {
 
 const body = new FormData();
 body.append('title', 'consequatur');
-body.append('case_date', '2025-12-06');
+body.append('case_date', '2025-12-09');
 body.append('notes', 'consequatur');
 body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
 
@@ -7202,10 +9224,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="PUTapi-medicaldocument--id-"
-               value="2025-12-06"
+               value="2025-12-09"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -7608,7 +9630,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Create a comprehensive visit record with case medical information and visit details.</p>
 
 <span id="example-requests-POSTapi-visits">
 <blockquote>Example request:</blockquote>
@@ -7621,12 +9643,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"doctor_id\": \"consequatur\",
-    \"patient_id\": \"consequatur\",
-    \"visit_date\": \"2025-12-06\",
-    \"notes\": \"consequatur\",
-    \"diagnosis\": \"consequatur\",
-    \"follow_up_date\": \"2025-12-06\"
+    \"doctor_id\": 1,
+    \"patient_id\": 5,
+    \"visit_date\": \"2024-01-15\",
+    \"notes\": \"ویزیت عمومی\",
+    \"diagnosis\": \"سرماخوردگی عادی\",
+    \"follow_up_date\": \"2024-01-22\",
+    \"visit_reason\": \"شکایت از تب و سردرد\",
+    \"symptoms\": \"تب، سردرد، گلودرد\",
+    \"prescribed_medications\": \"پاراستامول، ویتامین C\"
 }"
 </code></pre></div>
 
@@ -7643,12 +9668,15 @@ const headers = {
 };
 
 let body = {
-    "doctor_id": "consequatur",
-    "patient_id": "consequatur",
-    "visit_date": "2025-12-06",
-    "notes": "consequatur",
-    "diagnosis": "consequatur",
-    "follow_up_date": "2025-12-06"
+    "doctor_id": 1,
+    "patient_id": 5,
+    "visit_date": "2024-01-15",
+    "notes": "ویزیت عمومی",
+    "diagnosis": "سرماخوردگی عادی",
+    "follow_up_date": "2024-01-22",
+    "visit_reason": "شکایت از تب و سردرد",
+    "symptoms": "تب، سردرد، گلودرد",
+    "prescribed_medications": "پاراستامول، ویتامین C"
 };
 
 fetch(url, {
@@ -7660,7 +9688,52 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-visits">
-</span>
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Visit created successfully&quot;,
+    &quot;case_medical&quot;: {
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;گزارش ویزیت - 2024-01-15&quot;,
+        &quot;case_medical_type_id&quot;: 3,
+        &quot;case_date&quot;: &quot;2024-01-15&quot;,
+        &quot;visit&quot;: {
+            &quot;diagnosis&quot;: &quot;سرماخوردگی عادی&quot;,
+            &quot;symptoms&quot;: &quot;تب، سردرد، گلودرد&quot;,
+            &quot;prescribed_medications&quot;: &quot;پاراستامول، ویتامین C&quot;
+        }
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;You do not have permission to create visit for this patient&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;doctor_id&quot;: [
+            &quot;The doctor id field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-visits" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-visits"></span>:
@@ -7730,39 +9803,39 @@ You can check the Dev Tools console for debugging information.</code></pre>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="doctor_id"                data-endpoint="POSTapi-visits"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="doctor_id"                data-endpoint="POSTapi-visits"
+               value="1"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the doctors table. Example: <code>consequatur</code></p>
+<p>Doctor's ID. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="patient_id"                data-endpoint="POSTapi-visits"
-               value="consequatur"
+                <input type="number" style="display: none"
+               step="any"               name="patient_id"                data-endpoint="POSTapi-visits"
+               value="5"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the patients table. Example: <code>consequatur</code></p>
+<p>Patient's ID. Example: <code>5</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>visit_date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>date</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="visit_date"                data-endpoint="POSTapi-visits"
-               value="2025-12-06"
+               value="2024-01-15"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
+<p>Visit date (Y-m-d format). Example: <code>2024-01-15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -7771,10 +9844,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="notes"                data-endpoint="POSTapi-visits"
-               value="consequatur"
+               value="ویزیت عمومی"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>General notes about the visit. Example: <code>ویزیت عمومی</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>diagnosis</code></b>&nbsp;&nbsp;
@@ -7783,22 +9856,58 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="diagnosis"                data-endpoint="POSTapi-visits"
-               value="consequatur"
+               value="سرماخوردگی عادی"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>Medical diagnosis. Example: <code>سرماخوردگی عادی</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>follow_up_date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>date</small>&nbsp;
 <i>optional</i> &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="follow_up_date"                data-endpoint="POSTapi-visits"
-               value="2025-12-06"
+               value="2024-01-22"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
+<p>Follow-up appointment date. Example: <code>2024-01-22</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>visit_reason</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="visit_reason"                data-endpoint="POSTapi-visits"
+               value="شکایت از تب و سردرد"
+               data-component="body">
+    <br>
+<p>Reason for visit. Example: <code>شکایت از تب و سردرد</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>symptoms</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="symptoms"                data-endpoint="POSTapi-visits"
+               value="تب، سردرد، گلودرد"
+               data-component="body">
+    <br>
+<p>Patient symptoms. Example: <code>تب، سردرد، گلودرد</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>prescribed_medications</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="prescribed_medications"                data-endpoint="POSTapi-visits"
+               value="پاراستامول، ویتامین C"
+               data-component="body">
+    <br>
+<p>Prescribed medications. Example: <code>پاراستامول، ویتامین C</code></p>
         </div>
         </form>
 
@@ -8097,8 +10206,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"notes\": \"consequatur\",
     \"diagnosis\": \"consequatur\",
-    \"follow_up_date\": \"2025-12-06\",
-    \"visit_date\": \"2025-12-06\"
+    \"follow_up_date\": \"2025-12-09\",
+    \"visit_date\": \"2025-12-09\",
+    \"visit_reason\": \"mqeopfuudtdsufvyvddqa\",
+    \"symptoms\": \"mniihfqcoynlazghdtqtq\",
+    \"prescribed_medications\": \"consequatur\"
 }"
 </code></pre></div>
 
@@ -8117,8 +10229,11 @@ const headers = {
 let body = {
     "notes": "consequatur",
     "diagnosis": "consequatur",
-    "follow_up_date": "2025-12-06",
-    "visit_date": "2025-12-06"
+    "follow_up_date": "2025-12-09",
+    "visit_date": "2025-12-09",
+    "visit_reason": "mqeopfuudtdsufvyvddqa",
+    "symptoms": "mniihfqcoynlazghdtqtq",
+    "prescribed_medications": "consequatur"
 };
 
 fetch(url, {
@@ -8242,10 +10357,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="follow_up_date"                data-endpoint="PUTapi-visits--id-"
-               value="2025-12-06"
+               value="2025-12-09"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>visit_date</code></b>&nbsp;&nbsp;
@@ -8254,10 +10369,46 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="visit_date"                data-endpoint="PUTapi-visits--id-"
-               value="2025-12-06"
+               value="2025-12-09"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-06</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>visit_reason</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="visit_reason"                data-endpoint="PUTapi-visits--id-"
+               value="mqeopfuudtdsufvyvddqa"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>symptoms</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="symptoms"                data-endpoint="PUTapi-visits--id-"
+               value="mniihfqcoynlazghdtqtq"
+               data-component="body">
+    <br>
+<p>Must not be greater than 500 characters. Example: <code>mniihfqcoynlazghdtqtq</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>prescribed_medications</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="prescribed_medications"                data-endpoint="PUTapi-visits--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
         </div>
         </form>
 
@@ -8392,7 +10543,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Search through patients by name or national ID. Results depend on user role permissions.</p>
 
 <span id="example-requests-GETapi-patients-search">
 <blockquote>Example request:</blockquote>
@@ -8400,7 +10551,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://kamandi-api.test/api/patients/search" \
+    --get "https://kamandi-api.test/api/patients/search?q=%D8%A7%D8%AD%D9%85%D8%AF" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -8410,6 +10561,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-javascript">const url = new URL(
     "https://kamandi-api.test/api/patients/search"
 );
+
+const params = {
+    "q": "احمد",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Authorization": "Bearer Bearer {YOUR_TOKEN}",
@@ -8426,19 +10583,42 @@ fetch(url, {
 
 <span id="example-responses-GETapi-patients-search">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;patients&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;first_name&quot;: &quot;احمد&quot;,
+            &quot;last_name&quot;: &quot;محمدی&quot;,
+            &quot;national_id&quot;: &quot;1234567890&quot;,
+            &quot;birth_date&quot;: &quot;1990-01-15&quot;,
+            &quot;gender&quot;: &quot;male&quot;
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
     &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Search query (q) is required.&quot;
 }</code>
  </pre>
     </span>
@@ -8508,7 +10688,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>q</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="q"                data-endpoint="GETapi-patients-search"
+               value="احمد"
+               data-component="query">
+    <br>
+<p>Search query (name or national ID). Example: <code>احمد</code></p>
+            </div>
+                </form>
 
                     <h2 id="patients-GETapi-patients">List all patients with special appointments</h2>
 
@@ -8640,7 +10833,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Create a new patient record or update existing one. Can link patient to current user.</p>
 
 <span id="example-requests-POSTapi-patients">
 <blockquote>Example request:</blockquote>
@@ -8653,17 +10846,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"for\": \"2\",
-    \"first_name\": \"vmqeopfuudtdsufvyvddq\",
-    \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-06T14:35:39\",
+    \"for\": 1,
+    \"first_name\": \"احمد\",
+    \"last_name\": \"محمدی\",
+    \"national_id\": \"1234567890\",
+    \"birth_date\": \"1990-01-15\",
     \"gender\": \"male\",
-    \"blood_type\": \"mqe\",
-    \"allergies\": \"opfuudtdsufvyvddqamni\",
-    \"chronic_diseases\": \"ihfqcoynlazghdtqtqxba\",
-    \"emergency_contact\": \"jwbpilpmufinllwloauyd\",
-    \"address\": \"lsmsjuryvojcybzvrbyic\"
+    \"blood_type\": \"A+\",
+    \"allergies\": \"آلرژی به پنی‌سیلین\",
+    \"chronic_diseases\": \"دیابت نوع 2\",
+    \"emergency_contact\": \"09123456789\",
+    \"address\": \"تهران، خیابان ولیعصر\"
 }"
 </code></pre></div>
 
@@ -8680,17 +10873,17 @@ const headers = {
 };
 
 let body = {
-    "for": "2",
-    "first_name": "vmqeopfuudtdsufvyvddq",
-    "last_name": "amniihfqcoynlazghdtqt",
-    "national_id": "consequatur",
-    "birth_date": "2025-12-06T14:35:39",
+    "for": 1,
+    "first_name": "احمد",
+    "last_name": "محمدی",
+    "national_id": "1234567890",
+    "birth_date": "1990-01-15",
     "gender": "male",
-    "blood_type": "mqe",
-    "allergies": "opfuudtdsufvyvddqamni",
-    "chronic_diseases": "ihfqcoynlazghdtqtqxba",
-    "emergency_contact": "jwbpilpmufinllwloauyd",
-    "address": "lsmsjuryvojcybzvrbyic"
+    "blood_type": "A+",
+    "allergies": "آلرژی به پنی‌سیلین",
+    "chronic_diseases": "دیابت نوع 2",
+    "emergency_contact": "09123456789",
+    "address": "تهران، خیابان ولیعصر"
 };
 
 fetch(url, {
@@ -8702,7 +10895,41 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-patients">
-</span>
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;action&quot;: &quot;created&quot;,
+    &quot;patient&quot;: {
+        &quot;id&quot;: 1,
+        &quot;first_name&quot;: &quot;احمد&quot;,
+        &quot;last_name&quot;: &quot;محمدی&quot;,
+        &quot;national_id&quot;: &quot;1234567890&quot;,
+        &quot;birth_date&quot;: &quot;1990-01-15&quot;,
+        &quot;gender&quot;: &quot;male&quot;,
+        &quot;blood_type&quot;: &quot;A+&quot;,
+        &quot;allergies&quot;: &quot;آلرژی به پنی&zwnj;سیلین&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;national_id&quot;: [
+            &quot;The national id field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-patients" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-patients"></span>:
@@ -8772,17 +10999,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>for</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="for"                data-endpoint="POSTapi-patients"
-               value="2"
+                <input type="number" style="display: none"
+               step="any"               name="for"                data-endpoint="POSTapi-patients"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>2</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li></ul>
+<p>1=for self, 2=for others. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
@@ -8791,10 +11016,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="POSTapi-patients"
-               value="vmqeopfuudtdsufvyvddq"
+               value="احمد"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+<p>Patient's first name. Example: <code>احمد</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -8803,10 +11028,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="POSTapi-patients"
-               value="amniihfqcoynlazghdtqt"
+               value="محمدی"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>amniihfqcoynlazghdtqt</code></p>
+<p>Patient's last name. Example: <code>محمدی</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>national_id</code></b>&nbsp;&nbsp;
@@ -8815,22 +11040,22 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="national_id"                data-endpoint="POSTapi-patients"
-               value="consequatur"
+               value="1234567890"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>National identification number. Example: <code>1234567890</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>birth_date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>date</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patients"
-               value="2025-12-06T14:35:39"
+               value="1990-01-15"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T14:35:39</code></p>
+<p>Birth date (Y-m-d format). Example: <code>1990-01-15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -8842,9 +11067,7 @@ Must be one of:
                value="male"
                data-component="body">
     <br>
-<p>Example: <code>male</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
+<p>Gender (male/female). Example: <code>male</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>blood_type</code></b>&nbsp;&nbsp;
@@ -8853,10 +11076,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="blood_type"                data-endpoint="POSTapi-patients"
-               value="mqe"
+               value="A+"
                data-component="body">
     <br>
-<p>Must not be greater than 3 characters. Example: <code>mqe</code></p>
+<p>Blood type. Example: <code>A+</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>allergies</code></b>&nbsp;&nbsp;
@@ -8865,10 +11088,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="allergies"                data-endpoint="POSTapi-patients"
-               value="opfuudtdsufvyvddqamni"
+               value="آلرژی به پنی‌سیلین"
                data-component="body">
     <br>
-<p>Must not be greater than 500 characters. Example: <code>opfuudtdsufvyvddqamni</code></p>
+<p>Patient's allergies. Example: <code>آلرژی به پنی‌سیلین</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>chronic_diseases</code></b>&nbsp;&nbsp;
@@ -8877,10 +11100,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="chronic_diseases"                data-endpoint="POSTapi-patients"
-               value="ihfqcoynlazghdtqtqxba"
+               value="دیابت نوع 2"
                data-component="body">
     <br>
-<p>Must not be greater than 500 characters. Example: <code>ihfqcoynlazghdtqtqxba</code></p>
+<p>Chronic diseases. Example: <code>دیابت نوع 2</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>emergency_contact</code></b>&nbsp;&nbsp;
@@ -8889,10 +11112,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="emergency_contact"                data-endpoint="POSTapi-patients"
-               value="jwbpilpmufinllwloauyd"
+               value="09123456789"
                data-component="body">
     <br>
-<p>Must not be greater than 500 characters. Example: <code>jwbpilpmufinllwloauyd</code></p>
+<p>Emergency contact info. Example: <code>09123456789</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -8901,10 +11124,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="address"                data-endpoint="POSTapi-patients"
-               value="lsmsjuryvojcybzvrbyic"
+               value="تهران، خیابان ولیعصر"
                data-component="body">
     <br>
-<p>Must not be greater than 500 characters. Example: <code>lsmsjuryvojcybzvrbyic</code></p>
+<p>Patient's address. Example: <code>تهران، خیابان ولیعصر</code></p>
         </div>
         </form>
 
@@ -9066,8 +11289,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-06T14:35:39\",
-    \"gender\": \"male\",
+    \"birth_date\": \"2025-12-09T12:35:52\",
+    \"gender\": \"female\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
     \"chronic_diseases\": \"dlsmsjuryvojcybzvrbyi\",
@@ -9091,8 +11314,8 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-06T14:35:39",
-    "gender": "male",
+    "birth_date": "2025-12-09T12:35:52",
+    "gender": "female",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
     "chronic_diseases": "dlsmsjuryvojcybzvrbyi",
@@ -9233,10 +11456,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patients--id-"
-               value="2025-12-06T14:35:39"
+               value="2025-12-09T12:35:52"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T14:35:39</code></p>
+<p>Must be a valid date. Example: <code>2025-12-09T12:35:52</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -9245,10 +11468,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PUTapi-patients--id-"
-               value="male"
+               value="female"
                data-component="body">
     <br>
-<p>Example: <code>male</code></p>
+<p>Example: <code>female</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -9565,7 +11788,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Create a new patient record or update existing one. Can link patient to current user.</p>
 
 <span id="example-requests-POSTapi-patient-patients">
 <blockquote>Example request:</blockquote>
@@ -9578,17 +11801,17 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"for\": \"1\",
-    \"first_name\": \"vmqeopfuudtdsufvyvddq\",
-    \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"national_id\": \"consequatur\",
-    \"birth_date\": \"2025-12-06T14:35:40\",
-    \"gender\": \"female\",
-    \"blood_type\": \"mqe\",
-    \"allergies\": \"opfuudtdsufvyvddqamni\",
-    \"chronic_diseases\": \"ihfqcoynlazghdtqtqxba\",
-    \"emergency_contact\": \"jwbpilpmufinllwloauyd\",
-    \"address\": \"lsmsjuryvojcybzvrbyic\"
+    \"for\": 1,
+    \"first_name\": \"احمد\",
+    \"last_name\": \"محمدی\",
+    \"national_id\": \"1234567890\",
+    \"birth_date\": \"1990-01-15\",
+    \"gender\": \"male\",
+    \"blood_type\": \"A+\",
+    \"allergies\": \"آلرژی به پنی‌سیلین\",
+    \"chronic_diseases\": \"دیابت نوع 2\",
+    \"emergency_contact\": \"09123456789\",
+    \"address\": \"تهران، خیابان ولیعصر\"
 }"
 </code></pre></div>
 
@@ -9605,17 +11828,17 @@ const headers = {
 };
 
 let body = {
-    "for": "1",
-    "first_name": "vmqeopfuudtdsufvyvddq",
-    "last_name": "amniihfqcoynlazghdtqt",
-    "national_id": "consequatur",
-    "birth_date": "2025-12-06T14:35:40",
-    "gender": "female",
-    "blood_type": "mqe",
-    "allergies": "opfuudtdsufvyvddqamni",
-    "chronic_diseases": "ihfqcoynlazghdtqtqxba",
-    "emergency_contact": "jwbpilpmufinllwloauyd",
-    "address": "lsmsjuryvojcybzvrbyic"
+    "for": 1,
+    "first_name": "احمد",
+    "last_name": "محمدی",
+    "national_id": "1234567890",
+    "birth_date": "1990-01-15",
+    "gender": "male",
+    "blood_type": "A+",
+    "allergies": "آلرژی به پنی‌سیلین",
+    "chronic_diseases": "دیابت نوع 2",
+    "emergency_contact": "09123456789",
+    "address": "تهران، خیابان ولیعصر"
 };
 
 fetch(url, {
@@ -9627,7 +11850,41 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-patient-patients">
-</span>
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;action&quot;: &quot;created&quot;,
+    &quot;patient&quot;: {
+        &quot;id&quot;: 1,
+        &quot;first_name&quot;: &quot;احمد&quot;,
+        &quot;last_name&quot;: &quot;محمدی&quot;,
+        &quot;national_id&quot;: &quot;1234567890&quot;,
+        &quot;birth_date&quot;: &quot;1990-01-15&quot;,
+        &quot;gender&quot;: &quot;male&quot;,
+        &quot;blood_type&quot;: &quot;A+&quot;,
+        &quot;allergies&quot;: &quot;آلرژی به پنی&zwnj;سیلین&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;national_id&quot;: [
+            &quot;The national id field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-patient-patients" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-patient-patients"></span>:
@@ -9697,17 +11954,15 @@ You can check the Dev Tools console for debugging information.</code></pre>
                                 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>for</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>integer</small>&nbsp;
  &nbsp;
  &nbsp;
-                <input type="text" style="display: none"
-                              name="for"                data-endpoint="POSTapi-patient-patients"
+                <input type="number" style="display: none"
+               step="any"               name="for"                data-endpoint="POSTapi-patient-patients"
                value="1"
                data-component="body">
     <br>
-<p>Example: <code>1</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>1</code></li> <li><code>2</code></li></ul>
+<p>1=for self, 2=for others. Example: <code>1</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>first_name</code></b>&nbsp;&nbsp;
@@ -9716,10 +11971,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="POSTapi-patient-patients"
-               value="vmqeopfuudtdsufvyvddq"
+               value="احمد"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+<p>Patient's first name. Example: <code>احمد</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -9728,10 +11983,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="POSTapi-patient-patients"
-               value="amniihfqcoynlazghdtqt"
+               value="محمدی"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>amniihfqcoynlazghdtqt</code></p>
+<p>Patient's last name. Example: <code>محمدی</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>national_id</code></b>&nbsp;&nbsp;
@@ -9740,22 +11995,22 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="national_id"                data-endpoint="POSTapi-patient-patients"
-               value="consequatur"
+               value="1234567890"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>National identification number. Example: <code>1234567890</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>birth_date</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
+<small>date</small>&nbsp;
  &nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patient-patients"
-               value="2025-12-06T14:35:40"
+               value="1990-01-15"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T14:35:40</code></p>
+<p>Birth date (Y-m-d format). Example: <code>1990-01-15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -9764,12 +12019,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="POSTapi-patient-patients"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
+<p>Gender (male/female). Example: <code>male</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>blood_type</code></b>&nbsp;&nbsp;
@@ -9778,10 +12031,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="blood_type"                data-endpoint="POSTapi-patient-patients"
-               value="mqe"
+               value="A+"
                data-component="body">
     <br>
-<p>Must not be greater than 3 characters. Example: <code>mqe</code></p>
+<p>Blood type. Example: <code>A+</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>allergies</code></b>&nbsp;&nbsp;
@@ -9790,10 +12043,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="allergies"                data-endpoint="POSTapi-patient-patients"
-               value="opfuudtdsufvyvddqamni"
+               value="آلرژی به پنی‌سیلین"
                data-component="body">
     <br>
-<p>Must not be greater than 500 characters. Example: <code>opfuudtdsufvyvddqamni</code></p>
+<p>Patient's allergies. Example: <code>آلرژی به پنی‌سیلین</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>chronic_diseases</code></b>&nbsp;&nbsp;
@@ -9802,10 +12055,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="chronic_diseases"                data-endpoint="POSTapi-patient-patients"
-               value="ihfqcoynlazghdtqtqxba"
+               value="دیابت نوع 2"
                data-component="body">
     <br>
-<p>Must not be greater than 500 characters. Example: <code>ihfqcoynlazghdtqtqxba</code></p>
+<p>Chronic diseases. Example: <code>دیابت نوع 2</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>emergency_contact</code></b>&nbsp;&nbsp;
@@ -9814,10 +12067,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="emergency_contact"                data-endpoint="POSTapi-patient-patients"
-               value="jwbpilpmufinllwloauyd"
+               value="09123456789"
                data-component="body">
     <br>
-<p>Must not be greater than 500 characters. Example: <code>jwbpilpmufinllwloauyd</code></p>
+<p>Emergency contact info. Example: <code>09123456789</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -9826,10 +12079,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="address"                data-endpoint="POSTapi-patient-patients"
-               value="lsmsjuryvojcybzvrbyic"
+               value="تهران، خیابان ولیعصر"
                data-component="body">
     <br>
-<p>Must not be greater than 500 characters. Example: <code>lsmsjuryvojcybzvrbyic</code></p>
+<p>Patient's address. Example: <code>تهران، خیابان ولیعصر</code></p>
         </div>
         </form>
 
@@ -9991,8 +12244,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-06T14:35:40\",
-    \"gender\": \"female\",
+    \"birth_date\": \"2025-12-09T12:35:52\",
+    \"gender\": \"male\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
     \"chronic_diseases\": \"dlsmsjuryvojcybzvrbyi\",
@@ -10016,8 +12269,8 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-06T14:35:40",
-    "gender": "female",
+    "birth_date": "2025-12-09T12:35:52",
+    "gender": "male",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
     "chronic_diseases": "dlsmsjuryvojcybzvrbyi",
@@ -10158,10 +12411,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patient-patients--id-"
-               value="2025-12-06T14:35:40"
+               value="2025-12-09T12:35:52"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-06T14:35:40</code></p>
+<p>Must be a valid date. Example: <code>2025-12-09T12:35:52</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -10170,10 +12423,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PUTapi-patient-patients--id-"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -10360,6 +12613,530 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                <h1 id="prescriptions">Prescriptions</h1>
+
+    
+
+                                <h2 id="prescriptions-POSTapi-prescriptions">Create a new prescription</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Create a prescription for a patient's medical record.</p>
+
+<span id="example-requests-POSTapi-prescriptions">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://kamandi-api.test/api/prescriptions" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"medical_record_id\": 5,
+    \"visit_id\": 3,
+    \"medication_name\": \"آسپرین\",
+    \"dosage\": \"100mg\",
+    \"instructions\": \"روزی دو بار با غذا\",
+    \"duration_days\": 7
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/prescriptions"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "medical_record_id": 5,
+    "visit_id": 3,
+    "medication_name": "آسپرین",
+    "dosage": "100mg",
+    "instructions": "روزی دو بار با غذا",
+    "duration_days": 7
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-prescriptions">
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;prescription&quot;: {
+        &quot;id&quot;: 1,
+        &quot;medical_record_id&quot;: 5,
+        &quot;medication_name&quot;: &quot;آسپرین&quot;,
+        &quot;dosage&quot;: &quot;100mg&quot;,
+        &quot;instructions&quot;: &quot;روزی دو بار با غذا&quot;,
+        &quot;duration_days&quot;: 7
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;medication_name&quot;: [
+            &quot;The medication name field is required.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-prescriptions" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-prescriptions"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-prescriptions"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-prescriptions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-prescriptions">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-prescriptions" data-method="POST"
+      data-path="api/prescriptions"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-prescriptions', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/prescriptions</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-prescriptions"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-prescriptions"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-prescriptions"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>medical_record_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="medical_record_id"                data-endpoint="POSTapi-prescriptions"
+               value="5"
+               data-component="body">
+    <br>
+<p>Medical record ID. Example: <code>5</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>visit_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="visit_id"                data-endpoint="POSTapi-prescriptions"
+               value="3"
+               data-component="body">
+    <br>
+<p>Optional visit ID. Example: <code>3</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>medication_name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="medication_name"                data-endpoint="POSTapi-prescriptions"
+               value="آسپرین"
+               data-component="body">
+    <br>
+<p>Name of medication. Example: <code>آسپرین</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>dosage</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="dosage"                data-endpoint="POSTapi-prescriptions"
+               value="100mg"
+               data-component="body">
+    <br>
+<p>Medication dosage. Example: <code>100mg</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>instructions</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="instructions"                data-endpoint="POSTapi-prescriptions"
+               value="روزی دو بار با غذا"
+               data-component="body">
+    <br>
+<p>Usage instructions. Example: <code>روزی دو بار با غذا</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>duration_days</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="duration_days"                data-endpoint="POSTapi-prescriptions"
+               value="7"
+               data-component="body">
+    <br>
+<p>Duration in days. Example: <code>7</code></p>
+        </div>
+        </form>
+
+                    <h2 id="prescriptions-GETapi-prescriptions--record_id--">List prescriptions</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get all prescriptions or filter by medical record ID.</p>
+
+<span id="example-requests-GETapi-prescriptions--record_id--">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/prescriptions/5" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/prescriptions/5"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-prescriptions--record_id--">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;prescriptions&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;medical_record_id&quot;: 5,
+            &quot;visit_id&quot;: 3,
+            &quot;medication_name&quot;: &quot;آسپرین&quot;,
+            &quot;dosage&quot;: &quot;100mg&quot;,
+            &quot;instructions&quot;: &quot;روزی دو بار با غذا&quot;,
+            &quot;duration_days&quot;: 7
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-prescriptions--record_id--" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-prescriptions--record_id--"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-prescriptions--record_id--"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-prescriptions--record_id--" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-prescriptions--record_id--">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-prescriptions--record_id--" data-method="GET"
+      data-path="api/prescriptions/{record_id?}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-prescriptions--record_id--', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/prescriptions/{record_id?}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-prescriptions--record_id--"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-prescriptions--record_id--"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-prescriptions--record_id--"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>record_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="record_id"                data-endpoint="GETapi-prescriptions--record_id--"
+               value="5"
+               data-component="url">
+    <br>
+<p>optional Filter by medical record ID. Example: <code>5</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="prescriptions-GETapi-prescriptions--id-">Show a prescription</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Get details of a specific prescription by ID.</p>
+
+<span id="example-requests-GETapi-prescriptions--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/prescriptions/1" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/prescriptions/1"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-prescriptions--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;prescription&quot;: {
+        &quot;id&quot;: 1,
+        &quot;medical_record_id&quot;: 5,
+        &quot;medication_name&quot;: &quot;آسپرین&quot;,
+        &quot;dosage&quot;: &quot;100mg&quot;,
+        &quot;instructions&quot;: &quot;روزی دو بار با غذا&quot;,
+        &quot;duration_days&quot;: 7
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Not found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-prescriptions--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-prescriptions--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-prescriptions--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-prescriptions--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-prescriptions--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-prescriptions--id-" data-method="GET"
+      data-path="api/prescriptions/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-prescriptions--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/prescriptions/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-prescriptions--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-prescriptions--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-prescriptions--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-prescriptions--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>Prescription ID. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                 <h1 id="revision-logs">Revision Logs</h1>
 
     
@@ -10370,7 +13147,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Retrieve all revision logs with advanced filtering and pagination options.</p>
 
 <span id="example-requests-GETapi-logs">
 <blockquote>Example request:</blockquote>
@@ -10378,7 +13155,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://kamandi-api.test/api/logs" \
+    --get "https://kamandi-api.test/api/logs?user_id=1&amp;ip_address=192.168.1.1&amp;date=2024-01-15&amp;from_date=2024-01-01&amp;to_date=2024-01-31&amp;model_type=App%5C%5CModels%5C%5CUser&amp;model_id=5&amp;field=email&amp;sort_by=created_at&amp;sort_order=desc&amp;per_page=50" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10388,6 +13165,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-javascript">const url = new URL(
     "https://kamandi-api.test/api/logs"
 );
+
+const params = {
+    "user_id": "1",
+    "ip_address": "192.168.1.1",
+    "date": "2024-01-15",
+    "from_date": "2024-01-01",
+    "to_date": "2024-01-31",
+    "model_type": "App\\Models\\User",
+    "model_id": "5",
+    "field": "email",
+    "sort_by": "created_at",
+    "sort_order": "desc",
+    "per_page": "50",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Authorization": "Bearer Bearer {YOUR_TOKEN}",
@@ -10404,19 +13197,36 @@ fetch(url, {
 
 <span id="example-responses-GETapi-logs">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;current_page&quot;: 1,
+        &quot;data&quot;: [
+            {
+                &quot;id&quot;: 1,
+                &quot;user&quot;: {
+                    &quot;id&quot;: 1,
+                    &quot;name&quot;: &quot;احمد محمدی&quot;,
+                    &quot;email&quot;: &quot;ahmad@example.com&quot;
+                },
+                &quot;model&quot;: {
+                    &quot;type&quot;: &quot;User&quot;,
+                    &quot;id&quot;: 5
+                },
+                &quot;field&quot;: &quot;email&quot;,
+                &quot;old_value&quot;: &quot;old@example.com&quot;,
+                &quot;new_value&quot;: &quot;new@example.com&quot;,
+                &quot;created_at&quot;: &quot;2024-01-15 10:30:00&quot;,
+                &quot;created_at_human&quot;: &quot;2 hours ago&quot;
+            }
+        ],
+        &quot;total&quot;: 100
+    },
+    &quot;message&quot;: &quot;لاگ&zwnj;ها با موفقیت دریافت شد&quot;
 }</code>
  </pre>
     </span>
@@ -10486,7 +13296,140 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="user_id"                data-endpoint="GETapi-logs"
+               value="1"
+               data-component="query">
+    <br>
+<p>Filter by user ID. Example: <code>1</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>ip_address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="ip_address"                data-endpoint="GETapi-logs"
+               value="192.168.1.1"
+               data-component="query">
+    <br>
+<p>Filter by IP address. Example: <code>192.168.1.1</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date"                data-endpoint="GETapi-logs"
+               value="2024-01-15"
+               data-component="query">
+    <br>
+<p>Filter by specific date (Y-m-d). Example: <code>2024-01-15</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>from_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="from_date"                data-endpoint="GETapi-logs"
+               value="2024-01-01"
+               data-component="query">
+    <br>
+<p>Filter from date (Y-m-d). Example: <code>2024-01-01</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>to_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="to_date"                data-endpoint="GETapi-logs"
+               value="2024-01-31"
+               data-component="query">
+    <br>
+<p>Filter to date (Y-m-d). Example: <code>2024-01-31</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>model_type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="model_type"                data-endpoint="GETapi-logs"
+               value="App\\Models\\User"
+               data-component="query">
+    <br>
+<p>Filter by model type. Example: <code>App\\Models\\User</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>model_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="model_id"                data-endpoint="GETapi-logs"
+               value="5"
+               data-component="query">
+    <br>
+<p>Filter by model ID. Example: <code>5</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>field</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="field"                data-endpoint="GETapi-logs"
+               value="email"
+               data-component="query">
+    <br>
+<p>Filter by changed field name. Example: <code>email</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>sort_by</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="sort_by"                data-endpoint="GETapi-logs"
+               value="created_at"
+               data-component="query">
+    <br>
+<p>Sort field (default: created_at). Example: <code>created_at</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>sort_order</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="sort_order"                data-endpoint="GETapi-logs"
+               value="desc"
+               data-component="query">
+    <br>
+<p>Sort order (asc/desc, default: desc). Example: <code>desc</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="per_page"                data-endpoint="GETapi-logs"
+               value="50"
+               data-component="query">
+    <br>
+<p>Items per page (default: 20). Example: <code>50</code></p>
+            </div>
+                </form>
 
                     <h2 id="revision-logs-GETapi-logs-statistics">Get revision log statistics</h2>
 
@@ -10494,7 +13437,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get comprehensive statistics about revision activities for a specific date.</p>
 
 <span id="example-requests-GETapi-logs-statistics">
 <blockquote>Example request:</blockquote>
@@ -10502,7 +13445,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "https://kamandi-api.test/api/logs/statistics" \
+    --get "https://kamandi-api.test/api/logs/statistics?date=2024-01-15" \
     --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -10512,6 +13455,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <pre><code class="language-javascript">const url = new URL(
     "https://kamandi-api.test/api/logs/statistics"
 );
+
+const params = {
+    "date": "2024-01-15",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 const headers = {
     "Authorization": "Bearer Bearer {YOUR_TOKEN}",
@@ -10528,19 +13477,48 @@ fetch(url, {
 
 <span id="example-responses-GETapi-logs-statistics">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (200):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;success&quot;: true,
+    &quot;data&quot;: {
+        &quot;date&quot;: &quot;2024-01-15&quot;,
+        &quot;total_changes&quot;: 150,
+        &quot;active_users&quot;: 12,
+        &quot;changes_by_model&quot;: [
+            {
+                &quot;model&quot;: &quot;User&quot;,
+                &quot;count&quot;: 45
+            },
+            {
+                &quot;model&quot;: &quot;Patient&quot;,
+                &quot;count&quot;: 30
+            }
+        ],
+        &quot;changes_by_user&quot;: [
+            {
+                &quot;user_id&quot;: 1,
+                &quot;user_name&quot;: &quot;احمد محمدی&quot;,
+                &quot;user_email&quot;: &quot;ahmad@example.com&quot;,
+                &quot;count&quot;: 25
+            }
+        ],
+        &quot;most_changed_fields&quot;: [
+            {
+                &quot;key&quot;: &quot;email&quot;,
+                &quot;count&quot;: 15
+            }
+        ],
+        &quot;changes_by_hour&quot;: [
+            {
+                &quot;hour&quot;: 9,
+                &quot;count&quot;: 10
+            }
+        ]
+    },
+    &quot;message&quot;: &quot;آمار با موفقیت دریافت شد&quot;
 }</code>
  </pre>
     </span>
@@ -10610,7 +13588,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
     <br>
 <p>Example: <code>application/json</code></p>
             </div>
-                        </form>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="date"                data-endpoint="GETapi-logs-statistics"
+               value="2024-01-15"
+               data-component="query">
+    <br>
+<p>Target date for statistics (Y-m-d, default: today). Example: <code>2024-01-15</code></p>
+            </div>
+                </form>
 
                     <h2 id="revision-logs-GETapi-logs-recent-activity">Get recent revision activities</h2>
 
@@ -11444,6 +14435,637 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
+                <h1 id="text-records">Text Records</h1>
+
+    
+
+                                <h2 id="text-records-POSTapi-text-records">ذخیره پرونده متنی</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-text-records">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://kamandi-api.test/api/text-records" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"doctor_id\": \"consequatur\",
+    \"patient_id\": \"consequatur\",
+    \"title\": \"consequatur\",
+    \"case_date\": \"2025-12-09\",
+    \"notes\": \"consequatur\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/text-records"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "doctor_id": "consequatur",
+    "patient_id": "consequatur",
+    "title": "consequatur",
+    "case_date": "2025-12-09",
+    "notes": "consequatur"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-text-records">
+</span>
+<span id="execution-results-POSTapi-text-records" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-text-records"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-text-records"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-text-records" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-text-records">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-text-records" data-method="POST"
+      data-path="api/text-records"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-text-records', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/text-records</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-text-records"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-text-records"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-text-records"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="doctor_id"                data-endpoint="POSTapi-text-records"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the doctors table. Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="patient_id"                data-endpoint="POSTapi-text-records"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the patients table. Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="POSTapi-text-records"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>case_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="case_date"                data-endpoint="POSTapi-text-records"
+               value="2025-12-09"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="notes"                data-endpoint="POSTapi-text-records"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+        </form>
+
+                    <h2 id="text-records-GETapi-text-records--doctor_id---patient_id-">دریافت پرونده‌های متنی</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-text-records--doctor_id---patient_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/text-records/consequatur/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/text-records/consequatur/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-text-records--doctor_id---patient_id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-text-records--doctor_id---patient_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-text-records--doctor_id---patient_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-text-records--doctor_id---patient_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-text-records--doctor_id---patient_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-text-records--doctor_id---patient_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-text-records--doctor_id---patient_id-" data-method="GET"
+      data-path="api/text-records/{doctor_id}/{patient_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-text-records--doctor_id---patient_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/text-records/{doctor_id}/{patient_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-text-records--doctor_id---patient_id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-text-records--doctor_id---patient_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-text-records--doctor_id---patient_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="doctor_id"                data-endpoint="GETapi-text-records--doctor_id---patient_id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the doctor. Example: <code>consequatur</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="patient_id"                data-endpoint="GETapi-text-records--doctor_id---patient_id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the patient. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="text-records-PUTapi-text-records--id-">بروزرسانی پرونده متنی</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-text-records--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "https://kamandi-api.test/api/text-records/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"consequatur\",
+    \"case_date\": \"2025-12-09\",
+    \"notes\": \"consequatur\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/text-records/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "consequatur",
+    "case_date": "2025-12-09",
+    "notes": "consequatur"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-text-records--id-">
+</span>
+<span id="execution-results-PUTapi-text-records--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-text-records--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-text-records--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-text-records--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-text-records--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-text-records--id-" data-method="PUT"
+      data-path="api/text-records/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-text-records--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/text-records/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-text-records--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-text-records--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-text-records--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-text-records--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the text record. Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="PUTapi-text-records--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>case_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="case_date"                data-endpoint="PUTapi-text-records--id-"
+               value="2025-12-09"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="notes"                data-endpoint="PUTapi-text-records--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+        </form>
+
+                    <h2 id="text-records-DELETEapi-text-records--id-">حذف پرونده متنی</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-text-records--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "https://kamandi-api.test/api/text-records/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/text-records/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-text-records--id-">
+</span>
+<span id="execution-results-DELETEapi-text-records--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-text-records--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-text-records--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-text-records--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-text-records--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-text-records--id-" data-method="DELETE"
+      data-path="api/text-records/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-text-records--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/text-records/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-text-records--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-text-records--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-text-records--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEapi-text-records--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the text record. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
                 <h1 id="users">Users</h1>
 
     
@@ -11578,7 +15200,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Get a list of all users in the system with their basic information.</p>
 
 <span id="example-requests-GETapi-users">
 <blockquote>Example request:</blockquote>
@@ -11612,16 +15234,28 @@ fetch(url, {
 
 <span id="example-responses-GETapi-users">
             <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;users&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;first_name&quot;: &quot;احمد&quot;,
+            &quot;last_name&quot;: &quot;محمدی&quot;,
+            &quot;email&quot;: &quot;ahmad@example.com&quot;,
+            &quot;mobile&quot;: &quot;09123456789&quot;,
+            &quot;roll&quot;: &quot;patient&quot;
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
             <p>Example response (401):</p>
         </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-access-control-allow-origin: *
- </code></pre></details>         <pre>
+                <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;message&quot;: &quot;Unauthenticated.&quot;
@@ -11702,7 +15336,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <small class="badge badge-darkred">requires authentication</small>
 </p>
 
-
+<p>Create a new user account with specified role and information.</p>
 
 <span id="example-requests-POSTapi-users">
 <blockquote>Example request:</blockquote>
@@ -11715,14 +15349,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"first_name\": \"vmqeopfuudtdsufvyvddq\",
-    \"last_name\": \"amniihfqcoynlazghdtqt\",
+    \"first_name\": \"احمد\",
+    \"last_name\": \"محمدی\",
     \"gender\": \"male\",
-    \"email\": \"andreanne00@example.org\",
-    \"password\": \"\'YAKYLk4&gt;SJIrIV#lz.\",
-    \"mobile\": \"consequatur\",
-    \"roll\": \"doctor\",
-    \"national_id\": \"consequatur\"
+    \"email\": \"ahmad@example.com\",
+    \"password\": \"password123\",
+    \"mobile\": \"09123456789\",
+    \"roll\": \"patient\",
+    \"national_id\": \"1234567890\"
 }"
 </code></pre></div>
 
@@ -11739,14 +15373,14 @@ const headers = {
 };
 
 let body = {
-    "first_name": "vmqeopfuudtdsufvyvddq",
-    "last_name": "amniihfqcoynlazghdtqt",
+    "first_name": "احمد",
+    "last_name": "محمدی",
     "gender": "male",
-    "email": "andreanne00@example.org",
-    "password": "'YAKYLk4&gt;SJIrIV#lz.",
-    "mobile": "consequatur",
-    "roll": "doctor",
-    "national_id": "consequatur"
+    "email": "ahmad@example.com",
+    "password": "password123",
+    "mobile": "09123456789",
+    "roll": "patient",
+    "national_id": "1234567890"
 };
 
 fetch(url, {
@@ -11758,7 +15392,41 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-users">
-</span>
+            <blockquote>
+            <p>Example response (201):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;user&quot;: {
+        &quot;id&quot;: 1,
+        &quot;first_name&quot;: &quot;احمد&quot;,
+        &quot;last_name&quot;: &quot;محمدی&quot;,
+        &quot;gender&quot;: &quot;male&quot;,
+        &quot;email&quot;: &quot;ahmad@example.com&quot;,
+        &quot;mobile&quot;: &quot;09123456789&quot;,
+        &quot;national_id&quot;: &quot;1234567890&quot;,
+        &quot;roll&quot;: &quot;patient&quot;,
+        &quot;created_at&quot;: &quot;2024-01-15T10:30:00&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;errors&quot;: {
+        &quot;mobile&quot;: [
+            &quot;The mobile has already been taken.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-users" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-users"></span>:
@@ -11833,10 +15501,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="first_name"                data-endpoint="POSTapi-users"
-               value="vmqeopfuudtdsufvyvddq"
+               value="احمد"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+<p>User's first name. Example: <code>احمد</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>last_name</code></b>&nbsp;&nbsp;
@@ -11845,10 +15513,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="last_name"                data-endpoint="POSTapi-users"
-               value="amniihfqcoynlazghdtqt"
+               value="محمدی"
                data-component="body">
     <br>
-<p>Must not be greater than 255 characters. Example: <code>amniihfqcoynlazghdtqt</code></p>
+<p>User's last name. Example: <code>محمدی</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -11860,9 +15528,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value="male"
                data-component="body">
     <br>
-<p>Example: <code>male</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
+<p>User's gender (male/female). Example: <code>male</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -11871,10 +15537,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-users"
-               value="andreanne00@example.org"
+               value="ahmad@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>andreanne00@example.org</code></p>
+<p>User's email address (optional, must be unique). Example: <code>ahmad@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -11883,10 +15549,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-users"
-               value="'YAKYLk4>SJIrIV#lz."
+               value="password123"
                data-component="body">
     <br>
-<p>Must be at least 6 characters. Example: <code>'YAKYLk4&gt;SJIrIV#lz.</code></p>
+<p>User's password (minimum 6 characters). Example: <code>password123</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>mobile</code></b>&nbsp;&nbsp;
@@ -11895,10 +15561,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="mobile"                data-endpoint="POSTapi-users"
-               value="consequatur"
+               value="09123456789"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>User's mobile number (must be unique). Example: <code>09123456789</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>roll</code></b>&nbsp;&nbsp;
@@ -11907,12 +15573,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="roll"                data-endpoint="POSTapi-users"
-               value="doctor"
+               value="patient"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
-Must be one of:
-<ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>nurse</code></li> <li><code>doctor</code></li> <li><code>superadmin</code></li></ul>
+<p>User's role (patient/nurse/doctor/superadmin). Example: <code>patient</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>national_id</code></b>&nbsp;&nbsp;
@@ -11921,10 +15585,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="national_id"                data-endpoint="POSTapi-users"
-               value="consequatur"
+               value="1234567890"
                data-component="body">
     <br>
-<p>Example: <code>consequatur</code></p>
+<p>National ID (must be unique). Example: <code>1234567890</code></p>
         </div>
         </form>
 
@@ -12087,7 +15751,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"gender\": \"male\",
-    \"roll\": \"doctor\",
+    \"roll\": \"nurse\",
     \"password\": \"t(!Cs\'YAKYLk4&gt;S\"
 }"
 </code></pre></div>
@@ -12108,7 +15772,7 @@ let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "gender": "male",
-    "roll": "doctor",
+    "roll": "nurse",
     "password": "t(!Cs'YAKYLk4&gt;S"
 };
 
@@ -12271,10 +15935,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="roll"                data-endpoint="PUTapi-users--id-"
-               value="doctor"
+               value="nurse"
                data-component="body">
     <br>
-<p>Example: <code>doctor</code></p>
+<p>Example: <code>nurse</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>nurse</code></li> <li><code>doctor</code></li> <li><code>superadmin</code></li></ul>
         </div>
@@ -12548,6 +16212,777 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>application/json</code></p>
             </div>
                         </form>
+
+                <h1 id="visit-reports">Visit Reports</h1>
+
+    
+
+                                <h2 id="visit-reports-POSTapi-visit-reports">ایجاد گزارش ویزیت (CaseMedical + Visit)</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-visit-reports">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "https://kamandi-api.test/api/visit-reports" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"doctor_id\": \"consequatur\",
+    \"patient_id\": \"consequatur\",
+    \"title\": \"mqeopfuudtdsufvyvddqa\",
+    \"case_date\": \"2025-12-09\",
+    \"notes\": \"consequatur\",
+    \"visit_reason\": \"mqeopfuudtdsufvyvddqa\",
+    \"symptoms\": \"mniihfqcoynlazghdtqtq\",
+    \"diagnosis\": \"consequatur\",
+    \"prescribed_medications\": \"consequatur\",
+    \"follow_up_date\": \"2025-12-09\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/visit-reports"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "doctor_id": "consequatur",
+    "patient_id": "consequatur",
+    "title": "mqeopfuudtdsufvyvddqa",
+    "case_date": "2025-12-09",
+    "notes": "consequatur",
+    "visit_reason": "mqeopfuudtdsufvyvddqa",
+    "symptoms": "mniihfqcoynlazghdtqtq",
+    "diagnosis": "consequatur",
+    "prescribed_medications": "consequatur",
+    "follow_up_date": "2025-12-09"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-visit-reports">
+</span>
+<span id="execution-results-POSTapi-visit-reports" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-visit-reports"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-visit-reports"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-visit-reports" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-visit-reports">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-visit-reports" data-method="POST"
+      data-path="api/visit-reports"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-visit-reports', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/visit-reports</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-visit-reports"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-visit-reports"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-visit-reports"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="doctor_id"                data-endpoint="POSTapi-visit-reports"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the doctors table. Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="patient_id"                data-endpoint="POSTapi-visit-reports"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the patients table. Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="POSTapi-visit-reports"
+               value="mqeopfuudtdsufvyvddqa"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>case_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="case_date"                data-endpoint="POSTapi-visit-reports"
+               value="2025-12-09"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="notes"                data-endpoint="POSTapi-visit-reports"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>visit_reason</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="visit_reason"                data-endpoint="POSTapi-visit-reports"
+               value="mqeopfuudtdsufvyvddqa"
+               data-component="body">
+    <br>
+<p>فیلدهای Visit. Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>symptoms</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="symptoms"                data-endpoint="POSTapi-visit-reports"
+               value="mniihfqcoynlazghdtqtq"
+               data-component="body">
+    <br>
+<p>Must not be greater than 500 characters. Example: <code>mniihfqcoynlazghdtqtq</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>diagnosis</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="diagnosis"                data-endpoint="POSTapi-visit-reports"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>prescribed_medications</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="prescribed_medications"                data-endpoint="POSTapi-visit-reports"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>follow_up_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="follow_up_date"                data-endpoint="POSTapi-visit-reports"
+               value="2025-12-09"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+        </form>
+
+                    <h2 id="visit-reports-GETapi-visit-reports--doctor_id---patient_id-">دریافت گزارش‌های ویزیت</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-visit-reports--doctor_id---patient_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/visit-reports/consequatur/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/visit-reports/consequatur/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-visit-reports--doctor_id---patient_id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-visit-reports--doctor_id---patient_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-visit-reports--doctor_id---patient_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-visit-reports--doctor_id---patient_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-visit-reports--doctor_id---patient_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-visit-reports--doctor_id---patient_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-visit-reports--doctor_id---patient_id-" data-method="GET"
+      data-path="api/visit-reports/{doctor_id}/{patient_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-visit-reports--doctor_id---patient_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/visit-reports/{doctor_id}/{patient_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-visit-reports--doctor_id---patient_id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-visit-reports--doctor_id---patient_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-visit-reports--doctor_id---patient_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="doctor_id"                data-endpoint="GETapi-visit-reports--doctor_id---patient_id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the doctor. Example: <code>consequatur</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>patient_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="patient_id"                data-endpoint="GETapi-visit-reports--doctor_id---patient_id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the patient. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="visit-reports-PUTapi-visit-reports--id-">بروزرسانی گزارش ویزیت</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-visit-reports--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "https://kamandi-api.test/api/visit-reports/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"vmqeopfuudtdsufvyvddq\",
+    \"case_date\": \"2025-12-09\",
+    \"notes\": \"consequatur\",
+    \"visit_reason\": \"mqeopfuudtdsufvyvddqa\",
+    \"symptoms\": \"mniihfqcoynlazghdtqtq\",
+    \"diagnosis\": \"consequatur\",
+    \"prescribed_medications\": \"consequatur\",
+    \"follow_up_date\": \"2025-12-09\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/visit-reports/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "vmqeopfuudtdsufvyvddq",
+    "case_date": "2025-12-09",
+    "notes": "consequatur",
+    "visit_reason": "mqeopfuudtdsufvyvddqa",
+    "symptoms": "mniihfqcoynlazghdtqtq",
+    "diagnosis": "consequatur",
+    "prescribed_medications": "consequatur",
+    "follow_up_date": "2025-12-09"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-visit-reports--id-">
+</span>
+<span id="execution-results-PUTapi-visit-reports--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-visit-reports--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-visit-reports--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-visit-reports--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-visit-reports--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-visit-reports--id-" data-method="PUT"
+      data-path="api/visit-reports/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-visit-reports--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/visit-reports/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-visit-reports--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-visit-reports--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-visit-reports--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="PUTapi-visit-reports--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the visit report. Example: <code>consequatur</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="title"                data-endpoint="PUTapi-visit-reports--id-"
+               value="vmqeopfuudtdsufvyvddq"
+               data-component="body">
+    <br>
+<p>Must not be greater than 255 characters. Example: <code>vmqeopfuudtdsufvyvddq</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>case_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="case_date"                data-endpoint="PUTapi-visit-reports--id-"
+               value="2025-12-09"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="notes"                data-endpoint="PUTapi-visit-reports--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>visit_reason</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="visit_reason"                data-endpoint="PUTapi-visit-reports--id-"
+               value="mqeopfuudtdsufvyvddqa"
+               data-component="body">
+    <br>
+<p>فیلدهای Visit. Must not be greater than 255 characters. Example: <code>mqeopfuudtdsufvyvddqa</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>symptoms</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="symptoms"                data-endpoint="PUTapi-visit-reports--id-"
+               value="mniihfqcoynlazghdtqtq"
+               data-component="body">
+    <br>
+<p>Must not be greater than 500 characters. Example: <code>mniihfqcoynlazghdtqtq</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>diagnosis</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="diagnosis"                data-endpoint="PUTapi-visit-reports--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>prescribed_medications</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="prescribed_medications"                data-endpoint="PUTapi-visit-reports--id-"
+               value="consequatur"
+               data-component="body">
+    <br>
+<p>Example: <code>consequatur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>follow_up_date</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="follow_up_date"                data-endpoint="PUTapi-visit-reports--id-"
+               value="2025-12-09"
+               data-component="body">
+    <br>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-09</code></p>
+        </div>
+        </form>
+
+                    <h2 id="visit-reports-DELETEapi-visit-reports--id-">حذف گزارش ویزیت</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-visit-reports--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "https://kamandi-api.test/api/visit-reports/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/visit-reports/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-visit-reports--id-">
+</span>
+<span id="execution-results-DELETEapi-visit-reports--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-visit-reports--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-visit-reports--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-visit-reports--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-visit-reports--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-visit-reports--id-" data-method="DELETE"
+      data-path="api/visit-reports/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-visit-reports--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/visit-reports/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-visit-reports--id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-visit-reports--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-visit-reports--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="DELETEapi-visit-reports--id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the visit report. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
 
             
 

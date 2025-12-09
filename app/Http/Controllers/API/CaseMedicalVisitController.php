@@ -59,8 +59,49 @@ class CaseMedicalVisitController extends Controller
     }
     /**
      * Create a new medical visit
+     * 
+     * Create a comprehensive visit record with case medical information and visit details.
+     * 
      * @authenticated
      * @group Medical Visits
+     * 
+     * @bodyParam doctor_id integer required Doctor's ID. Example: 1
+     * @bodyParam patient_id integer required Patient's ID. Example: 5
+     * @bodyParam visit_date date Visit date (Y-m-d format). Example: 2024-01-15
+     * @bodyParam notes string General notes about the visit. Example: ویزیت عمومی
+     * @bodyParam diagnosis string Medical diagnosis. Example: سرماخوردگی عادی
+     * @bodyParam follow_up_date date Follow-up appointment date. Example: 2024-01-22
+     * @bodyParam visit_reason string Reason for visit. Example: شکایت از تب و سردرد
+     * @bodyParam symptoms string Patient symptoms. Example: تب، سردرد، گلودرد
+     * @bodyParam prescribed_medications string Prescribed medications. Example: پاراستامول، ویتامین C
+     * 
+     * @response 201 {
+     *   "status": "success",
+     *   "message": "Visit created successfully",
+     *   "case_medical": {
+     *     "id": 1,
+     *     "title": "گزارش ویزیت - 2024-01-15",
+     *     "case_medical_type_id": 3,
+     *     "case_date": "2024-01-15",
+     *     "visit": {
+     *       "diagnosis": "سرماخوردگی عادی",
+     *       "symptoms": "تب، سردرد، گلودرد",
+     *       "prescribed_medications": "پاراستامول، ویتامین C"
+     *     }
+     *   }
+     * }
+     * 
+     * @response 403 {
+     *   "status": "error",
+     *   "message": "You do not have permission to create visit for this patient"
+     * }
+     * 
+     * @response 422 {
+     *   "status": "error",
+     *   "errors": {
+     *     "doctor_id": ["The doctor id field is required."]
+     *   }
+     * }
      */
     public function store(Request $request)
     {
