@@ -479,7 +479,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: online
+        example: in_person
         type: string
         enumValues:
           - online
@@ -507,7 +507,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: canceled
+        example: waiting
         type: string
         enumValues:
           - waiting
@@ -519,9 +519,9 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       start_time: '(:05'
-      appointment_type: online
+      appointment_type: in_person
       service_type: injection
-      status: canceled
+      status: waiting
     fileParameters: []
     responses: []
     responseFields: []
@@ -1023,7 +1023,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: phone
+        example: in_person
         type: string
         enumValues:
           - online
@@ -1051,7 +1051,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: visited
+        example: no_show
         type: string
         enumValues:
           - waiting
@@ -1063,9 +1063,9 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       start_time: '(:05'
-      appointment_type: phone
+      appointment_type: in_person
       service_type: injection
-      status: visited
+      status: no_show
     fileParameters: []
     responses: []
     responseFields: []

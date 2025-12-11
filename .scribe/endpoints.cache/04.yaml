@@ -114,16 +114,62 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      service_type:
+        custom: []
+        name: service_type
+        description: ''
+        required: true
+        example: doctor
+        type: string
+        enumValues:
+          - doctor
+          - injection
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      date:
+        custom: []
+        name: date
+        description: 'Either a specific date, or a recurring weekly day must be provided. Must be a valid date in the format <code>Y-m-d</code>.'
+        required: false
+        example: '2025-12-11'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
       day:
         custom: []
         name: day
         description: 'Must be at least 0. Must not be greater than 6.'
-        required: true
+        required: false
         example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      is_recurring:
+        custom: []
+        name: is_recurring
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      repeat_until:
+        custom: []
+        name: repeat_until
+        description: 'Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>date</code>.'
+        required: false
+        example: '2107-01-10'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         deprecated: false
       start_time:
         custom: []
@@ -158,12 +204,28 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      capacity_per_slot:
+        custom: []
+        name: capacity_per_slot
+        description: 'Must be at least 1. Must not be greater than 100.'
+        required: false
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
     cleanBodyParameters:
       doctor_id: consequatur
+      service_type: doctor
+      date: '2025-12-11'
       day: 3
+      is_recurring: true
+      repeat_until: '2107-01-10'
       start_time: '(:05'
       end_time: '(:05'
       duration: 16
+      capacity_per_slot: 6
     fileParameters: []
     responses: []
     responseFields: []

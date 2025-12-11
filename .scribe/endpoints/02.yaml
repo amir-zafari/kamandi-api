@@ -425,7 +425,7 @@ endpoints:
         name: roll
         description: ''
         required: false
-        example: nurse
+        example: patient
         type: string
         enumValues:
           - patient
@@ -461,7 +461,7 @@ endpoints:
       first_name: vmqeopfuudtdsufvyvddq
       last_name: amniihfqcoynlazghdtqt
       gender: male
-      roll: nurse
+      roll: patient
       password: "t(!Cs'YAKYLk4>S"
     fileParameters: []
     responses: []

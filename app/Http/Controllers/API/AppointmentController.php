@@ -187,15 +187,29 @@ class AppointmentController extends Controller
         // گرفتن شماره روز هفته
         $dayIndex = (date('w', strtotime($date)) == 6) ? 0 : date('w', strtotime($date)) + 1;
 
-        // بررسی شیفت دکتر
-        $shift = \App\Models\Shift::where('doctor_id', $doctor_id)
-            ->where('day', $dayIndex)
-            ->first();
+        $serviceType = $request->service_type ?? 'doctor';
+
+        // یافتن شیفت مطابق تاریخ: یا شیفت تاریخ‌دار همان روز، یا شیفت‌های تکرارشونده آن روز هفته
+        $shiftQuery = \App\Models\Shift::where('doctor_id', $doctor_id)
+            ->where(function ($q) use ($date, $dayIndex) {
+                $q->whereDate('date', $date)
+                  ->orWhere(function ($q2) use ($dayIndex, $date) {
+                      $q2->where('is_recurring', true)
+                         ->where('day', $dayIndex)
+                         ->where(function ($q3) use ($date) {
+                             $q3->whereNull('repeat_until')
+                                ->orWhereDate('repeat_until', '>=', $date);
+                         });
+                  });
+            })
+            ->where('service_type', $serviceType);
+
+        $shift = $shiftQuery->first();
 
         if (!$shift) {
             return response()->json([
                 'status' => 'error',
-                'message' => 'Doctor does not have a shift on this day.'
+                'message' => 'Doctor does not have a matching shift (date/recurring) for this service type on this day.'
             ], 400);
         }
 

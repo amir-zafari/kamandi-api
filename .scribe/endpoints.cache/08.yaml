@@ -364,7 +364,7 @@ endpoints:
         name: follow_up_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-09'
+        example: '2025-12-11'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -375,7 +375,7 @@ endpoints:
         name: visit_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-09'
+        example: '2025-12-11'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -417,8 +417,8 @@ endpoints:
     cleanBodyParameters:
       notes: consequatur
       diagnosis: consequatur
-      follow_up_date: '2025-12-09'
-      visit_date: '2025-12-09'
+      follow_up_date: '2025-12-11'
+      visit_date: '2025-12-11'
       visit_reason: mqeopfuudtdsufvyvddqa
       symptoms: mniihfqcoynlazghdtqtq
       prescribed_medications: consequatur

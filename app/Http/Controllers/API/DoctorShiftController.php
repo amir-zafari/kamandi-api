@@ -51,7 +51,9 @@ class DoctorShiftController extends Controller
             ], 404);
         }
         $shifts = Shift::where('doctor_id', $doctor_id)
+            ->orderBy('date')
             ->orderBy('day')
+            ->orderBy('start_time')
             ->get();
         $data = [];
         foreach ($shifts as $shift) {
@@ -61,10 +63,15 @@ class DoctorShiftController extends Controller
             $number_of_slots = floor(($end - $start) / $duration_seconds);
             $data[] = [
                 'id' => $shift->id,
+                'service_type' => $shift->service_type,
                 'day' => $shift->day,
+                'date' => $shift->date,
+                'is_recurring' => (bool)$shift->is_recurring,
+                'repeat_until' => $shift->repeat_until,
                 'start_time' => $shift->start_time,
                 'end_time' => $shift->end_time,
                 'duration' => $shift->duration,
+                'capacity_per_slot' => $shift->capacity_per_slot,
                 'slots' => $number_of_slots,
             ];
         }
@@ -82,7 +89,12 @@ class DoctorShiftController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'doctor_id' => 'required|exists:doctors,id',
-            'day' => 'required|integer|min:0|max:6',
+            'service_type' => 'required|in:doctor,injection',
+            // Either a specific date, or a recurring weekly day must be provided
+            'date' => 'nullable|date_format:Y-m-d',
+            'day' => 'nullable|integer|min:0|max:6',
+            'is_recurring' => 'boolean',
+            'repeat_until' => 'nullable|date_format:Y-m-d|after_or_equal:date',
             'start_time' => ['required', 'regex:/^(?:[01]\d|2[0-3]):[0-5]\d$/'], // HH:MM 24h
             'end_time' => [
                 'required',
@@ -94,6 +106,7 @@ class DoctorShiftController extends Controller
                 }
             ],
             'duration' => 'required|integer|min:1|max:60',
+            'capacity_per_slot' => 'nullable|integer|min:1|max:100',
         ]);
 
 
@@ -104,7 +117,40 @@ class DoctorShiftController extends Controller
             ], 422);
         }
 
-        $shift = Shift::create($request->all());
+        // Business rules: either one-off date OR recurring by weekday must be provided
+        if (!$request->filled('date') && !$request->boolean('is_recurring') && !$request->filled('day')) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Provide either a specific date for one-off shift, or set is_recurring with a weekday (day).'
+            ], 422);
+        }
+        if ($request->boolean('is_recurring') && !$request->filled('day')) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'For recurring shifts, the weekday (day) field is required.'
+            ], 422);
+        }
+        if ($request->filled('date') && $request->boolean('is_recurring')) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'A shift cannot be both date-based and recurring. Choose one.'
+            ], 422);
+        }
+
+        $payload = [
+            'doctor_id' => $request->doctor_id,
+            'service_type' => $request->service_type,
+            'day' => $request->day,
+            'date' => $request->date,
+            'is_recurring' => (bool)$request->boolean('is_recurring'),
+            'repeat_until' => $request->repeat_until,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'duration' => (int)$request->duration,
+            'capacity_per_slot' => (int)($request->capacity_per_slot ?? ($request->service_type === 'doctor' ? 1 : 1)),
+        ];
+
+        $shift = Shift::create($payload);
 
         return response()->json([
             'status' => 'success',
@@ -161,12 +207,35 @@ class DoctorShiftController extends Controller
             ], 422);
         }
 
-        // محاسبه روز هفته مطابق سیستمی که خودت ساختی
+        $serviceType = request('service_type'); // optional filter
+        if ($serviceType && !in_array($serviceType, ['doctor', 'injection'])) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Invalid service_type. Allowed: doctor,injection'
+            ], 422);
+        }
+
+        // محاسبه روز هفته
         $day = (date('w', strtotime($date)) == 6) ? 0 : date('w', strtotime($date)) + 1;
 
-        $shifts = Shift::where('doctor_id', $doctor_id)
-            ->where('day', $day)
-            ->get();
+        // Combine date-specific and recurring shifts for that date
+        $query = Shift::where('doctor_id', $doctor_id)
+            ->where(function ($q) use ($date, $day) {
+                $q->whereDate('date', $date)
+                  ->orWhere(function ($q2) use ($day, $date) {
+                      $q2->where('is_recurring', true)
+                         ->where('day', $day)
+                         ->where(function ($q3) use ($date) {
+                             $q3->whereNull('repeat_until')
+                                ->orWhereDate('repeat_until', '>=', $date);
+                         });
+                  });
+            });
+        if ($serviceType) {
+            $query->where('service_type', $serviceType);
+        }
+
+        $shifts = $query->orderBy('start_time')->get();
 
         if ($shifts->isEmpty()) {
             return response()->json([
@@ -175,17 +244,7 @@ class DoctorShiftController extends Controller
             ], 404);
         }
 
-        // نوبت‌های رزرو شده در همین تاریخ
-        $reserved = Appointment::where('doctor_id', $doctor_id)
-            ->where('date', $date)
-            ->pluck('start_time')
-            ->map(function ($time) {
-                return date('H:i', strtotime($time)); // تبدیل به فرمت اسلات‌ها
-            })
-            ->toArray();
-
         $data = [];
-
         foreach ($shifts as $shift) {
             $start = strtotime($shift->start_time);
             $end = strtotime($shift->end_time);
@@ -193,18 +252,34 @@ class DoctorShiftController extends Controller
 
             $slots = [];
             for ($time = $start; $time + $duration <= $end; $time += $duration) {
-                $slots[] = date('H:i', $time);
+                $slotTime = date('H:i', $time);
+                // Count existing active appointments for this slot and service type
+                $count = Appointment::where('doctor_id', $doctor_id)
+                    ->where('date', $date)
+                    ->where('start_time', $slotTime)
+                    ->when($shift->service_type, function ($q) use ($shift) {
+                        $q->where('service_type', $shift->service_type);
+                    })
+                    ->whereNotIn('status', ['canceled'])
+                    ->count();
+                $remaining = max(0, ($shift->capacity_per_slot ?? 1) - $count);
+                if ($remaining > 0) {
+                    $slots[] = [
+                        'time' => $slotTime,
+                        'remaining' => $remaining,
+                    ];
+                }
             }
-
-            // حذف اسلات‌های رزرو شده
-            $slots = array_values(array_diff($slots, $reserved));
 
             $data[] = [
                 'shift_id' => $shift->id,
+                'service_type' => $shift->service_type,
+                'date' => $date,
                 'start_time' => $shift->start_time,
                 'end_time' => $shift->end_time,
                 'duration' => $shift->duration,
-                'slots' => $slots
+                'capacity_per_slot' => $shift->capacity_per_slot,
+                'slots' => $slots,
             ];
         }
 

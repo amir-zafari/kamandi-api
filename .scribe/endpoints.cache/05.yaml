@@ -278,6 +278,17 @@ endpoints:
         exampleWasSpecified: true
         nullable: true
         deprecated: false
+      photo:
+        custom: []
+        name: photo
+        description: 'Base64 encoded photo (will be resized to 48x48).'
+        required: false
+        example: iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
     cleanBodyParameters:
       for: 1
       first_name: احمد
@@ -290,6 +301,7 @@ endpoints:
       chronic_diseases: 'دیابت نوع 2'
       emergency_contact: '09123456789'
       address: 'تهران، خیابان ولیعصر'
+      photo: iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==
     fileParameters: []
     responses:
       -
@@ -462,7 +474,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-09T12:35:52'
+        example: '2025-12-11T12:36:05'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -473,7 +485,7 @@ endpoints:
         name: gender
         description: ''
         required: false
-        example: female
+        example: male
         type: string
         enumValues:
           - male
@@ -536,16 +548,28 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
+      photo:
+        custom: []
+        name: photo
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
     cleanBodyParameters:
       first_name: vmqeopfuudtdsufvyvddq
       last_name: amniihfqcoynlazghdtqt
-      birth_date: '2025-12-09T12:35:52'
-      gender: female
+      birth_date: '2025-12-11T12:36:05'
+      gender: male
       blood_type: qxb
       allergies: ajwbpilpmufinllwloauy
       chronic_diseases: dlsmsjuryvojcybzvrbyi
       emergency_contact: ckznkygloigmkwxphlvaz
       address: jrcnfbaqywuxhgjjmzuxj
+      photo: consequatur
     fileParameters: []
     responses: []
     responseFields: []
@@ -792,6 +816,17 @@ endpoints:
         exampleWasSpecified: true
         nullable: true
         deprecated: false
+      photo:
+        custom: []
+        name: photo
+        description: 'Base64 encoded photo (will be resized to 48x48).'
+        required: false
+        example: iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
     cleanBodyParameters:
       for: 1
       first_name: احمد
@@ -804,6 +839,7 @@ endpoints:
       chronic_diseases: 'دیابت نوع 2'
       emergency_contact: '09123456789'
       address: 'تهران، خیابان ولیعصر'
+      photo: iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==
     fileParameters: []
     responses:
       -
@@ -976,7 +1012,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-09T12:35:52'
+        example: '2025-12-11T12:36:05'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -987,7 +1023,7 @@ endpoints:
         name: gender
         description: ''
         required: false
-        example: male
+        example: female
         type: string
         enumValues:
           - male
@@ -1050,16 +1086,28 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         deprecated: false
+      photo:
+        custom: []
+        name: photo
+        description: ''
+        required: false
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
     cleanBodyParameters:
       first_name: vmqeopfuudtdsufvyvddq
       last_name: amniihfqcoynlazghdtqt
-      birth_date: '2025-12-09T12:35:52'
-      gender: male
+      birth_date: '2025-12-11T12:36:05'
+      gender: female
       blood_type: qxb
       allergies: ajwbpilpmufinllwloauy
       chronic_diseases: dlsmsjuryvojcybzvrbyi
       emergency_contact: ckznkygloigmkwxphlvaz
       address: jrcnfbaqywuxhgjjmzuxj
+      photo: consequatur
     fileParameters: []
     responses: []
     responseFields: []
