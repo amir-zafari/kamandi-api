@@ -19,50 +19,50 @@ class PatientController extends Controller
             if (strpos($photoData, 'data:image/') === 0) {
                 $photoData = substr($photoData, strpos($photoData, ',') + 1);
             }
-            
+
             // Decode base64
             $imageData = base64_decode($photoData);
-            
+
             if ($imageData === false) {
                 return null;
             }
-            
+
             // Create image resource from string
             $sourceImage = imagecreatefromstring($imageData);
             if ($sourceImage === false) {
                 return null;
             }
-            
+
             // Get original dimensions
             $originalWidth = imagesx($sourceImage);
             $originalHeight = imagesy($sourceImage);
-            
+
             // Create new 48x48 image
             $resizedImage = imagecreatetruecolor(48, 48);
-            
+
             // Handle transparency for PNG images
             imagealphablending($resizedImage, false);
             imagesavealpha($resizedImage, true);
             $transparent = imagecolorallocatealpha($resizedImage, 255, 255, 255, 127);
             imagefill($resizedImage, 0, 0, $transparent);
-            
+
             // Resize image
             imagecopyresampled(
                 $resizedImage, $sourceImage,
                 0, 0, 0, 0,
                 48, 48, $originalWidth, $originalHeight
             );
-            
+
             // Start output buffering
             ob_start();
             imagejpeg($resizedImage, null, 90);
             $resizedImageData = ob_get_contents();
             ob_end_clean();
-            
+
             // Clean up memory
             imagedestroy($sourceImage);
             imagedestroy($resizedImage);
-            
+
             // Convert to base64
             return base64_encode($resizedImageData);
         } catch (\Exception $e) {
@@ -88,7 +88,7 @@ class PatientController extends Controller
                     'first_name' => $patient->first_name,
                     'last_name' => $patient->last_name,
                     'national_id' => $patient->national_id,
-
+                    'photo' => "data:image/webp;base64,". $patient->photo,
                     'appointment_date' => $patient->specialAppointment->date ?? null,
                     'appointment_status' => $patient->specialAppointment->status ?? null,
                 ];
@@ -116,12 +116,12 @@ class PatientController extends Controller
 
     /**
      * Create or update a patient
-     * 
+     *
      * Create a new patient record or update existing one. Can link patient to current user.
-     * 
+     *
      * @authenticated
      * @group Patients
-     * 
+     *
      * @bodyParam for integer required 1=for self, 2=for others. Example: 1
      * @bodyParam first_name string required Patient's first name. Example: احمد
      * @bodyParam last_name string required Patient's last name. Example: محمدی
@@ -134,7 +134,7 @@ class PatientController extends Controller
      * @bodyParam emergency_contact string Emergency contact info. Example: 09123456789
      * @bodyParam address string Patient's address. Example: تهران، خیابان ولیعصر
      * @bodyParam photo string Base64 encoded photo (will be resized to 48x48). Example: iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==
-     * 
+     *
      * @response 201 {
      *   "status": "success",
      *   "action": "created",
@@ -149,7 +149,7 @@ class PatientController extends Controller
      *     "allergies": "آلرژی به پنی‌سیلین"
      *   }
      * }
-     * 
+     *
      * @response 422 {
      *   "status": "error",
      *   "errors": {
@@ -186,7 +186,7 @@ class PatientController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
-        
+
         // Process photo if provided
         $processedPhoto = null;
         if ($request->has('photo') && !empty($request->photo)) {
@@ -198,7 +198,7 @@ class PatientController extends Controller
                 ], 422);
             }
         }
-        
+
         $patient = Patient::where('national_id', $request->national_id)->first();
         if ($patient) {
             $updateData = [
@@ -212,12 +212,12 @@ class PatientController extends Controller
                 'emergency_contact' => $request->emergency_contact,
                 'address'           => $request->address,
             ];
-            
+
             // Only update photo if provided
             if ($processedPhoto !== null) {
                 $updateData['photo'] = $processedPhoto;
             }
-            
+
             $patient->update($updateData);
             $action = 'updated';
         } else {
@@ -355,7 +355,7 @@ class PatientController extends Controller
                 'errors' => $validator->errors()
             ], 422);
         }
-        
+
         // Process photo if provided
         if ($request->has('photo') && !empty($request->photo)) {
             $processedPhoto = $this->processPhoto($request->photo);
@@ -367,7 +367,7 @@ class PatientController extends Controller
             }
             $request->merge(['photo' => $processedPhoto]);
         }
-        
+
         $allowed = [
             'first_name', 'last_name', 'national_id', 'birth_date', 'gender',
             'blood_type', 'allergies', 'chronic_diseases',
@@ -447,14 +447,14 @@ class PatientController extends Controller
     }
     /**
      * Search patients
-     * 
+     *
      * Search through patients by name or national ID. Results depend on user role permissions.
-     * 
+     *
      * @authenticated
      * @group Patients
-     * 
+     *
      * @queryParam q string required Search query (name or national ID). Example: احمد
-     * 
+     *
      * @response 200 {
      *   "status": "success",
      *   "patients": [
@@ -468,12 +468,12 @@ class PatientController extends Controller
      *     }
      *   ]
      * }
-     * 
+     *
      * @response 422 {
      *   "status": "error",
      *   "message": "Search query (q) is required."
      * }
-     * 
+     *
      * @response 401 {
      *   "status": "error",
      *   "message": "Unauthenticated."
