@@ -527,4 +527,47 @@ class PatientController extends Controller
         ], 200);
     }
 
+    /**
+     * Find patient by national ID (کد ملی)
+     * @authenticated
+     * @group Patients
+     */
+    public function findByNationalId(Request $request, $national_id)
+    {
+        $user = $request->user();
+        if (!$user) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Unauthenticated.'
+            ], 401);
+        }
+
+        $patient = Patient::where('national_id', $national_id)->first();
+        if (!$patient) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Patient not found'
+            ], 404);
+        }
+
+        // If the requester is a patient, ensure they are linked to this patient record
+        if ($user->roll === 'patient') {
+            $hasAccess = \DB::table('patient_user')
+                ->where('user_id', $user->id)
+                ->where('patient_id', $patient->id)
+                ->exists();
+
+            if (!$hasAccess) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Access denied'
+                ], 403);
+            }
+        }
+
+        return response()->json([
+            'status' => 'success',
+            'patient' => $patient
+        ], 200);
+    }
 }

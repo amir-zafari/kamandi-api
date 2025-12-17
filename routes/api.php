@@ -61,6 +61,7 @@ Route::middleware('auth:sanctum')->group(function () {
         });
         Route::prefix('patients')->group(function () {
             Route::get('/search', [PatientController::class, 'search']);
+            Route::get('/by-national/{national_id}', [PatientController::class, 'findByNationalId']); // جستجو با کد ملی
             Route::get('/', [PatientController::class, 'index']);          // لیست بیماران
             Route::post('/', [PatientController::class, 'store']);         // ایجاد بیمار جدید
             Route::get('/{id}', [PatientController::class, 'show']);       // نمایش جزئیات بیمار
@@ -161,6 +162,7 @@ Route::middleware('auth:sanctum')->group(function () {
             // patients CRUD
             Route::prefix('patients')->group(function () {
                 Route::get('/', [PatientController::class, 'listmypatient']);    // برای بادی صففحه اصلی که بیمار های که اضافه کرده رو ببینه
+                Route::get('/by-national/{national_id}', [PatientController::class, 'findByNationalId']); // جستجو با کد ملی
                 Route::post('/', [PatientController::class, 'store']);           //اضافه کردن بیمار اگه میخواست پرونده خودشو کامل کنه یا برای خودش نوبت بگیره باید for 1 باشه
                 Route::get('/{id}', [PatientController::class, 'show']);         // دیدن اطلاعات بیمار
                 Route::put('/{id}', [PatientController::class, 'update']);       // اپدیت کردن اطلاعات بیمار
