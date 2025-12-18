@@ -14,7 +14,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create a new medical visit'
+      title: 'Create a new medical visit | ایجاد ویزیت جدید'
       description: 'Create a comprehensive visit record with case medical information and visit details.'
       authenticated: true
       deprecated: false
@@ -200,7 +200,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List medical visits'
+      title: 'List medical visits | لیست ویزیت‌های پزشکی'
       description: ''
       authenticated: true
       deprecated: false
@@ -256,7 +256,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show a specific medical visit'
+      title: 'Show a specific medical visit | نمایش جزئیات ویزیت'
       description: ''
       authenticated: true
       deprecated: false
@@ -312,7 +312,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update a medical visit'
+      title: 'Update a medical visit | بروزرسانی ویزیت'
       description: ''
       authenticated: true
       deprecated: false
@@ -364,7 +364,7 @@ endpoints:
         name: follow_up_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-11'
+        example: '2025-12-18'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -375,7 +375,7 @@ endpoints:
         name: visit_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-11'
+        example: '2025-12-18'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -417,8 +417,8 @@ endpoints:
     cleanBodyParameters:
       notes: consequatur
       diagnosis: consequatur
-      follow_up_date: '2025-12-11'
-      visit_date: '2025-12-11'
+      follow_up_date: '2025-12-18'
+      visit_date: '2025-12-18'
       visit_reason: mqeopfuudtdsufvyvddqa
       symptoms: mniihfqcoynlazghdtqtq
       prescribed_medications: consequatur
@@ -443,7 +443,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a medical visit'
+      title: 'Delete a medical visit | حذف ویزیت'
       description: ''
       authenticated: true
       deprecated: false

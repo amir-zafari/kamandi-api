@@ -14,7 +14,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Convert USD to Iranian Toman (IRT)'
+      title: 'Convert USD to Iranian Toman (IRT) | تبدیل دلار به تومان (IRT)'
       description: 'Convert USD amount to Iranian Toman using live exchange rate from Nobitex API.'
       authenticated: true
       deprecated: false

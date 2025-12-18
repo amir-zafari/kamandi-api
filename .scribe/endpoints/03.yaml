@@ -12,7 +12,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all doctors'
+      title: 'List all doctors | لیست همه پزشکان'
       description: 'Get a list of all doctors with their basic information and specialties.'
       authenticated: true
       deprecated: false
@@ -74,7 +74,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create or update a doctor'
+      title: 'Create or update a doctor | ایجاد یا بروزرسانی پزشک'
       description: "Create a new doctor record or update existing one. Changes user role to 'doctor'."
       authenticated: true
       deprecated: false
@@ -188,7 +188,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show doctor details'
+      title: 'Show doctor details | نمایش جزئیات پزشک'
       description: ''
       authenticated: true
       deprecated: false
@@ -244,7 +244,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update doctor information'
+      title: 'Update doctor information | بروزرسانی اطلاعات پزشک'
       description: ''
       authenticated: true
       deprecated: false
@@ -372,7 +372,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a doctor'
+      title: 'Delete a doctor | حذف پزشک'
       description: ''
       authenticated: true
       deprecated: false
@@ -419,7 +419,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all doctors'
+      title: 'List all doctors | لیست همه پزشکان'
       description: 'Get a list of all doctors with their basic information and specialties.'
       authenticated: true
       deprecated: false
@@ -481,7 +481,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show doctor details'
+      title: 'Show doctor details | نمایش جزئیات پزشک'
       description: ''
       authenticated: true
       deprecated: false

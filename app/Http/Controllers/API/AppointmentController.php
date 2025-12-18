@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class AppointmentController extends Controller
 {
     /**
-     * List all appointments with status filter
+     * List all appointments with status filter | لیست نوبت‌ها با فیلتر وضعیت
      * 
      * Get a list of all appointments with optional filters for status, attendance, date, and doctor.
      * 
@@ -106,7 +106,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Create a new appointment
+     * Create a new appointment | ایجاد نوبت جدید
      * 
      * Book a new appointment for a patient with a doctor at a specific time.
      * 
@@ -286,7 +286,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Show a specific appointment
+     * Show a specific appointment | نمایش جزئیات نوبت
      * 
      * Get detailed information about a specific appointment by its ID.
      * 
@@ -341,7 +341,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * List all appointments for a specific patient
+     * List all appointments for a specific patient | لیست نوبت‌های یک بیمار
      * @authenticated
      * @group Appointments
      */
@@ -387,7 +387,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * List all appointments for a doctor on a specific date
+     * List all appointments for a doctor on a specific date | لیست نوبت‌های پزشک در یک روز
      * @authenticated
      * @group Appointments
      */
@@ -431,7 +431,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Update an appointment
+     * Update an appointment | بروزرسانی نوبت
      * @authenticated
      * @group Appointments
      */
@@ -517,7 +517,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Cancel an appointment
+     * Cancel an appointment | لغو نوبت
      * 
      * Cancel an existing appointment with a reason. Different rules apply based on user role.
      * 
@@ -661,7 +661,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Mark patient as arrived (Step 1: Patient arrival)
+     * Mark patient as arrived (Step 1: Patient arrival) | ثبت ورود بیمار (گام ۱)
      * 
      * Mark a patient as arrived for their appointment. Only doctors, nurses, and admins can perform this action.
      * 
@@ -758,7 +758,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Start the visit and mark as completed (Step 2: Visit begins and completes)
+     * Start the visit and mark as completed (Step 2: Visit begins and completes) | شروع و اتمام ویزیت (گام ۲)
      * 
      * Start and complete the visit for an appointment. Only doctors and admins can perform this action.
      * 
@@ -853,7 +853,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Get attendance statistics for a doctor on a specific date
+     * Get attendance statistics for a doctor on a specific date | آمار حضور برای پزشک در تاریخ مشخص
      * @authenticated
      * @group Appointments - Attendance
      */
@@ -895,7 +895,7 @@ class AppointmentController extends Controller
     }
 
     /**
-     * Delete an appointment (soft delete - only for admins)
+     * Delete an appointment (soft delete - only for admins) | حذف نوبت (فقط ادمین)
      * @authenticated
      * @group Appointments
      */

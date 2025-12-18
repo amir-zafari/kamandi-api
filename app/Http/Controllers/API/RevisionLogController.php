@@ -11,7 +11,7 @@ use Carbon\Carbon;
 class RevisionLogController extends Controller
 {
     /**
-     * Get all revision logs
+     * Get all revision logs | دریافت همه لاگ‌های تغییرات
      * 
      * Retrieve all revision logs with advanced filtering and pagination options.
      * 
@@ -126,7 +126,7 @@ class RevisionLogController extends Controller
     }
 
     /**
-     * Get revision log statistics
+     * Get revision log statistics | دریافت آمار لاگ‌های تغییرات
      * 
      * Get comprehensive statistics about revision activities for a specific date.
      * 
@@ -249,7 +249,7 @@ class RevisionLogController extends Controller
     }
 
     /**
-     * Get logs of a specific user
+     * Get logs of a specific user | دریافت لاگ‌های یک کاربر
      * @authenticated
      * @group Revision Logs
      */
@@ -299,7 +299,7 @@ class RevisionLogController extends Controller
     }
 
     /**
-     * Get logs of a specific model
+     * Get logs of a specific model | دریافت لاگ‌های یک مدل
      * @authenticated
      * @group Revision Logs
      */
@@ -332,7 +332,7 @@ class RevisionLogController extends Controller
     }
 
     /**
-     * Delete old revision logs
+     * Delete old revision logs | حذف لاگ‌های قدیمی
      * @authenticated
      * @group Revision Logs
      */
@@ -358,7 +358,7 @@ class RevisionLogController extends Controller
     }
 
     /**
-     * Show a single revision log
+     * Show a single revision log | نمایش جزئیات یک لاگ تغییر
      * @authenticated
      * @group Revision Logs
      */
@@ -424,7 +424,7 @@ class RevisionLogController extends Controller
     }
 
     /**
-     * Compare two revisions
+     * Compare two revisions | مقایسه دو لاگ تغییر
      * @authenticated
      * @group Revision Logs
      */

@@ -12,7 +12,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all shifts for a doctor'
+      title: 'List all shifts for a doctor | لیست شیفت‌های پزشک'
       description: 'Get all scheduled shifts for a specific doctor with calculated slot information.'
       authenticated: true
       deprecated: false
@@ -88,7 +88,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create a new shift for a doctor'
+      title: 'Create a new shift for a doctor | ایجاد شیفت جدید برای پزشک'
       description: ''
       authenticated: true
       deprecated: false
@@ -130,7 +130,7 @@ endpoints:
         name: date
         description: 'Either a specific date, or a recurring weekly day must be provided. Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-11'
+        example: '2025-12-18'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -152,7 +152,7 @@ endpoints:
         name: is_recurring
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -163,7 +163,7 @@ endpoints:
         name: repeat_until
         description: 'Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>date</code>.'
         required: false
-        example: '2107-01-10'
+        example: '2107-01-16'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -216,10 +216,10 @@ endpoints:
     cleanBodyParameters:
       doctor_id: consequatur
       service_type: doctor
-      date: '2025-12-11'
+      date: '2025-12-18'
       day: 3
-      is_recurring: true
-      repeat_until: '2107-01-10'
+      is_recurring: false
+      repeat_until: '2107-01-16'
       start_time: '(:05'
       end_time: '(:05'
       duration: 16
@@ -245,7 +245,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show available slots for a doctor on a specific date'
+      title: 'Show available slots for a doctor on a specific date | نمایش اسلات‌های خالی پزشک در تاریخ مشخص'
       description: 'Get available appointment slots for a doctor on a specific date, excluding already booked slots.'
       authenticated: true
       deprecated: false
@@ -366,7 +366,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: "Update a doctor's shift"
+      title: "Update a doctor's shift | بروزرسانی شیفت پزشک"
       description: ''
       authenticated: true
       deprecated: false
@@ -461,7 +461,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: "Delete a doctor's shift"
+      title: "Delete a doctor's shift | حذف شیفت پزشک"
       description: ''
       authenticated: true
       deprecated: false
@@ -508,7 +508,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all shifts for a doctor'
+      title: 'List all shifts for a doctor | لیست شیفت‌های پزشک'
       description: 'Get all scheduled shifts for a specific doctor with calculated slot information.'
       authenticated: true
       deprecated: false
@@ -584,7 +584,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show available slots for a doctor on a specific date'
+      title: 'Show available slots for a doctor on a specific date | نمایش اسلات‌های خالی پزشک در تاریخ مشخص'
       description: 'Get available appointment slots for a doctor on a specific date, excluding already booked slots.'
       authenticated: true
       deprecated: false

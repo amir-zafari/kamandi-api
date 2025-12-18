@@ -14,7 +14,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Mark patient as arrived (Step 1: Patient arrival)'
+      title: 'Mark patient as arrived (Step 1: Patient arrival) | ثبت ورود بیمار (گام ۱)'
       description: 'Mark a patient as arrived for their appointment. Only doctors, nurses, and admins can perform this action.'
       authenticated: true
       deprecated: false
@@ -114,7 +114,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Start the visit and mark as completed (Step 2: Visit begins and completes)'
+      title: 'Start the visit and mark as completed (Step 2: Visit begins and completes) | شروع و اتمام ویزیت (گام ۲)'
       description: 'Start and complete the visit for an appointment. Only doctors and admins can perform this action.'
       authenticated: true
       deprecated: false
@@ -211,7 +211,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get attendance statistics for a doctor on a specific date'
+      title: 'Get attendance statistics for a doctor on a specific date | آمار حضور برای پزشک در تاریخ مشخص'
       description: ''
       authenticated: true
       deprecated: false

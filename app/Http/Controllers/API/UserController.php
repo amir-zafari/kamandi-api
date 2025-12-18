@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class UserController extends Controller
 {
     /**
-     * List all users
+     * List all users | لیست همه کاربران
      * 
      * Get a list of all users in the system with their basic information.
      * 
@@ -46,7 +46,7 @@ class UserController extends Controller
         ], 200);
     }
     /**
-     * Create a new user
+     * Create a new user | ایجاد کاربر جدید
      * 
      * Create a new user account with specified role and information.
      * 
@@ -131,7 +131,7 @@ class UserController extends Controller
         ], 201);
     }
     /**
-     * Show user details
+     * Show user details | نمایش جزئیات کاربر
      * @authenticated
      * @group Users
      */
@@ -162,7 +162,7 @@ class UserController extends Controller
         ], 200);
     }
     /**
-     * Update user information
+     * Update user information | بروزرسانی اطلاعات کاربر
      * @authenticated
      * @group Users
      */
@@ -228,7 +228,7 @@ class UserController extends Controller
         ], 200);
     }
     /**
-     * Delete a user
+     * Delete a user | حذف کاربر
      * @authenticated
      * @group Users
      */
@@ -252,7 +252,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the logged-in user's profile
+     * Show the logged-in user's profile | نمایش پروفایل کاربر واردشده
      * @authenticated
      * @group Users
      */

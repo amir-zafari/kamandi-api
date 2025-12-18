@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Cache;
 class CaptchaController extends Controller
 {
     /**
-     * Generate captcha image
+     * Generate captcha image | تولید تصویر کپچا
      * 
      * Generate a new captcha image with unique ID for authentication purposes.
      * 

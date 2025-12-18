@@ -12,7 +12,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Search in medical cases'
+      title: 'Search in medical cases | جستجو در پرونده‌های پزشکی'
       description: |-
         Search through medical cases by keywords in title, notes, diagnosis, symptoms, and visit reason.
         Supports additional filters for advanced search capabilities.
@@ -148,7 +148,7 @@ endpoints:
         name: date_from
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-11'
+        example: '2025-12-18'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -159,7 +159,7 @@ endpoints:
         name: date_to
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-11'
+        example: '2025-12-18'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -167,8 +167,8 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       q: vmqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur
-      date_from: '2025-12-11'
-      date_to: '2025-12-11'
+      date_from: '2025-12-18'
+      date_to: '2025-12-18'
     fileParameters: []
     responses:
       -
@@ -236,7 +236,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Filter medical cases by doctor, patient and type'
+      title: 'Filter medical cases by doctor, patient and type | فیلتر پرونده‌های پزشکی بر اساس پزشک، بیمار و نوع'
       description: |-
         Examples:
         - Filter by doctor_id:
@@ -328,7 +328,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create a new medical case with optional files'
+      title: 'Create a new medical case with optional files | ایجاد پرونده پزشکی جدید با فایل‌ها'
       description: 'Create a new medical case record with optional file attachments for a patient.'
       authenticated: true
       deprecated: false
@@ -498,7 +498,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all medical cases for a doctor and patient'
+      title: 'List all medical cases for a doctor and patient | لیست پرونده‌های پزشکی یک پزشک و بیمار'
       description: ''
       authenticated: true
       deprecated: false
@@ -566,7 +566,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update a medical case and optionally add files'
+      title: 'Update a medical case and optionally add files | بروزرسانی پرونده پزشکی و افزودن فایل'
       description: ''
       authenticated: true
       deprecated: false
@@ -618,7 +618,7 @@ endpoints:
         name: case_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-11'
+        example: '2025-12-18'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -649,7 +649,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       title: consequatur
-      case_date: '2025-12-11'
+      case_date: '2025-12-18'
       notes: consequatur
     fileParameters:
       files:
@@ -674,7 +674,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Toggle the pin status of a medical case'
+      title: 'Toggle the pin status of a medical case | تغییر وضعیت پین پرونده'
       description: ''
       authenticated: true
       deprecated: false
@@ -721,7 +721,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a medical case and all associated files'
+      title: 'Delete a medical case and all associated files | حذف پرونده پزشکی و تمام فایل‌های مرتبط'
       description: ''
       authenticated: true
       deprecated: false
@@ -768,7 +768,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a specific file from a medical case'
+      title: 'Delete a specific file from a medical case | حذف یک فایل از پرونده پزشکی'
       description: ''
       authenticated: true
       deprecated: false

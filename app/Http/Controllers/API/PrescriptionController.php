@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class PrescriptionController extends Controller
 {
     /**
-     * List prescriptions
+     * List prescriptions | لیست نسخه‌ها
      * 
      * Get all prescriptions or filter by medical record ID.
      * 
@@ -50,7 +50,7 @@ class PrescriptionController extends Controller
 
 
     /**
-     * Create a new prescription
+     * Create a new prescription | ایجاد نسخه جدید
      * 
      * Create a prescription for a patient's medical record.
      * 
@@ -101,7 +101,7 @@ class PrescriptionController extends Controller
     }
 
     /**
-     * Show a prescription
+     * Show a prescription | نمایش جزئیات نسخه
      * 
      * Get details of a specific prescription by ID.
      * 

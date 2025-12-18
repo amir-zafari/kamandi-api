@@ -14,7 +14,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Logout current device'
+      title: 'Logout current device | خروج از دستگاه فعلی'
       description: ''
       authenticated: true
       deprecated: false
@@ -49,7 +49,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Logout from all devices'
+      title: 'Logout from all devices | خروج از همه دستگاه‌ها'
       description: ''
       authenticated: true
       deprecated: false

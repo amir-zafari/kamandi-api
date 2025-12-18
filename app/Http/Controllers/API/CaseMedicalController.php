@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class CaseMedicalController extends Controller
 {
     /**
-     * Create a new medical case with optional files
+     * Create a new medical case with optional files | ایجاد پرونده پزشکی جدید با فایل‌ها
      * 
      * Create a new medical case record with optional file attachments for a patient.
      * 
@@ -121,7 +121,7 @@ class CaseMedicalController extends Controller
     }
 
     /**
-     * List all medical cases for a doctor and patient
+     * List all medical cases for a doctor and patient | لیست پرونده‌های پزشکی یک پزشک و بیمار
      * @authenticated
      * @group Medical Cases
      */
@@ -155,7 +155,7 @@ class CaseMedicalController extends Controller
         ], 200);
     }
     /**
-     * Update a medical case and optionally add files
+     * Update a medical case and optionally add files | بروزرسانی پرونده پزشکی و افزودن فایل
      * @authenticated
      * @group Medical Cases
      */
@@ -216,7 +216,7 @@ class CaseMedicalController extends Controller
         ], 200);
     }
     /**
-     * Toggle the pin status of a medical case
+     * Toggle the pin status of a medical case | تغییر وضعیت پین پرونده
      * @authenticated
      * @group Medical Cases
      */
@@ -249,7 +249,7 @@ class CaseMedicalController extends Controller
         ], 200);
     }
     /**
-     * Delete a medical case and all associated files
+     * Delete a medical case and all associated files | حذف پرونده پزشکی و تمام فایل‌های مرتبط
      * @authenticated
      * @group Medical Cases
      */
@@ -289,7 +289,7 @@ class CaseMedicalController extends Controller
         ], 200);
     }
     /**
-     * Delete a specific file from a medical case
+     * Delete a specific file from a medical case | حذف یک فایل از پرونده پزشکی
      * @authenticated
      * @group Medical Cases
      */
@@ -335,7 +335,7 @@ class CaseMedicalController extends Controller
         ], 200);
     }
     /**
-     * Filter medical cases by doctor, patient and type
+     * Filter medical cases by doctor, patient and type | فیلتر پرونده‌های پزشکی بر اساس پزشک، بیمار و نوع
      *
      * Examples:
      * - Filter by doctor_id:
@@ -422,7 +422,7 @@ class CaseMedicalController extends Controller
         ], 200);
     }
     /**
-     * Search in medical cases
+     * Search in medical cases | جستجو در پرونده‌های پزشکی
      * 
      * Search through medical cases by keywords in title, notes, diagnosis, symptoms, and visit reason.
      * Supports additional filters for advanced search capabilities.

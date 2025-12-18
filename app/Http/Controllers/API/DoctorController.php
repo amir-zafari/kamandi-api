@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class DoctorController extends Controller
 {
     /**
-     * List all doctors
+     * List all doctors | لیست همه پزشکان
      * 
      * Get a list of all doctors with their basic information and specialties.
      * 
@@ -54,7 +54,7 @@ class DoctorController extends Controller
         ], 200);
     }
     /**
-     * Create or update a doctor
+     * Create or update a doctor | ایجاد یا بروزرسانی پزشک
      * 
      * Create a new doctor record or update existing one. Changes user role to 'doctor'.
      * 
@@ -137,7 +137,7 @@ class DoctorController extends Controller
         ], 201);
     }
     /**
-     * Show doctor details
+     * Show doctor details | نمایش جزئیات پزشک
      * @authenticated
      * @group Doctors
      */
@@ -176,7 +176,7 @@ class DoctorController extends Controller
         ], 200);
     }
     /**
-     * Update doctor information
+     * Update doctor information | بروزرسانی اطلاعات پزشک
      * @authenticated
      * @group Doctors
      */
@@ -229,7 +229,7 @@ class DoctorController extends Controller
         ], 200);
     }
     /**
-     * Delete a doctor
+     * Delete a doctor | حذف پزشک
      * @authenticated
      * @group Doctors
      */

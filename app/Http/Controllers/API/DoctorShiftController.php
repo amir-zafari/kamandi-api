@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class DoctorShiftController extends Controller
 {
     /**
-     * List all shifts for a doctor
+     * List all shifts for a doctor | لیست شیفت‌های پزشک
      * 
      * Get all scheduled shifts for a specific doctor with calculated slot information.
      * 
@@ -81,7 +81,7 @@ class DoctorShiftController extends Controller
         ], 200);
     }
     /**
-     * Create a new shift for a doctor
+     * Create a new shift for a doctor | ایجاد شیفت جدید برای پزشک
      * @authenticated
      * @group Doctor Shifts
      */
@@ -158,7 +158,7 @@ class DoctorShiftController extends Controller
         ], 201);
     }
     /**
-     * Show available slots for a doctor on a specific date
+     * Show available slots for a doctor on a specific date | نمایش اسلات‌های خالی پزشک در تاریخ مشخص
      * 
      * Get available appointment slots for a doctor on a specific date, excluding already booked slots.
      * 
@@ -289,7 +289,7 @@ class DoctorShiftController extends Controller
         ], 200);
     }
     /**
-     * Update a doctor's shift
+     * Update a doctor's shift | بروزرسانی شیفت پزشک
      * @authenticated
      * @group Doctor Shifts
      */
@@ -334,7 +334,7 @@ class DoctorShiftController extends Controller
         ], 200);
     }
     /**
-     * Delete a doctor's shift
+     * Delete a doctor's shift | حذف شیفت پزشک
      * @authenticated
      * @group Doctor Shifts
      */

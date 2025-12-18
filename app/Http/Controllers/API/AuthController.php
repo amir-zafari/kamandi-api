@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     /**
-     * Login user
+     * Login user | ورود کاربر
      * 
      * Authenticate a user with email/mobile and password, along with captcha verification.
+     * احراز هویت کاربر با ایمیل/موبایل و کلمه عبور به همراه تأیید کپچا.
      * 
      * @unauthenticated
      * @group Authentication
@@ -39,15 +40,15 @@ class AuthController extends Controller
      * 
      * @response 400 {
      *   "status": "error",
-     *   "message": "Captcha expired"
+     *   "message": "Captcha expired | کپچا منقضی شده است"
      * }
      * 
      * @response 401 {
-     *   "message": "Invalid login credentials"
+     *   "message": "Invalid login credentials | اطلاعات ورود نامعتبر است"
      * }
      * 
      * @response 422 {
-     *   "message": "Invalid identifier format"
+     *   "message": "Invalid identifier format | قالب شناسه نامعتبر است"
      * }
      */
     public function login(Request $request)
@@ -191,7 +192,7 @@ class AuthController extends Controller
         ]);
     }
     /**
-     * Verify OTP
+     * Verify OTP | تایید کد تأیید
      * 
      * Verify the OTP code sent to user's mobile number and return authentication token.
      * 
@@ -265,7 +266,7 @@ class AuthController extends Controller
         ]);
     }
     /**
-     * Logout current device
+     * Logout current device | خروج از دستگاه فعلی
      * @authenticated
      * @group Authentication (Protected)
      */
@@ -279,7 +280,7 @@ class AuthController extends Controller
         ], 200);
     }
     /**
-     * Logout from all devices
+     * Logout from all devices | خروج از همه دستگاه‌ها
      * @authenticated
      * @group Authentication (Protected)
      */

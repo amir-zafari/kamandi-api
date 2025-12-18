@@ -12,7 +12,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get all revision logs'
+      title: 'Get all revision logs | دریافت همه لاگ‌های تغییرات'
       description: 'Retrieve all revision logs with advanced filtering and pagination options.'
       authenticated: true
       deprecated: false
@@ -212,7 +212,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get revision log statistics'
+      title: 'Get revision log statistics | دریافت آمار لاگ‌های تغییرات'
       description: 'Get comprehensive statistics about revision activities for a specific date.'
       authenticated: true
       deprecated: false
@@ -348,7 +348,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get logs of a specific user'
+      title: 'Get logs of a specific user | دریافت لاگ‌های یک کاربر'
       description: ''
       authenticated: true
       deprecated: false
@@ -404,7 +404,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Get logs of a specific model'
+      title: 'Get logs of a specific model | دریافت لاگ‌های یک مدل'
       description: ''
       authenticated: true
       deprecated: false
@@ -472,7 +472,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show a single revision log'
+      title: 'Show a single revision log | نمایش جزئیات یک لاگ تغییر'
       description: ''
       authenticated: true
       deprecated: false
@@ -528,7 +528,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Compare two revisions'
+      title: 'Compare two revisions | مقایسه دو لاگ تغییر'
       description: ''
       authenticated: true
       deprecated: false
@@ -587,7 +587,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete old revision logs'
+      title: 'Delete old revision logs | حذف لاگ‌های قدیمی'
       description: ''
       authenticated: true
       deprecated: false

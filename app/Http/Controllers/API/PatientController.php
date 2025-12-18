@@ -70,7 +70,7 @@ class PatientController extends Controller
         }
     }
     /**
-     * List all patients with special appointments
+     * List all patients with special appointments | لیست همه بیماران با نوبت‌های ویژه
      * @authenticated
      * @group Patients
      */
@@ -100,7 +100,7 @@ class PatientController extends Controller
         ], 200);
     }
     /**
-     * List all patients related to the user
+     * List all patients related to the user | لیست بیماران مرتبط با کاربر
      * @authenticated
      * @group Patients
      */
@@ -115,7 +115,7 @@ class PatientController extends Controller
     }
 
     /**
-     * Create or update a patient
+     * Create or update a patient | ایجاد یا بروزرسانی بیمار
      *
      * Create a new patient record or update existing one. Can link patient to current user.
      *
@@ -266,7 +266,7 @@ class PatientController extends Controller
     }
 
     /**
-     * Show patient details
+     * Show patient details | نمایش جزئیات بیمار
      * @authenticated
      * @group Patients
      */
@@ -303,7 +303,7 @@ class PatientController extends Controller
         ], 200);
     }
     /**
-     * Update patient information
+     * Update patient information | بروزرسانی اطلاعات بیمار
      * @authenticated
      * @group Patients
      */
@@ -381,7 +381,7 @@ class PatientController extends Controller
         ], 200);
     }
     /**
-     * Delete a patient
+     * Delete a patient | حذف بیمار
      * @authenticated
      * @group Patients
      */
@@ -412,7 +412,7 @@ class PatientController extends Controller
         ], 200);
     }
     /**
-     * List the logged-in user's patients
+     * List the logged-in user's patients | لیست بیماران کاربر واردشده
      * @authenticated
      * @group Patients
      */
@@ -446,7 +446,7 @@ class PatientController extends Controller
         ], 200);
     }
     /**
-     * Search patients
+     * Search patients | جستجوی بیماران
      *
      * Search through patients by name or national ID. Results depend on user role permissions.
      *
@@ -528,7 +528,7 @@ class PatientController extends Controller
     }
 
     /**
-     * Find patient by national ID (کد ملی)
+     * Find patient by national ID (کد ملی) | یافتن بیمار با کد ملی
      * @authenticated
      * @group Patients
      */

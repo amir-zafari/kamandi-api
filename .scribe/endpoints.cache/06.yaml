@@ -14,7 +14,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all appointments with status filter'
+      title: 'List all appointments with status filter | لیست نوبت‌ها با فیلتر وضعیت'
       description: 'Get a list of all appointments with optional filters for status, attendance, date, and doctor.'
       authenticated: true
       deprecated: false
@@ -134,7 +134,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create a new appointment'
+      title: 'Create a new appointment | ایجاد نوبت جدید'
       description: 'Book a new appointment for a patient with a doctor at a specific time.'
       authenticated: true
       deprecated: false
@@ -293,7 +293,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all appointments for a doctor on a specific date'
+      title: 'List all appointments for a doctor on a specific date | لیست نوبت‌های پزشک در یک روز'
       description: ''
       authenticated: true
       deprecated: false
@@ -361,7 +361,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show a specific appointment'
+      title: 'Show a specific appointment | نمایش جزئیات نوبت'
       description: 'Get detailed information about a specific appointment by its ID.'
       authenticated: true
       deprecated: false
@@ -440,7 +440,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update an appointment'
+      title: 'Update an appointment | بروزرسانی نوبت'
       description: ''
       authenticated: true
       deprecated: false
@@ -481,7 +481,7 @@ endpoints:
         name: appointment_type
         description: ''
         required: false
-        example: in_person
+        example: referral
         type: string
         enumValues:
           - online
@@ -496,7 +496,7 @@ endpoints:
         name: service_type
         description: ''
         required: false
-        example: injection
+        example: doctor
         type: string
         enumValues:
           - doctor
@@ -509,7 +509,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: waiting
+        example: canceled
         type: string
         enumValues:
           - waiting
@@ -521,9 +521,9 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       start_time: '(:05'
-      appointment_type: in_person
-      service_type: injection
-      status: waiting
+      appointment_type: referral
+      service_type: doctor
+      status: canceled
     fileParameters: []
     responses: []
     responseFields: []
@@ -545,7 +545,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete an appointment (soft delete - only for admins)'
+      title: 'Delete an appointment (soft delete - only for admins) | حذف نوبت (فقط ادمین)'
       description: ''
       authenticated: true
       deprecated: false
@@ -592,7 +592,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Cancel an appointment'
+      title: 'Cancel an appointment | لغو نوبت'
       description: 'Cancel an existing appointment with a reason. Different rules apply based on user role.'
       authenticated: true
       deprecated: false
@@ -701,7 +701,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create a new appointment'
+      title: 'Create a new appointment | ایجاد نوبت جدید'
       description: 'Book a new appointment for a patient with a doctor at a specific time.'
       authenticated: true
       deprecated: false
@@ -860,7 +860,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all appointments for a doctor on a specific date'
+      title: 'List all appointments for a doctor on a specific date | لیست نوبت‌های پزشک در یک روز'
       description: ''
       authenticated: true
       deprecated: false
@@ -928,7 +928,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all appointments for a specific patient'
+      title: 'List all appointments for a specific patient | لیست نوبت‌های یک بیمار'
       description: ''
       authenticated: true
       deprecated: false
@@ -984,7 +984,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update an appointment'
+      title: 'Update an appointment | بروزرسانی نوبت'
       description: ''
       authenticated: true
       deprecated: false
@@ -1053,7 +1053,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: no_show
+        example: visited
         type: string
         enumValues:
           - waiting
@@ -1067,7 +1067,7 @@ endpoints:
       start_time: '(:05'
       appointment_type: in_person
       service_type: injection
-      status: no_show
+      status: visited
     fileParameters: []
     responses: []
     responseFields: []
@@ -1089,7 +1089,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete an appointment (soft delete - only for admins)'
+      title: 'Delete an appointment (soft delete - only for admins) | حذف نوبت (فقط ادمین)'
       description: ''
       authenticated: true
       deprecated: false

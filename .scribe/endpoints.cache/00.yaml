@@ -14,7 +14,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Generate captcha image'
+      title: 'Generate captcha image | تولید تصویر کپچا'
       description: 'Generate a new captcha image with unique ID for authentication purposes.'
       authenticated: false
       deprecated: false
@@ -68,7 +68,10 @@ endpoints:
       subgroup: ''
       subgroupDescription: ''
       title: 'Send verification code'
-      description: "Send an OTP verification code to user's mobile number for authentication."
+      description: |-
+        Send an OTP verification code to user's mobile number for authentication.
+        This endpoint is rate-limited to a maximum of 3 requests per 30 minutes per mobile number
+        to protect the SMS provider.
       authenticated: false
       deprecated: false
     headers:
@@ -113,6 +116,16 @@ endpoints:
           }
         headers: []
         description: ''
+      -
+        custom: []
+        status: 429
+        content: |-
+          {
+            "status": "error",
+            "message": "تعداد درخواست زیاد است. لطفاً بعداً تلاش کنید (حداکثر ۳ بار در ۳۰ دقیقه)."
+          }
+        headers: []
+        description: ''
     responseFields: []
     auth: []
     controller: null
@@ -129,7 +142,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Verify OTP'
+      title: 'Verify OTP | تایید کد تأیید'
       description: "Verify the OTP code sent to user's mobile number and return authentication token."
       authenticated: false
       deprecated: false
@@ -228,8 +241,10 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Login user'
-      description: 'Authenticate a user with email/mobile and password, along with captcha verification.'
+      title: 'Login user | ورود کاربر'
+      description: |-
+        Authenticate a user with email/mobile and password, along with captcha verification.
+        احراز هویت کاربر با ایمیل/موبایل و کلمه عبور به همراه تأیید کپچا.
       authenticated: false
       deprecated: false
     headers:
@@ -314,7 +329,7 @@ endpoints:
         content: |-
           {
             "status": "error",
-            "message": "Captcha expired"
+            "message": "Captcha expired | کپچا منقضی شده است"
           }
         headers: []
         description: ''
@@ -323,7 +338,7 @@ endpoints:
         status: 401
         content: |-
           {
-            "message": "Invalid login credentials"
+            "message": "Invalid login credentials | اطلاعات ورود نامعتبر است"
           }
         headers: []
         description: ''
@@ -332,7 +347,7 @@ endpoints:
         status: 422
         content: |-
           {
-            "message": "Invalid identifier format"
+            "message": "Invalid identifier format | قالب شناسه نامعتبر است"
           }
         headers: []
         description: ''

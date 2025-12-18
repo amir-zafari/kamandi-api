@@ -14,7 +14,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create a new prescription'
+      title: 'Create a new prescription | ایجاد نسخه جدید'
       description: "Create a prescription for a patient's medical record."
       authenticated: true
       deprecated: false
@@ -150,7 +150,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List prescriptions'
+      title: 'List prescriptions | لیست نسخه‌ها'
       description: 'Get all prescriptions or filter by medical record ID.'
       authenticated: true
       deprecated: false
@@ -217,7 +217,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show a prescription'
+      title: 'Show a prescription | نمایش جزئیات نسخه'
       description: 'Get details of a specific prescription by ID.'
       authenticated: true
       deprecated: false

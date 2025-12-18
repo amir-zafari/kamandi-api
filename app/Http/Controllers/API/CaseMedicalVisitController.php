@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class CaseMedicalVisitController extends Controller
 {
     /**
-     * List medical visits
+     * List medical visits | لیست ویزیت‌های پزشکی
      * @authenticated
      * @group Medical Visits
      */
@@ -58,7 +58,7 @@ class CaseMedicalVisitController extends Controller
         ], 200);
     }
     /**
-     * Create a new medical visit
+     * Create a new medical visit | ایجاد ویزیت جدید
      * 
      * Create a comprehensive visit record with case medical information and visit details.
      * 
@@ -170,7 +170,7 @@ class CaseMedicalVisitController extends Controller
         ], 201);
     }
     /**
-     * Show a specific medical visit
+     * Show a specific medical visit | نمایش جزئیات ویزیت
      * @authenticated
      * @group Medical Visits
      */
@@ -202,7 +202,7 @@ class CaseMedicalVisitController extends Controller
         ], 200);
     }
     /**
-     * Update a medical visit
+     * Update a medical visit | بروزرسانی ویزیت
      * @authenticated
      * @group Medical Visits
      */
@@ -268,7 +268,7 @@ class CaseMedicalVisitController extends Controller
         ], 200);
     }
     /**
-     * Delete a medical visit
+     * Delete a medical visit | حذف ویزیت
      * @authenticated
      * @group Medical Visits
      */

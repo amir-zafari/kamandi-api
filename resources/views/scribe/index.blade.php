@@ -72,40 +72,40 @@
                 </li>
                                     <ul id="tocify-subheader-appointments" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="appointments-GETapi-appointments">
-                                <a href="#appointments-GETapi-appointments">List all appointments with status filter</a>
+                                <a href="#appointments-GETapi-appointments">List all appointments with status filter | لیست نوبت‌ها با فیلتر وضعیت</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-POSTapi-appointments">
-                                <a href="#appointments-POSTapi-appointments">Create a new appointment</a>
+                                <a href="#appointments-POSTapi-appointments">Create a new appointment | ایجاد نوبت جدید</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-GETapi-appointments--doctor_id---date-">
-                                <a href="#appointments-GETapi-appointments--doctor_id---date-">List all appointments for a doctor on a specific date</a>
+                                <a href="#appointments-GETapi-appointments--doctor_id---date-">List all appointments for a doctor on a specific date | لیست نوبت‌های پزشک در یک روز</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-GETapi-appointments--id-">
-                                <a href="#appointments-GETapi-appointments--id-">Show a specific appointment</a>
+                                <a href="#appointments-GETapi-appointments--id-">Show a specific appointment | نمایش جزئیات نوبت</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-PUTapi-appointments--id-">
-                                <a href="#appointments-PUTapi-appointments--id-">Update an appointment</a>
+                                <a href="#appointments-PUTapi-appointments--id-">Update an appointment | بروزرسانی نوبت</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-DELETEapi-appointments--id-">
-                                <a href="#appointments-DELETEapi-appointments--id-">Delete an appointment (soft delete - only for admins)</a>
+                                <a href="#appointments-DELETEapi-appointments--id-">Delete an appointment (soft delete - only for admins) | حذف نوبت (فقط ادمین)</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-POSTapi-appointments-cancel--id-">
-                                <a href="#appointments-POSTapi-appointments-cancel--id-">Cancel an appointment</a>
+                                <a href="#appointments-POSTapi-appointments-cancel--id-">Cancel an appointment | لغو نوبت</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-POSTapi-patient-appointments">
-                                <a href="#appointments-POSTapi-patient-appointments">Create a new appointment</a>
+                                <a href="#appointments-POSTapi-patient-appointments">Create a new appointment | ایجاد نوبت جدید</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-GETapi-patient-appointments--doctor_id---date-">
-                                <a href="#appointments-GETapi-patient-appointments--doctor_id---date-">List all appointments for a doctor on a specific date</a>
+                                <a href="#appointments-GETapi-patient-appointments--doctor_id---date-">List all appointments for a doctor on a specific date | لیست نوبت‌های پزشک در یک روز</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-GETapi-patient-appointments--patient_id-">
-                                <a href="#appointments-GETapi-patient-appointments--patient_id-">List all appointments for a specific patient</a>
+                                <a href="#appointments-GETapi-patient-appointments--patient_id-">List all appointments for a specific patient | لیست نوبت‌های یک بیمار</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-PUTapi-patient-appointments--id-">
-                                <a href="#appointments-PUTapi-patient-appointments--id-">Update an appointment</a>
+                                <a href="#appointments-PUTapi-patient-appointments--id-">Update an appointment | بروزرسانی نوبت</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-DELETEapi-patient-appointments--id-">
-                                <a href="#appointments-DELETEapi-patient-appointments--id-">Delete an appointment (soft delete - only for admins)</a>
+                                <a href="#appointments-DELETEapi-patient-appointments--id-">Delete an appointment (soft delete - only for admins) | حذف نوبت (فقط ادمین)</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -115,13 +115,13 @@
                 </li>
                                     <ul id="tocify-subheader-appointments-attendance" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="appointments-attendance-POSTapi-appointments-mark-arrived--id-">
-                                <a href="#appointments-attendance-POSTapi-appointments-mark-arrived--id-">Mark patient as arrived (Step 1: Patient arrival)</a>
+                                <a href="#appointments-attendance-POSTapi-appointments-mark-arrived--id-">Mark patient as arrived (Step 1: Patient arrival) | ثبت ورود بیمار (گام ۱)</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-attendance-POSTapi-appointments-start-visit--id-">
-                                <a href="#appointments-attendance-POSTapi-appointments-start-visit--id-">Start the visit and mark as completed (Step 2: Visit begins and completes)</a>
+                                <a href="#appointments-attendance-POSTapi-appointments-start-visit--id-">Start the visit and mark as completed (Step 2: Visit begins and completes) | شروع و اتمام ویزیت (گام ۲)</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="appointments-attendance-GETapi-appointments-statistics--doctor_id---date-">
-                                <a href="#appointments-attendance-GETapi-appointments-statistics--doctor_id---date-">Get attendance statistics for a doctor on a specific date</a>
+                                <a href="#appointments-attendance-GETapi-appointments-statistics--doctor_id---date-">Get attendance statistics for a doctor on a specific date | آمار حضور برای پزشک در تاریخ مشخص</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -131,16 +131,16 @@
                 </li>
                                     <ul id="tocify-subheader-authentication" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="authentication-GETapi-auth-captcha-generate">
-                                <a href="#authentication-GETapi-auth-captcha-generate">Generate captcha image</a>
+                                <a href="#authentication-GETapi-auth-captcha-generate">Generate captcha image | تولید تصویر کپچا</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-send-otp">
                                 <a href="#authentication-POSTapi-auth-send-otp">Send verification code</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-verify-otp">
-                                <a href="#authentication-POSTapi-auth-verify-otp">Verify OTP</a>
+                                <a href="#authentication-POSTapi-auth-verify-otp">Verify OTP | تایید کد تأیید</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="authentication-POSTapi-auth-login">
-                                <a href="#authentication-POSTapi-auth-login">Login user</a>
+                                <a href="#authentication-POSTapi-auth-login">Login user | ورود کاربر</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -150,10 +150,10 @@
                 </li>
                                     <ul id="tocify-subheader-authentication-protected" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="authentication-protected-POSTapi-auth-logout">
-                                <a href="#authentication-protected-POSTapi-auth-logout">Logout current device</a>
+                                <a href="#authentication-protected-POSTapi-auth-logout">Logout current device | خروج از دستگاه فعلی</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="authentication-protected-POSTapi-auth-logoutall">
-                                <a href="#authentication-protected-POSTapi-auth-logoutall">Logout from all devices</a>
+                                <a href="#authentication-protected-POSTapi-auth-logoutall">Logout from all devices | خروج از همه دستگاه‌ها</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -163,7 +163,7 @@
                 </li>
                                     <ul id="tocify-subheader-currency-converter" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="currency-converter-POSTapi-currency-convert">
-                                <a href="#currency-converter-POSTapi-currency-convert">Convert USD to Iranian Toman (IRT)</a>
+                                <a href="#currency-converter-POSTapi-currency-convert">Convert USD to Iranian Toman (IRT) | تبدیل دلار به تومان (IRT)</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -173,25 +173,25 @@
                 </li>
                                     <ul id="tocify-subheader-doctor-shifts" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="doctor-shifts-GETapi-shifts--doctor_id-">
-                                <a href="#doctor-shifts-GETapi-shifts--doctor_id-">List all shifts for a doctor</a>
+                                <a href="#doctor-shifts-GETapi-shifts--doctor_id-">List all shifts for a doctor | لیست شیفت‌های پزشک</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctor-shifts-POSTapi-shifts">
-                                <a href="#doctor-shifts-POSTapi-shifts">Create a new shift for a doctor</a>
+                                <a href="#doctor-shifts-POSTapi-shifts">Create a new shift for a doctor | ایجاد شیفت جدید برای پزشک</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctor-shifts-GETapi-shifts--id---day-">
-                                <a href="#doctor-shifts-GETapi-shifts--id---day-">Show available slots for a doctor on a specific date</a>
+                                <a href="#doctor-shifts-GETapi-shifts--id---day-">Show available slots for a doctor on a specific date | نمایش اسلات‌های خالی پزشک در تاریخ مشخص</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctor-shifts-PUTapi-shifts--id-">
-                                <a href="#doctor-shifts-PUTapi-shifts--id-">Update a doctor's shift</a>
+                                <a href="#doctor-shifts-PUTapi-shifts--id-">Update a doctor's shift | بروزرسانی شیفت پزشک</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctor-shifts-DELETEapi-shifts--id-">
-                                <a href="#doctor-shifts-DELETEapi-shifts--id-">Delete a doctor's shift</a>
+                                <a href="#doctor-shifts-DELETEapi-shifts--id-">Delete a doctor's shift | حذف شیفت پزشک</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctor-shifts-GETapi-patient-shifts--doctor_id-">
-                                <a href="#doctor-shifts-GETapi-patient-shifts--doctor_id-">List all shifts for a doctor</a>
+                                <a href="#doctor-shifts-GETapi-patient-shifts--doctor_id-">List all shifts for a doctor | لیست شیفت‌های پزشک</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctor-shifts-GETapi-patient-shifts--id---day-">
-                                <a href="#doctor-shifts-GETapi-patient-shifts--id---day-">Show available slots for a doctor on a specific date</a>
+                                <a href="#doctor-shifts-GETapi-patient-shifts--id---day-">Show available slots for a doctor on a specific date | نمایش اسلات‌های خالی پزشک در تاریخ مشخص</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -201,25 +201,25 @@
                 </li>
                                     <ul id="tocify-subheader-doctors" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="doctors-GETapi-doctors">
-                                <a href="#doctors-GETapi-doctors">List all doctors</a>
+                                <a href="#doctors-GETapi-doctors">List all doctors | لیست همه پزشکان</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctors-POSTapi-doctors">
-                                <a href="#doctors-POSTapi-doctors">Create or update a doctor</a>
+                                <a href="#doctors-POSTapi-doctors">Create or update a doctor | ایجاد یا بروزرسانی پزشک</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctors-GETapi-doctors--id-">
-                                <a href="#doctors-GETapi-doctors--id-">Show doctor details</a>
+                                <a href="#doctors-GETapi-doctors--id-">Show doctor details | نمایش جزئیات پزشک</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctors-PUTapi-doctors--id-">
-                                <a href="#doctors-PUTapi-doctors--id-">Update doctor information</a>
+                                <a href="#doctors-PUTapi-doctors--id-">Update doctor information | بروزرسانی اطلاعات پزشک</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctors-DELETEapi-doctors--id-">
-                                <a href="#doctors-DELETEapi-doctors--id-">Delete a doctor</a>
+                                <a href="#doctors-DELETEapi-doctors--id-">Delete a doctor | حذف پزشک</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctors-GETapi-patient-doctors">
-                                <a href="#doctors-GETapi-patient-doctors">List all doctors</a>
+                                <a href="#doctors-GETapi-patient-doctors">List all doctors | لیست همه پزشکان</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="doctors-GETapi-patient-doctors--id-">
-                                <a href="#doctors-GETapi-patient-doctors--id-">Show doctor details</a>
+                                <a href="#doctors-GETapi-patient-doctors--id-">Show doctor details | نمایش جزئیات پزشک</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -280,28 +280,28 @@
                 </li>
                                     <ul id="tocify-subheader-medical-cases" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="medical-cases-GETapi-medicaldocument-search">
-                                <a href="#medical-cases-GETapi-medicaldocument-search">Search in medical cases</a>
+                                <a href="#medical-cases-GETapi-medicaldocument-search">Search in medical cases | جستجو در پرونده‌های پزشکی</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-cases-GETapi-medicaldocument-filter">
-                                <a href="#medical-cases-GETapi-medicaldocument-filter">Filter medical cases by doctor, patient and type</a>
+                                <a href="#medical-cases-GETapi-medicaldocument-filter">Filter medical cases by doctor, patient and type | فیلتر پرونده‌های پزشکی بر اساس پزشک، بیمار و نوع</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-cases-POSTapi-medicaldocument">
-                                <a href="#medical-cases-POSTapi-medicaldocument">Create a new medical case with optional files</a>
+                                <a href="#medical-cases-POSTapi-medicaldocument">Create a new medical case with optional files | ایجاد پرونده پزشکی جدید با فایل‌ها</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-cases-GETapi-medicaldocument--doctor_id---patient_id-">
-                                <a href="#medical-cases-GETapi-medicaldocument--doctor_id---patient_id-">List all medical cases for a doctor and patient</a>
+                                <a href="#medical-cases-GETapi-medicaldocument--doctor_id---patient_id-">List all medical cases for a doctor and patient | لیست پرونده‌های پزشکی یک پزشک و بیمار</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-cases-PUTapi-medicaldocument--id-">
-                                <a href="#medical-cases-PUTapi-medicaldocument--id-">Update a medical case and optionally add files</a>
+                                <a href="#medical-cases-PUTapi-medicaldocument--id-">Update a medical case and optionally add files | بروزرسانی پرونده پزشکی و افزودن فایل</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-cases-PATCHapi-medicaldocument-pin--id-">
-                                <a href="#medical-cases-PATCHapi-medicaldocument-pin--id-">Toggle the pin status of a medical case</a>
+                                <a href="#medical-cases-PATCHapi-medicaldocument-pin--id-">Toggle the pin status of a medical case | تغییر وضعیت پین پرونده</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-cases-DELETEapi-medicaldocument--id-">
-                                <a href="#medical-cases-DELETEapi-medicaldocument--id-">Delete a medical case and all associated files</a>
+                                <a href="#medical-cases-DELETEapi-medicaldocument--id-">Delete a medical case and all associated files | حذف پرونده پزشکی و تمام فایل‌های مرتبط</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-cases-DELETEapi-medicaldocument-file--id-">
-                                <a href="#medical-cases-DELETEapi-medicaldocument-file--id-">Delete a specific file from a medical case</a>
+                                <a href="#medical-cases-DELETEapi-medicaldocument-file--id-">Delete a specific file from a medical case | حذف یک فایل از پرونده پزشکی</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -311,19 +311,19 @@
                 </li>
                                     <ul id="tocify-subheader-medical-visits" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="medical-visits-POSTapi-visits">
-                                <a href="#medical-visits-POSTapi-visits">Create a new medical visit</a>
+                                <a href="#medical-visits-POSTapi-visits">Create a new medical visit | ایجاد ویزیت جدید</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-visits-GETapi-visits--record_id--">
-                                <a href="#medical-visits-GETapi-visits--record_id--">List medical visits</a>
+                                <a href="#medical-visits-GETapi-visits--record_id--">List medical visits | لیست ویزیت‌های پزشکی</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-visits-GETapi-visits--id-">
-                                <a href="#medical-visits-GETapi-visits--id-">Show a specific medical visit</a>
+                                <a href="#medical-visits-GETapi-visits--id-">Show a specific medical visit | نمایش جزئیات ویزیت</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-visits-PUTapi-visits--id-">
-                                <a href="#medical-visits-PUTapi-visits--id-">Update a medical visit</a>
+                                <a href="#medical-visits-PUTapi-visits--id-">Update a medical visit | بروزرسانی ویزیت</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="medical-visits-DELETEapi-visits--id-">
-                                <a href="#medical-visits-DELETEapi-visits--id-">Delete a medical visit</a>
+                                <a href="#medical-visits-DELETEapi-visits--id-">Delete a medical visit | حذف ویزیت</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -333,37 +333,43 @@
                 </li>
                                     <ul id="tocify-subheader-patients" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="patients-GETapi-patients-search">
-                                <a href="#patients-GETapi-patients-search">Search patients</a>
+                                <a href="#patients-GETapi-patients-search">Search patients | جستجوی بیماران</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="patients-GETapi-patients-by-national--national_id-">
+                                <a href="#patients-GETapi-patients-by-national--national_id-">Find patient by national ID (کد ملی) | یافتن بیمار با کد ملی</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="patients-GETapi-patients">
-                                <a href="#patients-GETapi-patients">List all patients with special appointments</a>
+                                <a href="#patients-GETapi-patients">List all patients with special appointments | لیست همه بیماران با نوبت‌های ویژه</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="patients-POSTapi-patients">
-                                <a href="#patients-POSTapi-patients">Create or update a patient</a>
+                                <a href="#patients-POSTapi-patients">Create or update a patient | ایجاد یا بروزرسانی بیمار</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="patients-GETapi-patients--id-">
-                                <a href="#patients-GETapi-patients--id-">Show patient details</a>
+                                <a href="#patients-GETapi-patients--id-">Show patient details | نمایش جزئیات بیمار</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="patients-PUTapi-patients--id-">
-                                <a href="#patients-PUTapi-patients--id-">Update patient information</a>
+                                <a href="#patients-PUTapi-patients--id-">Update patient information | بروزرسانی اطلاعات بیمار</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="patients-DELETEapi-patients--id-">
-                                <a href="#patients-DELETEapi-patients--id-">Delete a patient</a>
+                                <a href="#patients-DELETEapi-patients--id-">Delete a patient | حذف بیمار</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="patients-GETapi-patient-patients">
-                                <a href="#patients-GETapi-patient-patients">List the logged-in user's patients</a>
+                                <a href="#patients-GETapi-patient-patients">List the logged-in user's patients | لیست بیماران کاربر واردشده</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="patients-GETapi-patient-patients-by-national--national_id-">
+                                <a href="#patients-GETapi-patient-patients-by-national--national_id-">Find patient by national ID (کد ملی) | یافتن بیمار با کد ملی</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="patients-POSTapi-patient-patients">
-                                <a href="#patients-POSTapi-patient-patients">Create or update a patient</a>
+                                <a href="#patients-POSTapi-patient-patients">Create or update a patient | ایجاد یا بروزرسانی بیمار</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="patients-GETapi-patient-patients--id-">
-                                <a href="#patients-GETapi-patient-patients--id-">Show patient details</a>
+                                <a href="#patients-GETapi-patient-patients--id-">Show patient details | نمایش جزئیات بیمار</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="patients-PUTapi-patient-patients--id-">
-                                <a href="#patients-PUTapi-patient-patients--id-">Update patient information</a>
+                                <a href="#patients-PUTapi-patient-patients--id-">Update patient information | بروزرسانی اطلاعات بیمار</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="patients-DELETEapi-patient-patients--id-">
-                                <a href="#patients-DELETEapi-patient-patients--id-">Delete a patient</a>
+                                <a href="#patients-DELETEapi-patient-patients--id-">Delete a patient | حذف بیمار</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -373,13 +379,13 @@
                 </li>
                                     <ul id="tocify-subheader-prescriptions" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="prescriptions-POSTapi-prescriptions">
-                                <a href="#prescriptions-POSTapi-prescriptions">Create a new prescription</a>
+                                <a href="#prescriptions-POSTapi-prescriptions">Create a new prescription | ایجاد نسخه جدید</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="prescriptions-GETapi-prescriptions--record_id--">
-                                <a href="#prescriptions-GETapi-prescriptions--record_id--">List prescriptions</a>
+                                <a href="#prescriptions-GETapi-prescriptions--record_id--">List prescriptions | لیست نسخه‌ها</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="prescriptions-GETapi-prescriptions--id-">
-                                <a href="#prescriptions-GETapi-prescriptions--id-">Show a prescription</a>
+                                <a href="#prescriptions-GETapi-prescriptions--id-">Show a prescription | نمایش جزئیات نسخه</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -389,28 +395,28 @@
                 </li>
                                     <ul id="tocify-subheader-revision-logs" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs">
-                                <a href="#revision-logs-GETapi-logs">Get all revision logs</a>
+                                <a href="#revision-logs-GETapi-logs">Get all revision logs | دریافت همه لاگ‌های تغییرات</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs-statistics">
-                                <a href="#revision-logs-GETapi-logs-statistics">Get revision log statistics</a>
+                                <a href="#revision-logs-GETapi-logs-statistics">Get revision log statistics | دریافت آمار لاگ‌های تغییرات</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs-recent-activity">
                                 <a href="#revision-logs-GETapi-logs-recent-activity">Get recent revision activities</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs-user--userId-">
-                                <a href="#revision-logs-GETapi-logs-user--userId-">Get logs of a specific user</a>
+                                <a href="#revision-logs-GETapi-logs-user--userId-">Get logs of a specific user | دریافت لاگ‌های یک کاربر</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs-model">
-                                <a href="#revision-logs-GETapi-logs-model">Get logs of a specific model</a>
+                                <a href="#revision-logs-GETapi-logs-model">Get logs of a specific model | دریافت لاگ‌های یک مدل</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="revision-logs-GETapi-logs--id-">
-                                <a href="#revision-logs-GETapi-logs--id-">Show a single revision log</a>
+                                <a href="#revision-logs-GETapi-logs--id-">Show a single revision log | نمایش جزئیات یک لاگ تغییر</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="revision-logs-POSTapi-logs-compare">
-                                <a href="#revision-logs-POSTapi-logs-compare">Compare two revisions</a>
+                                <a href="#revision-logs-POSTapi-logs-compare">Compare two revisions | مقایسه دو لاگ تغییر</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="revision-logs-DELETEapi-logs-cleanup">
-                                <a href="#revision-logs-DELETEapi-logs-cleanup">Delete old revision logs</a>
+                                <a href="#revision-logs-DELETEapi-logs-cleanup">Delete old revision logs | حذف لاگ‌های قدیمی</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -439,25 +445,25 @@
                 </li>
                                     <ul id="tocify-subheader-users" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="users-GETapi-users-profile">
-                                <a href="#users-GETapi-users-profile">Show the logged-in user's profile</a>
+                                <a href="#users-GETapi-users-profile">Show the logged-in user's profile | نمایش پروفایل کاربر واردشده</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="users-GETapi-users">
-                                <a href="#users-GETapi-users">List all users</a>
+                                <a href="#users-GETapi-users">List all users | لیست همه کاربران</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="users-POSTapi-users">
-                                <a href="#users-POSTapi-users">Create a new user</a>
+                                <a href="#users-POSTapi-users">Create a new user | ایجاد کاربر جدید</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="users-GETapi-users--id-">
-                                <a href="#users-GETapi-users--id-">Show user details</a>
+                                <a href="#users-GETapi-users--id-">Show user details | نمایش جزئیات کاربر</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="users-PUTapi-users--id-">
-                                <a href="#users-PUTapi-users--id-">Update user information</a>
+                                <a href="#users-PUTapi-users--id-">Update user information | بروزرسانی اطلاعات کاربر</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="users-DELETEapi-users--id-">
-                                <a href="#users-DELETEapi-users--id-">Delete a user</a>
+                                <a href="#users-DELETEapi-users--id-">Delete a user | حذف کاربر</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="users-GETapi-patient-profile">
-                                <a href="#users-GETapi-patient-profile">Show the logged-in user's profile</a>
+                                <a href="#users-GETapi-patient-profile">Show the logged-in user's profile | نمایش پروفایل کاربر واردشده</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -489,7 +495,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: December 11, 2025</li>
+        <li>Last updated: December 18, 2025</li>
     </ul>
 </div>
 
@@ -514,7 +520,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-                                <h2 id="appointments-GETapi-appointments">List all appointments with status filter</h2>
+                                <h2 id="appointments-GETapi-appointments">List all appointments with status filter | لیست نوبت‌ها با فیلتر وضعیت</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -734,7 +740,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="appointments-POSTapi-appointments">Create a new appointment</h2>
+                    <h2 id="appointments-POSTapi-appointments">Create a new appointment | ایجاد نوبت جدید</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1005,7 +1011,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="appointments-GETapi-appointments--doctor_id---date-">List all appointments for a doctor on a specific date</h2>
+                    <h2 id="appointments-GETapi-appointments--doctor_id---date-">List all appointments for a doctor on a specific date | لیست نوبت‌های پزشک در یک روز</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1171,7 +1177,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="appointments-GETapi-appointments--id-">Show a specific appointment</h2>
+                    <h2 id="appointments-GETapi-appointments--id-">Show a specific appointment | نمایش جزئیات نوبت</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1341,7 +1347,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="appointments-PUTapi-appointments--id-">Update an appointment</h2>
+                    <h2 id="appointments-PUTapi-appointments--id-">Update an appointment | بروزرسانی نوبت</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1361,9 +1367,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"start_time\": \"(:05\",
-    \"appointment_type\": \"in_person\",
-    \"service_type\": \"injection\",
-    \"status\": \"waiting\"
+    \"appointment_type\": \"referral\",
+    \"service_type\": \"doctor\",
+    \"status\": \"canceled\"
 }"
 </code></pre></div>
 
@@ -1381,9 +1387,9 @@ const headers = {
 
 let body = {
     "start_time": "(:05",
-    "appointment_type": "in_person",
-    "service_type": "injection",
-    "status": "waiting"
+    "appointment_type": "referral",
+    "service_type": "doctor",
+    "status": "canceled"
 };
 
 fetch(url, {
@@ -1512,10 +1518,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="appointment_type"                data-endpoint="PUTapi-appointments--id-"
-               value="in_person"
+               value="referral"
                data-component="body">
     <br>
-<p>Example: <code>in_person</code></p>
+<p>Example: <code>referral</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>online</code></li> <li><code>phone</code></li> <li><code>in_person</code></li> <li><code>referral</code></li></ul>
         </div>
@@ -1526,10 +1532,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="service_type"                data-endpoint="PUTapi-appointments--id-"
-               value="injection"
+               value="doctor"
                data-component="body">
     <br>
-<p>Example: <code>injection</code></p>
+<p>Example: <code>doctor</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>doctor</code></li> <li><code>injection</code></li></ul>
         </div>
@@ -1540,16 +1546,16 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-appointments--id-"
-               value="waiting"
+               value="canceled"
                data-component="body">
     <br>
-<p>Example: <code>waiting</code></p>
+<p>Example: <code>canceled</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>waiting</code></li> <li><code>canceled</code></li> <li><code>visited</code></li> <li><code>no_show</code></li></ul>
         </div>
         </form>
 
-                    <h2 id="appointments-DELETEapi-appointments--id-">Delete an appointment (soft delete - only for admins)</h2>
+                    <h2 id="appointments-DELETEapi-appointments--id-">Delete an appointment (soft delete - only for admins) | حذف نوبت (فقط ادمین)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1687,7 +1693,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="appointments-POSTapi-appointments-cancel--id-">Cancel an appointment</h2>
+                    <h2 id="appointments-POSTapi-appointments-cancel--id-">Cancel an appointment | لغو نوبت</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -1899,7 +1905,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="appointments-POSTapi-patient-appointments">Create a new appointment</h2>
+                    <h2 id="appointments-POSTapi-patient-appointments">Create a new appointment | ایجاد نوبت جدید</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2170,7 +2176,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="appointments-GETapi-patient-appointments--doctor_id---date-">List all appointments for a doctor on a specific date</h2>
+                    <h2 id="appointments-GETapi-patient-appointments--doctor_id---date-">List all appointments for a doctor on a specific date | لیست نوبت‌های پزشک در یک روز</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2336,7 +2342,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="appointments-GETapi-patient-appointments--patient_id-">List all appointments for a specific patient</h2>
+                    <h2 id="appointments-GETapi-patient-appointments--patient_id-">List all appointments for a specific patient | لیست نوبت‌های یک بیمار</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2490,7 +2496,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="appointments-PUTapi-patient-appointments--id-">Update an appointment</h2>
+                    <h2 id="appointments-PUTapi-patient-appointments--id-">Update an appointment | بروزرسانی نوبت</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2512,7 +2518,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"start_time\": \"(:05\",
     \"appointment_type\": \"in_person\",
     \"service_type\": \"injection\",
-    \"status\": \"no_show\"
+    \"status\": \"visited\"
 }"
 </code></pre></div>
 
@@ -2532,7 +2538,7 @@ let body = {
     "start_time": "(:05",
     "appointment_type": "in_person",
     "service_type": "injection",
-    "status": "no_show"
+    "status": "visited"
 };
 
 fetch(url, {
@@ -2689,16 +2695,16 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-patient-appointments--id-"
-               value="no_show"
+               value="visited"
                data-component="body">
     <br>
-<p>Example: <code>no_show</code></p>
+<p>Example: <code>visited</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>waiting</code></li> <li><code>canceled</code></li> <li><code>visited</code></li> <li><code>no_show</code></li></ul>
         </div>
         </form>
 
-                    <h2 id="appointments-DELETEapi-patient-appointments--id-">Delete an appointment (soft delete - only for admins)</h2>
+                    <h2 id="appointments-DELETEapi-patient-appointments--id-">Delete an appointment (soft delete - only for admins) | حذف نوبت (فقط ادمین)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -2840,7 +2846,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="appointments-attendance-POSTapi-appointments-mark-arrived--id-">Mark patient as arrived (Step 1: Patient arrival)</h2>
+                                <h2 id="appointments-attendance-POSTapi-appointments-mark-arrived--id-">Mark patient as arrived (Step 1: Patient arrival) | ثبت ورود بیمار (گام ۱)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -3041,7 +3047,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="appointments-attendance-POSTapi-appointments-start-visit--id-">Start the visit and mark as completed (Step 2: Visit begins and completes)</h2>
+                    <h2 id="appointments-attendance-POSTapi-appointments-start-visit--id-">Start the visit and mark as completed (Step 2: Visit begins and completes) | شروع و اتمام ویزیت (گام ۲)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -3239,7 +3245,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="appointments-attendance-GETapi-appointments-statistics--doctor_id---date-">Get attendance statistics for a doctor on a specific date</h2>
+                    <h2 id="appointments-attendance-GETapi-appointments-statistics--doctor_id---date-">Get attendance statistics for a doctor on a specific date | آمار حضور برای پزشک در تاریخ مشخص</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -3409,7 +3415,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="authentication-GETapi-auth-captcha-generate">Generate captcha image</h2>
+                                <h2 id="authentication-GETapi-auth-captcha-generate">Generate captcha image | تولید تصویر کپچا</h2>
 
 <p>
 </p>
@@ -3546,7 +3552,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>
 </p>
 
-<p>Send an OTP verification code to user's mobile number for authentication.</p>
+<p>Send an OTP verification code to user's mobile number for authentication.
+This endpoint is rate-limited to a maximum of 3 requests per 30 minutes per mobile number
+to protect the SMS provider.</p>
 
 <span id="example-requests-POSTapi-auth-send-otp">
 <blockquote>Example request:</blockquote>
@@ -3605,6 +3613,16 @@ fetch(url, {
     &quot;mobile&quot;: [
         &quot;The mobile field is required.&quot;
     ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (429):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;تعداد درخواست زیاد است. لطفاً بعداً تلاش کنید (حداکثر ۳ بار در ۳۰ دقیقه).&quot;
 }</code>
  </pre>
     </span>
@@ -3694,7 +3712,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="authentication-POSTapi-auth-verify-otp">Verify OTP</h2>
+                    <h2 id="authentication-POSTapi-auth-verify-otp">Verify OTP | تایید کد تأیید</h2>
 
 <p>
 </p>
@@ -3888,12 +3906,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="authentication-POSTapi-auth-login">Login user</h2>
+                    <h2 id="authentication-POSTapi-auth-login">Login user | ورود کاربر</h2>
 
 <p>
 </p>
 
-<p>Authenticate a user with email/mobile and password, along with captcha verification.</p>
+<p>Authenticate a user with email/mobile and password, along with captcha verification.
+احراز هویت کاربر با ایمیل/موبایل و کلمه عبور به همراه تأیید کپچا.</p>
 
 <span id="example-requests-POSTapi-auth-login">
 <blockquote>Example request:</blockquote>
@@ -3963,7 +3982,7 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;Captcha expired&quot;
+    &quot;message&quot;: &quot;Captcha expired | کپچا منقضی شده است&quot;
 }</code>
  </pre>
             <blockquote>
@@ -3972,7 +3991,7 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Invalid login credentials&quot;
+    &quot;message&quot;: &quot;Invalid login credentials | اطلاعات ورود نامعتبر است&quot;
 }</code>
  </pre>
             <blockquote>
@@ -3981,7 +4000,7 @@ fetch(url, {
                 <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Invalid identifier format&quot;
+    &quot;message&quot;: &quot;Invalid identifier format | قالب شناسه نامعتبر است&quot;
 }</code>
  </pre>
     </span>
@@ -4111,7 +4130,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="authentication-protected-POSTapi-auth-logout">Logout current device</h2>
+                                <h2 id="authentication-protected-POSTapi-auth-logout">Logout current device | خروج از دستگاه فعلی</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -4236,7 +4255,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="authentication-protected-POSTapi-auth-logoutall">Logout from all devices</h2>
+                    <h2 id="authentication-protected-POSTapi-auth-logoutall">Logout from all devices | خروج از همه دستگاه‌ها</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -4365,7 +4384,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="currency-converter-POSTapi-currency-convert">Convert USD to Iranian Toman (IRT)</h2>
+                                <h2 id="currency-converter-POSTapi-currency-convert">Convert USD to Iranian Toman (IRT) | تبدیل دلار به تومان (IRT)</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -4561,7 +4580,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="doctor-shifts-GETapi-shifts--doctor_id-">List all shifts for a doctor</h2>
+                                <h2 id="doctor-shifts-GETapi-shifts--doctor_id-">List all shifts for a doctor | لیست شیفت‌های پزشک</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -4728,7 +4747,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="doctor-shifts-POSTapi-shifts">Create a new shift for a doctor</h2>
+                    <h2 id="doctor-shifts-POSTapi-shifts">Create a new shift for a doctor | ایجاد شیفت جدید برای پزشک</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -4749,10 +4768,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"doctor_id\": \"consequatur\",
     \"service_type\": \"doctor\",
-    \"date\": \"2025-12-11\",
+    \"date\": \"2025-12-18\",
     \"day\": 3,
-    \"is_recurring\": true,
-    \"repeat_until\": \"2107-01-10\",
+    \"is_recurring\": false,
+    \"repeat_until\": \"2107-01-16\",
     \"start_time\": \"(:05\",
     \"end_time\": \"(:05\",
     \"duration\": 16,
@@ -4775,10 +4794,10 @@ const headers = {
 let body = {
     "doctor_id": "consequatur",
     "service_type": "doctor",
-    "date": "2025-12-11",
+    "date": "2025-12-18",
     "day": 3,
-    "is_recurring": true,
-    "repeat_until": "2107-01-10",
+    "is_recurring": false,
+    "repeat_until": "2107-01-16",
     "start_time": "(:05",
     "end_time": "(:05",
     "duration": 16,
@@ -4912,10 +4931,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-shifts"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Either a specific date, or a recurring weekly day must be provided. Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Either a specific date, or a recurring weekly day must be provided. Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>day</code></b>&nbsp;&nbsp;
@@ -4949,7 +4968,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>repeat_until</code></b>&nbsp;&nbsp;
@@ -4958,10 +4977,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="repeat_until"                data-endpoint="POSTapi-shifts"
-               value="2107-01-10"
+               value="2107-01-16"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>date</code>. Example: <code>2107-01-10</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Must be a date after or equal to <code>date</code>. Example: <code>2107-01-16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>start_time</code></b>&nbsp;&nbsp;
@@ -5013,7 +5032,7 @@ Must be one of:
         </div>
         </form>
 
-                    <h2 id="doctor-shifts-GETapi-shifts--id---day-">Show available slots for a doctor on a specific date</h2>
+                    <h2 id="doctor-shifts-GETapi-shifts--id---day-">Show available slots for a doctor on a specific date | نمایش اسلات‌های خالی پزشک در تاریخ مشخص</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -5230,7 +5249,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="doctor-shifts-PUTapi-shifts--id-">Update a doctor&#039;s shift</h2>
+                    <h2 id="doctor-shifts-PUTapi-shifts--id-">Update a doctor&#039;s shift | بروزرسانی شیفت پزشک</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -5432,7 +5451,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="doctor-shifts-DELETEapi-shifts--id-">Delete a doctor&#039;s shift</h2>
+                    <h2 id="doctor-shifts-DELETEapi-shifts--id-">Delete a doctor&#039;s shift | حذف شیفت پزشک</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -5570,7 +5589,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="doctor-shifts-GETapi-patient-shifts--doctor_id-">List all shifts for a doctor</h2>
+                    <h2 id="doctor-shifts-GETapi-patient-shifts--doctor_id-">List all shifts for a doctor | لیست شیفت‌های پزشک</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -5737,7 +5756,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="doctor-shifts-GETapi-patient-shifts--id---day-">Show available slots for a doctor on a specific date</h2>
+                    <h2 id="doctor-shifts-GETapi-patient-shifts--id---day-">Show available slots for a doctor on a specific date | نمایش اسلات‌های خالی پزشک در تاریخ مشخص</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -5958,7 +5977,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="doctors-GETapi-doctors">List all doctors</h2>
+                                <h2 id="doctors-GETapi-doctors">List all doctors | لیست همه پزشکان</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6110,7 +6129,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="doctors-POSTapi-doctors">Create or update a doctor</h2>
+                    <h2 id="doctors-POSTapi-doctors">Create or update a doctor | ایجاد یا بروزرسانی پزشک</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6332,7 +6351,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="doctors-GETapi-doctors--id-">Show doctor details</h2>
+                    <h2 id="doctors-GETapi-doctors--id-">Show doctor details | نمایش جزئیات پزشک</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6486,7 +6505,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="doctors-PUTapi-doctors--id-">Update doctor information</h2>
+                    <h2 id="doctors-PUTapi-doctors--id-">Update doctor information | بروزرسانی اطلاعات پزشک</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6724,7 +6743,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="doctors-DELETEapi-doctors--id-">Delete a doctor</h2>
+                    <h2 id="doctors-DELETEapi-doctors--id-">Delete a doctor | حذف پزشک</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -6862,7 +6881,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="doctors-GETapi-patient-doctors">List all doctors</h2>
+                    <h2 id="doctors-GETapi-patient-doctors">List all doctors | لیست همه پزشکان</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -7014,7 +7033,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="doctors-GETapi-patient-doctors--id-">Show doctor details</h2>
+                    <h2 id="doctors-GETapi-patient-doctors--id-">Show doctor details | نمایش جزئیات پزشک</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -7193,9 +7212,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "doctor_id=consequatur"\
     --form "patient_id=consequatur"\
     --form "title=consequatur"\
-    --form "case_date=2025-12-11"\
+    --form "case_date=2025-12-18"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpAEDF.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpE246.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -7213,7 +7232,7 @@ const body = new FormData();
 body.append('doctor_id', 'consequatur');
 body.append('patient_id', 'consequatur');
 body.append('title', 'consequatur');
-body.append('case_date', '2025-12-11');
+body.append('case_date', '2025-12-18');
 body.append('notes', 'consequatur');
 body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
 
@@ -7354,10 +7373,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="POSTapi-document-records"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -7572,9 +7591,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "title=consequatur"\
-    --form "case_date=2025-12-11"\
+    --form "case_date=2025-12-18"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpAEE0.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpE256.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -7590,7 +7609,7 @@ const headers = {
 
 const body = new FormData();
 body.append('title', 'consequatur');
-body.append('case_date', '2025-12-11');
+body.append('case_date', '2025-12-18');
 body.append('notes', 'consequatur');
 body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
 
@@ -7720,10 +7739,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="PUTapi-document-records--id-"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -8262,7 +8281,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "title=نسخه دست‌نویس"\
     --form "case_date=2024-01-15"\
     --form "notes=نسخه توسط دکتر نوشته شده"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpAECD.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpE224.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8686,9 +8705,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "title=consequatur"\
-    --form "case_date=2025-12-11"\
+    --form "case_date=2025-12-18"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpAECE.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpE235.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -8704,7 +8723,7 @@ const headers = {
 
 const body = new FormData();
 body.append('title', 'consequatur');
-body.append('case_date', '2025-12-11');
+body.append('case_date', '2025-12-18');
 body.append('notes', 'consequatur');
 body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
 
@@ -8834,10 +8853,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="PUTapi-handwritten-records--id-"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -9009,7 +9028,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="medical-cases-GETapi-medicaldocument-search">Search in medical cases</h2>
+                                <h2 id="medical-cases-GETapi-medicaldocument-search">Search in medical cases | جستجو در پرونده‌های پزشکی</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -9030,8 +9049,8 @@ Supports additional filters for advanced search capabilities.</p>
     --header "Accept: application/json" \
     --data "{
     \"q\": \"vmqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur\",
-    \"date_from\": \"2025-12-11\",
-    \"date_to\": \"2025-12-11\"
+    \"date_from\": \"2025-12-18\",
+    \"date_to\": \"2025-12-18\"
 }"
 </code></pre></div>
 
@@ -9060,8 +9079,8 @@ const headers = {
 
 let body = {
     "q": "vmqeopfuudtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjur",
-    "date_from": "2025-12-11",
-    "date_to": "2025-12-11"
+    "date_from": "2025-12-18",
+    "date_to": "2025-12-18"
 };
 
 fetch(url, {
@@ -9334,10 +9353,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date_from"                data-endpoint="GETapi-medicaldocument-search"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>date_to</code></b>&nbsp;&nbsp;
@@ -9346,14 +9365,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date_to"                data-endpoint="GETapi-medicaldocument-search"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
         </form>
 
-                    <h2 id="medical-cases-GETapi-medicaldocument-filter">Filter medical cases by doctor, patient and type</h2>
+                    <h2 id="medical-cases-GETapi-medicaldocument-filter">Filter medical cases by doctor, patient and type | فیلتر پرونده‌های پزشکی بر اساس پزشک، بیمار و نوع</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -9554,7 +9573,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="medical-cases-POSTapi-medicaldocument">Create a new medical case with optional files</h2>
+                    <h2 id="medical-cases-POSTapi-medicaldocument">Create a new medical case with optional files | ایجاد پرونده پزشکی جدید با فایل‌ها</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -9578,7 +9597,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "case_medical_type_id=2"\
     --form "case_date=2024-01-15"\
     --form "notes=بیمار نیاز به پیگیری دارد"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpAEBB.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpE202.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -9834,7 +9853,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="medical-cases-GETapi-medicaldocument--doctor_id---patient_id-">List all medical cases for a doctor and patient</h2>
+                    <h2 id="medical-cases-GETapi-medicaldocument--doctor_id---patient_id-">List all medical cases for a doctor and patient | لیست پرونده‌های پزشکی یک پزشک و بیمار</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -10000,7 +10019,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="medical-cases-PUTapi-medicaldocument--id-">Update a medical case and optionally add files</h2>
+                    <h2 id="medical-cases-PUTapi-medicaldocument--id-">Update a medical case and optionally add files | بروزرسانی پرونده پزشکی و افزودن فایل</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -10019,9 +10038,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
     --form "title=consequatur"\
-    --form "case_date=2025-12-11"\
+    --form "case_date=2025-12-18"\
     --form "notes=consequatur"\
-    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpAEBC.tmp" </code></pre></div>
+    --form "files[]=@C:\Users\BARCELON\AppData\Local\Temp\phpE203.tmp" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -10037,7 +10056,7 @@ const headers = {
 
 const body = new FormData();
 body.append('title', 'consequatur');
-body.append('case_date', '2025-12-11');
+body.append('case_date', '2025-12-18');
 body.append('notes', 'consequatur');
 body.append('files[]', document.querySelector('input[name="files[]"]').files[0]);
 
@@ -10179,10 +10198,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="PUTapi-medicaldocument--id-"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -10212,7 +10231,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="medical-cases-PATCHapi-medicaldocument-pin--id-">Toggle the pin status of a medical case</h2>
+                    <h2 id="medical-cases-PATCHapi-medicaldocument-pin--id-">Toggle the pin status of a medical case | تغییر وضعیت پین پرونده</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -10350,7 +10369,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="medical-cases-DELETEapi-medicaldocument--id-">Delete a medical case and all associated files</h2>
+                    <h2 id="medical-cases-DELETEapi-medicaldocument--id-">Delete a medical case and all associated files | حذف پرونده پزشکی و تمام فایل‌های مرتبط</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -10488,7 +10507,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="medical-cases-DELETEapi-medicaldocument-file--id-">Delete a specific file from a medical case</h2>
+                    <h2 id="medical-cases-DELETEapi-medicaldocument-file--id-">Delete a specific file from a medical case | حذف یک فایل از پرونده پزشکی</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -10630,7 +10649,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="medical-visits-POSTapi-visits">Create a new medical visit</h2>
+                                <h2 id="medical-visits-POSTapi-visits">Create a new medical visit | ایجاد ویزیت جدید</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -10934,7 +10953,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="medical-visits-GETapi-visits--record_id--">List medical visits</h2>
+                    <h2 id="medical-visits-GETapi-visits--record_id--">List medical visits | لیست ویزیت‌های پزشکی</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -11088,7 +11107,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="medical-visits-GETapi-visits--id-">Show a specific medical visit</h2>
+                    <h2 id="medical-visits-GETapi-visits--id-">Show a specific medical visit | نمایش جزئیات ویزیت</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -11242,7 +11261,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="medical-visits-PUTapi-visits--id-">Update a medical visit</h2>
+                    <h2 id="medical-visits-PUTapi-visits--id-">Update a medical visit | بروزرسانی ویزیت</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -11263,8 +11282,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"notes\": \"consequatur\",
     \"diagnosis\": \"consequatur\",
-    \"follow_up_date\": \"2025-12-11\",
-    \"visit_date\": \"2025-12-11\",
+    \"follow_up_date\": \"2025-12-18\",
+    \"visit_date\": \"2025-12-18\",
     \"visit_reason\": \"mqeopfuudtdsufvyvddqa\",
     \"symptoms\": \"mniihfqcoynlazghdtqtq\",
     \"prescribed_medications\": \"consequatur\"
@@ -11286,8 +11305,8 @@ const headers = {
 let body = {
     "notes": "consequatur",
     "diagnosis": "consequatur",
-    "follow_up_date": "2025-12-11",
-    "visit_date": "2025-12-11",
+    "follow_up_date": "2025-12-18",
+    "visit_date": "2025-12-18",
     "visit_reason": "mqeopfuudtdsufvyvddqa",
     "symptoms": "mniihfqcoynlazghdtqtq",
     "prescribed_medications": "consequatur"
@@ -11431,10 +11450,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="follow_up_date"                data-endpoint="PUTapi-visits--id-"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>visit_date</code></b>&nbsp;&nbsp;
@@ -11443,10 +11462,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="visit_date"                data-endpoint="PUTapi-visits--id-"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>visit_reason</code></b>&nbsp;&nbsp;
@@ -11486,7 +11505,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="medical-visits-DELETEapi-visits--id-">Delete a medical visit</h2>
+                    <h2 id="medical-visits-DELETEapi-visits--id-">Delete a medical visit | حذف ویزیت</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -11628,7 +11647,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="patients-GETapi-patients-search">Search patients</h2>
+                                <h2 id="patients-GETapi-patients-search">Search patients | جستجوی بیماران</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -11811,7 +11830,161 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="patients-GETapi-patients">List all patients with special appointments</h2>
+                    <h2 id="patients-GETapi-patients-by-national--national_id-">Find patient by national ID (کد ملی) | یافتن بیمار با کد ملی</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-patients-by-national--national_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/patients/by-national/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/patients/by-national/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-patients-by-national--national_id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-patients-by-national--national_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-patients-by-national--national_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-patients-by-national--national_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-patients-by-national--national_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-patients-by-national--national_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-patients-by-national--national_id-" data-method="GET"
+      data-path="api/patients/by-national/{national_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-patients-by-national--national_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-patients-by-national--national_id-"
+                    onclick="tryItOut('GETapi-patients-by-national--national_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-patients-by-national--national_id-"
+                    onclick="cancelTryOut('GETapi-patients-by-national--national_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-patients-by-national--national_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/patients/by-national/{national_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-patients-by-national--national_id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-patients-by-national--national_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-patients-by-national--national_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>national_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="national_id"                data-endpoint="GETapi-patients-by-national--national_id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the national. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="patients-GETapi-patients">List all patients with special appointments | لیست همه بیماران با نوبت‌های ویژه</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -11952,7 +12125,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="patients-POSTapi-patients">Create or update a patient</h2>
+                    <h2 id="patients-POSTapi-patients">Create or update a patient | ایجاد یا بروزرسانی بیمار</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -12287,7 +12460,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="patients-GETapi-patients--id-">Show patient details</h2>
+                    <h2 id="patients-GETapi-patients--id-">Show patient details | نمایش جزئیات بیمار</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -12441,7 +12614,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="patients-PUTapi-patients--id-">Update patient information</h2>
+                    <h2 id="patients-PUTapi-patients--id-">Update patient information | بروزرسانی اطلاعات بیمار</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -12462,7 +12635,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-11T12:36:05\",
+    \"birth_date\": \"2025-12-18T09:45:14\",
     \"gender\": \"male\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
@@ -12488,7 +12661,7 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-11T12:36:05",
+    "birth_date": "2025-12-18T09:45:14",
     "gender": "male",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
@@ -12648,10 +12821,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patients--id-"
-               value="2025-12-11T12:36:05"
+               value="2025-12-18T09:45:14"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-11T12:36:05</code></p>
+<p>Must be a valid date. Example: <code>2025-12-18T09:45:14</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -12741,7 +12914,7 @@ Must be one of:
         </div>
         </form>
 
-                    <h2 id="patients-DELETEapi-patients--id-">Delete a patient</h2>
+                    <h2 id="patients-DELETEapi-patients--id-">Delete a patient | حذف بیمار</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -12879,7 +13052,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="patients-GETapi-patient-patients">List the logged-in user&#039;s patients</h2>
+                    <h2 id="patients-GETapi-patient-patients">List the logged-in user&#039;s patients | لیست بیماران کاربر واردشده</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -13020,7 +13193,161 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="patients-POSTapi-patient-patients">Create or update a patient</h2>
+                    <h2 id="patients-GETapi-patient-patients-by-national--national_id-">Find patient by national ID (کد ملی) | یافتن بیمار با کد ملی</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-patient-patients-by-national--national_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "https://kamandi-api.test/api/patient/patients/by-national/consequatur" \
+    --header "Authorization: Bearer Bearer {YOUR_TOKEN}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "https://kamandi-api.test/api/patient/patients/by-national/consequatur"
+);
+
+const headers = {
+    "Authorization": "Bearer Bearer {YOUR_TOKEN}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-patient-patients-by-national--national_id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-patient-patients-by-national--national_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-patient-patients-by-national--national_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-patient-patients-by-national--national_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-patient-patients-by-national--national_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-patient-patients-by-national--national_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-patient-patients-by-national--national_id-" data-method="GET"
+      data-path="api/patient/patients/by-national/{national_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-patient-patients-by-national--national_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-patient-patients-by-national--national_id-"
+                    onclick="tryItOut('GETapi-patient-patients-by-national--national_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-patient-patients-by-national--national_id-"
+                    onclick="cancelTryOut('GETapi-patient-patients-by-national--national_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-patient-patients-by-national--national_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/patient/patients/by-national/{national_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-patient-patients-by-national--national_id-"
+               value="Bearer Bearer {YOUR_TOKEN}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer Bearer {YOUR_TOKEN}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-patient-patients-by-national--national_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-patient-patients-by-national--national_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>national_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="national_id"                data-endpoint="GETapi-patient-patients-by-national--national_id-"
+               value="consequatur"
+               data-component="url">
+    <br>
+<p>The ID of the national. Example: <code>consequatur</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="patients-POSTapi-patient-patients">Create or update a patient | ایجاد یا بروزرسانی بیمار</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -13355,7 +13682,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="patients-GETapi-patient-patients--id-">Show patient details</h2>
+                    <h2 id="patients-GETapi-patient-patients--id-">Show patient details | نمایش جزئیات بیمار</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -13509,7 +13836,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="patients-PUTapi-patient-patients--id-">Update patient information</h2>
+                    <h2 id="patients-PUTapi-patient-patients--id-">Update patient information | بروزرسانی اطلاعات بیمار</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -13530,8 +13857,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --data "{
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
-    \"birth_date\": \"2025-12-11T12:36:05\",
-    \"gender\": \"female\",
+    \"birth_date\": \"2025-12-18T09:45:15\",
+    \"gender\": \"male\",
     \"blood_type\": \"qxb\",
     \"allergies\": \"ajwbpilpmufinllwloauy\",
     \"chronic_diseases\": \"dlsmsjuryvojcybzvrbyi\",
@@ -13556,8 +13883,8 @@ const headers = {
 let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
-    "birth_date": "2025-12-11T12:36:05",
-    "gender": "female",
+    "birth_date": "2025-12-18T09:45:15",
+    "gender": "male",
     "blood_type": "qxb",
     "allergies": "ajwbpilpmufinllwloauy",
     "chronic_diseases": "dlsmsjuryvojcybzvrbyi",
@@ -13716,10 +14043,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patient-patients--id-"
-               value="2025-12-11T12:36:05"
+               value="2025-12-18T09:45:15"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2025-12-11T12:36:05</code></p>
+<p>Must be a valid date. Example: <code>2025-12-18T09:45:15</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -13728,10 +14055,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PUTapi-patient-patients--id-"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -13809,7 +14136,7 @@ Must be one of:
         </div>
         </form>
 
-                    <h2 id="patients-DELETEapi-patient-patients--id-">Delete a patient</h2>
+                    <h2 id="patients-DELETEapi-patient-patients--id-">Delete a patient | حذف بیمار</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -13951,7 +14278,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="prescriptions-POSTapi-prescriptions">Create a new prescription</h2>
+                                <h2 id="prescriptions-POSTapi-prescriptions">Create a new prescription | ایجاد نسخه جدید</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -14199,7 +14526,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="prescriptions-GETapi-prescriptions--record_id--">List prescriptions</h2>
+                    <h2 id="prescriptions-GETapi-prescriptions--record_id--">List prescriptions | لیست نسخه‌ها</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -14357,7 +14684,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="prescriptions-GETapi-prescriptions--id-">Show a prescription</h2>
+                    <h2 id="prescriptions-GETapi-prescriptions--id-">Show a prescription | نمایش جزئیات نسخه</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -14526,7 +14853,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="revision-logs-GETapi-logs">Get all revision logs</h2>
+                                <h2 id="revision-logs-GETapi-logs">Get all revision logs | دریافت همه لاگ‌های تغییرات</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -14833,7 +15160,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                 </form>
 
-                    <h2 id="revision-logs-GETapi-logs-statistics">Get revision log statistics</h2>
+                    <h2 id="revision-logs-GETapi-logs-statistics">Get revision log statistics | دریافت آمار لاگ‌های تغییرات</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -15163,7 +15490,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="revision-logs-GETapi-logs-user--userId-">Get logs of a specific user</h2>
+                    <h2 id="revision-logs-GETapi-logs-user--userId-">Get logs of a specific user | دریافت لاگ‌های یک کاربر</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -15317,7 +15644,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="revision-logs-GETapi-logs-model">Get logs of a specific model</h2>
+                    <h2 id="revision-logs-GETapi-logs-model">Get logs of a specific model | دریافت لاگ‌های یک مدل</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -15494,7 +15821,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="revision-logs-GETapi-logs--id-">Show a single revision log</h2>
+                    <h2 id="revision-logs-GETapi-logs--id-">Show a single revision log | نمایش جزئیات یک لاگ تغییر</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -15648,7 +15975,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="revision-logs-POSTapi-logs-compare">Compare two revisions</h2>
+                    <h2 id="revision-logs-POSTapi-logs-compare">Compare two revisions | مقایسه دو لاگ تغییر</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -15809,7 +16136,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="revision-logs-DELETEapi-logs-cleanup">Delete old revision logs</h2>
+                    <h2 id="revision-logs-DELETEapi-logs-cleanup">Delete old revision logs | حذف لاگ‌های قدیمی</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -15982,7 +16309,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"doctor_id\": \"consequatur\",
     \"patient_id\": \"consequatur\",
     \"title\": \"consequatur\",
-    \"case_date\": \"2025-12-11\",
+    \"case_date\": \"2025-12-18\",
     \"notes\": \"consequatur\"
 }"
 </code></pre></div>
@@ -16003,7 +16330,7 @@ let body = {
     "doctor_id": "consequatur",
     "patient_id": "consequatur",
     "title": "consequatur",
-    "case_date": "2025-12-11",
+    "case_date": "2025-12-18",
     "notes": "consequatur"
 };
 
@@ -16144,10 +16471,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="POSTapi-text-records"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -16349,7 +16676,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"title\": \"consequatur\",
-    \"case_date\": \"2025-12-11\",
+    \"case_date\": \"2025-12-18\",
     \"notes\": \"consequatur\"
 }"
 </code></pre></div>
@@ -16368,7 +16695,7 @@ const headers = {
 
 let body = {
     "title": "consequatur",
-    "case_date": "2025-12-11",
+    "case_date": "2025-12-18",
     "notes": "consequatur"
 };
 
@@ -16498,10 +16825,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="PUTapi-text-records--id-"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -16659,7 +16986,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
     
 
-                                <h2 id="users-GETapi-users-profile">Show the logged-in user&#039;s profile</h2>
+                                <h2 id="users-GETapi-users-profile">Show the logged-in user&#039;s profile | نمایش پروفایل کاربر واردشده</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -16800,7 +17127,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="users-GETapi-users">List all users</h2>
+                    <h2 id="users-GETapi-users">List all users | لیست همه کاربران</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -16953,7 +17280,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
-                    <h2 id="users-POSTapi-users">Create a new user</h2>
+                    <h2 id="users-POSTapi-users">Create a new user | ایجاد کاربر جدید</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -17232,7 +17559,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         </div>
         </form>
 
-                    <h2 id="users-GETapi-users--id-">Show user details</h2>
+                    <h2 id="users-GETapi-users--id-">Show user details | نمایش جزئیات کاربر</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -17386,7 +17713,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="users-PUTapi-users--id-">Update user information</h2>
+                    <h2 id="users-PUTapi-users--id-">Update user information | بروزرسانی اطلاعات کاربر</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -17408,7 +17735,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"first_name\": \"vmqeopfuudtdsufvyvddq\",
     \"last_name\": \"amniihfqcoynlazghdtqt\",
     \"gender\": \"male\",
-    \"roll\": \"patient\",
+    \"roll\": \"nurse\",
     \"password\": \"t(!Cs\'YAKYLk4&gt;S\"
 }"
 </code></pre></div>
@@ -17429,7 +17756,7 @@ let body = {
     "first_name": "vmqeopfuudtdsufvyvddq",
     "last_name": "amniihfqcoynlazghdtqt",
     "gender": "male",
-    "roll": "patient",
+    "roll": "nurse",
     "password": "t(!Cs'YAKYLk4&gt;S"
 };
 
@@ -17609,10 +17936,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="roll"                data-endpoint="PUTapi-users--id-"
-               value="patient"
+               value="nurse"
                data-component="body">
     <br>
-<p>Example: <code>patient</code></p>
+<p>Example: <code>nurse</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>patient</code></li> <li><code>nurse</code></li> <li><code>doctor</code></li> <li><code>superadmin</code></li></ul>
         </div>
@@ -17642,7 +17969,7 @@ Must be one of:
         </div>
         </form>
 
-                    <h2 id="users-DELETEapi-users--id-">Delete a user</h2>
+                    <h2 id="users-DELETEapi-users--id-">Delete a user | حذف کاربر</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -17780,7 +18107,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
-                    <h2 id="users-GETapi-patient-profile">Show the logged-in user&#039;s profile</h2>
+                    <h2 id="users-GETapi-patient-profile">Show the logged-in user&#039;s profile | نمایش پروفایل کاربر واردشده</h2>
 
 <p>
 <small class="badge badge-darkred">requires authentication</small>
@@ -17947,13 +18274,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"doctor_id\": \"consequatur\",
     \"patient_id\": \"consequatur\",
     \"title\": \"mqeopfuudtdsufvyvddqa\",
-    \"case_date\": \"2025-12-11\",
+    \"case_date\": \"2025-12-18\",
     \"notes\": \"consequatur\",
     \"visit_reason\": \"mqeopfuudtdsufvyvddqa\",
     \"symptoms\": \"mniihfqcoynlazghdtqtq\",
     \"diagnosis\": \"consequatur\",
     \"prescribed_medications\": \"consequatur\",
-    \"follow_up_date\": \"2025-12-11\"
+    \"follow_up_date\": \"2025-12-18\"
 }"
 </code></pre></div>
 
@@ -17973,13 +18300,13 @@ let body = {
     "doctor_id": "consequatur",
     "patient_id": "consequatur",
     "title": "mqeopfuudtdsufvyvddqa",
-    "case_date": "2025-12-11",
+    "case_date": "2025-12-18",
     "notes": "consequatur",
     "visit_reason": "mqeopfuudtdsufvyvddqa",
     "symptoms": "mniihfqcoynlazghdtqtq",
     "diagnosis": "consequatur",
     "prescribed_medications": "consequatur",
-    "follow_up_date": "2025-12-11"
+    "follow_up_date": "2025-12-18"
 };
 
 fetch(url, {
@@ -18119,10 +18446,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="POSTapi-visit-reports"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -18191,10 +18518,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="follow_up_date"                data-endpoint="POSTapi-visit-reports"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
         </form>
 
@@ -18384,13 +18711,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"title\": \"vmqeopfuudtdsufvyvddq\",
-    \"case_date\": \"2025-12-11\",
+    \"case_date\": \"2025-12-18\",
     \"notes\": \"consequatur\",
     \"visit_reason\": \"mqeopfuudtdsufvyvddqa\",
     \"symptoms\": \"mniihfqcoynlazghdtqtq\",
     \"diagnosis\": \"consequatur\",
     \"prescribed_medications\": \"consequatur\",
-    \"follow_up_date\": \"2025-12-11\"
+    \"follow_up_date\": \"2025-12-18\"
 }"
 </code></pre></div>
 
@@ -18408,13 +18735,13 @@ const headers = {
 
 let body = {
     "title": "vmqeopfuudtdsufvyvddq",
-    "case_date": "2025-12-11",
+    "case_date": "2025-12-18",
     "notes": "consequatur",
     "visit_reason": "mqeopfuudtdsufvyvddqa",
     "symptoms": "mniihfqcoynlazghdtqtq",
     "diagnosis": "consequatur",
     "prescribed_medications": "consequatur",
-    "follow_up_date": "2025-12-11"
+    "follow_up_date": "2025-12-18"
 };
 
 fetch(url, {
@@ -18543,10 +18870,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="case_date"                data-endpoint="PUTapi-visit-reports--id-"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>notes</code></b>&nbsp;&nbsp;
@@ -18615,10 +18942,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="follow_up_date"                data-endpoint="PUTapi-visit-reports--id-"
-               value="2025-12-11"
+               value="2025-12-18"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-11</code></p>
+<p>Must be a valid date in the format <code>Y-m-d</code>. Example: <code>2025-12-18</code></p>
         </div>
         </form>
 

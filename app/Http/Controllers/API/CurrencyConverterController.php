@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class CurrencyConverterController extends Controller
 {
     /**
-     * Convert USD to Iranian Toman (IRT)
+     * Convert USD to Iranian Toman (IRT) | تبدیل دلار به تومان (IRT)
      * 
      * Convert USD amount to Iranian Toman using live exchange rate from Nobitex API.
      * 

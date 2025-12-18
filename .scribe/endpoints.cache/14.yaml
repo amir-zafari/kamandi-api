@@ -65,7 +65,7 @@ endpoints:
         name: case_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-11'
+        example: '2025-12-18'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -98,7 +98,7 @@ endpoints:
       doctor_id: consequatur
       patient_id: consequatur
       title: consequatur
-      case_date: '2025-12-11'
+      case_date: '2025-12-18'
       notes: consequatur
     fileParameters:
       files:
@@ -232,7 +232,7 @@ endpoints:
         name: case_date
         description: 'Must be a valid date in the format <code>Y-m-d</code>.'
         required: false
-        example: '2025-12-11'
+        example: '2025-12-18'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -263,7 +263,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       title: consequatur
-      case_date: '2025-12-11'
+      case_date: '2025-12-18'
       notes: consequatur
     fileParameters:
       files:

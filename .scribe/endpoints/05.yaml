@@ -12,7 +12,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Search patients'
+      title: 'Search patients | جستجوی بیماران'
       description: 'Search through patients by name or national ID. Results depend on user role permissions.'
       authenticated: true
       deprecated: false
@@ -91,6 +91,62 @@ endpoints:
     custom: []
     httpMethods:
       - GET
+    uri: 'api/patients/by-national/{national_id}'
+    metadata:
+      custom: []
+      groupName: Patients
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Find patient by national ID (کد ملی) | یافتن بیمار با کد ملی'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      national_id:
+        custom: []
+        name: national_id
+        description: 'The ID of the national.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      national_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
     uri: api/patients
     metadata:
       custom: []
@@ -98,7 +154,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'List all patients with special appointments'
+      title: 'List all patients with special appointments | لیست همه بیماران با نوبت‌های ویژه'
       description: ''
       authenticated: true
       deprecated: false
@@ -142,7 +198,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create or update a patient'
+      title: 'Create or update a patient | ایجاد یا بروزرسانی بیمار'
       description: 'Create a new patient record or update existing one. Can link patient to current user.'
       authenticated: true
       deprecated: false
@@ -353,7 +409,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show patient details'
+      title: 'Show patient details | نمایش جزئیات بیمار'
       description: ''
       authenticated: true
       deprecated: false
@@ -409,7 +465,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update patient information'
+      title: 'Update patient information | بروزرسانی اطلاعات بیمار'
       description: ''
       authenticated: true
       deprecated: false
@@ -472,7 +528,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-11T12:36:05'
+        example: '2025-12-18T09:45:14'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -560,7 +616,7 @@ endpoints:
     cleanBodyParameters:
       first_name: vmqeopfuudtdsufvyvddq
       last_name: amniihfqcoynlazghdtqt
-      birth_date: '2025-12-11T12:36:05'
+      birth_date: '2025-12-18T09:45:14'
       gender: male
       blood_type: qxb
       allergies: ajwbpilpmufinllwloauy
@@ -589,7 +645,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a patient'
+      title: 'Delete a patient | حذف بیمار'
       description: ''
       authenticated: true
       deprecated: false
@@ -636,7 +692,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: "List the logged-in user's patients"
+      title: "List the logged-in user's patients | لیست بیماران کاربر واردشده"
       description: ''
       authenticated: true
       deprecated: false
@@ -672,6 +728,62 @@ endpoints:
   -
     custom: []
     httpMethods:
+      - GET
+    uri: 'api/patient/patients/by-national/{national_id}'
+    metadata:
+      custom: []
+      groupName: Patients
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Find patient by national ID (کد ملی) | یافتن بیمار با کد ملی'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Authorization: 'Bearer Bearer {YOUR_TOKEN}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      national_id:
+        custom: []
+        name: national_id
+        description: 'The ID of the national.'
+        required: true
+        example: consequatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      national_id: consequatur
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 3V5EgbkvZcDPa166h8fd4ae'
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
       - POST
     uri: api/patient/patients
     metadata:
@@ -680,7 +792,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create or update a patient'
+      title: 'Create or update a patient | ایجاد یا بروزرسانی بیمار'
       description: 'Create a new patient record or update existing one. Can link patient to current user.'
       authenticated: true
       deprecated: false
@@ -891,7 +1003,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show patient details'
+      title: 'Show patient details | نمایش جزئیات بیمار'
       description: ''
       authenticated: true
       deprecated: false
@@ -947,7 +1059,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update patient information'
+      title: 'Update patient information | بروزرسانی اطلاعات بیمار'
       description: ''
       authenticated: true
       deprecated: false
@@ -1010,7 +1122,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-12-11T12:36:05'
+        example: '2025-12-18T09:45:15'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -1021,7 +1133,7 @@ endpoints:
         name: gender
         description: ''
         required: false
-        example: female
+        example: male
         type: string
         enumValues:
           - male
@@ -1098,8 +1210,8 @@ endpoints:
     cleanBodyParameters:
       first_name: vmqeopfuudtdsufvyvddq
       last_name: amniihfqcoynlazghdtqt
-      birth_date: '2025-12-11T12:36:05'
-      gender: female
+      birth_date: '2025-12-18T09:45:15'
+      gender: male
       blood_type: qxb
       allergies: ajwbpilpmufinllwloauy
       chronic_diseases: dlsmsjuryvojcybzvrbyi
@@ -1127,7 +1239,7 @@ endpoints:
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Delete a patient'
+      title: 'Delete a patient | حذف بیمار'
       description: ''
       authenticated: true
       deprecated: false
