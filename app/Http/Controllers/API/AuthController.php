@@ -113,6 +113,8 @@ class AuthController extends Controller
      * Send verification code
      * 
      * Send an OTP verification code to user's mobile number for authentication.
+     * This endpoint is rate-limited to a maximum of 3 requests per 30 minutes per mobile number
+     * to protect the SMS provider.
      * 
      * @unauthenticated
      * @group Authentication
@@ -127,6 +129,11 @@ class AuthController extends Controller
      * @response 422 {
      *   "mobile": ["The mobile field is required."]
      * }
+     * 
+     * @response 429 {
+     *   "status": "error",
+     *   "message": "تعداد درخواست زیاد است. لطفاً بعداً تلاش کنید (حداکثر ۳ بار در ۳۰ دقیقه)."
+     * }
      */
     public function sendOTP(Request $request)
     {
@@ -136,10 +143,39 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
+
+        // Rate limit: max 3 sends per 30 minutes per mobile
+        $mobile = $request->mobile;
+        $key = 'otp_attempts:' . $mobile;
+        $now = Carbon::now();
+        $windowStart = $now->clone()->subMinutes(30);
+
+        $attempts = Cache::get($key, []);
+        // Keep only attempts within the last 30 minutes
+        $attempts = array_values(array_filter($attempts, function ($ts) use ($windowStart) {
+            try {
+                return Carbon::parse($ts)->greaterThanOrEqualTo($windowStart);
+            } catch (\Exception $e) {
+                return false;
+            }
+        }));
+
+        if (count($attempts) >= 3) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'تعداد درخواست زیاد است. لطفاً بعداً تلاش کنید (حداکثر ۳ بار در ۳۰ دقیقه).'
+            ], 429);
+        }
+
+        // Generate and store new attempt
+        $attempts[] = $now->toIso8601String();
+        // Save with TTL of 30 minutes from now (safe because we filter old ones each time)
+        Cache::put($key, $attempts, now()->addMinutes(30));
+
         $code = rand(100000, 999999);
         $expiresAt = Carbon::now()->addMinutes(5);
         $user = User::firstOrCreate(
-            ['mobile' => $request->mobile],
+            ['mobile' => $mobile],
             [
                 'first_name' => "کاربر",
                 'last_name' => '',
@@ -202,7 +238,7 @@ class AuthController extends Controller
 
         $user = User::where('mobile', $request->mobile)->first();
 
-        if (!$user || $user->otp != $request->code) {
+        if (!$user || $user->code != $request->otp) {
             return response()->json(['message' => 'Invalid verification code'], 400);
         }
 
